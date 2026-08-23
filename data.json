@@ -1,0 +1,6424 @@
+{
+ "meta": {
+  "game": "WarBrawl",
+  "version": "0.2.1",
+  "internal": true,
+  "generated": "2026-08-23 20:04",
+  "tickRate": 60,
+  "counts": {
+   "perks": 16,
+   "abilityPerks": 6,
+   "labels": 2,
+   "statuses": 12,
+   "abilities": 81,
+   "attacks": 19,
+   "weapons": 4,
+   "slots": 12
+  }
+ },
+ "perks": [
+  {
+   "key": "rending-strikes",
+   "name": "Rending Strikes",
+   "description": "Hits apply Rend: −15% armor for 4 s.",
+   "icon": {
+    "file": "icons/ICON_FantasyWarrior_Status_DefenseBroken_01_Underlay-062e7efc.png"
+   },
+   "tags": [
+    "offense"
+   ],
+   "stackLimit": 3,
+   "exclusiveLabels": [],
+   "mutuallyExclusiveGroup": null,
+   "perkId": 7,
+   "source": "Gear",
+   "threshold": null,
+   "slots": [
+    "helm",
+    "chest",
+    "gloves",
+    "pants",
+    "boots",
+    "amulet",
+    "ring",
+    "earring",
+    "sword",
+    "bow",
+    "spear",
+    "axe"
+   ],
+   "effect": {
+    "trigger": 1,
+    "triggerName": "On hit",
+    "triggerHelp": "Fires on every landed hit - light, heavy, ability or arrow.",
+    "grants": [
+     {
+      "status": "rend",
+      "statusName": "Rend",
+      "magnitude": 0.15,
+      "magnitudeText": "15%",
+      "tickDamage": 0,
+      "tickDamagePercentOfHit": 0,
+      "durationTicks": 240,
+      "durationText": "240 ticks (4 s)",
+      "summary": "15%"
+     }
+    ],
+    "grantsApplyToSelf": false,
+    "flatDamage": 0,
+    "flatDamageSchool": "Physical",
+    "internalCooldownTicks": 0,
+    "internalCooldownText": "None",
+    "freedomCcReduction": 0,
+    "auraDamagePerEnemy": 0,
+    "auraRadius": 0,
+    "projectileGravityReduction": 0,
+    "assetPath": "Assets/QuantumUser/Resources/WarBrawl/Perks/RendingStrikesPerk.asset"
+   },
+   "effectSummary": "Rend (15%) on target for 4 s",
+   "assetPath": "Assets/Perks/Definitions/RendingStrikes.asset"
+  },
+  {
+   "key": "battle-fury",
+   "name": "Battle Fury",
+   "description": "Heavy hits Empower you: +10% damage for 3 s.",
+   "icon": {
+    "file": "icons/ICON_FantasyWarrior_Status_AttackUp_01_Underlay-3ee1cd84.png"
+   },
+   "tags": [
+    "offense"
+   ],
+   "stackLimit": 3,
+   "exclusiveLabels": [],
+   "mutuallyExclusiveGroup": null,
+   "perkId": 8,
+   "source": "Gear",
+   "threshold": null,
+   "slots": [
+    "helm",
+    "chest",
+    "gloves",
+    "pants",
+    "boots",
+    "amulet",
+    "ring",
+    "earring",
+    "sword",
+    "bow",
+    "spear",
+    "axe"
+   ],
+   "effect": {
+    "trigger": 2,
+    "triggerName": "On heavy hit",
+    "triggerHelp": "Fires only when a heavy attack lands.",
+    "grants": [
+     {
+      "status": "empower",
+      "statusName": "Empower",
+      "magnitude": 0.1,
+      "magnitudeText": "10%",
+      "tickDamage": 0,
+      "tickDamagePercentOfHit": 0,
+      "durationTicks": 180,
+      "durationText": "180 ticks (3 s)",
+      "summary": "10%"
+     }
+    ],
+    "grantsApplyToSelf": true,
+    "flatDamage": 0,
+    "flatDamageSchool": "Physical",
+    "internalCooldownTicks": 0,
+    "internalCooldownText": "None",
+    "freedomCcReduction": 0,
+    "auraDamagePerEnemy": 0,
+    "auraRadius": 0,
+    "projectileGravityReduction": 0,
+    "assetPath": "Assets/QuantumUser/Resources/WarBrawl/Perks/BattleFuryPerk.asset"
+   },
+   "effectSummary": "Empower (10%) on self for 3 s",
+   "assetPath": "Assets/Perks/Definitions/BattleFury.asset"
+  },
+  {
+   "key": "weakening-blows",
+   "name": "Weakening Blows",
+   "description": "Hits Weaken the target: −10% damage dealt for 4 s.",
+   "icon": {
+    "file": "icons/ICON_FantasyWarrior_Status_AttackDown_01_Underlay-73b50fa6.png"
+   },
+   "tags": [
+    "offense"
+   ],
+   "stackLimit": 3,
+   "exclusiveLabels": [],
+   "mutuallyExclusiveGroup": null,
+   "perkId": 9,
+   "source": "Gear",
+   "threshold": null,
+   "slots": [
+    "helm",
+    "chest",
+    "gloves",
+    "pants",
+    "boots",
+    "amulet",
+    "ring",
+    "earring",
+    "sword",
+    "bow",
+    "spear",
+    "axe"
+   ],
+   "effect": {
+    "trigger": 1,
+    "triggerName": "On hit",
+    "triggerHelp": "Fires on every landed hit - light, heavy, ability or arrow.",
+    "grants": [
+     {
+      "status": "weaken",
+      "statusName": "Weaken",
+      "magnitude": 0.1,
+      "magnitudeText": "10%",
+      "tickDamage": 0,
+      "tickDamagePercentOfHit": 0,
+      "durationTicks": 240,
+      "durationText": "240 ticks (4 s)",
+      "summary": "10%"
+     }
+    ],
+    "grantsApplyToSelf": false,
+    "flatDamage": 0,
+    "flatDamageSchool": "Physical",
+    "internalCooldownTicks": 0,
+    "internalCooldownText": "None",
+    "freedomCcReduction": 0,
+    "auraDamagePerEnemy": 0,
+    "auraRadius": 0,
+    "projectileGravityReduction": 0,
+    "assetPath": "Assets/QuantumUser/Resources/WarBrawl/Perks/WeakeningBlowsPerk.asset"
+   },
+   "effectSummary": "Weaken (10%) on target for 4 s",
+   "assetPath": "Assets/Perks/Definitions/WeakeningBlows.asset"
+  },
+  {
+   "key": "plaguebearer",
+   "name": "Plaguebearer",
+   "description": "Hits apply Disease: −25% healing received for 5 s.",
+   "icon": {
+    "file": "icons/ICON_FantasyWarrior_Status_Cursed_01_Underlay-69f84810.png"
+   },
+   "tags": [
+    "offense"
+   ],
+   "stackLimit": 3,
+   "exclusiveLabels": [],
+   "mutuallyExclusiveGroup": null,
+   "perkId": 10,
+   "source": "Gear",
+   "threshold": null,
+   "slots": [
+    "helm",
+    "chest",
+    "gloves",
+    "pants",
+    "boots",
+    "amulet",
+    "ring",
+    "earring",
+    "sword",
+    "bow",
+    "spear",
+    "axe"
+   ],
+   "effect": {
+    "trigger": 1,
+    "triggerName": "On hit",
+    "triggerHelp": "Fires on every landed hit - light, heavy, ability or arrow.",
+    "grants": [
+     {
+      "status": "disease",
+      "statusName": "Disease",
+      "magnitude": 0.25,
+      "magnitudeText": "25%",
+      "tickDamage": 0,
+      "tickDamagePercentOfHit": 0,
+      "durationTicks": 300,
+      "durationText": "300 ticks (5 s)",
+      "summary": "25%"
+     }
+    ],
+    "grantsApplyToSelf": false,
+    "flatDamage": 0,
+    "flatDamageSchool": "Physical",
+    "internalCooldownTicks": 0,
+    "internalCooldownText": "None",
+    "freedomCcReduction": 0,
+    "auraDamagePerEnemy": 0,
+    "auraRadius": 0,
+    "projectileGravityReduction": 0,
+    "assetPath": "Assets/QuantumUser/Resources/WarBrawl/Perks/PlaguebearerPerk.asset"
+   },
+   "effectSummary": "Disease (25%) on target for 5 s",
+   "assetPath": "Assets/Perks/Definitions/Plaguebearer.asset"
+  },
+  {
+   "key": "serrated-edge",
+   "name": "Serrated Edge",
+   "description": "Hits apply a Bleed stack: 3 damage per second per stack for 6 s.",
+   "icon": {
+    "file": "icons/ICON_FantasyWarrior_Status_Bleeding_01_Underlay-4409e77c.png"
+   },
+   "tags": [
+    "offense"
+   ],
+   "stackLimit": 3,
+   "exclusiveLabels": [
+    {
+     "key": "dot",
+     "name": "DoT"
+    }
+   ],
+   "mutuallyExclusiveGroup": null,
+   "perkId": 11,
+   "source": "Gear",
+   "threshold": null,
+   "slots": [
+    "helm",
+    "chest",
+    "gloves",
+    "pants",
+    "boots",
+    "amulet",
+    "ring",
+    "earring",
+    "sword",
+    "bow",
+    "spear",
+    "axe"
+   ],
+   "effect": {
+    "trigger": 1,
+    "triggerName": "On hit",
+    "triggerHelp": "Fires on every landed hit - light, heavy, ability or arrow.",
+    "grants": [
+     {
+      "status": "bleed",
+      "statusName": "Bleed",
+      "magnitude": 0,
+      "magnitudeText": null,
+      "tickDamage": 3,
+      "tickDamagePercentOfHit": 0,
+      "durationTicks": 360,
+      "durationText": "360 ticks (6 s)",
+      "summary": "3 damage per tick"
+     }
+    ],
+    "grantsApplyToSelf": false,
+    "flatDamage": 0,
+    "flatDamageSchool": "Physical",
+    "internalCooldownTicks": 120,
+    "internalCooldownText": "120 ticks (2 s)",
+    "freedomCcReduction": 0,
+    "auraDamagePerEnemy": 0,
+    "auraRadius": 0,
+    "projectileGravityReduction": 0,
+    "assetPath": "Assets/QuantumUser/Resources/WarBrawl/Perks/SerratedEdgePerk.asset"
+   },
+   "effectSummary": "Bleed (3 damage per tick) on target for 6 s",
+   "assetPath": "Assets/Perks/Definitions/SerratedEdge.asset"
+  },
+  {
+   "key": "venom-coating",
+   "name": "Venom Coating",
+   "description": "Hits apply Poison: 5 nature damage per second for 5 s.",
+   "icon": {
+    "file": "icons/ICON_FantasyWarrior_Status_Poisoned_01_Underlay-2f897a24.png"
+   },
+   "tags": [
+    "offense"
+   ],
+   "stackLimit": 3,
+   "exclusiveLabels": [
+    {
+     "key": "dot",
+     "name": "DoT"
+    }
+   ],
+   "mutuallyExclusiveGroup": null,
+   "perkId": 12,
+   "source": "Gear",
+   "threshold": null,
+   "slots": [
+    "helm",
+    "chest",
+    "gloves",
+    "pants",
+    "boots",
+    "amulet",
+    "ring",
+    "earring",
+    "sword",
+    "bow",
+    "spear",
+    "axe"
+   ],
+   "effect": {
+    "trigger": 1,
+    "triggerName": "On hit",
+    "triggerHelp": "Fires on every landed hit - light, heavy, ability or arrow.",
+    "grants": [
+     {
+      "status": "poison",
+      "statusName": "Poison",
+      "magnitude": 0,
+      "magnitudeText": null,
+      "tickDamage": 5,
+      "tickDamagePercentOfHit": 0,
+      "durationTicks": 300,
+      "durationText": "300 ticks (5 s)",
+      "summary": "5 damage per tick"
+     }
+    ],
+    "grantsApplyToSelf": false,
+    "flatDamage": 0,
+    "flatDamageSchool": "Physical",
+    "internalCooldownTicks": 180,
+    "internalCooldownText": "180 ticks (3 s)",
+    "freedomCcReduction": 0,
+    "auraDamagePerEnemy": 0,
+    "auraRadius": 0,
+    "projectileGravityReduction": 0,
+    "assetPath": "Assets/QuantumUser/Resources/WarBrawl/Perks/VenomCoatingPerk.asset"
+   },
+   "effectSummary": "Poison (5 damage per tick) on target for 5 s",
+   "assetPath": "Assets/Perks/Definitions/VenomCoating.asset"
+  },
+  {
+   "key": "swiftness",
+   "name": "Swiftness",
+   "description": "Dodging grants Haste: +15% move speed for 2 s.",
+   "icon": {
+    "file": "icons/ICON_FantasyWarrior_Status_SpeedUp_01_Underlay-52af8c42.png"
+   },
+   "tags": [
+    "mobility"
+   ],
+   "stackLimit": 3,
+   "exclusiveLabels": [],
+   "mutuallyExclusiveGroup": null,
+   "perkId": 13,
+   "source": "Gear",
+   "threshold": null,
+   "slots": [
+    "amulet",
+    "ring",
+    "earring"
+   ],
+   "effect": {
+    "trigger": 3,
+    "triggerName": "On dodge",
+    "triggerHelp": "Fires when the dodge starts.",
+    "grants": [
+     {
+      "status": "haste",
+      "statusName": "Haste",
+      "magnitude": 0.15,
+      "magnitudeText": "15%",
+      "tickDamage": 0,
+      "tickDamagePercentOfHit": 0,
+      "durationTicks": 120,
+      "durationText": "120 ticks (2 s)",
+      "summary": "15%"
+     }
+    ],
+    "grantsApplyToSelf": true,
+    "flatDamage": 0,
+    "flatDamageSchool": "Physical",
+    "internalCooldownTicks": 180,
+    "internalCooldownText": "180 ticks (3 s)",
+    "freedomCcReduction": 0,
+    "auraDamagePerEnemy": 0,
+    "auraRadius": 0,
+    "projectileGravityReduction": 0,
+    "assetPath": "Assets/QuantumUser/Resources/WarBrawl/Perks/SwiftnessPerk.asset"
+   },
+   "effectSummary": "Haste (15%) on self for 2 s",
+   "assetPath": "Assets/Perks/Definitions/Swiftness.asset"
+  },
+  {
+   "key": "hobbling-strikes",
+   "name": "Hobbling Strikes",
+   "description": "Hits Slow the target: −15% move speed for 2 s.",
+   "icon": {
+    "file": "icons/ICON_FantasyWarrior_Status_Cold_01_Underlay-e664d8ce.png"
+   },
+   "tags": [
+    "control"
+   ],
+   "stackLimit": 3,
+   "exclusiveLabels": [],
+   "mutuallyExclusiveGroup": null,
+   "perkId": 14,
+   "source": "Gear",
+   "threshold": null,
+   "slots": [
+    "helm",
+    "chest",
+    "gloves",
+    "pants",
+    "boots",
+    "amulet",
+    "ring",
+    "earring",
+    "sword",
+    "bow",
+    "spear",
+    "axe"
+   ],
+   "effect": {
+    "trigger": 1,
+    "triggerName": "On hit",
+    "triggerHelp": "Fires on every landed hit - light, heavy, ability or arrow.",
+    "grants": [
+     {
+      "status": "slow",
+      "statusName": "Slow",
+      "magnitude": 0.15,
+      "magnitudeText": "15%",
+      "tickDamage": 0,
+      "tickDamagePercentOfHit": 0,
+      "durationTicks": 120,
+      "durationText": "120 ticks (2 s)",
+      "summary": "15%"
+     }
+    ],
+    "grantsApplyToSelf": false,
+    "flatDamage": 0,
+    "flatDamageSchool": "Physical",
+    "internalCooldownTicks": 0,
+    "internalCooldownText": "None",
+    "freedomCcReduction": 0,
+    "auraDamagePerEnemy": 0,
+    "auraRadius": 0,
+    "projectileGravityReduction": 0,
+    "assetPath": "Assets/QuantumUser/Resources/WarBrawl/Perks/HobblingStrikesPerk.asset"
+   },
+   "effectSummary": "Slow (15%) on target for 2 s",
+   "assetPath": "Assets/Perks/Definitions/HobblingStrikes.asset"
+  },
+  {
+   "key": "lightning-strikes",
+   "name": "Lightning Strikes",
+   "description": "Hits deal +5 lightning damage.",
+   "icon": {
+    "file": "icons/ICON_FantasyWarrior_Status_Shocked_01_Underlay-b6cf0fe5.png"
+   },
+   "tags": [
+    "offense"
+   ],
+   "stackLimit": 3,
+   "exclusiveLabels": [
+    {
+     "key": "damage",
+     "name": "Damage"
+    }
+   ],
+   "mutuallyExclusiveGroup": null,
+   "perkId": 15,
+   "source": "Gear",
+   "threshold": null,
+   "slots": [
+    "helm",
+    "chest",
+    "gloves",
+    "pants",
+    "boots",
+    "amulet",
+    "ring",
+    "earring",
+    "sword",
+    "bow",
+    "spear",
+    "axe"
+   ],
+   "effect": {
+    "trigger": 1,
+    "triggerName": "On hit",
+    "triggerHelp": "Fires on every landed hit - light, heavy, ability or arrow.",
+    "grants": [],
+    "grantsApplyToSelf": false,
+    "flatDamage": 5,
+    "flatDamageSchool": "Lightning",
+    "internalCooldownTicks": 0,
+    "internalCooldownText": "None",
+    "freedomCcReduction": 0,
+    "auraDamagePerEnemy": 0,
+    "auraRadius": 0,
+    "projectileGravityReduction": 0,
+    "assetPath": "Assets/QuantumUser/Resources/WarBrawl/Perks/LightningStrikesPerk.asset"
+   },
+   "effectSummary": "+5 Lightning damage per hit",
+   "assetPath": "Assets/Perks/Definitions/LightningStrikes.asset"
+  },
+  {
+   "key": "keen-edge",
+   "name": "Keen Edge",
+   "description": "Hits deal +3 physical damage.",
+   "icon": {
+    "file": "icons/ICON_FantasyWarrior_Status_Critical_01_Underlay-9121cdb6.png"
+   },
+   "tags": [
+    "offense"
+   ],
+   "stackLimit": 3,
+   "exclusiveLabels": [
+    {
+     "key": "damage",
+     "name": "Damage"
+    }
+   ],
+   "mutuallyExclusiveGroup": null,
+   "perkId": 16,
+   "source": "Gear",
+   "threshold": null,
+   "slots": [
+    "helm",
+    "chest",
+    "gloves",
+    "pants",
+    "boots",
+    "amulet",
+    "ring",
+    "earring",
+    "sword",
+    "bow",
+    "spear",
+    "axe"
+   ],
+   "effect": {
+    "trigger": 1,
+    "triggerName": "On hit",
+    "triggerHelp": "Fires on every landed hit - light, heavy, ability or arrow.",
+    "grants": [],
+    "grantsApplyToSelf": false,
+    "flatDamage": 3,
+    "flatDamageSchool": "Physical",
+    "internalCooldownTicks": 0,
+    "internalCooldownText": "None",
+    "freedomCcReduction": 0,
+    "auraDamagePerEnemy": 0,
+    "auraRadius": 0,
+    "projectileGravityReduction": 0,
+    "assetPath": "Assets/QuantumUser/Resources/WarBrawl/Perks/KeenEdgePerk.asset"
+   },
+   "effectSummary": "+3 Physical damage per hit",
+   "assetPath": "Assets/Perks/Definitions/KeenEdge.asset"
+  },
+  {
+   "key": "freedom",
+   "name": "Freedom",
+   "description": "Slow, Stun and Stagger on you last 25% shorter.",
+   "icon": {
+    "file": "icons/ICON_FantasyWarrior_Status_Fortified_01_Underlay-3d88a205.png"
+   },
+   "tags": [
+    "defense"
+   ],
+   "stackLimit": 3,
+   "exclusiveLabels": [],
+   "mutuallyExclusiveGroup": null,
+   "perkId": 17,
+   "source": "Gear",
+   "threshold": null,
+   "slots": [
+    "helm",
+    "chest",
+    "gloves",
+    "pants",
+    "boots",
+    "amulet",
+    "ring",
+    "earring"
+   ],
+   "effect": {
+    "trigger": 0,
+    "triggerName": "Passive",
+    "triggerHelp": "Contributes to derived stats continuously.",
+    "grants": [],
+    "grantsApplyToSelf": false,
+    "flatDamage": 0,
+    "flatDamageSchool": "Physical",
+    "internalCooldownTicks": 0,
+    "internalCooldownText": "None",
+    "freedomCcReduction": 0.25,
+    "auraDamagePerEnemy": 0,
+    "auraRadius": 0,
+    "projectileGravityReduction": 0,
+    "assetPath": "Assets/QuantumUser/Resources/WarBrawl/Perks/FreedomPerk.asset"
+   },
+   "effectSummary": "-25% crowd-control duration on you",
+   "assetPath": "Assets/Perks/Definitions/Freedom.asset"
+  },
+  {
+   "key": "staggering-blow",
+   "name": "Staggering Blow",
+   "description": "Heavy hits Stagger: interrupts and locks actions for 0.4 s.",
+   "icon": {
+    "file": "icons/ICON_FantasyWarrior_Status_AttackBroken_01_Underlay-0f5d7043.png"
+   },
+   "tags": [
+    "control"
+   ],
+   "stackLimit": 3,
+   "exclusiveLabels": [],
+   "mutuallyExclusiveGroup": "hard-cc",
+   "perkId": 18,
+   "source": "Gear",
+   "threshold": null,
+   "slots": [
+    "helm",
+    "chest",
+    "gloves",
+    "pants",
+    "boots",
+    "amulet",
+    "ring",
+    "earring",
+    "sword",
+    "bow",
+    "spear",
+    "axe"
+   ],
+   "effect": {
+    "trigger": 2,
+    "triggerName": "On heavy hit",
+    "triggerHelp": "Fires only when a heavy attack lands.",
+    "grants": [
+     {
+      "status": "stagger",
+      "statusName": "Stagger",
+      "magnitude": 0,
+      "magnitudeText": null,
+      "tickDamage": 0,
+      "tickDamagePercentOfHit": 0,
+      "durationTicks": 24,
+      "durationText": "24 ticks (0.4 s)",
+      "summary": "-"
+     }
+    ],
+    "grantsApplyToSelf": false,
+    "flatDamage": 0,
+    "flatDamageSchool": "Physical",
+    "internalCooldownTicks": 300,
+    "internalCooldownText": "300 ticks (5 s)",
+    "freedomCcReduction": 0,
+    "auraDamagePerEnemy": 0,
+    "auraRadius": 0,
+    "projectileGravityReduction": 0,
+    "assetPath": "Assets/QuantumUser/Resources/WarBrawl/Perks/StaggeringBlowPerk.asset"
+   },
+   "effectSummary": "Stagger on target for 0.4 s",
+   "assetPath": "Assets/Perks/Definitions/StaggeringBlow.asset"
+  },
+  {
+   "key": "thundering-impact",
+   "name": "Thundering Impact",
+   "description": "Heavy hits Stun: full lockout for 1 s. Long internal cooldown.",
+   "icon": {
+    "file": "icons/ICON_FantasyWarrior_Status_Shocked_01_Underlay-b6cf0fe5.png"
+   },
+   "tags": [
+    "control"
+   ],
+   "stackLimit": 3,
+   "exclusiveLabels": [],
+   "mutuallyExclusiveGroup": "hard-cc",
+   "perkId": 19,
+   "source": "Gear",
+   "threshold": null,
+   "slots": [
+    "helm",
+    "chest",
+    "gloves",
+    "pants",
+    "boots",
+    "amulet",
+    "ring",
+    "earring",
+    "sword",
+    "bow",
+    "spear",
+    "axe"
+   ],
+   "effect": {
+    "trigger": 2,
+    "triggerName": "On heavy hit",
+    "triggerHelp": "Fires only when a heavy attack lands.",
+    "grants": [
+     {
+      "status": "stun",
+      "statusName": "Stun",
+      "magnitude": 0,
+      "magnitudeText": null,
+      "tickDamage": 0,
+      "tickDamagePercentOfHit": 0,
+      "durationTicks": 60,
+      "durationText": "60 ticks (1 s)",
+      "summary": "-"
+     }
+    ],
+    "grantsApplyToSelf": false,
+    "flatDamage": 0,
+    "flatDamageSchool": "Physical",
+    "internalCooldownTicks": 900,
+    "internalCooldownText": "900 ticks (15 s)",
+    "freedomCcReduction": 0,
+    "auraDamagePerEnemy": 0,
+    "auraRadius": 0,
+    "projectileGravityReduction": 0,
+    "assetPath": "Assets/QuantumUser/Resources/WarBrawl/Perks/ThunderingImpactPerk.asset"
+   },
+   "effectSummary": "Stun on target for 1 s",
+   "assetPath": "Assets/Perks/Definitions/ThunderingImpact.asset"
+  },
+  {
+   "key": "brutal-momentum",
+   "name": "Brutal Momentum",
+   "description": "STR 10: heavy hits apply Rend (−10% armor, 4 s).",
+   "icon": {
+    "file": "icons/ICON_FantasyWarrior_Status_Attack_01_Underlay-fa0350d4.png"
+   },
+   "tags": [
+    "threshold"
+   ],
+   "stackLimit": 3,
+   "exclusiveLabels": [],
+   "mutuallyExclusiveGroup": null,
+   "perkId": 20,
+   "source": "Attribute threshold",
+   "threshold": {
+    "attribute": "Strength",
+    "points": 10
+   },
+   "slots": [],
+   "effect": {
+    "trigger": 2,
+    "triggerName": "On heavy hit",
+    "triggerHelp": "Fires only when a heavy attack lands.",
+    "grants": [
+     {
+      "status": "rend",
+      "statusName": "Rend",
+      "magnitude": 0.1,
+      "magnitudeText": "10%",
+      "tickDamage": 0,
+      "tickDamagePercentOfHit": 0,
+      "durationTicks": 240,
+      "durationText": "240 ticks (4 s)",
+      "summary": "10%"
+     }
+    ],
+    "grantsApplyToSelf": false,
+    "flatDamage": 0,
+    "flatDamageSchool": "Physical",
+    "internalCooldownTicks": 0,
+    "internalCooldownText": "None",
+    "freedomCcReduction": 0,
+    "auraDamagePerEnemy": 0,
+    "auraRadius": 0,
+    "projectileGravityReduction": 0,
+    "assetPath": "Assets/QuantumUser/Resources/WarBrawl/Perks/BrutalMomentumPerk.asset"
+   },
+   "effectSummary": "Rend (10%) on target for 4 s",
+   "assetPath": "Assets/Perks/Definitions/BrutalMomentum.asset"
+  },
+  {
+   "key": "fleet-footwork",
+   "name": "Fleet Footwork",
+   "description": "DEX 10: dodging grants Haste (+10%, 2 s).",
+   "icon": {
+    "file": "icons/ICON_FantasyWarrior_Status_SpeedUp_01_Underlay-52af8c42.png"
+   },
+   "tags": [
+    "threshold"
+   ],
+   "stackLimit": 3,
+   "exclusiveLabels": [],
+   "mutuallyExclusiveGroup": null,
+   "perkId": 21,
+   "source": "Attribute threshold",
+   "threshold": {
+    "attribute": "Dexterity",
+    "points": 10
+   },
+   "slots": [],
+   "effect": {
+    "trigger": 3,
+    "triggerName": "On dodge",
+    "triggerHelp": "Fires when the dodge starts.",
+    "grants": [
+     {
+      "status": "haste",
+      "statusName": "Haste",
+      "magnitude": 0.1,
+      "magnitudeText": "10%",
+      "tickDamage": 0,
+      "tickDamagePercentOfHit": 0,
+      "durationTicks": 120,
+      "durationText": "120 ticks (2 s)",
+      "summary": "10%"
+     }
+    ],
+    "grantsApplyToSelf": true,
+    "flatDamage": 0,
+    "flatDamageSchool": "Physical",
+    "internalCooldownTicks": 120,
+    "internalCooldownText": "120 ticks (2 s)",
+    "freedomCcReduction": 0,
+    "auraDamagePerEnemy": 0,
+    "auraRadius": 0,
+    "projectileGravityReduction": 0,
+    "assetPath": "Assets/QuantumUser/Resources/WarBrawl/Perks/FleetFootworkPerk.asset"
+   },
+   "effectSummary": "Haste (10%) on self for 2 s",
+   "assetPath": "Assets/Perks/Definitions/FleetFootwork.asset"
+  },
+  {
+   "key": "unshakable",
+   "name": "Unshakable",
+   "description": "CON 10: Slow, Stun and Stagger on you last 20% shorter.",
+   "icon": {
+    "file": "icons/ICON_FantasyWarrior_Status_DefenseUp_01_Underlay-74636b19.png"
+   },
+   "tags": [
+    "threshold"
+   ],
+   "stackLimit": 3,
+   "exclusiveLabels": [],
+   "mutuallyExclusiveGroup": null,
+   "perkId": 22,
+   "source": "Attribute threshold",
+   "threshold": {
+    "attribute": "Constitution",
+    "points": 10
+   },
+   "slots": [],
+   "effect": {
+    "trigger": 0,
+    "triggerName": "Passive",
+    "triggerHelp": "Contributes to derived stats continuously.",
+    "grants": [],
+    "grantsApplyToSelf": false,
+    "flatDamage": 0,
+    "flatDamageSchool": "Physical",
+    "internalCooldownTicks": 0,
+    "internalCooldownText": "None",
+    "freedomCcReduction": 0.2,
+    "auraDamagePerEnemy": 0,
+    "auraRadius": 0,
+    "projectileGravityReduction": 0,
+    "assetPath": "Assets/QuantumUser/Resources/WarBrawl/Perks/UnshakablePerk.asset"
+   },
+   "effectSummary": "-20% crowd-control duration on you",
+   "assetPath": "Assets/Perks/Definitions/Unshakable.asset"
+  }
+ ],
+ "abilityPerks": [
+  {
+   "key": "bow-bow-active-1-mastery-perk",
+   "name": "Bow Active 1 Mastery",
+   "description": "Arrows are affected by 50% less gravity.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
+   },
+   "tree": "Bow",
+   "treeKey": "bow",
+   "ability": "bow-bow-active-1-mastery",
+   "category": "Passive",
+   "scope": "All qualifying hits",
+   "maxRank": 1,
+   "ranks": [
+    {
+     "rank": 1,
+     "effect": {
+      "trigger": 0,
+      "triggerName": "Passive",
+      "triggerHelp": "Contributes to derived stats continuously.",
+      "grants": [],
+      "grantsApplyToSelf": false,
+      "flatDamage": 0,
+      "flatDamageSchool": "Physical",
+      "internalCooldownTicks": 0,
+      "internalCooldownText": "None",
+      "freedomCcReduction": 0,
+      "auraDamagePerEnemy": 0,
+      "auraRadius": 0,
+      "projectileGravityReduction": 0.5,
+      "assetPath": "Assets/QuantumUser/Resources/WarBrawl/AbilityPerks/BowArrowGravityPerk.asset"
+     },
+     "summary": "-50% arrow gravity"
+    }
+   ],
+   "effect": {
+    "trigger": 0,
+    "triggerName": "Passive",
+    "triggerHelp": "Contributes to derived stats continuously.",
+    "grants": [],
+    "grantsApplyToSelf": false,
+    "flatDamage": 0,
+    "flatDamageSchool": "Physical",
+    "internalCooldownTicks": 0,
+    "internalCooldownText": "None",
+    "freedomCcReduction": 0,
+    "auraDamagePerEnemy": 0,
+    "auraRadius": 0,
+    "projectileGravityReduction": 0.5,
+    "assetPath": "Assets/QuantumUser/Resources/WarBrawl/AbilityPerks/BowArrowGravityPerk.asset"
+   },
+   "effectSummary": "-50% arrow gravity"
+  },
+  {
+   "key": "bow-bow-active-2-technique-perk",
+   "name": "Bow Active 2 Technique",
+   "description": "While the bow is equipped: dodging grants +10% move speed for 6 s.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
+   },
+   "tree": "Bow",
+   "treeKey": "bow",
+   "ability": "bow-bow-active-2-technique",
+   "category": "Passive",
+   "scope": "All qualifying hits",
+   "maxRank": 1,
+   "ranks": [
+    {
+     "rank": 1,
+     "effect": {
+      "trigger": 3,
+      "triggerName": "On dodge",
+      "triggerHelp": "Fires when the dodge starts.",
+      "grants": [
+       {
+        "status": "haste",
+        "statusName": "Haste",
+        "magnitude": 0.1,
+        "magnitudeText": "10%",
+        "tickDamage": 0,
+        "tickDamagePercentOfHit": 0,
+        "durationTicks": 360,
+        "durationText": "360 ticks (6 s)",
+        "summary": "10%"
+       }
+      ],
+      "grantsApplyToSelf": true,
+      "flatDamage": 0,
+      "flatDamageSchool": "Physical",
+      "internalCooldownTicks": 0,
+      "internalCooldownText": "None",
+      "freedomCcReduction": 0,
+      "auraDamagePerEnemy": 0,
+      "auraRadius": 0,
+      "projectileGravityReduction": 0,
+      "assetPath": "Assets/QuantumUser/Resources/WarBrawl/AbilityPerks/BowDodgeHastePerk.asset"
+     },
+     "summary": "Haste (10%) on self for 6 s"
+    }
+   ],
+   "effect": {
+    "trigger": 3,
+    "triggerName": "On dodge",
+    "triggerHelp": "Fires when the dodge starts.",
+    "grants": [
+     {
+      "status": "haste",
+      "statusName": "Haste",
+      "magnitude": 0.1,
+      "magnitudeText": "10%",
+      "tickDamage": 0,
+      "tickDamagePercentOfHit": 0,
+      "durationTicks": 360,
+      "durationText": "360 ticks (6 s)",
+      "summary": "10%"
+     }
+    ],
+    "grantsApplyToSelf": true,
+    "flatDamage": 0,
+    "flatDamageSchool": "Physical",
+    "internalCooldownTicks": 0,
+    "internalCooldownText": "None",
+    "freedomCcReduction": 0,
+    "auraDamagePerEnemy": 0,
+    "auraRadius": 0,
+    "projectileGravityReduction": 0,
+    "assetPath": "Assets/QuantumUser/Resources/WarBrawl/AbilityPerks/BowDodgeHastePerk.asset"
+   },
+   "effectSummary": "Haste (10%) on self for 6 s"
+  },
+  {
+   "key": "sword-leaping-slash-mastery-perk",
+   "name": "Leaping Slash Mastery",
+   "description": "Sword light attacks apply a Bleed ticking for 5% of the hit's damage for 6 s.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png",
+    "file": "icons/Leaping-Slash-3-81051c9f.png",
+    "inherited": true
+   },
+   "tree": "Sword",
+   "treeKey": "sword",
+   "ability": "sword-leaping-slash-mastery",
+   "category": "Passive",
+   "scope": "Light attacks only",
+   "maxRank": 1,
+   "ranks": [
+    {
+     "rank": 1,
+     "effect": {
+      "trigger": 1,
+      "triggerName": "On hit",
+      "triggerHelp": "Fires on every landed hit - light, heavy, ability or arrow.",
+      "grants": [
+       {
+        "status": "bleed",
+        "statusName": "Bleed",
+        "magnitude": 0,
+        "magnitudeText": null,
+        "tickDamage": 0,
+        "tickDamagePercentOfHit": 0.05,
+        "durationTicks": 360,
+        "durationText": "360 ticks (6 s)",
+        "summary": "5% of the hit per tick"
+       }
+      ],
+      "grantsApplyToSelf": false,
+      "flatDamage": 0,
+      "flatDamageSchool": "Physical",
+      "internalCooldownTicks": 0,
+      "internalCooldownText": "None",
+      "freedomCcReduction": 0,
+      "auraDamagePerEnemy": 0,
+      "auraRadius": 0,
+      "projectileGravityReduction": 0,
+      "assetPath": "Assets/QuantumUser/Resources/WarBrawl/AbilityPerks/SwordLightBleedPerk.asset"
+     },
+     "summary": "Bleed (5% of the hit per tick) on target for 6 s"
+    }
+   ],
+   "effect": {
+    "trigger": 1,
+    "triggerName": "On hit",
+    "triggerHelp": "Fires on every landed hit - light, heavy, ability or arrow.",
+    "grants": [
+     {
+      "status": "bleed",
+      "statusName": "Bleed",
+      "magnitude": 0,
+      "magnitudeText": null,
+      "tickDamage": 0,
+      "tickDamagePercentOfHit": 0.05,
+      "durationTicks": 360,
+      "durationText": "360 ticks (6 s)",
+      "summary": "5% of the hit per tick"
+     }
+    ],
+    "grantsApplyToSelf": false,
+    "flatDamage": 0,
+    "flatDamageSchool": "Physical",
+    "internalCooldownTicks": 0,
+    "internalCooldownText": "None",
+    "freedomCcReduction": 0,
+    "auraDamagePerEnemy": 0,
+    "auraRadius": 0,
+    "projectileGravityReduction": 0,
+    "assetPath": "Assets/QuantumUser/Resources/WarBrawl/AbilityPerks/SwordLightBleedPerk.asset"
+   },
+   "effectSummary": "Bleed (5% of the hit per tick) on target for 6 s"
+  },
+  {
+   "key": "sword-forward-cleave-power-perk",
+   "name": "Forward Cleave Power",
+   "description": "Forward Cleave's hits apply a Bleed ticking for 3/4/5% of the hit's damage for 6 s (per rank).",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png",
+    "file": "icons/Forward-Cleave-bf55f0be.png",
+    "inherited": true
+   },
+   "tree": "Sword",
+   "treeKey": "sword",
+   "ability": "sword-forward-cleave-power",
+   "category": "Modifier",
+   "scope": "Parent ability only",
+   "maxRank": 3,
+   "ranks": [
+    {
+     "rank": 1,
+     "effect": {
+      "trigger": 1,
+      "triggerName": "On hit",
+      "triggerHelp": "Fires on every landed hit - light, heavy, ability or arrow.",
+      "grants": [
+       {
+        "status": "bleed",
+        "statusName": "Bleed",
+        "magnitude": 0,
+        "magnitudeText": null,
+        "tickDamage": 0,
+        "tickDamagePercentOfHit": 0.03,
+        "durationTicks": 360,
+        "durationText": "360 ticks (6 s)",
+        "summary": "3% of the hit per tick"
+       }
+      ],
+      "grantsApplyToSelf": false,
+      "flatDamage": 0,
+      "flatDamageSchool": "Physical",
+      "internalCooldownTicks": 0,
+      "internalCooldownText": "None",
+      "freedomCcReduction": 0,
+      "auraDamagePerEnemy": 0,
+      "auraRadius": 0,
+      "projectileGravityReduction": 0,
+      "assetPath": "Assets/QuantumUser/Resources/WarBrawl/AbilityPerks/ForwardCleaveBleed1Perk.asset"
+     },
+     "summary": "Bleed (3% of the hit per tick) on target for 6 s"
+    },
+    {
+     "rank": 2,
+     "effect": {
+      "trigger": 1,
+      "triggerName": "On hit",
+      "triggerHelp": "Fires on every landed hit - light, heavy, ability or arrow.",
+      "grants": [
+       {
+        "status": "bleed",
+        "statusName": "Bleed",
+        "magnitude": 0,
+        "magnitudeText": null,
+        "tickDamage": 0,
+        "tickDamagePercentOfHit": 0.04,
+        "durationTicks": 360,
+        "durationText": "360 ticks (6 s)",
+        "summary": "4% of the hit per tick"
+       }
+      ],
+      "grantsApplyToSelf": false,
+      "flatDamage": 0,
+      "flatDamageSchool": "Physical",
+      "internalCooldownTicks": 0,
+      "internalCooldownText": "None",
+      "freedomCcReduction": 0,
+      "auraDamagePerEnemy": 0,
+      "auraRadius": 0,
+      "projectileGravityReduction": 0,
+      "assetPath": "Assets/QuantumUser/Resources/WarBrawl/AbilityPerks/ForwardCleaveBleed2Perk.asset"
+     },
+     "summary": "Bleed (4% of the hit per tick) on target for 6 s"
+    },
+    {
+     "rank": 3,
+     "effect": {
+      "trigger": 1,
+      "triggerName": "On hit",
+      "triggerHelp": "Fires on every landed hit - light, heavy, ability or arrow.",
+      "grants": [
+       {
+        "status": "bleed",
+        "statusName": "Bleed",
+        "magnitude": 0,
+        "magnitudeText": null,
+        "tickDamage": 0,
+        "tickDamagePercentOfHit": 0.05,
+        "durationTicks": 360,
+        "durationText": "360 ticks (6 s)",
+        "summary": "5% of the hit per tick"
+       }
+      ],
+      "grantsApplyToSelf": false,
+      "flatDamage": 0,
+      "flatDamageSchool": "Physical",
+      "internalCooldownTicks": 0,
+      "internalCooldownText": "None",
+      "freedomCcReduction": 0,
+      "auraDamagePerEnemy": 0,
+      "auraRadius": 0,
+      "projectileGravityReduction": 0,
+      "assetPath": "Assets/QuantumUser/Resources/WarBrawl/AbilityPerks/ForwardCleaveBleed3Perk.asset"
+     },
+     "summary": "Bleed (5% of the hit per tick) on target for 6 s"
+    }
+   ],
+   "effect": {
+    "trigger": 1,
+    "triggerName": "On hit",
+    "triggerHelp": "Fires on every landed hit - light, heavy, ability or arrow.",
+    "grants": [
+     {
+      "status": "bleed",
+      "statusName": "Bleed",
+      "magnitude": 0,
+      "magnitudeText": null,
+      "tickDamage": 0,
+      "tickDamagePercentOfHit": 0.03,
+      "durationTicks": 360,
+      "durationText": "360 ticks (6 s)",
+      "summary": "3% of the hit per tick"
+     }
+    ],
+    "grantsApplyToSelf": false,
+    "flatDamage": 0,
+    "flatDamageSchool": "Physical",
+    "internalCooldownTicks": 0,
+    "internalCooldownText": "None",
+    "freedomCcReduction": 0,
+    "auraDamagePerEnemy": 0,
+    "auraRadius": 0,
+    "projectileGravityReduction": 0,
+    "assetPath": "Assets/QuantumUser/Resources/WarBrawl/AbilityPerks/ForwardCleaveBleed1Perk.asset"
+   },
+   "effectSummary": "Bleed (3% of the hit per tick) on target for 6 s"
+  },
+  {
+   "key": "sword-forward-cleave-mastery-perk",
+   "name": "Forward Cleave Mastery",
+   "description": "Sword heavy attacks Slow the target by 5% for 2 s.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png",
+    "file": "icons/Forward-Cleave-bf55f0be.png",
+    "inherited": true
+   },
+   "tree": "Sword",
+   "treeKey": "sword",
+   "ability": "sword-forward-cleave-mastery",
+   "category": "Passive",
+   "scope": "Heavy attacks only",
+   "maxRank": 1,
+   "ranks": [
+    {
+     "rank": 1,
+     "effect": {
+      "trigger": 1,
+      "triggerName": "On hit",
+      "triggerHelp": "Fires on every landed hit - light, heavy, ability or arrow.",
+      "grants": [
+       {
+        "status": "slow",
+        "statusName": "Slow",
+        "magnitude": 0.05,
+        "magnitudeText": "5%",
+        "tickDamage": 0,
+        "tickDamagePercentOfHit": 0,
+        "durationTicks": 120,
+        "durationText": "120 ticks (2 s)",
+        "summary": "5%"
+       }
+      ],
+      "grantsApplyToSelf": false,
+      "flatDamage": 0,
+      "flatDamageSchool": "Physical",
+      "internalCooldownTicks": 0,
+      "internalCooldownText": "None",
+      "freedomCcReduction": 0,
+      "auraDamagePerEnemy": 0,
+      "auraRadius": 0,
+      "projectileGravityReduction": 0,
+      "assetPath": "Assets/QuantumUser/Resources/WarBrawl/AbilityPerks/SwordHeavySlowPerk.asset"
+     },
+     "summary": "Slow (5%) on target for 2 s"
+    }
+   ],
+   "effect": {
+    "trigger": 1,
+    "triggerName": "On hit",
+    "triggerHelp": "Fires on every landed hit - light, heavy, ability or arrow.",
+    "grants": [
+     {
+      "status": "slow",
+      "statusName": "Slow",
+      "magnitude": 0.05,
+      "magnitudeText": "5%",
+      "tickDamage": 0,
+      "tickDamagePercentOfHit": 0,
+      "durationTicks": 120,
+      "durationText": "120 ticks (2 s)",
+      "summary": "5%"
+     }
+    ],
+    "grantsApplyToSelf": false,
+    "flatDamage": 0,
+    "flatDamageSchool": "Physical",
+    "internalCooldownTicks": 0,
+    "internalCooldownText": "None",
+    "freedomCcReduction": 0,
+    "auraDamagePerEnemy": 0,
+    "auraRadius": 0,
+    "projectileGravityReduction": 0,
+    "assetPath": "Assets/QuantumUser/Resources/WarBrawl/AbilityPerks/SwordHeavySlowPerk.asset"
+   },
+   "effectSummary": "Slow (5%) on target for 2 s"
+  },
+  {
+   "key": "sword-forward-cleave-technique-perk",
+   "name": "Forward Cleave Technique",
+   "description": "While the sword is equipped: +5% damage for each enemy within 3 m.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png",
+    "file": "icons/Forward-Cleave-bf55f0be.png",
+    "inherited": true
+   },
+   "tree": "Sword",
+   "treeKey": "sword",
+   "ability": "sword-forward-cleave-technique",
+   "category": "Passive",
+   "scope": "All qualifying hits",
+   "maxRank": 1,
+   "ranks": [
+    {
+     "rank": 1,
+     "effect": {
+      "trigger": 0,
+      "triggerName": "Passive",
+      "triggerHelp": "Contributes to derived stats continuously.",
+      "grants": [],
+      "grantsApplyToSelf": false,
+      "flatDamage": 0,
+      "flatDamageSchool": "Physical",
+      "internalCooldownTicks": 0,
+      "internalCooldownText": "None",
+      "freedomCcReduction": 0,
+      "auraDamagePerEnemy": 0.05,
+      "auraRadius": 3,
+      "projectileGravityReduction": 0,
+      "assetPath": "Assets/QuantumUser/Resources/WarBrawl/AbilityPerks/SwordProximityAuraPerk.asset"
+     },
+     "summary": "+0.05 damage per enemy within 3 m"
+    }
+   ],
+   "effect": {
+    "trigger": 0,
+    "triggerName": "Passive",
+    "triggerHelp": "Contributes to derived stats continuously.",
+    "grants": [],
+    "grantsApplyToSelf": false,
+    "flatDamage": 0,
+    "flatDamageSchool": "Physical",
+    "internalCooldownTicks": 0,
+    "internalCooldownText": "None",
+    "freedomCcReduction": 0,
+    "auraDamagePerEnemy": 0.05,
+    "auraRadius": 3,
+    "projectileGravityReduction": 0,
+    "assetPath": "Assets/QuantumUser/Resources/WarBrawl/AbilityPerks/SwordProximityAuraPerk.asset"
+   },
+   "effectSummary": "+0.05 damage per enemy within 3 m"
+  }
+ ],
+ "labels": [
+  {
+   "key": "damage",
+   "name": "Damage",
+   "labelId": "db178fabd9545c018aeae9a9135f46c5",
+   "perks": [
+    "lightning-strikes",
+    "keen-edge"
+   ],
+   "assetPath": "Assets/Perks/Labels/Damage.asset"
+  },
+  {
+   "key": "dot",
+   "name": "DoT",
+   "labelId": "d665922cc33d63447f9734f0741f6bed",
+   "perks": [
+    "serrated-edge",
+    "venom-coating"
+   ],
+   "assetPath": "Assets/Perks/Labels/DoT.asset"
+  }
+ ],
+ "statuses": [
+  {
+   "key": "empower",
+   "name": "Empower",
+   "type": 0,
+   "kind": "Buff",
+   "axis": "Damage dealt",
+   "description": "Increases the damage you deal. Sources sum, then net against Weaken, and the result is clamped by the Empower cap.",
+   "icon": {
+    "file": "icons/ICON_FantasyWarrior_Status_AttackUp_01_Underlay-3ee1cd84.png"
+   },
+   "cap": 0.5,
+   "capText": "+50%",
+   "maxStacks": null,
+   "school": null,
+   "opposes": "weaken",
+   "appliedBy": [
+    {
+     "kind": "perk",
+     "key": "battle-fury",
+     "name": "Battle Fury",
+     "magnitudeText": "10%",
+     "durationText": "180 ticks (3 s)",
+     "summary": "10%",
+     "extra": "on self"
+    }
+   ]
+  },
+  {
+   "key": "weaken",
+   "name": "Weaken",
+   "type": 1,
+   "kind": "Debuff",
+   "axis": "Damage dealt",
+   "description": "Reduces the damage the target deals. Nets against Empower on the same axis before the cap is applied.",
+   "icon": {
+    "file": "icons/ICON_FantasyWarrior_Status_AttackDown_01_Underlay-73b50fa6.png"
+   },
+   "cap": 0.5,
+   "capText": "-50%",
+   "maxStacks": null,
+   "school": null,
+   "opposes": "empower",
+   "appliedBy": [
+    {
+     "kind": "perk",
+     "key": "weakening-blows",
+     "name": "Weakening Blows",
+     "magnitudeText": "10%",
+     "durationText": "240 ticks (4 s)",
+     "summary": "10%",
+     "extra": null
+    }
+   ]
+  },
+  {
+   "key": "fortify",
+   "name": "Fortify",
+   "type": 2,
+   "kind": "Buff",
+   "axis": "Armor",
+   "description": "Increases armor rating, reducing incoming mitigated damage. Schema only in v1 - nothing applies it yet.",
+   "icon": {
+    "file": "icons/ICON_FantasyWarrior_Status_DefenseUp_01_Underlay-74636b19.png"
+   },
+   "cap": 0.5,
+   "capText": "+50%",
+   "maxStacks": null,
+   "school": null,
+   "opposes": "rend",
+   "appliedBy": []
+  },
+  {
+   "key": "rend",
+   "name": "Rend",
+   "type": 3,
+   "kind": "Debuff",
+   "axis": "Armor",
+   "description": "Reduces the target's armor rating, so every later hit lands harder. Nets against Fortify before the cap.",
+   "icon": {
+    "file": "icons/ICON_FantasyWarrior_Status_DefenseBroken_01_Underlay-062e7efc.png"
+   },
+   "cap": 0.7,
+   "capText": "-70%",
+   "maxStacks": null,
+   "school": null,
+   "opposes": "fortify",
+   "appliedBy": [
+    {
+     "kind": "perk",
+     "key": "rending-strikes",
+     "name": "Rending Strikes",
+     "magnitudeText": "15%",
+     "durationText": "240 ticks (4 s)",
+     "summary": "15%",
+     "extra": null
+    },
+    {
+     "kind": "perk",
+     "key": "brutal-momentum",
+     "name": "Brutal Momentum",
+     "magnitudeText": "10%",
+     "durationText": "240 ticks (4 s)",
+     "summary": "10%",
+     "extra": null
+    },
+    {
+     "kind": "attack",
+     "key": "leapattack-sword",
+     "name": "Leaping Slash",
+     "magnitudeText": "15%",
+     "durationText": "240 ticks (4 s)",
+     "summary": "15%",
+     "extra": null
+    },
+    {
+     "kind": "attack",
+     "key": "whirlingstepattack-sword",
+     "name": "Whirling Step",
+     "magnitudeText": "30%",
+     "durationText": "360 ticks (6 s)",
+     "summary": "30%",
+     "extra": null
+    }
+   ]
+  },
+  {
+   "key": "disease",
+   "name": "Disease",
+   "type": 4,
+   "kind": "Debuff",
+   "axis": "Healing received",
+   "description": "Reduces healing the target receives, including their potion.",
+   "icon": {
+    "file": "icons/ICON_FantasyWarrior_Status_Cursed_01_Underlay-69f84810.png"
+   },
+   "cap": 0.5,
+   "capText": "-50%",
+   "maxStacks": null,
+   "school": null,
+   "opposes": null,
+   "appliedBy": [
+    {
+     "kind": "perk",
+     "key": "plaguebearer",
+     "name": "Plaguebearer",
+     "magnitudeText": "25%",
+     "durationText": "300 ticks (5 s)",
+     "summary": "25%",
+     "extra": null
+    }
+   ]
+  },
+  {
+   "key": "bleed",
+   "name": "Bleed",
+   "type": 5,
+   "kind": "Damage over time",
+   "axis": "Physical damage over time",
+   "description": "Physical damage over time. Stacks: each application adds its own stack with its own snapshotted per-tick damage, up to the stack limit. Ticks are mitigated by armor as they land.",
+   "icon": {
+    "file": "icons/ICON_FantasyWarrior_Status_Bleeding_01_Underlay-4409e77c.png"
+   },
+   "cap": null,
+   "capText": null,
+   "maxStacks": 3,
+   "school": "Physical",
+   "opposes": null,
+   "appliedBy": [
+    {
+     "kind": "perk",
+     "key": "serrated-edge",
+     "name": "Serrated Edge",
+     "magnitudeText": null,
+     "durationText": "360 ticks (6 s)",
+     "summary": "3 damage per tick",
+     "extra": null
+    },
+    {
+     "kind": "abilityPerk",
+     "key": "sword-leaping-slash-mastery-perk",
+     "name": "Leaping Slash Mastery (Sword)",
+     "magnitudeText": null,
+     "durationText": "360 ticks (6 s)",
+     "summary": "5% of the hit per tick",
+     "extra": null
+    },
+    {
+     "kind": "abilityPerk",
+     "key": "sword-forward-cleave-power-perk",
+     "name": "Forward Cleave Power (Sword)",
+     "magnitudeText": null,
+     "durationText": "360 ticks (6 s)",
+     "summary": "3% of the hit per tick",
+     "extra": "rank 1"
+    },
+    {
+     "kind": "abilityPerk",
+     "key": "sword-forward-cleave-power-perk",
+     "name": "Forward Cleave Power (Sword)",
+     "magnitudeText": null,
+     "durationText": "360 ticks (6 s)",
+     "summary": "4% of the hit per tick",
+     "extra": "rank 2"
+    },
+    {
+     "kind": "abilityPerk",
+     "key": "sword-forward-cleave-power-perk",
+     "name": "Forward Cleave Power (Sword)",
+     "magnitudeText": null,
+     "durationText": "360 ticks (6 s)",
+     "summary": "5% of the hit per tick",
+     "extra": "rank 3"
+    },
+    {
+     "kind": "attack",
+     "key": "fencingattack-sword",
+     "name": "Needle Strike",
+     "magnitudeText": null,
+     "durationText": "360 ticks (6 s)",
+     "summary": "4 damage per tick",
+     "extra": null
+    }
+   ],
+   "tickIntervalTicks": 60,
+   "tickIntervalText": "60 ticks (1 s)"
+  },
+  {
+   "key": "poison",
+   "name": "Poison",
+   "type": 6,
+   "kind": "Damage over time",
+   "axis": "Nature damage over time",
+   "description": "Nature damage over time. A reapplication refreshes the existing effect.",
+   "icon": {
+    "file": "icons/ICON_FantasyWarrior_Status_Poisoned_01_Underlay-2f897a24.png"
+   },
+   "cap": null,
+   "capText": null,
+   "maxStacks": 1,
+   "school": "Nature",
+   "opposes": null,
+   "appliedBy": [
+    {
+     "kind": "perk",
+     "key": "venom-coating",
+     "name": "Venom Coating",
+     "magnitudeText": null,
+     "durationText": "300 ticks (5 s)",
+     "summary": "5 damage per tick",
+     "extra": null
+    }
+   ],
+   "tickIntervalTicks": 60,
+   "tickIntervalText": "60 ticks (1 s)"
+  },
+  {
+   "key": "haste",
+   "name": "Haste",
+   "type": 7,
+   "kind": "Buff",
+   "axis": "Movement speed",
+   "description": "Increases movement speed.",
+   "icon": {
+    "file": "icons/ICON_FantasyWarrior_Status_SpeedUp_01_Underlay-52af8c42.png"
+   },
+   "cap": 0.3,
+   "capText": "+30%",
+   "maxStacks": null,
+   "school": null,
+   "opposes": "slow",
+   "appliedBy": [
+    {
+     "kind": "perk",
+     "key": "swiftness",
+     "name": "Swiftness",
+     "magnitudeText": "15%",
+     "durationText": "120 ticks (2 s)",
+     "summary": "15%",
+     "extra": "on self"
+    },
+    {
+     "kind": "perk",
+     "key": "fleet-footwork",
+     "name": "Fleet Footwork",
+     "magnitudeText": "10%",
+     "durationText": "120 ticks (2 s)",
+     "summary": "10%",
+     "extra": "on self"
+    },
+    {
+     "kind": "abilityPerk",
+     "key": "bow-bow-active-2-technique-perk",
+     "name": "Bow Active 2 Technique (Bow)",
+     "magnitudeText": "10%",
+     "durationText": "360 ticks (6 s)",
+     "summary": "10%",
+     "extra": null
+    }
+   ]
+  },
+  {
+   "key": "slow",
+   "name": "Slow",
+   "type": 8,
+   "kind": "Debuff",
+   "axis": "Movement speed",
+   "description": "Reduces the target's movement speed. Nets against Haste before the cap. Its duration is shortened by the target's Freedom stat.",
+   "icon": {
+    "file": "icons/ICON_FantasyWarrior_Status_Cold_01_Underlay-e664d8ce.png"
+   },
+   "cap": 0.3,
+   "capText": "-30%",
+   "maxStacks": null,
+   "school": null,
+   "opposes": "haste",
+   "appliedBy": [
+    {
+     "kind": "perk",
+     "key": "hobbling-strikes",
+     "name": "Hobbling Strikes",
+     "magnitudeText": "15%",
+     "durationText": "120 ticks (2 s)",
+     "summary": "15%",
+     "extra": null
+    },
+    {
+     "kind": "abilityPerk",
+     "key": "sword-forward-cleave-mastery-perk",
+     "name": "Forward Cleave Mastery (Sword)",
+     "magnitudeText": "5%",
+     "durationText": "120 ticks (2 s)",
+     "summary": "5%",
+     "extra": null
+    }
+   ]
+  },
+  {
+   "key": "stagger",
+   "name": "Stagger",
+   "type": 9,
+   "kind": "Control",
+   "axis": "Action lock",
+   "description": "Interrupts the target and locks further actions for a short window. Movement stays free. Duration is shortened by the target's Freedom stat.",
+   "icon": {
+    "file": "icons/ICON_FantasyWarrior_Status_AttackBroken_01_Underlay-0f5d7043.png"
+   },
+   "cap": null,
+   "capText": null,
+   "maxStacks": null,
+   "school": null,
+   "opposes": null,
+   "appliedBy": [
+    {
+     "kind": "perk",
+     "key": "staggering-blow",
+     "name": "Staggering Blow",
+     "magnitudeText": null,
+     "durationText": "24 ticks (0.4 s)",
+     "summary": "-",
+     "extra": null
+    },
+    {
+     "kind": "attack",
+     "key": "spinattack-sword",
+     "name": "Spinning Blade",
+     "magnitudeText": null,
+     "durationText": "24 ticks (0.4 s)",
+     "summary": "-",
+     "extra": null
+    }
+   ],
+   "actionLockTicks": 24,
+   "actionLockText": "24 ticks (0.4 s)"
+  },
+  {
+   "key": "stun",
+   "name": "Stun",
+   "type": 10,
+   "kind": "Control",
+   "axis": "Action + movement lockout",
+   "description": "Locks out both actions and movement for its duration. Shortened by the target's Freedom stat.",
+   "icon": {
+    "file": "icons/ICON_FantasyWarrior_Status_Shocked_01_Underlay-b6cf0fe5.png"
+   },
+   "cap": null,
+   "capText": null,
+   "maxStacks": null,
+   "school": null,
+   "opposes": null,
+   "appliedBy": [
+    {
+     "kind": "perk",
+     "key": "thundering-impact",
+     "name": "Thundering Impact",
+     "magnitudeText": null,
+     "durationText": "60 ticks (1 s)",
+     "summary": "-",
+     "extra": null
+    },
+    {
+     "kind": "attack",
+     "key": "leapattack-sword",
+     "name": "Leaping Slash",
+     "magnitudeText": null,
+     "durationText": "60 ticks (1 s)",
+     "summary": "-",
+     "extra": null
+    }
+   ]
+  },
+  {
+   "key": "exhaust",
+   "name": "Exhaust",
+   "type": 11,
+   "kind": "Debuff",
+   "axis": "Stamina regeneration",
+   "description": "Reduces stamina regeneration. Schema only in v1 - nothing applies it yet.",
+   "icon": {
+    "file": "icons/ICON_FantasyWarrior_Status_Encumbered_01_Underlay-da310580.png"
+   },
+   "cap": 0.5,
+   "capText": "-50%",
+   "maxStacks": null,
+   "school": null,
+   "opposes": null,
+   "appliedBy": []
+  }
+ ],
+ "abilities": [
+  {
+   "key": "axe-axe-active-1",
+   "name": "Axe Active 1",
+   "description": "Active ability. Equip it into Ability 1/2/3 once purchased.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-5457dad8.png"
+   },
+   "tree": "Axe",
+   "treeKey": "axe",
+   "category": "Active",
+   "nodeIndex": 0,
+   "nodeId": 123,
+   "maxRank": 1,
+   "costPerRank": [
+    1
+   ],
+   "totalCost": 1,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": true,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "parentNodeGuid": null,
+   "parent": null,
+   "children": [
+    "axe-axe-active-1-power"
+   ],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": "Assets/AbilityTrees/Abilities/Axe/Axe_Active_1.asset"
+  },
+  {
+   "key": "axe-axe-active-1-power",
+   "name": "Axe Active 1 Power",
+   "description": "Placeholder ranked modifier for Axe Active 1.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
+   },
+   "tree": "Axe",
+   "treeKey": "axe",
+   "category": "Modifier",
+   "nodeIndex": 1,
+   "nodeId": 125,
+   "maxRank": 3,
+   "costPerRank": [
+    1
+   ],
+   "totalCost": 1,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": false,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "parentNodeGuid": "56afa6c7dd8985d60b0e8172a75ef1f3",
+   "parent": "axe-axe-active-1",
+   "children": [
+    "axe-axe-active-1-mastery"
+   ],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": "Assets/AbilityTrees/Abilities/Axe/Axe_Active_1_Power.asset"
+  },
+  {
+   "key": "axe-axe-active-1-mastery",
+   "name": "Axe Active 1 Mastery",
+   "description": "Placeholder passive capstone for Axe Active 1.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
+   },
+   "tree": "Axe",
+   "treeKey": "axe",
+   "category": "Passive",
+   "nodeIndex": 2,
+   "nodeId": 179,
+   "maxRank": 1,
+   "costPerRank": [
+    2
+   ],
+   "totalCost": 2,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": false,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "parentNodeGuid": "548097788e007ccffbc972feb7ae231b",
+   "parent": "axe-axe-active-1-power",
+   "children": [],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": "Assets/AbilityTrees/Abilities/Axe/Axe_Active_1_Mastery.asset"
+  },
+  {
+   "key": "axe-axe-active-2",
+   "name": "Axe Active 2",
+   "description": "Active ability. Equip it into Ability 1/2/3 once purchased.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-5457dad8.png"
+   },
+   "tree": "Axe",
+   "treeKey": "axe",
+   "category": "Active",
+   "nodeIndex": 3,
+   "nodeId": 129,
+   "maxRank": 1,
+   "costPerRank": [
+    1
+   ],
+   "totalCost": 1,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": true,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "parentNodeGuid": null,
+   "parent": null,
+   "children": [
+    "axe-axe-active-2-power"
+   ],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": "Assets/AbilityTrees/Abilities/Axe/Axe_Active_2.asset"
+  },
+  {
+   "key": "axe-axe-active-2-power",
+   "name": "Axe Active 2 Power",
+   "description": "Placeholder ranked modifier for Axe Active 2.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
+   },
+   "tree": "Axe",
+   "treeKey": "axe",
+   "category": "Modifier",
+   "nodeIndex": 4,
+   "nodeId": 131,
+   "maxRank": 3,
+   "costPerRank": [
+    1
+   ],
+   "totalCost": 1,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": false,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "parentNodeGuid": "07106aa98a9bc5e07a8881c706894ac0",
+   "parent": "axe-axe-active-2",
+   "children": [
+    "axe-axe-active-2-mastery",
+    "axe-axe-active-2-technique"
+   ],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": "Assets/AbilityTrees/Abilities/Axe/Axe_Active_2_Power.asset"
+  },
+  {
+   "key": "axe-axe-active-2-mastery",
+   "name": "Axe Active 2 Mastery",
+   "description": "Placeholder passive capstone for Axe Active 2.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
+   },
+   "tree": "Axe",
+   "treeKey": "axe",
+   "category": "Passive",
+   "nodeIndex": 5,
+   "nodeId": 180,
+   "maxRank": 1,
+   "costPerRank": [
+    2
+   ],
+   "totalCost": 2,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": false,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "parentNodeGuid": "3b096bf285d5bc7949d484c59c80389b",
+   "parent": "axe-axe-active-2-power",
+   "children": [],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": "Assets/AbilityTrees/Abilities/Axe/Axe_Active_2_Mastery.asset"
+  },
+  {
+   "key": "axe-axe-active-2-technique",
+   "name": "Axe Active 2 Technique",
+   "description": "Placeholder forked technique for Axe Active 2.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
+   },
+   "tree": "Axe",
+   "treeKey": "axe",
+   "category": "Passive",
+   "nodeIndex": 6,
+   "nodeId": 135,
+   "maxRank": 1,
+   "costPerRank": [
+    1
+   ],
+   "totalCost": 1,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": false,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "parentNodeGuid": "3b096bf285d5bc7949d484c59c80389b",
+   "parent": "axe-axe-active-2-power",
+   "children": [],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": "Assets/AbilityTrees/Abilities/Axe/Axe_Active_2_Technique.asset"
+  },
+  {
+   "key": "axe-axe-active-3",
+   "name": "Axe Active 3",
+   "description": "Active ability. Equip it into Ability 1/2/3 once purchased.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-5457dad8.png"
+   },
+   "tree": "Axe",
+   "treeKey": "axe",
+   "category": "Active",
+   "nodeIndex": 7,
+   "nodeId": 137,
+   "maxRank": 1,
+   "costPerRank": [
+    1
+   ],
+   "totalCost": 1,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": true,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "parentNodeGuid": null,
+   "parent": null,
+   "children": [
+    "axe-axe-active-3-power"
+   ],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": "Assets/AbilityTrees/Abilities/Axe/Axe_Active_3.asset"
+  },
+  {
+   "key": "axe-axe-active-3-power",
+   "name": "Axe Active 3 Power",
+   "description": "Placeholder ranked modifier for Axe Active 3.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
+   },
+   "tree": "Axe",
+   "treeKey": "axe",
+   "category": "Modifier",
+   "nodeIndex": 8,
+   "nodeId": 139,
+   "maxRank": 3,
+   "costPerRank": [
+    1
+   ],
+   "totalCost": 1,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": false,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "parentNodeGuid": "2f9937565d8271908d21347df7695db7",
+   "parent": "axe-axe-active-3",
+   "children": [
+    "axe-axe-active-3-mastery"
+   ],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": "Assets/AbilityTrees/Abilities/Axe/Axe_Active_3_Power.asset"
+  },
+  {
+   "key": "axe-axe-active-3-mastery",
+   "name": "Axe Active 3 Mastery",
+   "description": "Placeholder passive capstone for Axe Active 3.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
+   },
+   "tree": "Axe",
+   "treeKey": "axe",
+   "category": "Passive",
+   "nodeIndex": 9,
+   "nodeId": 181,
+   "maxRank": 1,
+   "costPerRank": [
+    2
+   ],
+   "totalCost": 2,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": false,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "parentNodeGuid": "a992248761e6226905e23fc382f8517d",
+   "parent": "axe-axe-active-3-power",
+   "children": [],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": "Assets/AbilityTrees/Abilities/Axe/Axe_Active_3_Mastery.asset"
+  },
+  {
+   "key": "axe-axe-active-4",
+   "name": "Axe Active 4",
+   "description": "Active ability. Equip it into Ability 1/2/3 once purchased.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-5457dad8.png"
+   },
+   "tree": "Axe",
+   "treeKey": "axe",
+   "category": "Active",
+   "nodeIndex": 10,
+   "nodeId": 143,
+   "maxRank": 1,
+   "costPerRank": [
+    1
+   ],
+   "totalCost": 1,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": true,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "parentNodeGuid": null,
+   "parent": null,
+   "children": [
+    "axe-axe-active-4-power"
+   ],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": "Assets/AbilityTrees/Abilities/Axe/Axe_Active_4.asset"
+  },
+  {
+   "key": "axe-axe-active-4-power",
+   "name": "Axe Active 4 Power",
+   "description": "Placeholder ranked modifier for Axe Active 4.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
+   },
+   "tree": "Axe",
+   "treeKey": "axe",
+   "category": "Modifier",
+   "nodeIndex": 11,
+   "nodeId": 145,
+   "maxRank": 3,
+   "costPerRank": [
+    1
+   ],
+   "totalCost": 1,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": false,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "parentNodeGuid": "b7031bfd2d1d097341e6be6f792daef5",
+   "parent": "axe-axe-active-4",
+   "children": [
+    "axe-axe-active-4-mastery"
+   ],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": "Assets/AbilityTrees/Abilities/Axe/Axe_Active_4_Power.asset"
+  },
+  {
+   "key": "axe-axe-active-4-mastery",
+   "name": "Axe Active 4 Mastery",
+   "description": "Placeholder passive capstone for Axe Active 4.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
+   },
+   "tree": "Axe",
+   "treeKey": "axe",
+   "category": "Passive",
+   "nodeIndex": 12,
+   "nodeId": 182,
+   "maxRank": 1,
+   "costPerRank": [
+    2
+   ],
+   "totalCost": 2,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": false,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "parentNodeGuid": "04a36f223d43bd8150355a01f52a1a2b",
+   "parent": "axe-axe-active-4-power",
+   "children": [],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": "Assets/AbilityTrees/Abilities/Axe/Axe_Active_4_Mastery.asset"
+  },
+  {
+   "key": "axe-axe-active-5",
+   "name": "Axe Active 5",
+   "description": "Active ability. Equip it into Ability 1/2/3 once purchased.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-5457dad8.png"
+   },
+   "tree": "Axe",
+   "treeKey": "axe",
+   "category": "Active",
+   "nodeIndex": 13,
+   "nodeId": 149,
+   "maxRank": 1,
+   "costPerRank": [
+    1
+   ],
+   "totalCost": 1,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": true,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "parentNodeGuid": null,
+   "parent": null,
+   "children": [
+    "axe-axe-active-5-power"
+   ],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": "Assets/AbilityTrees/Abilities/Axe/Axe_Active_5.asset"
+  },
+  {
+   "key": "axe-axe-active-5-power",
+   "name": "Axe Active 5 Power",
+   "description": "Placeholder ranked modifier for Axe Active 5.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
+   },
+   "tree": "Axe",
+   "treeKey": "axe",
+   "category": "Modifier",
+   "nodeIndex": 14,
+   "nodeId": 151,
+   "maxRank": 3,
+   "costPerRank": [
+    1
+   ],
+   "totalCost": 1,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": false,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "parentNodeGuid": "cb4257bcfa62406566e60d1bc8654a40",
+   "parent": "axe-axe-active-5",
+   "children": [
+    "axe-axe-active-5-mastery"
+   ],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": "Assets/AbilityTrees/Abilities/Axe/Axe_Active_5_Power.asset"
+  },
+  {
+   "key": "axe-axe-active-5-mastery",
+   "name": "Axe Active 5 Mastery",
+   "description": "Placeholder passive capstone for Axe Active 5.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
+   },
+   "tree": "Axe",
+   "treeKey": "axe",
+   "category": "Passive",
+   "nodeIndex": 15,
+   "nodeId": 183,
+   "maxRank": 1,
+   "costPerRank": [
+    2
+   ],
+   "totalCost": 2,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": false,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "parentNodeGuid": "e2e4488850703c301daa3bb08d388a78",
+   "parent": "axe-axe-active-5-power",
+   "children": [],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": "Assets/AbilityTrees/Abilities/Axe/Axe_Active_5_Mastery.asset"
+  },
+  {
+   "key": "axe-axe-active-6",
+   "name": "Axe Active 6",
+   "description": "Active ability. Equip it into Ability 1/2/3 once purchased.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-5457dad8.png"
+   },
+   "tree": "Axe",
+   "treeKey": "axe",
+   "category": "Active",
+   "nodeIndex": 16,
+   "nodeId": 155,
+   "maxRank": 1,
+   "costPerRank": [
+    1
+   ],
+   "totalCost": 1,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": true,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "parentNodeGuid": null,
+   "parent": null,
+   "children": [
+    "axe-axe-active-6-power"
+   ],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": "Assets/AbilityTrees/Abilities/Axe/Axe_Active_6.asset"
+  },
+  {
+   "key": "axe-axe-active-6-power",
+   "name": "Axe Active 6 Power",
+   "description": "Placeholder ranked modifier for Axe Active 6.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
+   },
+   "tree": "Axe",
+   "treeKey": "axe",
+   "category": "Modifier",
+   "nodeIndex": 17,
+   "nodeId": 157,
+   "maxRank": 3,
+   "costPerRank": [
+    1
+   ],
+   "totalCost": 1,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": false,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "parentNodeGuid": "788b00ab64369097aa0149e6bbc777ad",
+   "parent": "axe-axe-active-6",
+   "children": [
+    "axe-axe-active-6-mastery"
+   ],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": "Assets/AbilityTrees/Abilities/Axe/Axe_Active_6_Power.asset"
+  },
+  {
+   "key": "axe-axe-active-6-mastery",
+   "name": "Axe Active 6 Mastery",
+   "description": "Placeholder passive capstone for Axe Active 6.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
+   },
+   "tree": "Axe",
+   "treeKey": "axe",
+   "category": "Passive",
+   "nodeIndex": 18,
+   "nodeId": 184,
+   "maxRank": 1,
+   "costPerRank": [
+    2
+   ],
+   "totalCost": 2,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": false,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "parentNodeGuid": "c81854ae218d512f1ab250ec9380bc7a",
+   "parent": "axe-axe-active-6-power",
+   "children": [],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": "Assets/AbilityTrees/Abilities/Axe/Axe_Active_6_Mastery.asset"
+  },
+  {
+   "key": "bow-bow-active-1",
+   "name": "Bow Active 1",
+   "description": "Active ability. Equip it into Ability 1/2/3 once purchased.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-5457dad8.png"
+   },
+   "tree": "Bow",
+   "treeKey": "bow",
+   "category": "Active",
+   "nodeIndex": 0,
+   "nodeId": 45,
+   "maxRank": 1,
+   "costPerRank": [
+    1
+   ],
+   "totalCost": 1,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": true,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "parentNodeGuid": null,
+   "parent": null,
+   "children": [
+    "bow-bow-active-1-power"
+   ],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": "Assets/AbilityTrees/Abilities/Bow/Bow_Active_1.asset"
+  },
+  {
+   "key": "bow-bow-active-1-power",
+   "name": "Bow Active 1 Power",
+   "description": "Placeholder ranked modifier for Bow Active 1.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
+   },
+   "tree": "Bow",
+   "treeKey": "bow",
+   "category": "Modifier",
+   "nodeIndex": 1,
+   "nodeId": 47,
+   "maxRank": 3,
+   "costPerRank": [
+    1
+   ],
+   "totalCost": 1,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": false,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "parentNodeGuid": "2a1cae2a759149d344681332964910e9",
+   "parent": "bow-bow-active-1",
+   "children": [
+    "bow-bow-active-1-mastery"
+   ],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": "Assets/AbilityTrees/Abilities/Bow/Bow_Active_1_Power.asset"
+  },
+  {
+   "key": "bow-bow-active-1-mastery",
+   "name": "Bow Active 1 Mastery",
+   "description": "Arrows are affected by 50% less gravity.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
+   },
+   "tree": "Bow",
+   "treeKey": "bow",
+   "category": "Passive",
+   "nodeIndex": 2,
+   "nodeId": 167,
+   "maxRank": 1,
+   "costPerRank": [
+    2
+   ],
+   "totalCost": 2,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": false,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "parentNodeGuid": "7c1e1391b5d57506edf5932641321092",
+   "parent": "bow-bow-active-1-power",
+   "children": [],
+   "attack": null,
+   "abilityPerk": "bow-bow-active-1-mastery-perk",
+   "assetPath": "Assets/AbilityTrees/Abilities/Bow/Bow_Active_1_Mastery.asset"
+  },
+  {
+   "key": "bow-bow-active-2",
+   "name": "Bow Active 2",
+   "description": "Active ability. Equip it into Ability 1/2/3 once purchased.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-5457dad8.png"
+   },
+   "tree": "Bow",
+   "treeKey": "bow",
+   "category": "Active",
+   "nodeIndex": 3,
+   "nodeId": 51,
+   "maxRank": 1,
+   "costPerRank": [
+    1
+   ],
+   "totalCost": 1,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": true,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "parentNodeGuid": null,
+   "parent": null,
+   "children": [
+    "bow-bow-active-2-power"
+   ],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": "Assets/AbilityTrees/Abilities/Bow/Bow_Active_2.asset"
+  },
+  {
+   "key": "bow-bow-active-2-power",
+   "name": "Bow Active 2 Power",
+   "description": "Placeholder ranked modifier for Bow Active 2.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
+   },
+   "tree": "Bow",
+   "treeKey": "bow",
+   "category": "Modifier",
+   "nodeIndex": 4,
+   "nodeId": 53,
+   "maxRank": 3,
+   "costPerRank": [
+    1
+   ],
+   "totalCost": 1,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": false,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "parentNodeGuid": "b8ca52d9d97a3775fcc2274331c5f652",
+   "parent": "bow-bow-active-2",
+   "children": [
+    "bow-bow-active-2-mastery",
+    "bow-bow-active-2-technique"
+   ],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": "Assets/AbilityTrees/Abilities/Bow/Bow_Active_2_Power.asset"
+  },
+  {
+   "key": "bow-bow-active-2-mastery",
+   "name": "Bow Active 2 Mastery",
+   "description": "Placeholder passive capstone for Bow Active 2.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
+   },
+   "tree": "Bow",
+   "treeKey": "bow",
+   "category": "Passive",
+   "nodeIndex": 5,
+   "nodeId": 168,
+   "maxRank": 1,
+   "costPerRank": [
+    2
+   ],
+   "totalCost": 2,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": false,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "parentNodeGuid": "98b711fd8ac706c740f1210b15629376",
+   "parent": "bow-bow-active-2-power",
+   "children": [],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": "Assets/AbilityTrees/Abilities/Bow/Bow_Active_2_Mastery.asset"
+  },
+  {
+   "key": "bow-bow-active-2-technique",
+   "name": "Bow Active 2 Technique",
+   "description": "While the bow is equipped: dodging grants +10% move speed for 6 s.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
+   },
+   "tree": "Bow",
+   "treeKey": "bow",
+   "category": "Passive",
+   "nodeIndex": 6,
+   "nodeId": 57,
+   "maxRank": 1,
+   "costPerRank": [
+    1
+   ],
+   "totalCost": 1,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": false,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "parentNodeGuid": "98b711fd8ac706c740f1210b15629376",
+   "parent": "bow-bow-active-2-power",
+   "children": [],
+   "attack": null,
+   "abilityPerk": "bow-bow-active-2-technique-perk",
+   "assetPath": "Assets/AbilityTrees/Abilities/Bow/Bow_Active_2_Technique.asset"
+  },
+  {
+   "key": "bow-bow-active-3",
+   "name": "Bow Active 3",
+   "description": "Active ability. Equip it into Ability 1/2/3 once purchased.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-5457dad8.png"
+   },
+   "tree": "Bow",
+   "treeKey": "bow",
+   "category": "Active",
+   "nodeIndex": 7,
+   "nodeId": 59,
+   "maxRank": 1,
+   "costPerRank": [
+    1
+   ],
+   "totalCost": 1,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": true,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "parentNodeGuid": null,
+   "parent": null,
+   "children": [
+    "bow-bow-active-3-power"
+   ],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": "Assets/AbilityTrees/Abilities/Bow/Bow_Active_3.asset"
+  },
+  {
+   "key": "bow-bow-active-3-power",
+   "name": "Bow Active 3 Power",
+   "description": "Placeholder ranked modifier for Bow Active 3.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
+   },
+   "tree": "Bow",
+   "treeKey": "bow",
+   "category": "Modifier",
+   "nodeIndex": 8,
+   "nodeId": 61,
+   "maxRank": 3,
+   "costPerRank": [
+    1
+   ],
+   "totalCost": 1,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": false,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "parentNodeGuid": "ec42b20f4d897d3177d3907f43059fbc",
+   "parent": "bow-bow-active-3",
+   "children": [
+    "bow-bow-active-3-mastery"
+   ],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": "Assets/AbilityTrees/Abilities/Bow/Bow_Active_3_Power.asset"
+  },
+  {
+   "key": "bow-bow-active-3-mastery",
+   "name": "Bow Active 3 Mastery",
+   "description": "Placeholder passive capstone for Bow Active 3.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
+   },
+   "tree": "Bow",
+   "treeKey": "bow",
+   "category": "Passive",
+   "nodeIndex": 9,
+   "nodeId": 169,
+   "maxRank": 1,
+   "costPerRank": [
+    2
+   ],
+   "totalCost": 2,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": false,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "parentNodeGuid": "0238f1b5e304dffd270ecb03ec6c7d69",
+   "parent": "bow-bow-active-3-power",
+   "children": [],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": "Assets/AbilityTrees/Abilities/Bow/Bow_Active_3_Mastery.asset"
+  },
+  {
+   "key": "bow-bow-active-4",
+   "name": "Bow Active 4",
+   "description": "Active ability. Equip it into Ability 1/2/3 once purchased.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-5457dad8.png"
+   },
+   "tree": "Bow",
+   "treeKey": "bow",
+   "category": "Active",
+   "nodeIndex": 10,
+   "nodeId": 65,
+   "maxRank": 1,
+   "costPerRank": [
+    1
+   ],
+   "totalCost": 1,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": true,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "parentNodeGuid": null,
+   "parent": null,
+   "children": [
+    "bow-bow-active-4-power"
+   ],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": "Assets/AbilityTrees/Abilities/Bow/Bow_Active_4.asset"
+  },
+  {
+   "key": "bow-bow-active-4-power",
+   "name": "Bow Active 4 Power",
+   "description": "Placeholder ranked modifier for Bow Active 4.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
+   },
+   "tree": "Bow",
+   "treeKey": "bow",
+   "category": "Modifier",
+   "nodeIndex": 11,
+   "nodeId": 67,
+   "maxRank": 3,
+   "costPerRank": [
+    1
+   ],
+   "totalCost": 1,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": false,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "parentNodeGuid": "62367a06222c5beb911f808c1915a5e1",
+   "parent": "bow-bow-active-4",
+   "children": [
+    "bow-bow-active-4-mastery"
+   ],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": "Assets/AbilityTrees/Abilities/Bow/Bow_Active_4_Power.asset"
+  },
+  {
+   "key": "bow-bow-active-4-mastery",
+   "name": "Bow Active 4 Mastery",
+   "description": "Placeholder passive capstone for Bow Active 4.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
+   },
+   "tree": "Bow",
+   "treeKey": "bow",
+   "category": "Passive",
+   "nodeIndex": 12,
+   "nodeId": 170,
+   "maxRank": 1,
+   "costPerRank": [
+    2
+   ],
+   "totalCost": 2,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": false,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "parentNodeGuid": "88acc9777e4dbb16a9296fb1b0a65d70",
+   "parent": "bow-bow-active-4-power",
+   "children": [],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": "Assets/AbilityTrees/Abilities/Bow/Bow_Active_4_Mastery.asset"
+  },
+  {
+   "key": "bow-bow-active-5",
+   "name": "Bow Active 5",
+   "description": "Active ability. Equip it into Ability 1/2/3 once purchased.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-5457dad8.png"
+   },
+   "tree": "Bow",
+   "treeKey": "bow",
+   "category": "Active",
+   "nodeIndex": 13,
+   "nodeId": 71,
+   "maxRank": 1,
+   "costPerRank": [
+    1
+   ],
+   "totalCost": 1,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": true,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "parentNodeGuid": null,
+   "parent": null,
+   "children": [
+    "bow-bow-active-5-power"
+   ],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": "Assets/AbilityTrees/Abilities/Bow/Bow_Active_5.asset"
+  },
+  {
+   "key": "bow-bow-active-5-power",
+   "name": "Bow Active 5 Power",
+   "description": "Placeholder ranked modifier for Bow Active 5.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
+   },
+   "tree": "Bow",
+   "treeKey": "bow",
+   "category": "Modifier",
+   "nodeIndex": 14,
+   "nodeId": 73,
+   "maxRank": 3,
+   "costPerRank": [
+    1
+   ],
+   "totalCost": 1,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": false,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "parentNodeGuid": "78fb8ceffbd04d82ddb3cb09474f00a1",
+   "parent": "bow-bow-active-5",
+   "children": [
+    "bow-bow-active-5-mastery"
+   ],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": "Assets/AbilityTrees/Abilities/Bow/Bow_Active_5_Power.asset"
+  },
+  {
+   "key": "bow-bow-active-5-mastery",
+   "name": "Bow Active 5 Mastery",
+   "description": "Placeholder passive capstone for Bow Active 5.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
+   },
+   "tree": "Bow",
+   "treeKey": "bow",
+   "category": "Passive",
+   "nodeIndex": 15,
+   "nodeId": 171,
+   "maxRank": 1,
+   "costPerRank": [
+    2
+   ],
+   "totalCost": 2,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": false,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "parentNodeGuid": "c745c5628687598b6783fbfbeadd1d1c",
+   "parent": "bow-bow-active-5-power",
+   "children": [],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": "Assets/AbilityTrees/Abilities/Bow/Bow_Active_5_Mastery.asset"
+  },
+  {
+   "key": "bow-bow-active-6",
+   "name": "Bow Active 6",
+   "description": "Active ability. Equip it into Ability 1/2/3 once purchased.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-5457dad8.png"
+   },
+   "tree": "Bow",
+   "treeKey": "bow",
+   "category": "Active",
+   "nodeIndex": 16,
+   "nodeId": 77,
+   "maxRank": 1,
+   "costPerRank": [
+    1
+   ],
+   "totalCost": 1,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": true,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "parentNodeGuid": null,
+   "parent": null,
+   "children": [
+    "bow-bow-active-6-power"
+   ],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": "Assets/AbilityTrees/Abilities/Bow/Bow_Active_6.asset"
+  },
+  {
+   "key": "bow-bow-active-6-power",
+   "name": "Bow Active 6 Power",
+   "description": "Placeholder ranked modifier for Bow Active 6.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
+   },
+   "tree": "Bow",
+   "treeKey": "bow",
+   "category": "Modifier",
+   "nodeIndex": 17,
+   "nodeId": 79,
+   "maxRank": 3,
+   "costPerRank": [
+    1
+   ],
+   "totalCost": 1,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": false,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "parentNodeGuid": "d286c790c43799d74c2cb586b0665070",
+   "parent": "bow-bow-active-6",
+   "children": [
+    "bow-bow-active-6-mastery"
+   ],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": "Assets/AbilityTrees/Abilities/Bow/Bow_Active_6_Power.asset"
+  },
+  {
+   "key": "bow-bow-active-6-mastery",
+   "name": "Bow Active 6 Mastery",
+   "description": "Placeholder passive capstone for Bow Active 6.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
+   },
+   "tree": "Bow",
+   "treeKey": "bow",
+   "category": "Passive",
+   "nodeIndex": 18,
+   "nodeId": 172,
+   "maxRank": 1,
+   "costPerRank": [
+    2
+   ],
+   "totalCost": 2,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": false,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "parentNodeGuid": "5b1043fa473a01a0f98ebf38b1e54ef9",
+   "parent": "bow-bow-active-6-power",
+   "children": [],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": "Assets/AbilityTrees/Abilities/Bow/Bow_Active_6_Mastery.asset"
+  },
+  {
+   "key": "spear-spear-active-1",
+   "name": "Spear Active 1",
+   "description": "Active ability. Equip it into Ability 1/2/3 once purchased.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-5457dad8.png"
+   },
+   "tree": "Spear",
+   "treeKey": "spear",
+   "category": "Active",
+   "nodeIndex": 0,
+   "nodeId": 84,
+   "maxRank": 1,
+   "costPerRank": [
+    1
+   ],
+   "totalCost": 1,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": true,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "parentNodeGuid": null,
+   "parent": null,
+   "children": [
+    "spear-spear-active-1-power"
+   ],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": "Assets/AbilityTrees/Abilities/Spear/Spear_Active_1.asset"
+  },
+  {
+   "key": "spear-spear-active-1-power",
+   "name": "Spear Active 1 Power",
+   "description": "Placeholder ranked modifier for Spear Active 1.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
+   },
+   "tree": "Spear",
+   "treeKey": "spear",
+   "category": "Modifier",
+   "nodeIndex": 1,
+   "nodeId": 86,
+   "maxRank": 3,
+   "costPerRank": [
+    1
+   ],
+   "totalCost": 1,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": false,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "parentNodeGuid": "3ce289d5af17041340732cdc91c2f797",
+   "parent": "spear-spear-active-1",
+   "children": [
+    "spear-spear-active-1-mastery"
+   ],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": "Assets/AbilityTrees/Abilities/Spear/Spear_Active_1_Power.asset"
+  },
+  {
+   "key": "spear-spear-active-1-mastery",
+   "name": "Spear Active 1 Mastery",
+   "description": "Placeholder passive capstone for Spear Active 1.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
+   },
+   "tree": "Spear",
+   "treeKey": "spear",
+   "category": "Passive",
+   "nodeIndex": 2,
+   "nodeId": 173,
+   "maxRank": 1,
+   "costPerRank": [
+    2
+   ],
+   "totalCost": 2,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": false,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "parentNodeGuid": "51b1fd0d17be5a790518380cc9afd5a7",
+   "parent": "spear-spear-active-1-power",
+   "children": [],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": "Assets/AbilityTrees/Abilities/Spear/Spear_Active_1_Mastery.asset"
+  },
+  {
+   "key": "spear-spear-active-2",
+   "name": "Spear Active 2",
+   "description": "Active ability. Equip it into Ability 1/2/3 once purchased.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-5457dad8.png"
+   },
+   "tree": "Spear",
+   "treeKey": "spear",
+   "category": "Active",
+   "nodeIndex": 3,
+   "nodeId": 90,
+   "maxRank": 1,
+   "costPerRank": [
+    1
+   ],
+   "totalCost": 1,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": true,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "parentNodeGuid": null,
+   "parent": null,
+   "children": [
+    "spear-spear-active-2-power"
+   ],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": "Assets/AbilityTrees/Abilities/Spear/Spear_Active_2.asset"
+  },
+  {
+   "key": "spear-spear-active-2-power",
+   "name": "Spear Active 2 Power",
+   "description": "Placeholder ranked modifier for Spear Active 2.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
+   },
+   "tree": "Spear",
+   "treeKey": "spear",
+   "category": "Modifier",
+   "nodeIndex": 4,
+   "nodeId": 92,
+   "maxRank": 3,
+   "costPerRank": [
+    1
+   ],
+   "totalCost": 1,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": false,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "parentNodeGuid": "f1f586169a12ff4402348d25e7a3f9c9",
+   "parent": "spear-spear-active-2",
+   "children": [
+    "spear-spear-active-2-mastery",
+    "spear-spear-active-2-technique"
+   ],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": "Assets/AbilityTrees/Abilities/Spear/Spear_Active_2_Power.asset"
+  },
+  {
+   "key": "spear-spear-active-2-mastery",
+   "name": "Spear Active 2 Mastery",
+   "description": "Placeholder passive capstone for Spear Active 2.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
+   },
+   "tree": "Spear",
+   "treeKey": "spear",
+   "category": "Passive",
+   "nodeIndex": 5,
+   "nodeId": 174,
+   "maxRank": 1,
+   "costPerRank": [
+    2
+   ],
+   "totalCost": 2,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": false,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "parentNodeGuid": "6d117f81cdc2208bae58c3f2096a923b",
+   "parent": "spear-spear-active-2-power",
+   "children": [],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": "Assets/AbilityTrees/Abilities/Spear/Spear_Active_2_Mastery.asset"
+  },
+  {
+   "key": "spear-spear-active-2-technique",
+   "name": "Spear Active 2 Technique",
+   "description": "Placeholder forked technique for Spear Active 2.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
+   },
+   "tree": "Spear",
+   "treeKey": "spear",
+   "category": "Passive",
+   "nodeIndex": 6,
+   "nodeId": 96,
+   "maxRank": 1,
+   "costPerRank": [
+    1
+   ],
+   "totalCost": 1,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": false,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "parentNodeGuid": "6d117f81cdc2208bae58c3f2096a923b",
+   "parent": "spear-spear-active-2-power",
+   "children": [],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": "Assets/AbilityTrees/Abilities/Spear/Spear_Active_2_Technique.asset"
+  },
+  {
+   "key": "spear-spear-active-3",
+   "name": "Spear Active 3",
+   "description": "Active ability. Equip it into Ability 1/2/3 once purchased.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-5457dad8.png"
+   },
+   "tree": "Spear",
+   "treeKey": "spear",
+   "category": "Active",
+   "nodeIndex": 7,
+   "nodeId": 98,
+   "maxRank": 1,
+   "costPerRank": [
+    1
+   ],
+   "totalCost": 1,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": true,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "parentNodeGuid": null,
+   "parent": null,
+   "children": [
+    "spear-spear-active-3-power"
+   ],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": "Assets/AbilityTrees/Abilities/Spear/Spear_Active_3.asset"
+  },
+  {
+   "key": "spear-spear-active-3-power",
+   "name": "Spear Active 3 Power",
+   "description": "Placeholder ranked modifier for Spear Active 3.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
+   },
+   "tree": "Spear",
+   "treeKey": "spear",
+   "category": "Modifier",
+   "nodeIndex": 8,
+   "nodeId": 100,
+   "maxRank": 3,
+   "costPerRank": [
+    1
+   ],
+   "totalCost": 1,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": false,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "parentNodeGuid": "9d531d7ce293ac8255b80a0c00841ed8",
+   "parent": "spear-spear-active-3",
+   "children": [
+    "spear-spear-active-3-mastery"
+   ],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": "Assets/AbilityTrees/Abilities/Spear/Spear_Active_3_Power.asset"
+  },
+  {
+   "key": "spear-spear-active-3-mastery",
+   "name": "Spear Active 3 Mastery",
+   "description": "Placeholder passive capstone for Spear Active 3.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
+   },
+   "tree": "Spear",
+   "treeKey": "spear",
+   "category": "Passive",
+   "nodeIndex": 9,
+   "nodeId": 175,
+   "maxRank": 1,
+   "costPerRank": [
+    2
+   ],
+   "totalCost": 2,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": false,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "parentNodeGuid": "8e49cb24bf49a3c91234d17ec80f09be",
+   "parent": "spear-spear-active-3-power",
+   "children": [],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": "Assets/AbilityTrees/Abilities/Spear/Spear_Active_3_Mastery.asset"
+  },
+  {
+   "key": "spear-spear-active-4",
+   "name": "Spear Active 4",
+   "description": "Active ability. Equip it into Ability 1/2/3 once purchased.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-5457dad8.png"
+   },
+   "tree": "Spear",
+   "treeKey": "spear",
+   "category": "Active",
+   "nodeIndex": 10,
+   "nodeId": 104,
+   "maxRank": 1,
+   "costPerRank": [
+    1
+   ],
+   "totalCost": 1,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": true,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "parentNodeGuid": null,
+   "parent": null,
+   "children": [
+    "spear-spear-active-4-power"
+   ],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": "Assets/AbilityTrees/Abilities/Spear/Spear_Active_4.asset"
+  },
+  {
+   "key": "spear-spear-active-4-power",
+   "name": "Spear Active 4 Power",
+   "description": "Placeholder ranked modifier for Spear Active 4.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
+   },
+   "tree": "Spear",
+   "treeKey": "spear",
+   "category": "Modifier",
+   "nodeIndex": 11,
+   "nodeId": 106,
+   "maxRank": 3,
+   "costPerRank": [
+    1
+   ],
+   "totalCost": 1,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": false,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "parentNodeGuid": "7b6b2f2b967cffe6a50fb10c8745a975",
+   "parent": "spear-spear-active-4",
+   "children": [
+    "spear-spear-active-4-mastery"
+   ],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": "Assets/AbilityTrees/Abilities/Spear/Spear_Active_4_Power.asset"
+  },
+  {
+   "key": "spear-spear-active-4-mastery",
+   "name": "Spear Active 4 Mastery",
+   "description": "Placeholder passive capstone for Spear Active 4.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
+   },
+   "tree": "Spear",
+   "treeKey": "spear",
+   "category": "Passive",
+   "nodeIndex": 12,
+   "nodeId": 176,
+   "maxRank": 1,
+   "costPerRank": [
+    2
+   ],
+   "totalCost": 2,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": false,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "parentNodeGuid": "ad9a3692e893fd012f321230414a9f0d",
+   "parent": "spear-spear-active-4-power",
+   "children": [],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": "Assets/AbilityTrees/Abilities/Spear/Spear_Active_4_Mastery.asset"
+  },
+  {
+   "key": "spear-spear-active-5",
+   "name": "Spear Active 5",
+   "description": "Active ability. Equip it into Ability 1/2/3 once purchased.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-5457dad8.png"
+   },
+   "tree": "Spear",
+   "treeKey": "spear",
+   "category": "Active",
+   "nodeIndex": 13,
+   "nodeId": 110,
+   "maxRank": 1,
+   "costPerRank": [
+    1
+   ],
+   "totalCost": 1,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": true,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "parentNodeGuid": null,
+   "parent": null,
+   "children": [
+    "spear-spear-active-5-power"
+   ],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": "Assets/AbilityTrees/Abilities/Spear/Spear_Active_5.asset"
+  },
+  {
+   "key": "spear-spear-active-5-power",
+   "name": "Spear Active 5 Power",
+   "description": "Placeholder ranked modifier for Spear Active 5.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
+   },
+   "tree": "Spear",
+   "treeKey": "spear",
+   "category": "Modifier",
+   "nodeIndex": 14,
+   "nodeId": 112,
+   "maxRank": 3,
+   "costPerRank": [
+    1
+   ],
+   "totalCost": 1,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": false,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "parentNodeGuid": "213f871200556da882b74bd4f747feea",
+   "parent": "spear-spear-active-5",
+   "children": [
+    "spear-spear-active-5-mastery"
+   ],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": "Assets/AbilityTrees/Abilities/Spear/Spear_Active_5_Power.asset"
+  },
+  {
+   "key": "spear-spear-active-5-mastery",
+   "name": "Spear Active 5 Mastery",
+   "description": "Placeholder passive capstone for Spear Active 5.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
+   },
+   "tree": "Spear",
+   "treeKey": "spear",
+   "category": "Passive",
+   "nodeIndex": 15,
+   "nodeId": 177,
+   "maxRank": 1,
+   "costPerRank": [
+    2
+   ],
+   "totalCost": 2,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": false,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "parentNodeGuid": "de7784060e854a4cdb72e940d246f64e",
+   "parent": "spear-spear-active-5-power",
+   "children": [],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": "Assets/AbilityTrees/Abilities/Spear/Spear_Active_5_Mastery.asset"
+  },
+  {
+   "key": "spear-spear-active-6",
+   "name": "Spear Active 6",
+   "description": "Active ability. Equip it into Ability 1/2/3 once purchased.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-5457dad8.png"
+   },
+   "tree": "Spear",
+   "treeKey": "spear",
+   "category": "Active",
+   "nodeIndex": 16,
+   "nodeId": 116,
+   "maxRank": 1,
+   "costPerRank": [
+    1
+   ],
+   "totalCost": 1,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": true,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "parentNodeGuid": null,
+   "parent": null,
+   "children": [
+    "spear-spear-active-6-power"
+   ],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": "Assets/AbilityTrees/Abilities/Spear/Spear_Active_6.asset"
+  },
+  {
+   "key": "spear-spear-active-6-power",
+   "name": "Spear Active 6 Power",
+   "description": "Placeholder ranked modifier for Spear Active 6.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
+   },
+   "tree": "Spear",
+   "treeKey": "spear",
+   "category": "Modifier",
+   "nodeIndex": 17,
+   "nodeId": 118,
+   "maxRank": 3,
+   "costPerRank": [
+    1
+   ],
+   "totalCost": 1,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": false,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "parentNodeGuid": "0dd7f403fa4afbdf3a00ad06851fe508",
+   "parent": "spear-spear-active-6",
+   "children": [
+    "spear-spear-active-6-mastery"
+   ],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": "Assets/AbilityTrees/Abilities/Spear/Spear_Active_6_Power.asset"
+  },
+  {
+   "key": "spear-spear-active-6-mastery",
+   "name": "Spear Active 6 Mastery",
+   "description": "Placeholder passive capstone for Spear Active 6.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
+   },
+   "tree": "Spear",
+   "treeKey": "spear",
+   "category": "Passive",
+   "nodeIndex": 18,
+   "nodeId": 178,
+   "maxRank": 1,
+   "costPerRank": [
+    2
+   ],
+   "totalCost": 2,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": false,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "parentNodeGuid": "3a830ecd749c7e230820523d839752e7",
+   "parent": "spear-spear-active-6-power",
+   "children": [],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": "Assets/AbilityTrees/Abilities/Spear/Spear_Active_6_Mastery.asset"
+  },
+  {
+   "key": "sword-leaping-slash",
+   "name": "Leaping Slash",
+   "description": "Charge forward and leap towards your enemy, ending the leap with a powerful slash.",
+   "icon": {
+    "file": "icons/Leaping-Slash-3-81051c9f.png",
+    "frame": "icons/SkillSlot-Hex-c7024a12.png"
+   },
+   "tree": "Sword",
+   "treeKey": "sword",
+   "category": "Active",
+   "nodeIndex": 0,
+   "nodeId": 3,
+   "maxRank": 1,
+   "costPerRank": [
+    1
+   ],
+   "totalCost": 1,
+   "rowIndex": 1,
+   "groupIndex": 0,
+   "canEquip": true,
+   "isGroupPrerequisite": true,
+   "shape": "Hexagon",
+   "parentNodeGuid": null,
+   "parent": null,
+   "children": [
+    "sword-leaping-slash-power"
+   ],
+   "attack": "leapattack-sword",
+   "abilityPerk": null,
+   "assetPath": "Assets/AbilityTrees/Abilities/Sword/Leaping_Slash.asset"
+  },
+  {
+   "key": "sword-leaping-slash-power",
+   "name": "Leaping Slash Power",
+   "description": "Placeholder modifier for Leaping Slash.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png",
+    "file": "icons/Leaping-Slash-3-81051c9f.png",
+    "inherited": true
+   },
+   "tree": "Sword",
+   "treeKey": "sword",
+   "category": "Modifier",
+   "nodeIndex": 1,
+   "nodeId": 5,
+   "maxRank": 1,
+   "costPerRank": [
+    1
+   ],
+   "totalCost": 1,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": false,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "parentNodeGuid": "51a1ea3c6ca21c1b47fcce190c8657fb",
+   "parent": "sword-leaping-slash",
+   "children": [
+    "sword-leaping-slash-mastery"
+   ],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": "Assets/AbilityTrees/Abilities/Sword/Leaping_Slash_Power.asset"
+  },
+  {
+   "key": "sword-leaping-slash-mastery",
+   "name": "Leaping Slash Mastery",
+   "description": "Sword light attacks apply a Bleed ticking for 5% of the hit's damage for 6 s.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png",
+    "file": "icons/Leaping-Slash-3-81051c9f.png",
+    "inherited": true
+   },
+   "tree": "Sword",
+   "treeKey": "sword",
+   "category": "Passive",
+   "nodeIndex": 2,
+   "nodeId": 161,
+   "maxRank": 1,
+   "costPerRank": [
+    1
+   ],
+   "totalCost": 1,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": false,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "parentNodeGuid": "4cbb73316aa38cd1b2ac7250d30c931d",
+   "parent": "sword-leaping-slash-power",
+   "children": [],
+   "attack": null,
+   "abilityPerk": "sword-leaping-slash-mastery-perk",
+   "assetPath": "Assets/AbilityTrees/Abilities/Sword/Leaping_Slash_Mastery.asset"
+  },
+  {
+   "key": "sword-forward-cleave",
+   "name": "Forward Cleave",
+   "description": "Dash forward and cleave anyone in front of you.",
+   "icon": {
+    "file": "icons/Forward-Cleave-bf55f0be.png",
+    "frame": "icons/SkillSlot-Hex-c7024a12.png"
+   },
+   "tree": "Sword",
+   "treeKey": "sword",
+   "category": "Active",
+   "nodeIndex": 3,
+   "nodeId": 9,
+   "maxRank": 1,
+   "costPerRank": [
+    1
+   ],
+   "totalCost": 1,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": true,
+   "isGroupPrerequisite": false,
+   "shape": "Hexagon",
+   "parentNodeGuid": null,
+   "parent": null,
+   "children": [
+    "sword-forward-cleave-power"
+   ],
+   "attack": "dashattack-sword",
+   "abilityPerk": null,
+   "assetPath": "Assets/AbilityTrees/Abilities/Sword/Forward_Cleave.asset"
+  },
+  {
+   "key": "sword-forward-cleave-power",
+   "name": "Forward Cleave Power",
+   "description": "Forward Cleave's hits apply a Bleed ticking for 3/4/5% of the hit's damage for 6 s (per rank).",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png",
+    "file": "icons/Forward-Cleave-bf55f0be.png",
+    "inherited": true
+   },
+   "tree": "Sword",
+   "treeKey": "sword",
+   "category": "Modifier",
+   "nodeIndex": 4,
+   "nodeId": 11,
+   "maxRank": 3,
+   "costPerRank": [
+    1
+   ],
+   "totalCost": 1,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": false,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "parentNodeGuid": "df531f7425825e5258baa20bebe3d900",
+   "parent": "sword-forward-cleave",
+   "children": [
+    "sword-forward-cleave-mastery",
+    "sword-forward-cleave-technique"
+   ],
+   "attack": null,
+   "abilityPerk": "sword-forward-cleave-power-perk",
+   "assetPath": "Assets/AbilityTrees/Abilities/Sword/Forward_Cleave_Power.asset"
+  },
+  {
+   "key": "sword-forward-cleave-mastery",
+   "name": "Forward Cleave Mastery",
+   "description": "Sword heavy attacks Slow the target by 5% for 2 s.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png",
+    "file": "icons/Forward-Cleave-bf55f0be.png",
+    "inherited": true
+   },
+   "tree": "Sword",
+   "treeKey": "sword",
+   "category": "Passive",
+   "nodeIndex": 5,
+   "nodeId": 162,
+   "maxRank": 1,
+   "costPerRank": [
+    1
+   ],
+   "totalCost": 1,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": false,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "parentNodeGuid": "cca609b4eaa264b5987ca07ee64f5f8d",
+   "parent": "sword-forward-cleave-power",
+   "children": [
+    "sword-thunderstorm-passive"
+   ],
+   "attack": null,
+   "abilityPerk": "sword-forward-cleave-mastery-perk",
+   "assetPath": "Assets/AbilityTrees/Abilities/Sword/Forward_Cleave_Mastery.asset"
+  },
+  {
+   "key": "sword-forward-cleave-technique",
+   "name": "Forward Cleave Technique",
+   "description": "While the sword is equipped: +5% damage for each enemy within 3 m.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png",
+    "file": "icons/Forward-Cleave-bf55f0be.png",
+    "inherited": true
+   },
+   "tree": "Sword",
+   "treeKey": "sword",
+   "category": "Passive",
+   "nodeIndex": 6,
+   "nodeId": 15,
+   "maxRank": 1,
+   "costPerRank": [
+    1
+   ],
+   "totalCost": 1,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": false,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "parentNodeGuid": "cca609b4eaa264b5987ca07ee64f5f8d",
+   "parent": "sword-forward-cleave-power",
+   "children": [],
+   "attack": null,
+   "abilityPerk": "sword-forward-cleave-technique-perk",
+   "assetPath": "Assets/AbilityTrees/Abilities/Sword/Forward_Cleave_Technique.asset"
+  },
+  {
+   "key": "sword-whirling-step",
+   "name": "Whirling Step",
+   "description": "Step forward, turn in air and deliver a powerful strike in close range.",
+   "icon": {
+    "file": "icons/Whirling-Step-c96473a8.png",
+    "frame": "icons/SkillSlot-Hex-c7024a12.png"
+   },
+   "tree": "Sword",
+   "treeKey": "sword",
+   "category": "Active",
+   "nodeIndex": 7,
+   "nodeId": 17,
+   "maxRank": 1,
+   "costPerRank": [
+    1
+   ],
+   "totalCost": 1,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": true,
+   "isGroupPrerequisite": false,
+   "shape": "Hexagon",
+   "parentNodeGuid": null,
+   "parent": null,
+   "children": [
+    "sword-whirling-step-power"
+   ],
+   "attack": "whirlingstepattack-sword",
+   "abilityPerk": null,
+   "assetPath": "Assets/AbilityTrees/Abilities/Sword/Whirling_Step.asset"
+  },
+  {
+   "key": "sword-whirling-step-power",
+   "name": "Whirling Step Power",
+   "description": "Placeholder ranked modifier for Whirling Step.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png",
+    "file": "icons/Whirling-Step-c96473a8.png",
+    "inherited": true
+   },
+   "tree": "Sword",
+   "treeKey": "sword",
+   "category": "Modifier",
+   "nodeIndex": 8,
+   "nodeId": 19,
+   "maxRank": 3,
+   "costPerRank": [
+    1
+   ],
+   "totalCost": 1,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": false,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "parentNodeGuid": "b8c011227f9d6061c382fce50a04812a",
+   "parent": "sword-whirling-step",
+   "children": [
+    "sword-whirling-step-mastery"
+   ],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": "Assets/AbilityTrees/Abilities/Sword/Whirling_Step_Power.asset"
+  },
+  {
+   "key": "sword-whirling-step-mastery",
+   "name": "Whirling Step Mastery",
+   "description": "Placeholder passive capstone for Whirling Step.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png",
+    "file": "icons/Whirling-Step-c96473a8.png",
+    "inherited": true
+   },
+   "tree": "Sword",
+   "treeKey": "sword",
+   "category": "Passive",
+   "nodeIndex": 9,
+   "nodeId": 163,
+   "maxRank": 1,
+   "costPerRank": [
+    2
+   ],
+   "totalCost": 2,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": false,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "parentNodeGuid": "349860a9c8df70a749f1c167019dcc4a",
+   "parent": "sword-whirling-step-power",
+   "children": [],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": "Assets/AbilityTrees/Abilities/Sword/Whirling_Step_Mastery.asset"
+  },
+  {
+   "key": "sword-spinning-blade",
+   "name": "Spinning Blade",
+   "description": "Three two-handed rotations that carve everything nearby.",
+   "icon": {
+    "file": "icons/SpinningBlade-0ce80772.png",
+    "frame": "icons/SkillSlot-Hex-c7024a12.png"
+   },
+   "tree": "Sword",
+   "treeKey": "sword",
+   "category": "Active",
+   "nodeIndex": 10,
+   "nodeId": 23,
+   "maxRank": 1,
+   "costPerRank": [
+    1
+   ],
+   "totalCost": 1,
+   "rowIndex": 0,
+   "groupIndex": 1,
+   "canEquip": true,
+   "isGroupPrerequisite": false,
+   "shape": "Hexagon",
+   "parentNodeGuid": null,
+   "parent": null,
+   "children": [
+    "sword-spinning-blade-power"
+   ],
+   "attack": "spinattack-sword",
+   "abilityPerk": null,
+   "assetPath": "Assets/AbilityTrees/Abilities/Sword/Spinning_Blade.asset"
+  },
+  {
+   "key": "sword-spinning-blade-power",
+   "name": "Spinning Blade Power",
+   "description": "Placeholder ranked modifier for Spinning Blade.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png",
+    "file": "icons/SpinningBlade-0ce80772.png",
+    "inherited": true
+   },
+   "tree": "Sword",
+   "treeKey": "sword",
+   "category": "Modifier",
+   "nodeIndex": 11,
+   "nodeId": 25,
+   "maxRank": 3,
+   "costPerRank": [
+    1
+   ],
+   "totalCost": 1,
+   "rowIndex": 0,
+   "groupIndex": 1,
+   "canEquip": false,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "parentNodeGuid": "a1c04b25db960619e80d8d8e2b529ae8",
+   "parent": "sword-spinning-blade",
+   "children": [
+    "sword-spinning-blade-mastery"
+   ],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": "Assets/AbilityTrees/Abilities/Sword/Spinning_Blade_Power.asset"
+  },
+  {
+   "key": "sword-spinning-blade-mastery",
+   "name": "Spinning Blade Mastery",
+   "description": "Placeholder passive capstone for Spinning Blade.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png",
+    "file": "icons/SpinningBlade-0ce80772.png",
+    "inherited": true
+   },
+   "tree": "Sword",
+   "treeKey": "sword",
+   "category": "Passive",
+   "nodeIndex": 12,
+   "nodeId": 164,
+   "maxRank": 1,
+   "costPerRank": [
+    2
+   ],
+   "totalCost": 2,
+   "rowIndex": 0,
+   "groupIndex": 1,
+   "canEquip": false,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "parentNodeGuid": "fabb5eb11bc7da083c3cc218f039584c",
+   "parent": "sword-spinning-blade-power",
+   "children": [
+    "sword-sword-passive-5"
+   ],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": "Assets/AbilityTrees/Abilities/Sword/Spinning_Blade_Mastery.asset"
+  },
+  {
+   "key": "sword-crushing-swing",
+   "name": "Crushing Swing",
+   "description": "Turning bladework into a heavy two-handed finisher.",
+   "icon": {
+    "file": "icons/SwordFlourish-43ed825e.png",
+    "frame": "icons/SkillSlot-Hex-c7024a12.png"
+   },
+   "tree": "Sword",
+   "treeKey": "sword",
+   "category": "Active",
+   "nodeIndex": 13,
+   "nodeId": 29,
+   "maxRank": 1,
+   "costPerRank": [
+    1
+   ],
+   "totalCost": 1,
+   "rowIndex": 0,
+   "groupIndex": 1,
+   "canEquip": true,
+   "isGroupPrerequisite": false,
+   "shape": "Hexagon",
+   "parentNodeGuid": null,
+   "parent": null,
+   "children": [
+    "sword-crushing-swing-power"
+   ],
+   "attack": "flourishattack-sword",
+   "abilityPerk": null,
+   "assetPath": "Assets/AbilityTrees/Abilities/Sword/Crushing_Swing.asset"
+  },
+  {
+   "key": "sword-crushing-swing-power",
+   "name": "Crushing Swing Power",
+   "description": "Placeholder ranked modifier for Flourish.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png",
+    "file": "icons/SwordFlourish-43ed825e.png",
+    "inherited": true
+   },
+   "tree": "Sword",
+   "treeKey": "sword",
+   "category": "Modifier",
+   "nodeIndex": 14,
+   "nodeId": 31,
+   "maxRank": 3,
+   "costPerRank": [
+    1
+   ],
+   "totalCost": 1,
+   "rowIndex": 0,
+   "groupIndex": 1,
+   "canEquip": false,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "parentNodeGuid": "db839d0ece9498b8a980a3fa31c6430d",
+   "parent": "sword-crushing-swing",
+   "children": [
+    "sword-crushing-swing-mastery"
+   ],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": "Assets/AbilityTrees/Abilities/Sword/Crushing_Swing_Power.asset"
+  },
+  {
+   "key": "sword-crushing-swing-mastery",
+   "name": "Crushing Swing Mastery",
+   "description": "Placeholder passive capstone for Flourish.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png",
+    "file": "icons/SwordFlourish-43ed825e.png",
+    "inherited": true
+   },
+   "tree": "Sword",
+   "treeKey": "sword",
+   "category": "Passive",
+   "nodeIndex": 15,
+   "nodeId": 165,
+   "maxRank": 1,
+   "costPerRank": [
+    2
+   ],
+   "totalCost": 2,
+   "rowIndex": 0,
+   "groupIndex": 1,
+   "canEquip": false,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "parentNodeGuid": "6992706f840cc1a02c36bc5eff49fb5c",
+   "parent": "sword-crushing-swing-power",
+   "children": [
+    "sword-sword-passive-2"
+   ],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": "Assets/AbilityTrees/Abilities/Sword/Crushing_Swing_Mastery.asset"
+  },
+  {
+   "key": "sword-needle-strike",
+   "name": "Needle Strike",
+   "description": "Two fast one-handed slices at long reach.",
+   "icon": {
+    "file": "icons/SwordFencing-b614f709.png",
+    "frame": "icons/SkillSlot-Hex-c7024a12.png"
+   },
+   "tree": "Sword",
+   "treeKey": "sword",
+   "category": "Active",
+   "nodeIndex": 16,
+   "nodeId": 35,
+   "maxRank": 1,
+   "costPerRank": [
+    1
+   ],
+   "totalCost": 1,
+   "rowIndex": 0,
+   "groupIndex": 1,
+   "canEquip": true,
+   "isGroupPrerequisite": false,
+   "shape": "Hexagon",
+   "parentNodeGuid": null,
+   "parent": null,
+   "children": [
+    "sword-needle-strike-power"
+   ],
+   "attack": "fencingattack-sword",
+   "abilityPerk": null,
+   "assetPath": "Assets/AbilityTrees/Abilities/Sword/Needle_Strike.asset"
+  },
+  {
+   "key": "sword-needle-strike-power",
+   "name": "Needle Strike Power",
+   "description": "Placeholder ranked modifier for Fencing.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png",
+    "file": "icons/SwordFencing-b614f709.png",
+    "inherited": true
+   },
+   "tree": "Sword",
+   "treeKey": "sword",
+   "category": "Modifier",
+   "nodeIndex": 17,
+   "nodeId": 37,
+   "maxRank": 3,
+   "costPerRank": [
+    1
+   ],
+   "totalCost": 1,
+   "rowIndex": 0,
+   "groupIndex": 1,
+   "canEquip": false,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "parentNodeGuid": "71c8536b54026e761962d1d604db278a",
+   "parent": "sword-needle-strike",
+   "children": [
+    "sword-needle-strike-mastery"
+   ],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": "Assets/AbilityTrees/Abilities/Sword/Needle_Strike_Power.asset"
+  },
+  {
+   "key": "sword-needle-strike-mastery",
+   "name": "Needle Strike Mastery",
+   "description": "Placeholder passive capstone for Fencing.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png",
+    "file": "icons/SwordFencing-b614f709.png",
+    "inherited": true
+   },
+   "tree": "Sword",
+   "treeKey": "sword",
+   "category": "Passive",
+   "nodeIndex": 18,
+   "nodeId": 166,
+   "maxRank": 1,
+   "costPerRank": [
+    2
+   ],
+   "totalCost": 2,
+   "rowIndex": 0,
+   "groupIndex": 1,
+   "canEquip": false,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "parentNodeGuid": "2c3800ffc4e58aacc6ab1f2d29e45970",
+   "parent": "sword-needle-strike-power",
+   "children": [],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": "Assets/AbilityTrees/Abilities/Sword/Needle_Strike_Mastery.asset"
+  },
+  {
+   "key": "sword-sword-passive-1",
+   "name": "Sword Passive 1",
+   "description": "Gives 200% haste after pressing ALT+F4",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
+   },
+   "tree": "Sword",
+   "treeKey": "sword",
+   "category": "Passive",
+   "nodeIndex": 19,
+   "nodeId": 185,
+   "maxRank": 1,
+   "costPerRank": [
+    1
+   ],
+   "totalCost": 1,
+   "rowIndex": 4,
+   "groupIndex": 0,
+   "canEquip": false,
+   "isGroupPrerequisite": true,
+   "shape": "Circle",
+   "parentNodeGuid": null,
+   "parent": null,
+   "children": [],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": "Assets/AbilityTrees/Abilities/Sword/SwordPassive1.asset"
+  },
+  {
+   "key": "sword-thunderstorm-passive",
+   "name": "Thunderstorm Passive",
+   "description": "Increases CPU load causing your PC to sound like a Thunderstorm coming for your enemy",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png",
+    "file": "icons/Forward-Cleave-bf55f0be.png",
+    "inherited": true
+   },
+   "tree": "Sword",
+   "treeKey": "sword",
+   "category": "Passive",
+   "nodeIndex": 20,
+   "nodeId": 187,
+   "maxRank": 1,
+   "costPerRank": [
+    1
+   ],
+   "totalCost": 1,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": false,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "parentNodeGuid": "254c65f03a0173c3b7f856d6363a1b32",
+   "parent": "sword-forward-cleave-mastery",
+   "children": [],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": "Assets/AbilityTrees/Abilities/Sword/SwordPassive4.asset"
+  },
+  {
+   "key": "sword-sword-passive-5",
+   "name": "Sword Passive 5",
+   "description": "",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png",
+    "file": "icons/SpinningBlade-0ce80772.png",
+    "inherited": true
+   },
+   "tree": "Sword",
+   "treeKey": "sword",
+   "category": "Passive",
+   "nodeIndex": 21,
+   "nodeId": 189,
+   "maxRank": 1,
+   "costPerRank": [
+    1
+   ],
+   "totalCost": 1,
+   "rowIndex": 0,
+   "groupIndex": 1,
+   "canEquip": false,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "parentNodeGuid": "87127b5c28e4fc3238106f2ce1ef7b3d",
+   "parent": "sword-spinning-blade-mastery",
+   "children": [],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": "Assets/AbilityTrees/Abilities/Sword/SwordPassive5.asset"
+  },
+  {
+   "key": "sword-sword-passive-2",
+   "name": "Sword Passive 2",
+   "description": "",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png",
+    "file": "icons/SwordFlourish-43ed825e.png",
+    "inherited": true
+   },
+   "tree": "Sword",
+   "treeKey": "sword",
+   "category": "Passive",
+   "nodeIndex": 22,
+   "nodeId": 191,
+   "maxRank": 1,
+   "costPerRank": [
+    1
+   ],
+   "totalCost": 1,
+   "rowIndex": 4,
+   "groupIndex": 1,
+   "canEquip": false,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "parentNodeGuid": "e10ab0f341abebfd83d0ff8edd1f99ba",
+   "parent": "sword-crushing-swing-mastery",
+   "children": [],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": "Assets/AbilityTrees/Abilities/Sword/SwordPassive2.asset"
+  },
+  {
+   "key": "sword-sword-passive-3",
+   "name": "Sword Passive 3",
+   "description": "Useless passive no smart soul would ever select",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
+   },
+   "tree": "Sword",
+   "treeKey": "sword",
+   "category": "Passive",
+   "nodeIndex": 23,
+   "nodeId": 193,
+   "maxRank": 1,
+   "costPerRank": [
+    1
+   ],
+   "totalCost": 1,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": false,
+   "isGroupPrerequisite": true,
+   "shape": "Circle",
+   "parentNodeGuid": null,
+   "parent": null,
+   "children": [],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": "Assets/AbilityTrees/Abilities/Sword/SwordPassive3.asset"
+  }
+ ],
+ "trees": [
+  {
+   "key": "axe",
+   "name": "Axe",
+   "pointBudget": 20,
+   "groupCount": 1,
+   "slots": [
+    {
+     "name": "Ability 1",
+     "binding": "Q",
+     "action": "Ability1"
+    },
+    {
+     "name": "Ability 2",
+     "binding": "R",
+     "action": "Ability2"
+    },
+    {
+     "name": "Ability 3",
+     "binding": "F",
+     "action": "Ability3"
+    }
+   ],
+   "maxSlots": 3,
+   "nodes": [
+    "axe-axe-active-1",
+    "axe-axe-active-1-power",
+    "axe-axe-active-1-mastery",
+    "axe-axe-active-2",
+    "axe-axe-active-2-power",
+    "axe-axe-active-2-mastery",
+    "axe-axe-active-2-technique",
+    "axe-axe-active-3",
+    "axe-axe-active-3-power",
+    "axe-axe-active-3-mastery",
+    "axe-axe-active-4",
+    "axe-axe-active-4-power",
+    "axe-axe-active-4-mastery",
+    "axe-axe-active-5",
+    "axe-axe-active-5-power",
+    "axe-axe-active-5-mastery",
+    "axe-axe-active-6",
+    "axe-axe-active-6-power",
+    "axe-axe-active-6-mastery"
+   ],
+   "assetPath": "Assets/AbilityTrees/Trees/Axe.asset"
+  },
+  {
+   "key": "bow",
+   "name": "Bow",
+   "pointBudget": 20,
+   "groupCount": 1,
+   "slots": [
+    {
+     "name": "Ability 1",
+     "binding": "Q",
+     "action": "Ability1"
+    },
+    {
+     "name": "Ability 2",
+     "binding": "R",
+     "action": "Ability2"
+    },
+    {
+     "name": "Ability 3",
+     "binding": "F",
+     "action": "Ability3"
+    }
+   ],
+   "maxSlots": 3,
+   "nodes": [
+    "bow-bow-active-1",
+    "bow-bow-active-1-power",
+    "bow-bow-active-1-mastery",
+    "bow-bow-active-2",
+    "bow-bow-active-2-power",
+    "bow-bow-active-2-mastery",
+    "bow-bow-active-2-technique",
+    "bow-bow-active-3",
+    "bow-bow-active-3-power",
+    "bow-bow-active-3-mastery",
+    "bow-bow-active-4",
+    "bow-bow-active-4-power",
+    "bow-bow-active-4-mastery",
+    "bow-bow-active-5",
+    "bow-bow-active-5-power",
+    "bow-bow-active-5-mastery",
+    "bow-bow-active-6",
+    "bow-bow-active-6-power",
+    "bow-bow-active-6-mastery"
+   ],
+   "assetPath": "Assets/AbilityTrees/Trees/Bow.asset"
+  },
+  {
+   "key": "spear",
+   "name": "Spear",
+   "pointBudget": 20,
+   "groupCount": 1,
+   "slots": [
+    {
+     "name": "Ability 1",
+     "binding": "Q",
+     "action": "Ability1"
+    },
+    {
+     "name": "Ability 2",
+     "binding": "R",
+     "action": "Ability2"
+    },
+    {
+     "name": "Ability 3",
+     "binding": "F",
+     "action": "Ability3"
+    }
+   ],
+   "maxSlots": 3,
+   "nodes": [
+    "spear-spear-active-1",
+    "spear-spear-active-1-power",
+    "spear-spear-active-1-mastery",
+    "spear-spear-active-2",
+    "spear-spear-active-2-power",
+    "spear-spear-active-2-mastery",
+    "spear-spear-active-2-technique",
+    "spear-spear-active-3",
+    "spear-spear-active-3-power",
+    "spear-spear-active-3-mastery",
+    "spear-spear-active-4",
+    "spear-spear-active-4-power",
+    "spear-spear-active-4-mastery",
+    "spear-spear-active-5",
+    "spear-spear-active-5-power",
+    "spear-spear-active-5-mastery",
+    "spear-spear-active-6",
+    "spear-spear-active-6-power",
+    "spear-spear-active-6-mastery"
+   ],
+   "assetPath": "Assets/AbilityTrees/Trees/Spear.asset"
+  },
+  {
+   "key": "sword",
+   "name": "Sword",
+   "pointBudget": 20,
+   "groupCount": 2,
+   "slots": [
+    {
+     "name": "Ability 1",
+     "binding": "Q",
+     "action": "Ability1"
+    },
+    {
+     "name": "Ability 2",
+     "binding": "R",
+     "action": "Ability2"
+    },
+    {
+     "name": "Ability 3",
+     "binding": "F",
+     "action": "Ability3"
+    }
+   ],
+   "maxSlots": 3,
+   "nodes": [
+    "sword-leaping-slash",
+    "sword-leaping-slash-power",
+    "sword-leaping-slash-mastery",
+    "sword-forward-cleave",
+    "sword-forward-cleave-power",
+    "sword-forward-cleave-mastery",
+    "sword-forward-cleave-technique",
+    "sword-whirling-step",
+    "sword-whirling-step-power",
+    "sword-whirling-step-mastery",
+    "sword-spinning-blade",
+    "sword-spinning-blade-power",
+    "sword-spinning-blade-mastery",
+    "sword-crushing-swing",
+    "sword-crushing-swing-power",
+    "sword-crushing-swing-mastery",
+    "sword-needle-strike",
+    "sword-needle-strike-power",
+    "sword-needle-strike-mastery",
+    "sword-sword-passive-1",
+    "sword-thunderstorm-passive",
+    "sword-sword-passive-5",
+    "sword-sword-passive-2",
+    "sword-sword-passive-3"
+   ],
+   "assetPath": "Assets/AbilityTrees/Trees/Sword.asset"
+  }
+ ],
+ "attacks": [
+  {
+   "key": "bow-aimed-shot",
+   "name": "Aimed Shot",
+   "assetName": "Bow",
+   "damage": 20,
+   "hasFrameData": true,
+   "cooldownTicks": 0,
+   "cooldownText": "None",
+   "cancelWindow": "-",
+   "projectile": true,
+   "moveSpeedFactor": 0.4,
+   "activeMoveSpeedFactor": 0.25,
+   "recoveryMoveSpeedFactor": 0,
+   "stopMovementOnHit": false,
+   "homingRange": 0,
+   "homingConeDegrees": 0,
+   "disableMagnetPull": true,
+   "rootMotionScale": 1,
+   "hitbox": {
+    "shape": "Projectile",
+    "sphereRadius": 0,
+    "capsuleRadius": 0,
+    "capsuleHeight": 0,
+    "boxExtents": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0
+    },
+    "offset": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0
+    }
+   },
+   "appliedStatuses": [],
+   "viewStateName": "",
+   "usedBy": [
+    {
+     "owner": "Bow",
+     "role": "Shot: Aimed Shot"
+    }
+   ],
+   "kinds": [
+    "Shot"
+   ],
+   "kind": "Shot",
+   "weapon": "Bow",
+   "icon": null,
+   "assetPath": "Assets/QuantumUser/Resources/WarBrawl/BowWeapon.asset",
+   "windupTicks": 38,
+   "activeTicks": 0,
+   "recoveryTicks": 61,
+   "totalTicks": 99,
+   "windupText": "38 ticks (0.63 s)",
+   "activeText": "projectile",
+   "recoveryText": "61 ticks (1.02 s)",
+   "totalText": "99 ticks (1.65 s)",
+   "rehitTicks": [],
+   "airborneWindupTicks": 0,
+   "rootMotionTicks": 0
+  },
+  {
+   "key": "flourishattack-sword",
+   "name": "Crushing Swing",
+   "assetName": "FlourishAttack_Sword",
+   "damage": 40,
+   "cooldownTicks": 0,
+   "cooldownText": "0",
+   "cancelWindow": "Recovery",
+   "hasFrameData": true,
+   "moveSpeedFactor": 0.15,
+   "activeMoveSpeedFactor": -1,
+   "recoveryMoveSpeedFactor": 0,
+   "stopMovementOnHit": false,
+   "homingRange": 6,
+   "homingConeDegrees": 30,
+   "disableMagnetPull": false,
+   "rootMotionScale": 1,
+   "hitbox": {
+    "shape": "Sphere",
+    "sphereRadius": 1,
+    "capsuleRadius": 0.5,
+    "capsuleHeight": 2,
+    "boxExtents": {
+     "x": 0.5,
+     "y": 0.5,
+     "z": 0.5
+    },
+    "offset": {
+     "x": 0.0,
+     "y": 1.0,
+     "z": 0.5
+    }
+   },
+   "appliedStatuses": [],
+   "viewStateName": "Attack_HeavyFlourish01",
+   "usedBy": [
+    {
+     "owner": "Sword",
+     "role": "Fallback ability slot 2"
+    },
+    {
+     "owner": "Sword",
+     "role": "Ability: Crushing Swing"
+    }
+   ],
+   "kinds": [
+    "Ability"
+   ],
+   "kind": "Ability",
+   "weapon": "Sword",
+   "icon": {
+    "file": "icons/SwordFlourish-43ed825e.png",
+    "frame": "icons/SkillSlot-Hex-c7024a12.png"
+   },
+   "assetPath": "Assets/QuantumUser/Resources/WarBrawl/FlourishAttack_Sword.asset",
+   "windupTicks": 55,
+   "activeTicks": 7,
+   "recoveryTicks": 20,
+   "totalTicks": 82,
+   "windupText": "55 ticks (0.92 s)",
+   "activeText": "7 ticks (0.12 s)",
+   "recoveryText": "20 ticks (0.33 s)",
+   "totalText": "82 ticks (1.37 s)",
+   "rehitTicks": [],
+   "airborneWindupTicks": 0,
+   "rootMotionTicks": 0
+  },
+  {
+   "key": "dashattack-sword",
+   "name": "Forward Cleave",
+   "assetName": "DashAttack_Sword",
+   "damage": 30,
+   "cooldownTicks": 240,
+   "cooldownText": "240 ticks (4 s)",
+   "cancelWindow": "Recovery",
+   "hasFrameData": true,
+   "moveSpeedFactor": 0,
+   "activeMoveSpeedFactor": 0,
+   "recoveryMoveSpeedFactor": 0,
+   "stopMovementOnHit": false,
+   "homingRange": 6,
+   "homingConeDegrees": 30,
+   "disableMagnetPull": false,
+   "rootMotionScale": 1,
+   "hitbox": {
+    "shape": "Sphere",
+    "sphereRadius": 0.9,
+    "capsuleRadius": 0.5,
+    "capsuleHeight": 2,
+    "boxExtents": {
+     "x": 0.5,
+     "y": 0.5,
+     "z": 0.5
+    },
+    "offset": {
+     "x": 0.0,
+     "y": 1.0,
+     "z": 1.0
+    }
+   },
+   "appliedStatuses": [],
+   "viewStateName": "Attack_SwordDash",
+   "usedBy": [
+    {
+     "owner": "Sword",
+     "role": "Fallback ability slot 5"
+    },
+    {
+     "owner": "Sword",
+     "role": "Ability: Forward Cleave"
+    }
+   ],
+   "kinds": [
+    "Ability"
+   ],
+   "kind": "Ability",
+   "weapon": "Sword",
+   "icon": {
+    "file": "icons/Forward-Cleave-bf55f0be.png",
+    "frame": "icons/SkillSlot-Hex-c7024a12.png"
+   },
+   "assetPath": "Assets/QuantumUser/Resources/WarBrawl/DashAttack_Sword.asset",
+   "windupTicks": 10,
+   "activeTicks": 12,
+   "recoveryTicks": 30,
+   "totalTicks": 52,
+   "windupText": "10 ticks (0.17 s)",
+   "activeText": "12 ticks (0.2 s)",
+   "recoveryText": "30 ticks (0.5 s)",
+   "totalText": "52 ticks (0.87 s)",
+   "rehitTicks": [],
+   "airborneWindupTicks": 0,
+   "rootMotionTicks": 52
+  },
+  {
+   "key": "bow-full-draw",
+   "name": "Full Draw",
+   "assetName": "Bow",
+   "damage": 40,
+   "hasFrameData": true,
+   "cooldownTicks": 0,
+   "cooldownText": "None",
+   "cancelWindow": "-",
+   "projectile": true,
+   "moveSpeedFactor": 0.4,
+   "activeMoveSpeedFactor": 0.25,
+   "recoveryMoveSpeedFactor": 0,
+   "stopMovementOnHit": false,
+   "homingRange": 0,
+   "homingConeDegrees": 0,
+   "disableMagnetPull": true,
+   "rootMotionScale": 1,
+   "hitbox": {
+    "shape": "Projectile",
+    "sphereRadius": 0,
+    "capsuleRadius": 0,
+    "capsuleHeight": 0,
+    "boxExtents": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0
+    },
+    "offset": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0
+    }
+   },
+   "appliedStatuses": [],
+   "viewStateName": "",
+   "usedBy": [
+    {
+     "owner": "Bow",
+     "role": "Shot: Full Draw"
+    }
+   ],
+   "kinds": [
+    "Shot"
+   ],
+   "kind": "Shot",
+   "weapon": "Bow",
+   "icon": null,
+   "assetPath": "Assets/QuantumUser/Resources/WarBrawl/BowWeapon.asset",
+   "windupTicks": 38,
+   "activeTicks": 0,
+   "recoveryTicks": 61,
+   "totalTicks": 99,
+   "windupText": "38 ticks (0.63 s)",
+   "activeText": "projectile",
+   "recoveryText": "61 ticks (1.02 s)",
+   "totalText": "99 ticks (1.65 s)",
+   "rehitTicks": [],
+   "airborneWindupTicks": 0,
+   "rootMotionTicks": 0
+  },
+  {
+   "key": "heavyattack-sword",
+   "name": "HeavyAttack Sword",
+   "assetName": "HeavyAttack_Sword",
+   "damage": 45,
+   "cooldownTicks": 240,
+   "cooldownText": "240 ticks (4 s)",
+   "cancelWindow": "None (committed)",
+   "hasFrameData": true,
+   "moveSpeedFactor": 0.06,
+   "activeMoveSpeedFactor": 0,
+   "recoveryMoveSpeedFactor": 0,
+   "stopMovementOnHit": false,
+   "homingRange": 6,
+   "homingConeDegrees": 30,
+   "disableMagnetPull": false,
+   "rootMotionScale": 1,
+   "hitbox": {
+    "shape": "Sphere",
+    "sphereRadius": 0.9,
+    "capsuleRadius": 0.5,
+    "capsuleHeight": 2,
+    "boxExtents": {
+     "x": 0.5,
+     "y": 0.5,
+     "z": 0.5
+    },
+    "offset": {
+     "x": 0.0,
+     "y": 1.0,
+     "z": 1.0
+    }
+   },
+   "appliedStatuses": [],
+   "viewStateName": "",
+   "usedBy": [
+    {
+     "owner": "Sword",
+     "role": "Heavy attack"
+    }
+   ],
+   "kinds": [
+    "Heavy"
+   ],
+   "kind": "Heavy",
+   "weapon": "Sword",
+   "icon": null,
+   "assetPath": "Assets/QuantumUser/Resources/WarBrawl/HeavyAttack_Sword.asset",
+   "windupTicks": 36,
+   "activeTicks": 12,
+   "recoveryTicks": 30,
+   "totalTicks": 78,
+   "windupText": "36 ticks (0.6 s)",
+   "activeText": "12 ticks (0.2 s)",
+   "recoveryText": "30 ticks (0.5 s)",
+   "totalText": "78 ticks (1.3 s)",
+   "rehitTicks": [],
+   "airborneWindupTicks": 0,
+   "rootMotionTicks": 78
+  },
+  {
+   "key": "leapattack-sword",
+   "name": "Leaping Slash",
+   "assetName": "LeapAttack_Sword",
+   "damage": 30,
+   "cooldownTicks": 240,
+   "cooldownText": "240 ticks (4 s)",
+   "cancelWindow": "Recovery",
+   "hasFrameData": true,
+   "moveSpeedFactor": 0.9,
+   "activeMoveSpeedFactor": 2.75,
+   "recoveryMoveSpeedFactor": 0,
+   "stopMovementOnHit": false,
+   "homingRange": 6,
+   "homingConeDegrees": 30,
+   "disableMagnetPull": false,
+   "rootMotionScale": 1,
+   "hitbox": {
+    "shape": "Sphere",
+    "sphereRadius": 0.8,
+    "capsuleRadius": 0.5,
+    "capsuleHeight": 2,
+    "boxExtents": {
+     "x": 0.5,
+     "y": 0.5,
+     "z": 0.5
+    },
+    "offset": {
+     "x": 0.0,
+     "y": 1.0,
+     "z": 1.0
+    }
+   },
+   "appliedStatuses": [
+    {
+     "status": "stun",
+     "statusName": "Stun",
+     "magnitude": 0,
+     "magnitudeText": null,
+     "tickDamage": 0,
+     "tickDamagePercentOfHit": 0,
+     "durationTicks": 60,
+     "durationText": "60 ticks (1 s)",
+     "summary": "-"
+    },
+    {
+     "status": "rend",
+     "statusName": "Rend",
+     "magnitude": 0.15,
+     "magnitudeText": "15%",
+     "tickDamage": 0,
+     "tickDamagePercentOfHit": 0,
+     "durationTicks": 240,
+     "durationText": "240 ticks (4 s)",
+     "summary": "15%"
+    }
+   ],
+   "viewStateName": "Attack_LightLeaping01",
+   "usedBy": [
+    {
+     "owner": "Sword",
+     "role": "Fallback ability slot 1"
+    },
+    {
+     "owner": "Sword",
+     "role": "Ability: Leaping Slash"
+    }
+   ],
+   "kinds": [
+    "Ability"
+   ],
+   "kind": "Ability",
+   "weapon": "Sword",
+   "icon": {
+    "file": "icons/Leaping-Slash-3-81051c9f.png",
+    "frame": "icons/SkillSlot-Hex-c7024a12.png"
+   },
+   "assetPath": "Assets/QuantumUser/Resources/WarBrawl/LeapAttack_Sword.asset",
+   "windupTicks": 60,
+   "activeTicks": 8,
+   "recoveryTicks": 26,
+   "totalTicks": 94,
+   "windupText": "60 ticks (1 s)",
+   "activeText": "8 ticks (0.13 s)",
+   "recoveryText": "26 ticks (0.43 s)",
+   "totalText": "94 ticks (1.57 s)",
+   "rehitTicks": [],
+   "airborneWindupTicks": 14,
+   "rootMotionTicks": 0
+  },
+  {
+   "key": "lightattack-axe",
+   "name": "LightAttack Axe",
+   "assetName": "LightAttack_Axe",
+   "damage": 20,
+   "cooldownTicks": 240,
+   "cooldownText": "240 ticks (4 s)",
+   "cancelWindow": "None (committed)",
+   "hasFrameData": true,
+   "moveSpeedFactor": 0,
+   "activeMoveSpeedFactor": 0,
+   "recoveryMoveSpeedFactor": 0,
+   "stopMovementOnHit": false,
+   "homingRange": 6,
+   "homingConeDegrees": 30,
+   "disableMagnetPull": false,
+   "rootMotionScale": 1,
+   "hitbox": {
+    "shape": "Sphere",
+    "sphereRadius": 0.7,
+    "capsuleRadius": 0.5,
+    "capsuleHeight": 2,
+    "boxExtents": {
+     "x": 0.5,
+     "y": 0.5,
+     "z": 0.5
+    },
+    "offset": {
+     "x": 0.0,
+     "y": 1.0,
+     "z": 1.0
+    }
+   },
+   "appliedStatuses": [],
+   "viewStateName": "",
+   "usedBy": [
+    {
+     "owner": "Axe",
+     "role": "Light combo 1"
+    }
+   ],
+   "kinds": [
+    "Light"
+   ],
+   "kind": "Light",
+   "weapon": "Axe",
+   "icon": null,
+   "assetPath": "Assets/QuantumUser/Resources/WarBrawl/LightAttack_Axe.asset",
+   "windupTicks": 58,
+   "activeTicks": 12,
+   "recoveryTicks": 52,
+   "totalTicks": 122,
+   "windupText": "58 ticks (0.97 s)",
+   "activeText": "12 ticks (0.2 s)",
+   "recoveryText": "52 ticks (0.87 s)",
+   "totalText": "122 ticks (2.03 s)",
+   "rehitTicks": [],
+   "airborneWindupTicks": 0,
+   "rootMotionTicks": 122
+  },
+  {
+   "key": "lightattack-axe-b",
+   "name": "LightAttack Axe B",
+   "assetName": "LightAttack_Axe_B",
+   "damage": 22,
+   "cooldownTicks": 240,
+   "cooldownText": "240 ticks (4 s)",
+   "cancelWindow": "None (committed)",
+   "hasFrameData": true,
+   "moveSpeedFactor": 0,
+   "activeMoveSpeedFactor": 0,
+   "recoveryMoveSpeedFactor": 0,
+   "stopMovementOnHit": false,
+   "homingRange": 6,
+   "homingConeDegrees": 30,
+   "disableMagnetPull": false,
+   "rootMotionScale": 1,
+   "hitbox": {
+    "shape": "Sphere",
+    "sphereRadius": 0.7,
+    "capsuleRadius": 0.5,
+    "capsuleHeight": 2,
+    "boxExtents": {
+     "x": 0.5,
+     "y": 0.5,
+     "z": 0.5
+    },
+    "offset": {
+     "x": 0.0,
+     "y": 1.0,
+     "z": 1.0
+    }
+   },
+   "appliedStatuses": [],
+   "viewStateName": "",
+   "usedBy": [
+    {
+     "owner": "Axe",
+     "role": "Light combo 2"
+    }
+   ],
+   "kinds": [
+    "Light"
+   ],
+   "kind": "Light",
+   "weapon": "Axe",
+   "icon": null,
+   "assetPath": "Assets/QuantumUser/Resources/WarBrawl/LightAttack_Axe_B.asset",
+   "windupTicks": 46,
+   "activeTicks": 12,
+   "recoveryTicks": 42,
+   "totalTicks": 100,
+   "windupText": "46 ticks (0.77 s)",
+   "activeText": "12 ticks (0.2 s)",
+   "recoveryText": "42 ticks (0.7 s)",
+   "totalText": "100 ticks (1.67 s)",
+   "rehitTicks": [],
+   "airborneWindupTicks": 0,
+   "rootMotionTicks": 100
+  },
+  {
+   "key": "lightattack-axe-c",
+   "name": "LightAttack Axe C",
+   "assetName": "LightAttack_Axe_C",
+   "damage": 26,
+   "cooldownTicks": 240,
+   "cooldownText": "240 ticks (4 s)",
+   "cancelWindow": "None (committed)",
+   "hasFrameData": true,
+   "moveSpeedFactor": 0,
+   "activeMoveSpeedFactor": 0,
+   "recoveryMoveSpeedFactor": 0,
+   "stopMovementOnHit": false,
+   "homingRange": 6,
+   "homingConeDegrees": 30,
+   "disableMagnetPull": false,
+   "rootMotionScale": 1,
+   "hitbox": {
+    "shape": "Sphere",
+    "sphereRadius": 0.7,
+    "capsuleRadius": 0.5,
+    "capsuleHeight": 2,
+    "boxExtents": {
+     "x": 0.5,
+     "y": 0.5,
+     "z": 0.5
+    },
+    "offset": {
+     "x": 0.0,
+     "y": 1.0,
+     "z": 1.0
+    }
+   },
+   "appliedStatuses": [],
+   "viewStateName": "",
+   "usedBy": [
+    {
+     "owner": "Axe",
+     "role": "Light combo 3"
+    }
+   ],
+   "kinds": [
+    "Light"
+   ],
+   "kind": "Light",
+   "weapon": "Axe",
+   "icon": null,
+   "assetPath": "Assets/QuantumUser/Resources/WarBrawl/LightAttack_Axe_C.asset",
+   "windupTicks": 44,
+   "activeTicks": 12,
+   "recoveryTicks": 40,
+   "totalTicks": 96,
+   "windupText": "44 ticks (0.73 s)",
+   "activeText": "12 ticks (0.2 s)",
+   "recoveryText": "40 ticks (0.67 s)",
+   "totalText": "96 ticks (1.6 s)",
+   "rehitTicks": [],
+   "airborneWindupTicks": 0,
+   "rootMotionTicks": 96
+  },
+  {
+   "key": "lightattack-spear",
+   "name": "LightAttack Spear",
+   "assetName": "LightAttack_Spear",
+   "damage": 16,
+   "cooldownTicks": 0,
+   "cooldownText": "0",
+   "cancelWindow": "None (committed)",
+   "hasFrameData": true,
+   "moveSpeedFactor": 0,
+   "activeMoveSpeedFactor": 0.4,
+   "recoveryMoveSpeedFactor": 0,
+   "stopMovementOnHit": true,
+   "homingRange": 6,
+   "homingConeDegrees": 30,
+   "disableMagnetPull": false,
+   "rootMotionScale": 1,
+   "hitbox": {
+    "shape": "Sphere",
+    "sphereRadius": 0.55,
+    "capsuleRadius": 0.5,
+    "capsuleHeight": 2,
+    "boxExtents": {
+     "x": 0.5,
+     "y": 0.5,
+     "z": 0.5
+    },
+    "offset": {
+     "x": 0.0,
+     "y": 1.100006103515625,
+     "z": 1.6999969482421875
+    }
+   },
+   "appliedStatuses": [],
+   "viewStateName": "",
+   "usedBy": [
+    {
+     "owner": "Spear",
+     "role": "Light combo 1"
+    }
+   ],
+   "kinds": [
+    "Light"
+   ],
+   "kind": "Light",
+   "weapon": "Spear",
+   "icon": null,
+   "assetPath": "Assets/QuantumUser/Resources/WarBrawl/LightAttack_Spear.asset",
+   "windupTicks": 52,
+   "activeTicks": 12,
+   "recoveryTicks": 18,
+   "totalTicks": 82,
+   "windupText": "52 ticks (0.87 s)",
+   "activeText": "12 ticks (0.2 s)",
+   "recoveryText": "18 ticks (0.3 s)",
+   "totalText": "82 ticks (1.37 s)",
+   "rehitTicks": [],
+   "airborneWindupTicks": 0,
+   "rootMotionTicks": 0
+  },
+  {
+   "key": "lightattack-spear-b",
+   "name": "LightAttack Spear B",
+   "assetName": "LightAttack_Spear_B",
+   "damage": 16,
+   "cooldownTicks": 0,
+   "cooldownText": "0",
+   "cancelWindow": "None (committed)",
+   "hasFrameData": true,
+   "moveSpeedFactor": 0,
+   "activeMoveSpeedFactor": 0.4,
+   "recoveryMoveSpeedFactor": 0,
+   "stopMovementOnHit": true,
+   "homingRange": 6,
+   "homingConeDegrees": 30,
+   "disableMagnetPull": false,
+   "rootMotionScale": 1,
+   "hitbox": {
+    "shape": "Sphere",
+    "sphereRadius": 0.55,
+    "capsuleRadius": 0.5,
+    "capsuleHeight": 2,
+    "boxExtents": {
+     "x": 0.5,
+     "y": 0.5,
+     "z": 0.5
+    },
+    "offset": {
+     "x": 0.0,
+     "y": 1.100006103515625,
+     "z": 1.6999969482421875
+    }
+   },
+   "appliedStatuses": [],
+   "viewStateName": "",
+   "usedBy": [
+    {
+     "owner": "Spear",
+     "role": "Light combo 2"
+    }
+   ],
+   "kinds": [
+    "Light"
+   ],
+   "kind": "Light",
+   "weapon": "Spear",
+   "icon": null,
+   "assetPath": "Assets/QuantumUser/Resources/WarBrawl/LightAttack_Spear_B.asset",
+   "windupTicks": 52,
+   "activeTicks": 12,
+   "recoveryTicks": 18,
+   "totalTicks": 82,
+   "windupText": "52 ticks (0.87 s)",
+   "activeText": "12 ticks (0.2 s)",
+   "recoveryText": "18 ticks (0.3 s)",
+   "totalText": "82 ticks (1.37 s)",
+   "rehitTicks": [],
+   "airborneWindupTicks": 0,
+   "rootMotionTicks": 0
+  },
+  {
+   "key": "lightattack-spear-c",
+   "name": "LightAttack Spear C",
+   "assetName": "LightAttack_Spear_C",
+   "damage": 22,
+   "cooldownTicks": 0,
+   "cooldownText": "0",
+   "cancelWindow": "None (committed)",
+   "hasFrameData": true,
+   "moveSpeedFactor": 0,
+   "activeMoveSpeedFactor": 0.4,
+   "recoveryMoveSpeedFactor": 0,
+   "stopMovementOnHit": true,
+   "homingRange": 6,
+   "homingConeDegrees": 30,
+   "disableMagnetPull": false,
+   "rootMotionScale": 1,
+   "hitbox": {
+    "shape": "Sphere",
+    "sphereRadius": 0.6,
+    "capsuleRadius": 0.5,
+    "capsuleHeight": 2,
+    "boxExtents": {
+     "x": 0.5,
+     "y": 0.5,
+     "z": 0.5
+    },
+    "offset": {
+     "x": 0.0,
+     "y": 1.100006103515625,
+     "z": 1.899993896484375
+    }
+   },
+   "appliedStatuses": [],
+   "viewStateName": "",
+   "usedBy": [
+    {
+     "owner": "Spear",
+     "role": "Light combo 3"
+    }
+   ],
+   "kinds": [
+    "Light"
+   ],
+   "kind": "Light",
+   "weapon": "Spear",
+   "icon": null,
+   "assetPath": "Assets/QuantumUser/Resources/WarBrawl/LightAttack_Spear_C.asset",
+   "windupTicks": 52,
+   "activeTicks": 12,
+   "recoveryTicks": 18,
+   "totalTicks": 82,
+   "windupText": "52 ticks (0.87 s)",
+   "activeText": "12 ticks (0.2 s)",
+   "recoveryText": "18 ticks (0.3 s)",
+   "totalText": "82 ticks (1.37 s)",
+   "rehitTicks": [],
+   "airborneWindupTicks": 0,
+   "rootMotionTicks": 0
+  },
+  {
+   "key": "lightattack-sword",
+   "name": "LightAttack Sword",
+   "assetName": "LightAttack_Sword",
+   "damage": 20,
+   "cooldownTicks": 240,
+   "cooldownText": "240 ticks (4 s)",
+   "cancelWindow": "Recovery",
+   "hasFrameData": true,
+   "moveSpeedFactor": 0.25,
+   "activeMoveSpeedFactor": -1,
+   "recoveryMoveSpeedFactor": 0.1,
+   "stopMovementOnHit": false,
+   "homingRange": 6,
+   "homingConeDegrees": 30,
+   "disableMagnetPull": false,
+   "rootMotionScale": 1,
+   "hitbox": {
+    "shape": "Sphere",
+    "sphereRadius": 0.7,
+    "capsuleRadius": 0.5,
+    "capsuleHeight": 2,
+    "boxExtents": {
+     "x": 0.5,
+     "y": 0.5,
+     "z": 0.5
+    },
+    "offset": {
+     "x": 0.0,
+     "y": 1.0,
+     "z": 1.0
+    }
+   },
+   "appliedStatuses": [],
+   "viewStateName": "",
+   "usedBy": [
+    {
+     "owner": "Sword",
+     "role": "Light combo 1"
+    }
+   ],
+   "kinds": [
+    "Light"
+   ],
+   "kind": "Light",
+   "weapon": "Sword",
+   "icon": null,
+   "assetPath": "Assets/QuantumUser/Resources/WarBrawl/LightAttack_Sword.asset",
+   "windupTicks": 15,
+   "activeTicks": 8,
+   "recoveryTicks": 25,
+   "totalTicks": 48,
+   "windupText": "15 ticks (0.25 s)",
+   "activeText": "8 ticks (0.13 s)",
+   "recoveryText": "25 ticks (0.42 s)",
+   "totalText": "48 ticks (0.8 s)",
+   "rehitTicks": [],
+   "airborneWindupTicks": 0,
+   "rootMotionTicks": 48
+  },
+  {
+   "key": "lightattack-sword-b",
+   "name": "LightAttack Sword B",
+   "assetName": "LightAttack_Sword_B",
+   "damage": 22,
+   "cooldownTicks": 240,
+   "cooldownText": "240 ticks (4 s)",
+   "cancelWindow": "Recovery",
+   "hasFrameData": true,
+   "moveSpeedFactor": 0.25,
+   "activeMoveSpeedFactor": -1,
+   "recoveryMoveSpeedFactor": 0.1,
+   "stopMovementOnHit": false,
+   "homingRange": 6,
+   "homingConeDegrees": 30,
+   "disableMagnetPull": false,
+   "rootMotionScale": 1,
+   "hitbox": {
+    "shape": "Sphere",
+    "sphereRadius": 0.7,
+    "capsuleRadius": 0.5,
+    "capsuleHeight": 2,
+    "boxExtents": {
+     "x": 0.5,
+     "y": 0.5,
+     "z": 0.5
+    },
+    "offset": {
+     "x": 0.0,
+     "y": 1.0,
+     "z": 1.0
+    }
+   },
+   "appliedStatuses": [],
+   "viewStateName": "",
+   "usedBy": [
+    {
+     "owner": "Sword",
+     "role": "Light combo 2"
+    }
+   ],
+   "kinds": [
+    "Light"
+   ],
+   "kind": "Light",
+   "weapon": "Sword",
+   "icon": null,
+   "assetPath": "Assets/QuantumUser/Resources/WarBrawl/LightAttack_Sword_B.asset",
+   "windupTicks": 10,
+   "activeTicks": 8,
+   "recoveryTicks": 22,
+   "totalTicks": 40,
+   "windupText": "10 ticks (0.17 s)",
+   "activeText": "8 ticks (0.13 s)",
+   "recoveryText": "22 ticks (0.37 s)",
+   "totalText": "40 ticks (0.67 s)",
+   "rehitTicks": [],
+   "airborneWindupTicks": 0,
+   "rootMotionTicks": 40
+  },
+  {
+   "key": "lightattack-sword-c",
+   "name": "LightAttack Sword C",
+   "assetName": "LightAttack_Sword_C",
+   "damage": 26,
+   "cooldownTicks": 240,
+   "cooldownText": "240 ticks (4 s)",
+   "cancelWindow": "Recovery",
+   "hasFrameData": true,
+   "moveSpeedFactor": 0.25,
+   "activeMoveSpeedFactor": -1,
+   "recoveryMoveSpeedFactor": 0.1,
+   "stopMovementOnHit": false,
+   "homingRange": 6,
+   "homingConeDegrees": 30,
+   "disableMagnetPull": false,
+   "rootMotionScale": 1,
+   "hitbox": {
+    "shape": "Sphere",
+    "sphereRadius": 0.7,
+    "capsuleRadius": 0.5,
+    "capsuleHeight": 2,
+    "boxExtents": {
+     "x": 0.5,
+     "y": 0.5,
+     "z": 0.5
+    },
+    "offset": {
+     "x": 0.0,
+     "y": 1.0,
+     "z": 1.0
+    }
+   },
+   "appliedStatuses": [],
+   "viewStateName": "",
+   "usedBy": [
+    {
+     "owner": "Sword",
+     "role": "Light combo 3"
+    }
+   ],
+   "kinds": [
+    "Light"
+   ],
+   "kind": "Light",
+   "weapon": "Sword",
+   "icon": null,
+   "assetPath": "Assets/QuantumUser/Resources/WarBrawl/LightAttack_Sword_C.asset",
+   "windupTicks": 22,
+   "activeTicks": 8,
+   "recoveryTicks": 14,
+   "totalTicks": 44,
+   "windupText": "22 ticks (0.37 s)",
+   "activeText": "8 ticks (0.13 s)",
+   "recoveryText": "14 ticks (0.23 s)",
+   "totalText": "44 ticks (0.73 s)",
+   "rehitTicks": [],
+   "airborneWindupTicks": 0,
+   "rootMotionTicks": 44
+  },
+  {
+   "key": "fencingattack-sword",
+   "name": "Needle Strike",
+   "assetName": "FencingAttack_Sword",
+   "damage": 18,
+   "cooldownTicks": 240,
+   "cooldownText": "240 ticks (4 s)",
+   "cancelWindow": "Recovery",
+   "hasFrameData": true,
+   "moveSpeedFactor": 0.5,
+   "activeMoveSpeedFactor": -1,
+   "recoveryMoveSpeedFactor": 0,
+   "stopMovementOnHit": false,
+   "homingRange": 6,
+   "homingConeDegrees": 30,
+   "disableMagnetPull": false,
+   "rootMotionScale": 1,
+   "hitbox": {
+    "shape": "Sphere",
+    "sphereRadius": 0.6,
+    "capsuleRadius": 0.5,
+    "capsuleHeight": 2,
+    "boxExtents": {
+     "x": 0.5,
+     "y": 0.5,
+     "z": 0.5
+    },
+    "offset": {
+     "x": 0.0,
+     "y": 1.0,
+     "z": 1.399993896484375
+    }
+   },
+   "appliedStatuses": [
+    {
+     "status": "bleed",
+     "statusName": "Bleed",
+     "magnitude": 0,
+     "magnitudeText": null,
+     "tickDamage": 4,
+     "tickDamagePercentOfHit": 0,
+     "durationTicks": 360,
+     "durationText": "360 ticks (6 s)",
+     "summary": "4 damage per tick"
+    }
+   ],
+   "viewStateName": "Attack_LightFencing01",
+   "usedBy": [
+    {
+     "owner": "Sword",
+     "role": "Fallback ability slot 3"
+    },
+    {
+     "owner": "Sword",
+     "role": "Ability: Needle Strike"
+    }
+   ],
+   "kinds": [
+    "Ability"
+   ],
+   "kind": "Ability",
+   "weapon": "Sword",
+   "icon": {
+    "file": "icons/SwordFencing-b614f709.png",
+    "frame": "icons/SkillSlot-Hex-c7024a12.png"
+   },
+   "assetPath": "Assets/QuantumUser/Resources/WarBrawl/FencingAttack_Sword.asset",
+   "windupTicks": 19,
+   "activeTicks": 19,
+   "recoveryTicks": 11,
+   "totalTicks": 49,
+   "windupText": "19 ticks (0.32 s)",
+   "activeText": "19 ticks (0.32 s)",
+   "recoveryText": "11 ticks (0.18 s)",
+   "totalText": "49 ticks (0.82 s)",
+   "rehitTicks": [
+    10
+   ],
+   "airborneWindupTicks": 0,
+   "rootMotionTicks": 0
+  },
+  {
+   "key": "bow-quick-shot",
+   "name": "Quick Shot",
+   "assetName": "Bow",
+   "damage": 10,
+   "hasFrameData": true,
+   "cooldownTicks": 0,
+   "cooldownText": "None",
+   "cancelWindow": "-",
+   "projectile": true,
+   "moveSpeedFactor": 0.4,
+   "activeMoveSpeedFactor": 0.25,
+   "recoveryMoveSpeedFactor": 0,
+   "stopMovementOnHit": false,
+   "homingRange": 0,
+   "homingConeDegrees": 0,
+   "disableMagnetPull": true,
+   "rootMotionScale": 1,
+   "hitbox": {
+    "shape": "Projectile",
+    "sphereRadius": 0,
+    "capsuleRadius": 0,
+    "capsuleHeight": 0,
+    "boxExtents": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0
+    },
+    "offset": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0
+    }
+   },
+   "appliedStatuses": [],
+   "viewStateName": "",
+   "usedBy": [
+    {
+     "owner": "Bow",
+     "role": "Shot: Quick Shot"
+    }
+   ],
+   "kinds": [
+    "Shot"
+   ],
+   "kind": "Shot",
+   "weapon": "Bow",
+   "icon": null,
+   "assetPath": "Assets/QuantumUser/Resources/WarBrawl/BowWeapon.asset",
+   "windupTicks": 8,
+   "activeTicks": 0,
+   "recoveryTicks": 56,
+   "totalTicks": 64,
+   "windupText": "8 ticks (0.13 s)",
+   "activeText": "projectile",
+   "recoveryText": "56 ticks (0.93 s)",
+   "totalText": "64 ticks (1.07 s)",
+   "rehitTicks": [],
+   "airborneWindupTicks": 0,
+   "rootMotionTicks": 0
+  },
+  {
+   "key": "spinattack-sword",
+   "name": "Spinning Blade",
+   "assetName": "SpinAttack_Sword",
+   "damage": 18,
+   "cooldownTicks": 240,
+   "cooldownText": "240 ticks (4 s)",
+   "cancelWindow": "Active + Recovery",
+   "hasFrameData": true,
+   "moveSpeedFactor": 0,
+   "activeMoveSpeedFactor": 0.2,
+   "recoveryMoveSpeedFactor": 0,
+   "stopMovementOnHit": false,
+   "homingRange": 6,
+   "homingConeDegrees": 30,
+   "disableMagnetPull": false,
+   "rootMotionScale": 1,
+   "hitbox": {
+    "shape": "Sphere",
+    "sphereRadius": 1.5,
+    "capsuleRadius": 0.5,
+    "capsuleHeight": 2,
+    "boxExtents": {
+     "x": 0.5,
+     "y": 0.5,
+     "z": 0.5
+    },
+    "offset": {
+     "x": 0.0,
+     "y": 1.0,
+     "z": 0.0
+    }
+   },
+   "appliedStatuses": [
+    {
+     "status": "stagger",
+     "statusName": "Stagger",
+     "magnitude": 0,
+     "magnitudeText": null,
+     "tickDamage": 0,
+     "tickDamagePercentOfHit": 0,
+     "durationTicks": 24,
+     "durationText": "24 ticks (0.4 s)",
+     "summary": "-"
+    }
+   ],
+   "viewStateName": "Attack_SwordSpin01",
+   "usedBy": [
+    {
+     "owner": "Sword",
+     "role": "Fallback ability slot 4"
+    },
+    {
+     "owner": "Sword",
+     "role": "Ability: Spinning Blade"
+    }
+   ],
+   "kinds": [
+    "Ability"
+   ],
+   "kind": "Ability",
+   "weapon": "Sword",
+   "icon": {
+    "file": "icons/SpinningBlade-0ce80772.png",
+    "frame": "icons/SkillSlot-Hex-c7024a12.png"
+   },
+   "assetPath": "Assets/QuantumUser/Resources/WarBrawl/SpinAttack_Sword.asset",
+   "windupTicks": 57,
+   "activeTicks": 60,
+   "recoveryTicks": 29,
+   "totalTicks": 146,
+   "windupText": "57 ticks (0.95 s)",
+   "activeText": "60 ticks (1 s)",
+   "recoveryText": "29 ticks (0.48 s)",
+   "totalText": "146 ticks (2.43 s)",
+   "rehitTicks": [
+    24,
+    54
+   ],
+   "airborneWindupTicks": 17,
+   "rootMotionTicks": 0
+  },
+  {
+   "key": "whirlingstepattack-sword",
+   "name": "Whirling Step",
+   "assetName": "WhirlingStepAttack_Sword",
+   "damage": 28,
+   "cooldownTicks": 300,
+   "cooldownText": "300 ticks (5 s)",
+   "cancelWindow": "Recovery",
+   "hasFrameData": true,
+   "moveSpeedFactor": 0,
+   "activeMoveSpeedFactor": 0,
+   "recoveryMoveSpeedFactor": 0,
+   "stopMovementOnHit": false,
+   "homingRange": 6,
+   "homingConeDegrees": 30,
+   "disableMagnetPull": false,
+   "rootMotionScale": 1,
+   "hitbox": {
+    "shape": "Sphere",
+    "sphereRadius": 1.4,
+    "capsuleRadius": 0.5,
+    "capsuleHeight": 2,
+    "boxExtents": {
+     "x": 0.5,
+     "y": 0.5,
+     "z": 0.5
+    },
+    "offset": {
+     "x": 0.0,
+     "y": 1.0,
+     "z": 0.0
+    }
+   },
+   "appliedStatuses": [
+    {
+     "status": "rend",
+     "statusName": "Rend",
+     "magnitude": 0.3,
+     "magnitudeText": "30%",
+     "tickDamage": 0,
+     "tickDamagePercentOfHit": 0,
+     "durationTicks": 360,
+     "durationText": "360 ticks (6 s)",
+     "summary": "30%"
+    }
+   ],
+   "viewStateName": "Attack_SwordWhirlingStep",
+   "usedBy": [
+    {
+     "owner": "Sword",
+     "role": "Fallback ability slot 6"
+    },
+    {
+     "owner": "Sword",
+     "role": "Ability: Whirling Step"
+    }
+   ],
+   "kinds": [
+    "Ability"
+   ],
+   "kind": "Ability",
+   "weapon": "Sword",
+   "icon": {
+    "file": "icons/Whirling-Step-c96473a8.png",
+    "frame": "icons/SkillSlot-Hex-c7024a12.png"
+   },
+   "assetPath": "Assets/QuantumUser/Resources/WarBrawl/WhirlingStepAttack_Sword.asset",
+   "windupTicks": 46,
+   "activeTicks": 20,
+   "recoveryTicks": 42,
+   "totalTicks": 108,
+   "windupText": "46 ticks (0.77 s)",
+   "activeText": "20 ticks (0.33 s)",
+   "recoveryText": "42 ticks (0.7 s)",
+   "totalText": "108 ticks (1.8 s)",
+   "rehitTicks": [],
+   "airborneWindupTicks": 0,
+   "rootMotionTicks": 108
+  }
+ ],
+ "weapons": [
+  {
+   "key": "sword",
+   "name": "Sword",
+   "index": 0,
+   "primaryAttribute": "Strength",
+   "primaryCoefficient": 1,
+   "secondaryAttribute": "Strength",
+   "secondaryCoefficient": 0,
+   "lightCombo": [
+    "lightattack-sword",
+    "lightattack-sword-b",
+    "lightattack-sword-c"
+   ],
+   "heavyAttack": "heavyattack-sword",
+   "abilities": [
+    "leapattack-sword",
+    "flourishattack-sword",
+    "fencingattack-sword",
+    "spinattack-sword",
+    "dashattack-sword",
+    "whirlingstepattack-sword"
+   ],
+   "icon": {
+    "file": "icons/GearSword.png"
+   },
+   "assetPath": "Assets/QuantumUser/Resources/WarBrawl/Sword.asset"
+  },
+  {
+   "key": "bow",
+   "name": "Bow",
+   "index": 1,
+   "primaryAttribute": "Dexterity",
+   "primaryCoefficient": 1,
+   "secondaryAttribute": "Strength",
+   "secondaryCoefficient": 0,
+   "lightCombo": [],
+   "heavyAttack": null,
+   "abilities": [],
+   "icon": {
+    "file": "icons/GearBow.png"
+   },
+   "assetPath": "Assets/QuantumUser/Resources/WarBrawl/BowWeapon.asset"
+  },
+  {
+   "key": "spear",
+   "name": "Spear",
+   "index": 2,
+   "primaryAttribute": "Dexterity",
+   "primaryCoefficient": 0.8,
+   "secondaryAttribute": "Strength",
+   "secondaryCoefficient": 0.5,
+   "lightCombo": [
+    "lightattack-spear",
+    "lightattack-spear-b",
+    "lightattack-spear-c"
+   ],
+   "heavyAttack": null,
+   "abilities": [],
+   "icon": {
+    "file": "icons/ICON_SM_Wep_Spear_08-3e0fe679.png"
+   },
+   "assetPath": "Assets/QuantumUser/Resources/WarBrawl/Spear.asset"
+  },
+  {
+   "key": "axe",
+   "name": "Axe",
+   "index": 3,
+   "primaryAttribute": "Strength",
+   "primaryCoefficient": 1,
+   "secondaryAttribute": "Strength",
+   "secondaryCoefficient": 0,
+   "lightCombo": [
+    "lightattack-axe",
+    "lightattack-axe-b",
+    "lightattack-axe-c"
+   ],
+   "heavyAttack": null,
+   "abilities": [],
+   "icon": {
+    "file": "icons/ICON_SM_Wep_Axe_07-d455ed1a.png"
+   },
+   "assetPath": "Assets/QuantumUser/Resources/WarBrawl/Axe.asset"
+  }
+ ],
+ "gearSlots": [
+  {
+   "key": "helm",
+   "name": "Helm",
+   "index": 0,
+   "group": 0,
+   "groupName": "Armor",
+   "allowedTags": [
+    "offense",
+    "defense",
+    "control"
+   ],
+   "perkCapacity": 3,
+   "weaponIndex": -1,
+   "weapon": null,
+   "icon": {
+    "file": "icons/GearHelm.png"
+   },
+   "perks": [
+    "rending-strikes",
+    "battle-fury",
+    "weakening-blows",
+    "plaguebearer",
+    "serrated-edge",
+    "venom-coating",
+    "hobbling-strikes",
+    "lightning-strikes",
+    "keen-edge",
+    "freedom",
+    "staggering-blow",
+    "thundering-impact"
+   ]
+  },
+  {
+   "key": "chest",
+   "name": "Chest",
+   "index": 1,
+   "group": 0,
+   "groupName": "Armor",
+   "allowedTags": [
+    "offense",
+    "defense",
+    "control"
+   ],
+   "perkCapacity": 3,
+   "weaponIndex": -1,
+   "weapon": null,
+   "icon": {
+    "file": "icons/GearChest.png"
+   },
+   "perks": [
+    "rending-strikes",
+    "battle-fury",
+    "weakening-blows",
+    "plaguebearer",
+    "serrated-edge",
+    "venom-coating",
+    "hobbling-strikes",
+    "lightning-strikes",
+    "keen-edge",
+    "freedom",
+    "staggering-blow",
+    "thundering-impact"
+   ]
+  },
+  {
+   "key": "gloves",
+   "name": "Gloves",
+   "index": 2,
+   "group": 0,
+   "groupName": "Armor",
+   "allowedTags": [
+    "offense",
+    "defense",
+    "control"
+   ],
+   "perkCapacity": 3,
+   "weaponIndex": -1,
+   "weapon": null,
+   "icon": {
+    "file": "icons/GearGloves.png"
+   },
+   "perks": [
+    "rending-strikes",
+    "battle-fury",
+    "weakening-blows",
+    "plaguebearer",
+    "serrated-edge",
+    "venom-coating",
+    "hobbling-strikes",
+    "lightning-strikes",
+    "keen-edge",
+    "freedom",
+    "staggering-blow",
+    "thundering-impact"
+   ]
+  },
+  {
+   "key": "pants",
+   "name": "Pants",
+   "index": 3,
+   "group": 0,
+   "groupName": "Armor",
+   "allowedTags": [
+    "offense",
+    "defense",
+    "control"
+   ],
+   "perkCapacity": 3,
+   "weaponIndex": -1,
+   "weapon": null,
+   "icon": {
+    "file": "icons/GearPants.png"
+   },
+   "perks": [
+    "rending-strikes",
+    "battle-fury",
+    "weakening-blows",
+    "plaguebearer",
+    "serrated-edge",
+    "venom-coating",
+    "hobbling-strikes",
+    "lightning-strikes",
+    "keen-edge",
+    "freedom",
+    "staggering-blow",
+    "thundering-impact"
+   ]
+  },
+  {
+   "key": "boots",
+   "name": "Boots",
+   "index": 4,
+   "group": 0,
+   "groupName": "Armor",
+   "allowedTags": [
+    "offense",
+    "defense",
+    "control"
+   ],
+   "perkCapacity": 3,
+   "weaponIndex": -1,
+   "weapon": null,
+   "icon": {
+    "file": "icons/GearBoots.png"
+   },
+   "perks": [
+    "rending-strikes",
+    "battle-fury",
+    "weakening-blows",
+    "plaguebearer",
+    "serrated-edge",
+    "venom-coating",
+    "hobbling-strikes",
+    "lightning-strikes",
+    "keen-edge",
+    "freedom",
+    "staggering-blow",
+    "thundering-impact"
+   ]
+  },
+  {
+   "key": "amulet",
+   "name": "Amulet",
+   "index": 5,
+   "group": 1,
+   "groupName": "Jewelry",
+   "allowedTags": [
+    "offense",
+    "defense",
+    "control",
+    "mobility"
+   ],
+   "perkCapacity": 3,
+   "weaponIndex": -1,
+   "weapon": null,
+   "icon": {
+    "file": "icons/GearAmulet.png"
+   },
+   "perks": [
+    "rending-strikes",
+    "battle-fury",
+    "weakening-blows",
+    "plaguebearer",
+    "serrated-edge",
+    "venom-coating",
+    "swiftness",
+    "hobbling-strikes",
+    "lightning-strikes",
+    "keen-edge",
+    "freedom",
+    "staggering-blow",
+    "thundering-impact"
+   ]
+  },
+  {
+   "key": "ring",
+   "name": "Ring",
+   "index": 6,
+   "group": 1,
+   "groupName": "Jewelry",
+   "allowedTags": [
+    "offense",
+    "defense",
+    "control",
+    "mobility"
+   ],
+   "perkCapacity": 3,
+   "weaponIndex": -1,
+   "weapon": null,
+   "icon": {
+    "file": "icons/GearRing.png"
+   },
+   "perks": [
+    "rending-strikes",
+    "battle-fury",
+    "weakening-blows",
+    "plaguebearer",
+    "serrated-edge",
+    "venom-coating",
+    "swiftness",
+    "hobbling-strikes",
+    "lightning-strikes",
+    "keen-edge",
+    "freedom",
+    "staggering-blow",
+    "thundering-impact"
+   ]
+  },
+  {
+   "key": "earring",
+   "name": "Earring",
+   "index": 7,
+   "group": 1,
+   "groupName": "Jewelry",
+   "allowedTags": [
+    "offense",
+    "defense",
+    "control",
+    "mobility"
+   ],
+   "perkCapacity": 3,
+   "weaponIndex": -1,
+   "weapon": null,
+   "icon": {
+    "file": "icons/GearEaring.png"
+   },
+   "perks": [
+    "rending-strikes",
+    "battle-fury",
+    "weakening-blows",
+    "plaguebearer",
+    "serrated-edge",
+    "venom-coating",
+    "swiftness",
+    "hobbling-strikes",
+    "lightning-strikes",
+    "keen-edge",
+    "freedom",
+    "staggering-blow",
+    "thundering-impact"
+   ]
+  },
+  {
+   "key": "sword",
+   "name": "Sword",
+   "index": 8,
+   "group": 2,
+   "groupName": "Weapon",
+   "allowedTags": [
+    "offense",
+    "control"
+   ],
+   "perkCapacity": 3,
+   "weaponIndex": 0,
+   "weapon": "Sword",
+   "icon": {
+    "file": "icons/GearSword.png"
+   },
+   "perks": [
+    "rending-strikes",
+    "battle-fury",
+    "weakening-blows",
+    "plaguebearer",
+    "serrated-edge",
+    "venom-coating",
+    "hobbling-strikes",
+    "lightning-strikes",
+    "keen-edge",
+    "staggering-blow",
+    "thundering-impact"
+   ]
+  },
+  {
+   "key": "bow",
+   "name": "Bow",
+   "index": 9,
+   "group": 2,
+   "groupName": "Weapon",
+   "allowedTags": [
+    "offense",
+    "control"
+   ],
+   "perkCapacity": 3,
+   "weaponIndex": 1,
+   "weapon": "Bow",
+   "icon": {
+    "file": "icons/GearBow.png"
+   },
+   "perks": [
+    "rending-strikes",
+    "battle-fury",
+    "weakening-blows",
+    "plaguebearer",
+    "serrated-edge",
+    "venom-coating",
+    "hobbling-strikes",
+    "lightning-strikes",
+    "keen-edge",
+    "staggering-blow",
+    "thundering-impact"
+   ]
+  },
+  {
+   "key": "spear",
+   "name": "Spear",
+   "index": 10,
+   "group": 2,
+   "groupName": "Weapon",
+   "allowedTags": [
+    "offense",
+    "control"
+   ],
+   "perkCapacity": 3,
+   "weaponIndex": 2,
+   "weapon": "Spear",
+   "icon": {
+    "file": "icons/ICON_SM_Wep_Spear_08-3e0fe679.png"
+   },
+   "perks": [
+    "rending-strikes",
+    "battle-fury",
+    "weakening-blows",
+    "plaguebearer",
+    "serrated-edge",
+    "venom-coating",
+    "hobbling-strikes",
+    "lightning-strikes",
+    "keen-edge",
+    "staggering-blow",
+    "thundering-impact"
+   ]
+  },
+  {
+   "key": "axe",
+   "name": "Axe",
+   "index": 11,
+   "group": 2,
+   "groupName": "Weapon",
+   "allowedTags": [
+    "offense",
+    "control"
+   ],
+   "perkCapacity": 3,
+   "weaponIndex": 3,
+   "weapon": "Axe",
+   "icon": {
+    "file": "icons/ICON_SM_Wep_Axe_07-d455ed1a.png"
+   },
+   "perks": [
+    "rending-strikes",
+    "battle-fury",
+    "weakening-blows",
+    "plaguebearer",
+    "serrated-edge",
+    "venom-coating",
+    "hobbling-strikes",
+    "lightning-strikes",
+    "keen-edge",
+    "staggering-blow",
+    "thundering-impact"
+   ]
+  }
+ ],
+ "config": {
+  "damage": {
+   "statScalarFloor": 0.1,
+   "statScalarKneePoints": 35,
+   "statScalarKnee": 1.2,
+   "statScalarMax": 1.5,
+   "attributeMax": 50,
+   "mitigationK": 100,
+   "elementalMitigationK": 100,
+   "perPointHealth": 0.01,
+   "perPointHealing": 0.01,
+   "baseMaxHealth": 100,
+   "empowerCap": 0.5,
+   "weakenCap": 0.5,
+   "fortifyCap": 0.5,
+   "rendCap": 0.7
+  },
+  "tickRate": 60,
+  "attributePool": 50,
+  "attributeMax": 50,
+  "thresholdStep": 10,
+  "attributes": [
+   "Strength",
+   "Dexterity",
+   "Intelligence",
+   "Focus",
+   "Constitution"
+  ],
+  "weightClassNames": [
+   "Light",
+   "Heavy"
+  ],
+  "statusConfig": [
+   {
+    "label": "EmpowerCap",
+    "value": 0.5
+   },
+   {
+    "label": "WeakenCap",
+    "value": 0.5
+   },
+   {
+    "label": "FortifyCap",
+    "value": 0.5
+   },
+   {
+    "label": "RendCap",
+    "value": 0.7
+   },
+   {
+    "label": "DiseaseCap",
+    "value": 0.5
+   },
+   {
+    "label": "HasteCap",
+    "value": 0.3
+   },
+   {
+    "label": "SlowCap",
+    "value": 0.3
+   },
+   {
+    "label": "ExhaustCap",
+    "value": 0.5
+   },
+   {
+    "label": "BleedMaxStacks",
+    "value": 3
+   },
+   {
+    "label": "PoisonMaxStacks",
+    "value": 1
+   },
+   {
+    "label": "DotTickIntervalTicks",
+    "value": 60
+   },
+   {
+    "label": "StaggerActionLockTicks",
+    "value": 24
+   },
+   {
+    "label": "FreedomCap",
+    "value": 0.5
+   }
+  ],
+  "statsConfig": [
+   {
+    "label": "AttributePool",
+    "value": 50
+   },
+   {
+    "label": "AttributeMax",
+    "value": 50
+   },
+   {
+    "label": "StatScalarFloor",
+    "value": 0.1
+   },
+   {
+    "label": "StatScalarKneePoints",
+    "value": 35
+   },
+   {
+    "label": "StatScalarKnee",
+    "value": 1.2
+   },
+   {
+    "label": "StatScalarMax",
+    "value": 1.5
+   },
+   {
+    "label": "PerPointHealth",
+    "value": 0.01
+   },
+   {
+    "label": "PerPointHealing",
+    "value": 0.01
+   },
+   {
+    "label": "MitigationK",
+    "value": 100
+   },
+   {
+    "label": "ElementalMitigationK",
+    "value": 100
+   },
+   {
+    "label": "AttributeThresholdStep",
+    "value": 10
+   },
+   {
+    "label": "DebugDefaultAttributes",
+    "value": 1900000019000000000000000000000000000000
+   }
+  ],
+  "weightClasses": [
+   {
+    "key": "weightclass-heavy",
+    "name": "Heavy",
+    "armorRating": 150,
+    "damageFactor": 0.9,
+    "dodgeStyle": 1
+   },
+   {
+    "key": "weightclass-light",
+    "name": "Light",
+    "armorRating": 50,
+    "damageFactor": 1,
+    "dodgeStyle": 0
+   }
+  ]
+ }
+}

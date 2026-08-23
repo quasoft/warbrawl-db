@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WarBrawl Database</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#perks">
+    <span class="brand-mark">WB</span>
+    <span class="brand-text">WarBrawl <em>Database</em></span>
+  </a>
+  <div class="search input-wrap">
+    <input id="global-search" type="search" autocomplete="off" spellcheck="false"
+           placeholder="Search perks, statuses, abilities, attacks ...">
+    <kbd class="hotkey">/</kbd>
+    <div id="search-results" class="search-results" hidden></div>
+  </div>
+  <div class="stamp">
+    <span class="version" id="version"></span>
+    <span class="generated" id="generated"></span>
+  </div>
+</header>
+
+<div class="layout">
+  <nav class="sidebar" id="sidebar"></nav>
+
+  <main class="content">
+    <div class="list-pane">
+      <div class="list-head">
+        <h1 id="section-title"></h1>
+        <p id="section-blurb" class="blurb"></p>
+        <div class="controls">
+          <div class="input-wrap filter-wrap">
+            <input id="filter" type="search" autocomplete="off" spellcheck="false"
+                   placeholder="Filter this table ...">
+            <kbd class="hotkey">Ctrl + K</kbd>
+          </div>
+          <div id="facets" class="facets"></div>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <div id="custom" class="custom" hidden></div>
+        <table id="table">
+          <thead id="thead"></thead>
+          <tbody id="tbody"></tbody>
+        </table>
+        <p id="empty" class="empty" hidden>Nothing matches that filter.</p>
+      </div>
+    </div>
+
+    <aside class="detail-pane" id="detail-pane">
+      <button class="detail-close" id="detail-close" aria-label="Close details">&times;</button>
+      <div id="detail" class="detail"></div>
+    </aside>
+  </main>
+</div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
