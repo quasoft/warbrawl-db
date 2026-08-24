@@ -1087,40 +1087,97 @@ function applyFacet(sectionId, label, value) {
   renderDetail();
 }
 
+/* One menu at a time: two open menus overlap each other. */
+function closeFacetMenus() {
+  for (const dd of document.querySelectorAll('.facet-dd.open')) dd.classList.remove('open');
+}
+
+/* One facet group as a multi-select button. Rows of pills cost a group's worth
+   of vertical space each - which a phone does not have, and which a table-first
+   page should not spend at any width; every group as a dropdown costs one row
+   for all of them. */
+function facetDropdown(facet, values, chosen) {
+  const summarise = () => (chosen.size === 1 ? [...chosen][0]
+    : chosen.size ? `${chosen.size} selected` : '');
+  const summary = h('span', { class: 'facet-summary' }, summarise());
+  const options = values.map((value) => {
+    const option = h('div', {
+      // The tone class its chip wears in the table, so a value reads as the
+      // same thing in the filter as in the rows it filters to.
+      class: 'facet-option' + (facet.tone ? ` ${facet.tone(value)}` : '')
+        + (chosen.has(value) ? ' on' : ''),
+      onclick: () => {
+        chosen.has(value) ? chosen.delete(value) : chosen.add(value);
+        option.classList.toggle('on', chosen.has(value));
+        refresh();
+      },
+    }, h('span', { class: 'facet-box' }), h('span', {}, value));
+    return option;
+  });
+  const clear = h('div', {
+    class: 'facet-option clear' + (chosen.size ? '' : ' on'),
+    onclick: () => {
+      if (!chosen.size) return;
+      chosen.clear();
+      options.forEach((option) => option.classList.remove('on'));
+      refresh();
+    },
+  }, h('span', { class: 'facet-box' }), h('span', {}, 'All'));
+  const button = h('button', {
+    type: 'button',
+    class: 'facet-button' + (chosen.size ? ' on' : ''),
+    onclick: (event) => {
+      event.stopPropagation();
+      const opening = !dd.classList.contains('open');
+      closeFacetMenus();
+      // Hang the menu off whichever edge keeps it on screen.
+      dd.classList.toggle('right', dd.getBoundingClientRect().left > window.innerWidth / 2);
+      dd.classList.toggle('open', opening);
+    },
+  }, h('span', { class: 'facet-name' }, facet.label), summary,
+     h('span', { class: 'facet-caret' }, '\u25be'));
+  // Ticking a value redraws the table and this button in place rather than
+  // through renderFacets(), which would rebuild the menu and close it under
+  // the finger halfway through a multi-select.
+  const refresh = () => {
+    summary.textContent = summarise();
+    button.classList.toggle('on', chosen.size > 0);
+    clear.classList.toggle('on', !chosen.size);
+    renderTable();
+    renderDetail();
+  };
+  const dd = h('div', { class: 'facet-dd' }, button,
+    h('div', { class: 'facet-menu', onclick: (event) => event.stopPropagation() },
+      clear, options));
+  return dd;
+}
+
+/* The sidebar is a drawer once it no longer fits beside the table; the class on
+   <body> drives both it and the scrim behind it. */
+function setNav(open) {
+  document.body.classList.toggle('nav-open', open);
+  $('nav-toggle').setAttribute('aria-expanded', open ? 'true' : 'false');
+}
+
 function renderFacets() {
   const host = $('facets');
   host.replaceChildren(...state.section.facets.flatMap((facet) => {
     const values = [...new Set(state.section.rows.flatMap((row) => facet.get(row)))]
       .filter(Boolean).sort();
+    // A group every row shares filters nothing, so it gets no control.
     if (values.length < 2) return [];
     const chosen = state.facets[facet.label] || (state.facets[facet.label] = new Set());
-    const redraw = () => { renderFacets(); renderTable(); renderDetail(); };
-    // "All" is the group's off switch, and it lights up when nothing in the group
-    // is selected - so every group always shows its current state, never blank.
-    const all = h('span', {
-      class: 'facet all' + (chosen.size ? '' : ' on'),
-      onclick: () => { if (chosen.size) { chosen.clear(); redraw(); } },
-    }, 'All');
-    return [h('div', { class: 'facet-group' },
-      h('span', { class: 'facet-label' }, facet.label),
-      all,
-      values.map((value) => h('span', {
-        // A tagged facet wears its tag colour until it is the active filter,
-        // matching the same tag in the table below.
-        class: 'facet' + (facet.tone ? ` ${facet.tone(value)}` : '')
-          + (chosen.has(value) ? ' on' : ''),
-        onclick: () => {
-          chosen.has(value) ? chosen.delete(value) : chosen.add(value);
-          redraw();
-        },
-      }, value)))];
+    return [facetDropdown(facet, values, chosen)];
   }));
 }
 
 function renderTable() {
   const section = state.section;
   $('thead').replaceChildren(h('tr', {}, section.columns.map((column) => h('th', {
-    class: (column.cls === 'num' ? 'num' : '') + (state.sort === column.key ? ' sorted' : ''),
+    // The header carries the column's own class so that a column hidden on a
+    // narrow screen takes its header with it: a th left behind puts every cell
+    // after it under the wrong label.
+    class: (column.cls || '') + (state.sort === column.key ? ' sorted' : ''),
     onclick: () => {
       state.asc = state.sort === column.key ? !state.asc : true;
       state.sort = column.key;
@@ -1203,6 +1260,8 @@ function route() {
     state.facets[pendingFacet.label] = new Set([pendingFacet.value]);
     pendingFacet = null;
   }
+  closeFacetMenus();
+  setNav(false);
   renderFacets();
   state.selected = key ? section.index.get(key) || null : null;
   // The page title wears the same glyph as its sidebar entry, so the two read
@@ -1252,6 +1311,17 @@ function init() {
   $('detail-close').addEventListener('click', () => {
     location.hash = `#${state.section.id}`;
   });
+  $('nav-toggle').addEventListener('click', (event) => {
+    event.stopPropagation();
+    setNav(!document.body.classList.contains('nav-open'));
+  });
+  $('nav-scrim').addEventListener('click', () => setNav(false));
+  // A nav item for the section already showing changes no hash, so route()
+  // never runs to close the drawer behind it.
+  $('sidebar').addEventListener('click', (event) => {
+    if (event.target.closest('a')) setNav(false);
+  });
+  document.addEventListener('click', closeFacetMenus);
   const filter = $('filter');
   document.addEventListener('keydown', (event) => {
     // Ctrl/Cmd+K goes to the table filter, "/" to the global search - the same
@@ -1266,6 +1336,7 @@ function init() {
     }
     if (event.key === 'Escape') {
       search.blur(); filter.blur(); $('search-results').hidden = true;
+      closeFacetMenus(); setNav(false);
     }
   });
   window.addEventListener('hashchange', route);

@@ -51,6 +51,30 @@ a:hover { text-decoration: underline; }
   z-index: 30;
 }
 
+/* Only ever visible once the sidebar has collapsed into a drawer; the narrow
+   media query at the bottom of the file owns both halves of that switch. */
+.nav-toggle {
+  display: none;
+  place-items: center;
+  flex: 0 0 34px;
+  width: 34px; height: 34px;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--bg-raised);
+  color: var(--text);
+  cursor: pointer;
+}
+.nav-toggle:hover { border-color: var(--accent-dim); color: var(--accent); }
+.nav-toggle svg { width: 20px; height: 20px; }
+.nav-scrim {
+  display: none;
+  position: fixed;
+  top: 52px; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, .55);
+  z-index: 34;
+}
+
 .brand { display: flex; align-items: center; gap: 10px; color: var(--text-bright); }
 .brand:hover { text-decoration: none; }
 .brand-mark {
@@ -205,31 +229,99 @@ a:hover { text-decoration: underline; }
 
 .controls { display: flex; gap: 10px 16px; align-items: center; flex-wrap: wrap; margin-top: 12px; }
 .filter-wrap { width: 280px; flex: 0 0 280px; }
-.facets { display: flex; gap: 10px 18px; flex-wrap: wrap; align-items: center; }
-.facet-group { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
-.facet-label {
-  /* Same dim tone as the column headers: one consistent "chrome" level, so the
-     only bright text on the page is actual data. */
-  color: #8b98a9;
-  font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: .6px;
+/* ---- facet filters ----------------------------------------------------- */
+/* One multi-select button per facet group, on their own full-width row under
+   the table filter. A grid rather than wrapped flex on two counts: its tracks
+   keep every button the same size, where flex would stretch a lone one on the
+   last row into something that reads as a different control; and auto-fill
+   packs as many per row as the width allows without a section that has only
+   one facet blowing that button up to the width of the pane. Seven groups come
+   out as one row on a wide monitor and four on a phone. */
+.facets {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(126px, 1fr));
+  width: 100%;
+  gap: 8px;
 }
-.facet {
-  padding: 4px 11px;
+.facet-dd { position: relative; min-width: 0; }
+.facet-dd.open { z-index: 20; }
+.facet-button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  padding: 6px 9px;
   border: 1px solid var(--line);
-  border-radius: 999px;
+  border-radius: var(--radius);
   background: var(--bg-raised);
   color: var(--text-dim);
+  font: inherit;
   font-size: 13px;
+  line-height: 1.35;
+  text-align: left;
+  cursor: pointer;
+}
+.facet-button:hover { border-color: #3d4959; }
+.facet-button.on { border-color: var(--accent-dim); background: #2a2013; color: var(--accent); }
+.facet-name, .facet-summary { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.facet-summary { color: var(--text-bright); }
+.facet-summary:empty { display: none; }
+.facet-button.on .facet-summary { color: var(--accent); }
+.facet-caret { margin-left: auto; flex: 0 0 auto; font-size: 10px; opacity: .75; }
+.facet-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  min-width: 100%;
+  width: max-content;
+  max-width: min(72vw, 280px);
+  max-height: 52vh;
+  overflow-y: auto;
+  padding: 4px;
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, .6);
+  z-index: 20;
+}
+/* A group sitting in the right half of the row hangs its menu off that edge,
+   so a wide value list never opens past the screen. */
+.facet-dd.right .facet-menu { left: auto; right: 0; }
+.facet-dd.open .facet-menu { display: block; }
+.facet-option {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 7px 8px;
+  border-radius: 4px;
+  color: var(--text-dim);
+  font-size: 14px;
   cursor: pointer;
   user-select: none;
 }
-.facet:hover { color: var(--text); border-color: #3d4959; }
-.facet.on { border-color: var(--accent-dim); background: #2a2013; color: var(--accent); }
-/* "All" reads as the resting state of a group, so it is quieter than a chosen
-   filter: dimmer amber, no fill. */
-.facet.all.on { border-color: #4a3a1c; background: transparent; color: var(--gold-soft); }
+.facet-option:hover { background: #202836; }
+.facet-option.clear { margin-bottom: 3px; border-bottom: 1px solid var(--line); border-radius: 4px 4px 0 0; }
+.facet-box {
+  display: grid;
+  place-items: center;
+  flex: 0 0 15px;
+  width: 15px; height: 15px;
+  border: 1px solid #46525f;
+  border-radius: 3px;
+  background: var(--bg);
+}
+.facet-option.on .facet-box { border-color: var(--accent); background: var(--accent); }
+/* The tick is two borders of an empty box rotated 45 degrees: no icon file, and
+   it reads against the accent fill the box takes when it is on. */
+.facet-option.on .facet-box::after {
+  content: "";
+  width: 4px; height: 8px;
+  margin-top: -2px;
+  border: solid #17120a;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
 
 /* ---- table ------------------------------------------------------------ */
 .table-wrap { flex: 1; overflow: auto; padding: 0 18px 24px; }
@@ -266,7 +358,7 @@ tbody tr.selected { background: #2b3546; box-shadow: inset 2px 0 0 var(--accent)
 .cell-name strong { font-weight: 600; color: var(--text-bright); }
 .muted { color: var(--text-dim); }
 .num { font-variant-numeric: tabular-nums; text-align: right; }
-.wrap-desc { color: #d5dce5; font-size: 14.5px; max-width: 46ch; }
+td.wrap-desc { color: #d5dce5; font-size: 14.5px; max-width: 46ch; }
 
 /* ---- icons ------------------------------------------------------------ */
 .icon {
@@ -313,23 +405,23 @@ tbody tr.selected { background: #2b3546; box-shadow: inset 2px 0 0 var(--accent)
 .chip.mobility { border-color: #2c5340; color: #86cea6; }
 .chip.threshold { border-color: #275a5e; color: #8ed3d6; }
 
-/* Filter pills carry the same tag colours as the chips in the table, so the two
-   read as the same vocabulary. The amber selected state overrides them. */
-.facet.tone-offense:not(.on) { border-color: #5a2b2b; color: #e39b9b; }
-.facet.tone-defense:not(.on) { border-color: #274a63; color: #92c2e0; }
-.facet.tone-control:not(.on) { border-color: #45305e; color: var(--control); }
-.facet.tone-mobility:not(.on) { border-color: #2c5340; color: #86cea6; }
-.facet.tone-threshold:not(.on) { border-color: #275a5e; color: #8ed3d6; }
+/* A value in a filter menu carries the same tag colour as the chip it matches
+   in the table, so the two read as the same vocabulary. */
+.facet-option.tone-offense { color: #e39b9b; }
+.facet-option.tone-defense { color: #92c2e0; }
+.facet-option.tone-control { color: var(--control); }
+.facet-option.tone-mobility { color: #86cea6; }
+.facet-option.tone-threshold { color: #8ed3d6; }
 /* Exclusive labels get their own colour so they never read as just another tag.
    The palette is indexed, not named, so a new label is coloured on sight. */
 .chip.label { border-color: #45305e; background: #1b1526; color: var(--control); }
 .chip.label:hover { background: #241c33; text-decoration: none; }
-.chip.tone-label0, .facet.tone-label0:not(.on) { border-color: #45305e; color: #b07ee0; }
-.chip.tone-label1, .facet.tone-label1:not(.on) { border-color: #47542c; color: #b8d67a; }
-.chip.tone-label2, .facet.tone-label2:not(.on) { border-color: #235360; color: #7fcfe0; }
-.chip.tone-label3, .facet.tone-label3:not(.on) { border-color: #5c3357; color: #e19ad0; }
-.chip.tone-label4, .facet.tone-label4:not(.on) { border-color: #364562; color: #9fb4d8; }
-.chip.tone-label5, .facet.tone-label5:not(.on) { border-color: #5e3830; color: #e59a8a; }
+.chip.tone-label0, .facet-option.tone-label0 { border-color: #45305e; color: #b07ee0; }
+.chip.tone-label1, .facet-option.tone-label1 { border-color: #47542c; color: #b8d67a; }
+.chip.tone-label2, .facet-option.tone-label2 { border-color: #235360; color: #7fcfe0; }
+.chip.tone-label3, .facet-option.tone-label3 { border-color: #5c3357; color: #e19ad0; }
+.chip.tone-label4, .facet-option.tone-label4 { border-color: #364562; color: #9fb4d8; }
+.chip.tone-label5, .facet-option.tone-label5 { border-color: #5e3830; color: #e59a8a; }
 a.chip[class*="tone-label"]:hover { text-decoration: none; background: #202836; }
 .chip.link { color: var(--link); cursor: pointer; border-color: #2b3a4c; }
 .chip.link:hover { background: #1c2836; }
@@ -431,20 +523,84 @@ a.chip[class*="tone-label"]:hover { text-decoration: none; background: #202836; 
     position: fixed;
     top: 52px; right: 0; bottom: 0;
     width: min(400px, 92vw);
+    /* The base rule's height: 100% is the whole viewport, which hangs the last
+       52px of the pane - and of its scroller - below the fold. */
+    height: auto;
     flex-basis: auto;
+    /* A column with its own scroller, so the close button stays under the
+       thumb: absolutely positioned, it rode the detail's scroll out of view. */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
     transform: translateX(100%);
     transition: transform .18s ease;
     box-shadow: -10px 0 30px rgba(0,0,0,.5);
     z-index: 25;
   }
   .detail-pane.open { transform: none; }
-  .detail-close { display: block; }
+  .detail-close {
+    display: grid;
+    place-items: center;
+    position: static;
+    align-self: flex-end;
+    /* A flex item in a column, so it would otherwise shrink out of its own
+       tap target as the detail below it grows. */
+    flex: 0 0 auto;
+    width: 34px; height: 34px;
+    margin: 8px 10px 0;
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 21px;
+    line-height: 1;
+  }
+  .detail-close:hover { border-color: var(--accent-dim); color: var(--accent); }
+  .detail { flex: 1 1 auto; min-height: 0; overflow-y: auto; padding-top: 4px; }
   .wrap-desc { display: none; }
 }
 
+/* Phone: the sidebar becomes a drawer behind the hamburger, and the detail pane
+   takes the whole content area - the 8vw sliver of table left behind it was
+   neither readable nor tappable. */
 @media (max-width: 760px) {
-  .sidebar { display: none; }
+  .topbar { gap: 10px; padding: 0 10px; }
+  .nav-toggle { display: grid; }
+  .brand-text { display: none; }
   .generated { display: none; }
+  .hotkey { display: none; }
+  .search input, .controls input { padding-right: 11px; }
+
+  .sidebar {
+    position: fixed;
+    top: 52px; left: 0; bottom: 0;
+    width: 232px;
+    flex-basis: auto;
+    transform: translateX(-100%);
+    transition: transform .18s ease;
+    box-shadow: 10px 0 30px rgba(0,0,0,.5);
+    z-index: 36;
+  }
+  body.nav-open .sidebar { transform: none; }
+  body.nav-open .nav-scrim { display: block; }
+
+  .detail-pane { width: 100%; left: 0; right: 0; }
+  .detail { padding-left: 14px; padding-right: 14px; }
+
+  /* The heading, filter and facets scroll away with the table instead of
+     holding a third of a short screen. The column headers stay: they only
+     stick once .list-pane is the scrollport, which needs .table-wrap to stop
+     being one itself. */
+  .list-pane { overflow: auto; }
+  .table-wrap { flex: none; overflow: visible; }
+
+  .list-head { padding: 10px 12px 6px; }
+  .list-head h1 { font-size: 19px; gap: 8px; }
+  .list-head h1 svg { width: 19px; height: 19px; flex-basis: 19px; }
+  .blurb { font-size: 13px; }
+  .controls { margin-top: 8px; gap: 8px; }
+  .filter-wrap { width: auto; flex: 1 1 100%; }
+  .table-wrap { padding: 0 12px 20px; }
 }
 
 /* ---- damage page ------------------------------------------------------- */

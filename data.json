@@ -2,8 +2,8 @@
  "meta": {
   "game": "WarBrawl",
   "version": "0.2.1",
-  "internal": true,
-  "generated": "2026-08-23 20:04",
+  "internal": false,
+  "generated": "2026-08-24 19:39",
   "tickRate": 60,
   "counts": {
    "perks": 16,
@@ -50,7 +50,7 @@
    "effect": {
     "trigger": 1,
     "triggerName": "On hit",
-    "triggerHelp": "Fires on every landed hit - light, heavy, ability or arrow.",
+    "triggerHelp": "Fires on basic hits: melee light, melee heavy and any arrow. Ability hits do not fire it.",
     "grants": [
      {
       "status": "rend",
@@ -60,7 +60,7 @@
       "tickDamage": 0,
       "tickDamagePercentOfHit": 0,
       "durationTicks": 240,
-      "durationText": "240 ticks (4 s)",
+      "durationText": "240 ticks (4 sec)",
       "summary": "15%"
      }
     ],
@@ -73,10 +73,10 @@
     "auraDamagePerEnemy": 0,
     "auraRadius": 0,
     "projectileGravityReduction": 0,
-    "assetPath": "Assets/QuantumUser/Resources/WarBrawl/Perks/RendingStrikesPerk.asset"
+    "assetPath": null
    },
-   "effectSummary": "Rend (15%) on target for 4 s",
-   "assetPath": "Assets/Perks/Definitions/RendingStrikes.asset"
+   "effectSummary": "Rend (15%) on target for 4 sec",
+   "assetPath": null
   },
   {
    "key": "battle-fury",
@@ -111,7 +111,7 @@
    "effect": {
     "trigger": 2,
     "triggerName": "On heavy hit",
-    "triggerHelp": "Fires only when a heavy attack lands.",
+    "triggerHelp": "Fires on heavy hits: a melee heavy or a fully drawn arrow.",
     "grants": [
      {
       "status": "empower",
@@ -121,7 +121,7 @@
       "tickDamage": 0,
       "tickDamagePercentOfHit": 0,
       "durationTicks": 180,
-      "durationText": "180 ticks (3 s)",
+      "durationText": "180 ticks (3 sec)",
       "summary": "10%"
      }
     ],
@@ -134,10 +134,10 @@
     "auraDamagePerEnemy": 0,
     "auraRadius": 0,
     "projectileGravityReduction": 0,
-    "assetPath": "Assets/QuantumUser/Resources/WarBrawl/Perks/BattleFuryPerk.asset"
+    "assetPath": null
    },
-   "effectSummary": "Empower (10%) on self for 3 s",
-   "assetPath": "Assets/Perks/Definitions/BattleFury.asset"
+   "effectSummary": "Empower (10%) on self for 3 sec",
+   "assetPath": null
   },
   {
    "key": "weakening-blows",
@@ -172,7 +172,7 @@
    "effect": {
     "trigger": 1,
     "triggerName": "On hit",
-    "triggerHelp": "Fires on every landed hit - light, heavy, ability or arrow.",
+    "triggerHelp": "Fires on basic hits: melee light, melee heavy and any arrow. Ability hits do not fire it.",
     "grants": [
      {
       "status": "weaken",
@@ -182,7 +182,7 @@
       "tickDamage": 0,
       "tickDamagePercentOfHit": 0,
       "durationTicks": 240,
-      "durationText": "240 ticks (4 s)",
+      "durationText": "240 ticks (4 sec)",
       "summary": "10%"
      }
     ],
@@ -195,10 +195,10 @@
     "auraDamagePerEnemy": 0,
     "auraRadius": 0,
     "projectileGravityReduction": 0,
-    "assetPath": "Assets/QuantumUser/Resources/WarBrawl/Perks/WeakeningBlowsPerk.asset"
+    "assetPath": null
    },
-   "effectSummary": "Weaken (10%) on target for 4 s",
-   "assetPath": "Assets/Perks/Definitions/WeakeningBlows.asset"
+   "effectSummary": "Weaken (10%) on target for 4 sec",
+   "assetPath": null
   },
   {
    "key": "plaguebearer",
@@ -233,7 +233,7 @@
    "effect": {
     "trigger": 1,
     "triggerName": "On hit",
-    "triggerHelp": "Fires on every landed hit - light, heavy, ability or arrow.",
+    "triggerHelp": "Fires on basic hits: melee light, melee heavy and any arrow. Ability hits do not fire it.",
     "grants": [
      {
       "status": "disease",
@@ -243,7 +243,7 @@
       "tickDamage": 0,
       "tickDamagePercentOfHit": 0,
       "durationTicks": 300,
-      "durationText": "300 ticks (5 s)",
+      "durationText": "300 ticks (5 sec)",
       "summary": "25%"
      }
     ],
@@ -256,10 +256,10 @@
     "auraDamagePerEnemy": 0,
     "auraRadius": 0,
     "projectileGravityReduction": 0,
-    "assetPath": "Assets/QuantumUser/Resources/WarBrawl/Perks/PlaguebearerPerk.asset"
+    "assetPath": null
    },
-   "effectSummary": "Disease (25%) on target for 5 s",
-   "assetPath": "Assets/Perks/Definitions/Plaguebearer.asset"
+   "effectSummary": "Disease (25%) on target for 5 sec",
+   "assetPath": null
   },
   {
    "key": "serrated-edge",
@@ -299,7 +299,7 @@
    "effect": {
     "trigger": 1,
     "triggerName": "On hit",
-    "triggerHelp": "Fires on every landed hit - light, heavy, ability or arrow.",
+    "triggerHelp": "Fires on basic hits: melee light, melee heavy and any arrow. Ability hits do not fire it.",
     "grants": [
      {
       "status": "bleed",
@@ -309,23 +309,23 @@
       "tickDamage": 3,
       "tickDamagePercentOfHit": 0,
       "durationTicks": 360,
-      "durationText": "360 ticks (6 s)",
-      "summary": "3 damage per tick"
+      "durationText": "360 ticks (6 sec)",
+      "summary": "3 damage per sec"
      }
     ],
     "grantsApplyToSelf": false,
     "flatDamage": 0,
     "flatDamageSchool": "Physical",
     "internalCooldownTicks": 120,
-    "internalCooldownText": "120 ticks (2 s)",
+    "internalCooldownText": "120 ticks (2 sec)",
     "freedomCcReduction": 0,
     "auraDamagePerEnemy": 0,
     "auraRadius": 0,
     "projectileGravityReduction": 0,
-    "assetPath": "Assets/QuantumUser/Resources/WarBrawl/Perks/SerratedEdgePerk.asset"
+    "assetPath": null
    },
-   "effectSummary": "Bleed (3 damage per tick) on target for 6 s",
-   "assetPath": "Assets/Perks/Definitions/SerratedEdge.asset"
+   "effectSummary": "Bleed (3 damage per sec) on target for 6 sec",
+   "assetPath": null
   },
   {
    "key": "venom-coating",
@@ -365,7 +365,7 @@
    "effect": {
     "trigger": 1,
     "triggerName": "On hit",
-    "triggerHelp": "Fires on every landed hit - light, heavy, ability or arrow.",
+    "triggerHelp": "Fires on basic hits: melee light, melee heavy and any arrow. Ability hits do not fire it.",
     "grants": [
      {
       "status": "poison",
@@ -375,23 +375,23 @@
       "tickDamage": 5,
       "tickDamagePercentOfHit": 0,
       "durationTicks": 300,
-      "durationText": "300 ticks (5 s)",
-      "summary": "5 damage per tick"
+      "durationText": "300 ticks (5 sec)",
+      "summary": "5 damage per sec"
      }
     ],
     "grantsApplyToSelf": false,
     "flatDamage": 0,
     "flatDamageSchool": "Physical",
     "internalCooldownTicks": 180,
-    "internalCooldownText": "180 ticks (3 s)",
+    "internalCooldownText": "180 ticks (3 sec)",
     "freedomCcReduction": 0,
     "auraDamagePerEnemy": 0,
     "auraRadius": 0,
     "projectileGravityReduction": 0,
-    "assetPath": "Assets/QuantumUser/Resources/WarBrawl/Perks/VenomCoatingPerk.asset"
+    "assetPath": null
    },
-   "effectSummary": "Poison (5 damage per tick) on target for 5 s",
-   "assetPath": "Assets/Perks/Definitions/VenomCoating.asset"
+   "effectSummary": "Poison (5 damage per sec) on target for 5 sec",
+   "assetPath": null
   },
   {
    "key": "swiftness",
@@ -427,7 +427,7 @@
       "tickDamage": 0,
       "tickDamagePercentOfHit": 0,
       "durationTicks": 120,
-      "durationText": "120 ticks (2 s)",
+      "durationText": "120 ticks (2 sec)",
       "summary": "15%"
      }
     ],
@@ -435,15 +435,15 @@
     "flatDamage": 0,
     "flatDamageSchool": "Physical",
     "internalCooldownTicks": 180,
-    "internalCooldownText": "180 ticks (3 s)",
+    "internalCooldownText": "180 ticks (3 sec)",
     "freedomCcReduction": 0,
     "auraDamagePerEnemy": 0,
     "auraRadius": 0,
     "projectileGravityReduction": 0,
-    "assetPath": "Assets/QuantumUser/Resources/WarBrawl/Perks/SwiftnessPerk.asset"
+    "assetPath": null
    },
-   "effectSummary": "Haste (15%) on self for 2 s",
-   "assetPath": "Assets/Perks/Definitions/Swiftness.asset"
+   "effectSummary": "Haste (15%) on self for 2 sec",
+   "assetPath": null
   },
   {
    "key": "hobbling-strikes",
@@ -478,7 +478,7 @@
    "effect": {
     "trigger": 1,
     "triggerName": "On hit",
-    "triggerHelp": "Fires on every landed hit - light, heavy, ability or arrow.",
+    "triggerHelp": "Fires on basic hits: melee light, melee heavy and any arrow. Ability hits do not fire it.",
     "grants": [
      {
       "status": "slow",
@@ -488,7 +488,7 @@
       "tickDamage": 0,
       "tickDamagePercentOfHit": 0,
       "durationTicks": 120,
-      "durationText": "120 ticks (2 s)",
+      "durationText": "120 ticks (2 sec)",
       "summary": "15%"
      }
     ],
@@ -501,10 +501,10 @@
     "auraDamagePerEnemy": 0,
     "auraRadius": 0,
     "projectileGravityReduction": 0,
-    "assetPath": "Assets/QuantumUser/Resources/WarBrawl/Perks/HobblingStrikesPerk.asset"
+    "assetPath": null
    },
-   "effectSummary": "Slow (15%) on target for 2 s",
-   "assetPath": "Assets/Perks/Definitions/HobblingStrikes.asset"
+   "effectSummary": "Slow (15%) on target for 2 sec",
+   "assetPath": null
   },
   {
    "key": "lightning-strikes",
@@ -544,7 +544,7 @@
    "effect": {
     "trigger": 1,
     "triggerName": "On hit",
-    "triggerHelp": "Fires on every landed hit - light, heavy, ability or arrow.",
+    "triggerHelp": "Fires on basic hits: melee light, melee heavy and any arrow. Ability hits do not fire it.",
     "grants": [],
     "grantsApplyToSelf": false,
     "flatDamage": 5,
@@ -555,10 +555,10 @@
     "auraDamagePerEnemy": 0,
     "auraRadius": 0,
     "projectileGravityReduction": 0,
-    "assetPath": "Assets/QuantumUser/Resources/WarBrawl/Perks/LightningStrikesPerk.asset"
+    "assetPath": null
    },
    "effectSummary": "+5 Lightning damage per hit",
-   "assetPath": "Assets/Perks/Definitions/LightningStrikes.asset"
+   "assetPath": null
   },
   {
    "key": "keen-edge",
@@ -598,7 +598,7 @@
    "effect": {
     "trigger": 1,
     "triggerName": "On hit",
-    "triggerHelp": "Fires on every landed hit - light, heavy, ability or arrow.",
+    "triggerHelp": "Fires on basic hits: melee light, melee heavy and any arrow. Ability hits do not fire it.",
     "grants": [],
     "grantsApplyToSelf": false,
     "flatDamage": 3,
@@ -609,10 +609,10 @@
     "auraDamagePerEnemy": 0,
     "auraRadius": 0,
     "projectileGravityReduction": 0,
-    "assetPath": "Assets/QuantumUser/Resources/WarBrawl/Perks/KeenEdgePerk.asset"
+    "assetPath": null
    },
    "effectSummary": "+3 Physical damage per hit",
-   "assetPath": "Assets/Perks/Definitions/KeenEdge.asset"
+   "assetPath": null
   },
   {
    "key": "freedom",
@@ -654,10 +654,10 @@
     "auraDamagePerEnemy": 0,
     "auraRadius": 0,
     "projectileGravityReduction": 0,
-    "assetPath": "Assets/QuantumUser/Resources/WarBrawl/Perks/FreedomPerk.asset"
+    "assetPath": null
    },
    "effectSummary": "-25% crowd-control duration on you",
-   "assetPath": "Assets/Perks/Definitions/Freedom.asset"
+   "assetPath": null
   },
   {
    "key": "staggering-blow",
@@ -692,7 +692,7 @@
    "effect": {
     "trigger": 2,
     "triggerName": "On heavy hit",
-    "triggerHelp": "Fires only when a heavy attack lands.",
+    "triggerHelp": "Fires on heavy hits: a melee heavy or a fully drawn arrow.",
     "grants": [
      {
       "status": "stagger",
@@ -702,7 +702,7 @@
       "tickDamage": 0,
       "tickDamagePercentOfHit": 0,
       "durationTicks": 24,
-      "durationText": "24 ticks (0.4 s)",
+      "durationText": "24 ticks (0.4 sec)",
       "summary": "-"
      }
     ],
@@ -710,15 +710,15 @@
     "flatDamage": 0,
     "flatDamageSchool": "Physical",
     "internalCooldownTicks": 300,
-    "internalCooldownText": "300 ticks (5 s)",
+    "internalCooldownText": "300 ticks (5 sec)",
     "freedomCcReduction": 0,
     "auraDamagePerEnemy": 0,
     "auraRadius": 0,
     "projectileGravityReduction": 0,
-    "assetPath": "Assets/QuantumUser/Resources/WarBrawl/Perks/StaggeringBlowPerk.asset"
+    "assetPath": null
    },
-   "effectSummary": "Stagger on target for 0.4 s",
-   "assetPath": "Assets/Perks/Definitions/StaggeringBlow.asset"
+   "effectSummary": "Stagger on target for 0.4 sec",
+   "assetPath": null
   },
   {
    "key": "thundering-impact",
@@ -753,7 +753,7 @@
    "effect": {
     "trigger": 2,
     "triggerName": "On heavy hit",
-    "triggerHelp": "Fires only when a heavy attack lands.",
+    "triggerHelp": "Fires on heavy hits: a melee heavy or a fully drawn arrow.",
     "grants": [
      {
       "status": "stun",
@@ -763,7 +763,7 @@
       "tickDamage": 0,
       "tickDamagePercentOfHit": 0,
       "durationTicks": 60,
-      "durationText": "60 ticks (1 s)",
+      "durationText": "60 ticks (1 sec)",
       "summary": "-"
      }
     ],
@@ -771,15 +771,15 @@
     "flatDamage": 0,
     "flatDamageSchool": "Physical",
     "internalCooldownTicks": 900,
-    "internalCooldownText": "900 ticks (15 s)",
+    "internalCooldownText": "900 ticks (15 sec)",
     "freedomCcReduction": 0,
     "auraDamagePerEnemy": 0,
     "auraRadius": 0,
     "projectileGravityReduction": 0,
-    "assetPath": "Assets/QuantumUser/Resources/WarBrawl/Perks/ThunderingImpactPerk.asset"
+    "assetPath": null
    },
-   "effectSummary": "Stun on target for 1 s",
-   "assetPath": "Assets/Perks/Definitions/ThunderingImpact.asset"
+   "effectSummary": "Stun on target for 1 sec",
+   "assetPath": null
   },
   {
    "key": "brutal-momentum",
@@ -804,7 +804,7 @@
    "effect": {
     "trigger": 2,
     "triggerName": "On heavy hit",
-    "triggerHelp": "Fires only when a heavy attack lands.",
+    "triggerHelp": "Fires on heavy hits: a melee heavy or a fully drawn arrow.",
     "grants": [
      {
       "status": "rend",
@@ -814,7 +814,7 @@
       "tickDamage": 0,
       "tickDamagePercentOfHit": 0,
       "durationTicks": 240,
-      "durationText": "240 ticks (4 s)",
+      "durationText": "240 ticks (4 sec)",
       "summary": "10%"
      }
     ],
@@ -827,10 +827,10 @@
     "auraDamagePerEnemy": 0,
     "auraRadius": 0,
     "projectileGravityReduction": 0,
-    "assetPath": "Assets/QuantumUser/Resources/WarBrawl/Perks/BrutalMomentumPerk.asset"
+    "assetPath": null
    },
-   "effectSummary": "Rend (10%) on target for 4 s",
-   "assetPath": "Assets/Perks/Definitions/BrutalMomentum.asset"
+   "effectSummary": "Rend (10%) on target for 4 sec",
+   "assetPath": null
   },
   {
    "key": "fleet-footwork",
@@ -865,7 +865,7 @@
       "tickDamage": 0,
       "tickDamagePercentOfHit": 0,
       "durationTicks": 120,
-      "durationText": "120 ticks (2 s)",
+      "durationText": "120 ticks (2 sec)",
       "summary": "10%"
      }
     ],
@@ -873,15 +873,15 @@
     "flatDamage": 0,
     "flatDamageSchool": "Physical",
     "internalCooldownTicks": 120,
-    "internalCooldownText": "120 ticks (2 s)",
+    "internalCooldownText": "120 ticks (2 sec)",
     "freedomCcReduction": 0,
     "auraDamagePerEnemy": 0,
     "auraRadius": 0,
     "projectileGravityReduction": 0,
-    "assetPath": "Assets/QuantumUser/Resources/WarBrawl/Perks/FleetFootworkPerk.asset"
+    "assetPath": null
    },
-   "effectSummary": "Haste (10%) on self for 2 s",
-   "assetPath": "Assets/Perks/Definitions/FleetFootwork.asset"
+   "effectSummary": "Haste (10%) on self for 2 sec",
+   "assetPath": null
   },
   {
    "key": "unshakable",
@@ -917,10 +917,10 @@
     "auraDamagePerEnemy": 0,
     "auraRadius": 0,
     "projectileGravityReduction": 0,
-    "assetPath": "Assets/QuantumUser/Resources/WarBrawl/Perks/UnshakablePerk.asset"
+    "assetPath": null
    },
    "effectSummary": "-20% crowd-control duration on you",
-   "assetPath": "Assets/Perks/Definitions/Unshakable.asset"
+   "assetPath": null
   }
  ],
  "abilityPerks": [
@@ -936,6 +936,7 @@
    "ability": "bow-bow-active-1-mastery",
    "category": "Passive",
    "scope": "All qualifying hits",
+   "scopeHelp": "Every hit the trigger allows.",
    "maxRank": 1,
    "ranks": [
     {
@@ -954,7 +955,7 @@
       "auraDamagePerEnemy": 0,
       "auraRadius": 0,
       "projectileGravityReduction": 0.5,
-      "assetPath": "Assets/QuantumUser/Resources/WarBrawl/AbilityPerks/BowArrowGravityPerk.asset"
+      "assetPath": null
      },
      "summary": "-50% arrow gravity"
     }
@@ -973,7 +974,7 @@
     "auraDamagePerEnemy": 0,
     "auraRadius": 0,
     "projectileGravityReduction": 0.5,
-    "assetPath": "Assets/QuantumUser/Resources/WarBrawl/AbilityPerks/BowArrowGravityPerk.asset"
+    "assetPath": null
    },
    "effectSummary": "-50% arrow gravity"
   },
@@ -989,6 +990,7 @@
    "ability": "bow-bow-active-2-technique",
    "category": "Passive",
    "scope": "All qualifying hits",
+   "scopeHelp": "Every hit the trigger allows.",
    "maxRank": 1,
    "ranks": [
     {
@@ -1006,7 +1008,7 @@
         "tickDamage": 0,
         "tickDamagePercentOfHit": 0,
         "durationTicks": 360,
-        "durationText": "360 ticks (6 s)",
+        "durationText": "360 ticks (6 sec)",
         "summary": "10%"
        }
       ],
@@ -1019,9 +1021,9 @@
       "auraDamagePerEnemy": 0,
       "auraRadius": 0,
       "projectileGravityReduction": 0,
-      "assetPath": "Assets/QuantumUser/Resources/WarBrawl/AbilityPerks/BowDodgeHastePerk.asset"
+      "assetPath": null
      },
-     "summary": "Haste (10%) on self for 6 s"
+     "summary": "Haste (10%) on self for 6 sec"
     }
    ],
    "effect": {
@@ -1037,7 +1039,7 @@
       "tickDamage": 0,
       "tickDamagePercentOfHit": 0,
       "durationTicks": 360,
-      "durationText": "360 ticks (6 s)",
+      "durationText": "360 ticks (6 sec)",
       "summary": "10%"
      }
     ],
@@ -1050,9 +1052,9 @@
     "auraDamagePerEnemy": 0,
     "auraRadius": 0,
     "projectileGravityReduction": 0,
-    "assetPath": "Assets/QuantumUser/Resources/WarBrawl/AbilityPerks/BowDodgeHastePerk.asset"
+    "assetPath": null
    },
-   "effectSummary": "Haste (10%) on self for 6 s"
+   "effectSummary": "Haste (10%) on self for 6 sec"
   },
   {
    "key": "sword-leaping-slash-mastery-perk",
@@ -1067,7 +1069,8 @@
    "treeKey": "sword",
    "ability": "sword-leaping-slash-mastery",
    "category": "Passive",
-   "scope": "Light attacks only",
+   "scope": "Light hits only",
+   "scopeHelp": "Melee lights and quick-shot arrows.",
    "maxRank": 1,
    "ranks": [
     {
@@ -1075,7 +1078,7 @@
      "effect": {
       "trigger": 1,
       "triggerName": "On hit",
-      "triggerHelp": "Fires on every landed hit - light, heavy, ability or arrow.",
+      "triggerHelp": "Fires on basic hits: melee light, melee heavy and any arrow. Ability hits do not fire it.",
       "grants": [
        {
         "status": "bleed",
@@ -1085,8 +1088,8 @@
         "tickDamage": 0,
         "tickDamagePercentOfHit": 0.05,
         "durationTicks": 360,
-        "durationText": "360 ticks (6 s)",
-        "summary": "5% of the hit per tick"
+        "durationText": "360 ticks (6 sec)",
+        "summary": "5% of the hit per sec"
        }
       ],
       "grantsApplyToSelf": false,
@@ -1098,15 +1101,15 @@
       "auraDamagePerEnemy": 0,
       "auraRadius": 0,
       "projectileGravityReduction": 0,
-      "assetPath": "Assets/QuantumUser/Resources/WarBrawl/AbilityPerks/SwordLightBleedPerk.asset"
+      "assetPath": null
      },
-     "summary": "Bleed (5% of the hit per tick) on target for 6 s"
+     "summary": "Bleed (5% of the hit per sec) on target for 6 sec"
     }
    ],
    "effect": {
     "trigger": 1,
     "triggerName": "On hit",
-    "triggerHelp": "Fires on every landed hit - light, heavy, ability or arrow.",
+    "triggerHelp": "Fires on basic hits: melee light, melee heavy and any arrow. Ability hits do not fire it.",
     "grants": [
      {
       "status": "bleed",
@@ -1116,8 +1119,8 @@
       "tickDamage": 0,
       "tickDamagePercentOfHit": 0.05,
       "durationTicks": 360,
-      "durationText": "360 ticks (6 s)",
-      "summary": "5% of the hit per tick"
+      "durationText": "360 ticks (6 sec)",
+      "summary": "5% of the hit per sec"
      }
     ],
     "grantsApplyToSelf": false,
@@ -1129,9 +1132,9 @@
     "auraDamagePerEnemy": 0,
     "auraRadius": 0,
     "projectileGravityReduction": 0,
-    "assetPath": "Assets/QuantumUser/Resources/WarBrawl/AbilityPerks/SwordLightBleedPerk.asset"
+    "assetPath": null
    },
-   "effectSummary": "Bleed (5% of the hit per tick) on target for 6 s"
+   "effectSummary": "Bleed (5% of the hit per sec) on target for 6 sec"
   },
   {
    "key": "sword-forward-cleave-power-perk",
@@ -1147,14 +1150,15 @@
    "ability": "sword-forward-cleave-power",
    "category": "Modifier",
    "scope": "Parent ability only",
+   "scopeHelp": "Hits of the parent Active ability only.",
    "maxRank": 3,
    "ranks": [
     {
      "rank": 1,
      "effect": {
-      "trigger": 1,
-      "triggerName": "On hit",
-      "triggerHelp": "Fires on every landed hit - light, heavy, ability or arrow.",
+      "trigger": 4,
+      "triggerName": "On ability hit",
+      "triggerHelp": "Fires only when an ability lands a hit.",
       "grants": [
        {
         "status": "bleed",
@@ -1164,8 +1168,8 @@
         "tickDamage": 0,
         "tickDamagePercentOfHit": 0.03,
         "durationTicks": 360,
-        "durationText": "360 ticks (6 s)",
-        "summary": "3% of the hit per tick"
+        "durationText": "360 ticks (6 sec)",
+        "summary": "3% of the hit per sec"
        }
       ],
       "grantsApplyToSelf": false,
@@ -1177,16 +1181,16 @@
       "auraDamagePerEnemy": 0,
       "auraRadius": 0,
       "projectileGravityReduction": 0,
-      "assetPath": "Assets/QuantumUser/Resources/WarBrawl/AbilityPerks/ForwardCleaveBleed1Perk.asset"
+      "assetPath": null
      },
-     "summary": "Bleed (3% of the hit per tick) on target for 6 s"
+     "summary": "Bleed (3% of the hit per sec) on target for 6 sec"
     },
     {
      "rank": 2,
      "effect": {
-      "trigger": 1,
-      "triggerName": "On hit",
-      "triggerHelp": "Fires on every landed hit - light, heavy, ability or arrow.",
+      "trigger": 4,
+      "triggerName": "On ability hit",
+      "triggerHelp": "Fires only when an ability lands a hit.",
       "grants": [
        {
         "status": "bleed",
@@ -1196,8 +1200,8 @@
         "tickDamage": 0,
         "tickDamagePercentOfHit": 0.04,
         "durationTicks": 360,
-        "durationText": "360 ticks (6 s)",
-        "summary": "4% of the hit per tick"
+        "durationText": "360 ticks (6 sec)",
+        "summary": "4% of the hit per sec"
        }
       ],
       "grantsApplyToSelf": false,
@@ -1209,16 +1213,16 @@
       "auraDamagePerEnemy": 0,
       "auraRadius": 0,
       "projectileGravityReduction": 0,
-      "assetPath": "Assets/QuantumUser/Resources/WarBrawl/AbilityPerks/ForwardCleaveBleed2Perk.asset"
+      "assetPath": null
      },
-     "summary": "Bleed (4% of the hit per tick) on target for 6 s"
+     "summary": "Bleed (4% of the hit per sec) on target for 6 sec"
     },
     {
      "rank": 3,
      "effect": {
-      "trigger": 1,
-      "triggerName": "On hit",
-      "triggerHelp": "Fires on every landed hit - light, heavy, ability or arrow.",
+      "trigger": 4,
+      "triggerName": "On ability hit",
+      "triggerHelp": "Fires only when an ability lands a hit.",
       "grants": [
        {
         "status": "bleed",
@@ -1228,8 +1232,8 @@
         "tickDamage": 0,
         "tickDamagePercentOfHit": 0.05,
         "durationTicks": 360,
-        "durationText": "360 ticks (6 s)",
-        "summary": "5% of the hit per tick"
+        "durationText": "360 ticks (6 sec)",
+        "summary": "5% of the hit per sec"
        }
       ],
       "grantsApplyToSelf": false,
@@ -1241,15 +1245,15 @@
       "auraDamagePerEnemy": 0,
       "auraRadius": 0,
       "projectileGravityReduction": 0,
-      "assetPath": "Assets/QuantumUser/Resources/WarBrawl/AbilityPerks/ForwardCleaveBleed3Perk.asset"
+      "assetPath": null
      },
-     "summary": "Bleed (5% of the hit per tick) on target for 6 s"
+     "summary": "Bleed (5% of the hit per sec) on target for 6 sec"
     }
    ],
    "effect": {
-    "trigger": 1,
-    "triggerName": "On hit",
-    "triggerHelp": "Fires on every landed hit - light, heavy, ability or arrow.",
+    "trigger": 4,
+    "triggerName": "On ability hit",
+    "triggerHelp": "Fires only when an ability lands a hit.",
     "grants": [
      {
       "status": "bleed",
@@ -1259,8 +1263,8 @@
       "tickDamage": 0,
       "tickDamagePercentOfHit": 0.03,
       "durationTicks": 360,
-      "durationText": "360 ticks (6 s)",
-      "summary": "3% of the hit per tick"
+      "durationText": "360 ticks (6 sec)",
+      "summary": "3% of the hit per sec"
      }
     ],
     "grantsApplyToSelf": false,
@@ -1272,9 +1276,9 @@
     "auraDamagePerEnemy": 0,
     "auraRadius": 0,
     "projectileGravityReduction": 0,
-    "assetPath": "Assets/QuantumUser/Resources/WarBrawl/AbilityPerks/ForwardCleaveBleed1Perk.asset"
+    "assetPath": null
    },
-   "effectSummary": "Bleed (3% of the hit per tick) on target for 6 s"
+   "effectSummary": "Bleed (3% of the hit per sec) on target for 6 sec"
   },
   {
    "key": "sword-forward-cleave-mastery-perk",
@@ -1289,7 +1293,8 @@
    "treeKey": "sword",
    "ability": "sword-forward-cleave-mastery",
    "category": "Passive",
-   "scope": "Heavy attacks only",
+   "scope": "Heavy hits only",
+   "scopeHelp": "Melee heavies and fully drawn arrows.",
    "maxRank": 1,
    "ranks": [
     {
@@ -1297,7 +1302,7 @@
      "effect": {
       "trigger": 1,
       "triggerName": "On hit",
-      "triggerHelp": "Fires on every landed hit - light, heavy, ability or arrow.",
+      "triggerHelp": "Fires on basic hits: melee light, melee heavy and any arrow. Ability hits do not fire it.",
       "grants": [
        {
         "status": "slow",
@@ -1307,7 +1312,7 @@
         "tickDamage": 0,
         "tickDamagePercentOfHit": 0,
         "durationTicks": 120,
-        "durationText": "120 ticks (2 s)",
+        "durationText": "120 ticks (2 sec)",
         "summary": "5%"
        }
       ],
@@ -1320,15 +1325,15 @@
       "auraDamagePerEnemy": 0,
       "auraRadius": 0,
       "projectileGravityReduction": 0,
-      "assetPath": "Assets/QuantumUser/Resources/WarBrawl/AbilityPerks/SwordHeavySlowPerk.asset"
+      "assetPath": null
      },
-     "summary": "Slow (5%) on target for 2 s"
+     "summary": "Slow (5%) on target for 2 sec"
     }
    ],
    "effect": {
     "trigger": 1,
     "triggerName": "On hit",
-    "triggerHelp": "Fires on every landed hit - light, heavy, ability or arrow.",
+    "triggerHelp": "Fires on basic hits: melee light, melee heavy and any arrow. Ability hits do not fire it.",
     "grants": [
      {
       "status": "slow",
@@ -1338,7 +1343,7 @@
       "tickDamage": 0,
       "tickDamagePercentOfHit": 0,
       "durationTicks": 120,
-      "durationText": "120 ticks (2 s)",
+      "durationText": "120 ticks (2 sec)",
       "summary": "5%"
      }
     ],
@@ -1351,9 +1356,9 @@
     "auraDamagePerEnemy": 0,
     "auraRadius": 0,
     "projectileGravityReduction": 0,
-    "assetPath": "Assets/QuantumUser/Resources/WarBrawl/AbilityPerks/SwordHeavySlowPerk.asset"
+    "assetPath": null
    },
-   "effectSummary": "Slow (5%) on target for 2 s"
+   "effectSummary": "Slow (5%) on target for 2 sec"
   },
   {
    "key": "sword-forward-cleave-technique-perk",
@@ -1369,6 +1374,7 @@
    "ability": "sword-forward-cleave-technique",
    "category": "Passive",
    "scope": "All qualifying hits",
+   "scopeHelp": "Every hit the trigger allows.",
    "maxRank": 1,
    "ranks": [
     {
@@ -1387,7 +1393,7 @@
       "auraDamagePerEnemy": 0.05,
       "auraRadius": 3,
       "projectileGravityReduction": 0,
-      "assetPath": "Assets/QuantumUser/Resources/WarBrawl/AbilityPerks/SwordProximityAuraPerk.asset"
+      "assetPath": null
      },
      "summary": "+0.05 damage per enemy within 3 m"
     }
@@ -1406,7 +1412,7 @@
     "auraDamagePerEnemy": 0.05,
     "auraRadius": 3,
     "projectileGravityReduction": 0,
-    "assetPath": "Assets/QuantumUser/Resources/WarBrawl/AbilityPerks/SwordProximityAuraPerk.asset"
+    "assetPath": null
    },
    "effectSummary": "+0.05 damage per enemy within 3 m"
   }
@@ -1420,7 +1426,7 @@
     "lightning-strikes",
     "keen-edge"
    ],
-   "assetPath": "Assets/Perks/Labels/Damage.asset"
+   "assetPath": null
   },
   {
    "key": "dot",
@@ -1430,7 +1436,7 @@
     "serrated-edge",
     "venom-coating"
    ],
-   "assetPath": "Assets/Perks/Labels/DoT.asset"
+   "assetPath": null
   }
  ],
  "statuses": [
@@ -1455,7 +1461,7 @@
      "key": "battle-fury",
      "name": "Battle Fury",
      "magnitudeText": "10%",
-     "durationText": "180 ticks (3 s)",
+     "durationText": "180 ticks (3 sec)",
      "summary": "10%",
      "extra": "on self"
     }
@@ -1482,7 +1488,7 @@
      "key": "weakening-blows",
      "name": "Weakening Blows",
      "magnitudeText": "10%",
-     "durationText": "240 ticks (4 s)",
+     "durationText": "240 ticks (4 sec)",
      "summary": "10%",
      "extra": null
     }
@@ -1526,7 +1532,7 @@
      "key": "rending-strikes",
      "name": "Rending Strikes",
      "magnitudeText": "15%",
-     "durationText": "240 ticks (4 s)",
+     "durationText": "240 ticks (4 sec)",
      "summary": "15%",
      "extra": null
     },
@@ -1535,7 +1541,7 @@
      "key": "brutal-momentum",
      "name": "Brutal Momentum",
      "magnitudeText": "10%",
-     "durationText": "240 ticks (4 s)",
+     "durationText": "240 ticks (4 sec)",
      "summary": "10%",
      "extra": null
     },
@@ -1544,7 +1550,7 @@
      "key": "leapattack-sword",
      "name": "Leaping Slash",
      "magnitudeText": "15%",
-     "durationText": "240 ticks (4 s)",
+     "durationText": "240 ticks (4 sec)",
      "summary": "15%",
      "extra": null
     },
@@ -1553,7 +1559,7 @@
      "key": "whirlingstepattack-sword",
      "name": "Whirling Step",
      "magnitudeText": "30%",
-     "durationText": "360 ticks (6 s)",
+     "durationText": "360 ticks (6 sec)",
      "summary": "30%",
      "extra": null
     }
@@ -1580,7 +1586,7 @@
      "key": "plaguebearer",
      "name": "Plaguebearer",
      "magnitudeText": "25%",
-     "durationText": "300 ticks (5 s)",
+     "durationText": "300 ticks (5 sec)",
      "summary": "25%",
      "extra": null
     }
@@ -1607,8 +1613,8 @@
      "key": "serrated-edge",
      "name": "Serrated Edge",
      "magnitudeText": null,
-     "durationText": "360 ticks (6 s)",
-     "summary": "3 damage per tick",
+     "durationText": "360 ticks (6 sec)",
+     "summary": "3 damage per sec",
      "extra": null
     },
     {
@@ -1616,8 +1622,8 @@
      "key": "sword-leaping-slash-mastery-perk",
      "name": "Leaping Slash Mastery (Sword)",
      "magnitudeText": null,
-     "durationText": "360 ticks (6 s)",
-     "summary": "5% of the hit per tick",
+     "durationText": "360 ticks (6 sec)",
+     "summary": "5% of the hit per sec",
      "extra": null
     },
     {
@@ -1625,8 +1631,8 @@
      "key": "sword-forward-cleave-power-perk",
      "name": "Forward Cleave Power (Sword)",
      "magnitudeText": null,
-     "durationText": "360 ticks (6 s)",
-     "summary": "3% of the hit per tick",
+     "durationText": "360 ticks (6 sec)",
+     "summary": "3% of the hit per sec",
      "extra": "rank 1"
     },
     {
@@ -1634,8 +1640,8 @@
      "key": "sword-forward-cleave-power-perk",
      "name": "Forward Cleave Power (Sword)",
      "magnitudeText": null,
-     "durationText": "360 ticks (6 s)",
-     "summary": "4% of the hit per tick",
+     "durationText": "360 ticks (6 sec)",
+     "summary": "4% of the hit per sec",
      "extra": "rank 2"
     },
     {
@@ -1643,8 +1649,8 @@
      "key": "sword-forward-cleave-power-perk",
      "name": "Forward Cleave Power (Sword)",
      "magnitudeText": null,
-     "durationText": "360 ticks (6 s)",
-     "summary": "5% of the hit per tick",
+     "durationText": "360 ticks (6 sec)",
+     "summary": "5% of the hit per sec",
      "extra": "rank 3"
     },
     {
@@ -1652,13 +1658,13 @@
      "key": "fencingattack-sword",
      "name": "Needle Strike",
      "magnitudeText": null,
-     "durationText": "360 ticks (6 s)",
-     "summary": "4 damage per tick",
+     "durationText": "360 ticks (6 sec)",
+     "summary": "4 damage per sec",
      "extra": null
     }
    ],
    "tickIntervalTicks": 60,
-   "tickIntervalText": "60 ticks (1 s)"
+   "tickIntervalText": "60 ticks (1 sec)"
   },
   {
    "key": "poison",
@@ -1681,13 +1687,13 @@
      "key": "venom-coating",
      "name": "Venom Coating",
      "magnitudeText": null,
-     "durationText": "300 ticks (5 s)",
-     "summary": "5 damage per tick",
+     "durationText": "300 ticks (5 sec)",
+     "summary": "5 damage per sec",
      "extra": null
     }
    ],
    "tickIntervalTicks": 60,
-   "tickIntervalText": "60 ticks (1 s)"
+   "tickIntervalText": "60 ticks (1 sec)"
   },
   {
    "key": "haste",
@@ -1710,7 +1716,7 @@
      "key": "swiftness",
      "name": "Swiftness",
      "magnitudeText": "15%",
-     "durationText": "120 ticks (2 s)",
+     "durationText": "120 ticks (2 sec)",
      "summary": "15%",
      "extra": "on self"
     },
@@ -1719,7 +1725,7 @@
      "key": "fleet-footwork",
      "name": "Fleet Footwork",
      "magnitudeText": "10%",
-     "durationText": "120 ticks (2 s)",
+     "durationText": "120 ticks (2 sec)",
      "summary": "10%",
      "extra": "on self"
     },
@@ -1728,7 +1734,7 @@
      "key": "bow-bow-active-2-technique-perk",
      "name": "Bow Active 2 Technique (Bow)",
      "magnitudeText": "10%",
-     "durationText": "360 ticks (6 s)",
+     "durationText": "360 ticks (6 sec)",
      "summary": "10%",
      "extra": null
     }
@@ -1755,7 +1761,7 @@
      "key": "hobbling-strikes",
      "name": "Hobbling Strikes",
      "magnitudeText": "15%",
-     "durationText": "120 ticks (2 s)",
+     "durationText": "120 ticks (2 sec)",
      "summary": "15%",
      "extra": null
     },
@@ -1764,7 +1770,7 @@
      "key": "sword-forward-cleave-mastery-perk",
      "name": "Forward Cleave Mastery (Sword)",
      "magnitudeText": "5%",
-     "durationText": "120 ticks (2 s)",
+     "durationText": "120 ticks (2 sec)",
      "summary": "5%",
      "extra": null
     }
@@ -1791,7 +1797,7 @@
      "key": "staggering-blow",
      "name": "Staggering Blow",
      "magnitudeText": null,
-     "durationText": "24 ticks (0.4 s)",
+     "durationText": "24 ticks (0.4 sec)",
      "summary": "-",
      "extra": null
     },
@@ -1800,13 +1806,13 @@
      "key": "spinattack-sword",
      "name": "Spinning Blade",
      "magnitudeText": null,
-     "durationText": "24 ticks (0.4 s)",
+     "durationText": "24 ticks (0.4 sec)",
      "summary": "-",
      "extra": null
     }
    ],
    "actionLockTicks": 24,
-   "actionLockText": "24 ticks (0.4 s)"
+   "actionLockText": "24 ticks (0.4 sec)"
   },
   {
    "key": "stun",
@@ -1829,7 +1835,7 @@
      "key": "thundering-impact",
      "name": "Thundering Impact",
      "magnitudeText": null,
-     "durationText": "60 ticks (1 s)",
+     "durationText": "60 ticks (1 sec)",
      "summary": "-",
      "extra": null
     },
@@ -1838,7 +1844,7 @@
      "key": "leapattack-sword",
      "name": "Leaping Slash",
      "magnitudeText": null,
-     "durationText": "60 ticks (1 s)",
+     "durationText": "60 ticks (1 sec)",
      "summary": "-",
      "extra": null
     }
@@ -1892,7 +1898,7 @@
    ],
    "attack": null,
    "abilityPerk": null,
-   "assetPath": "Assets/AbilityTrees/Abilities/Axe/Axe_Active_1.asset"
+   "assetPath": null
   },
   {
    "key": "axe-axe-active-1-power",
@@ -1923,7 +1929,7 @@
    ],
    "attack": null,
    "abilityPerk": null,
-   "assetPath": "Assets/AbilityTrees/Abilities/Axe/Axe_Active_1_Power.asset"
+   "assetPath": null
   },
   {
    "key": "axe-axe-active-1-mastery",
@@ -1952,7 +1958,7 @@
    "children": [],
    "attack": null,
    "abilityPerk": null,
-   "assetPath": "Assets/AbilityTrees/Abilities/Axe/Axe_Active_1_Mastery.asset"
+   "assetPath": null
   },
   {
    "key": "axe-axe-active-2",
@@ -1983,7 +1989,7 @@
    ],
    "attack": null,
    "abilityPerk": null,
-   "assetPath": "Assets/AbilityTrees/Abilities/Axe/Axe_Active_2.asset"
+   "assetPath": null
   },
   {
    "key": "axe-axe-active-2-power",
@@ -2015,7 +2021,7 @@
    ],
    "attack": null,
    "abilityPerk": null,
-   "assetPath": "Assets/AbilityTrees/Abilities/Axe/Axe_Active_2_Power.asset"
+   "assetPath": null
   },
   {
    "key": "axe-axe-active-2-mastery",
@@ -2044,7 +2050,7 @@
    "children": [],
    "attack": null,
    "abilityPerk": null,
-   "assetPath": "Assets/AbilityTrees/Abilities/Axe/Axe_Active_2_Mastery.asset"
+   "assetPath": null
   },
   {
    "key": "axe-axe-active-2-technique",
@@ -2073,7 +2079,7 @@
    "children": [],
    "attack": null,
    "abilityPerk": null,
-   "assetPath": "Assets/AbilityTrees/Abilities/Axe/Axe_Active_2_Technique.asset"
+   "assetPath": null
   },
   {
    "key": "axe-axe-active-3",
@@ -2104,7 +2110,7 @@
    ],
    "attack": null,
    "abilityPerk": null,
-   "assetPath": "Assets/AbilityTrees/Abilities/Axe/Axe_Active_3.asset"
+   "assetPath": null
   },
   {
    "key": "axe-axe-active-3-power",
@@ -2135,7 +2141,7 @@
    ],
    "attack": null,
    "abilityPerk": null,
-   "assetPath": "Assets/AbilityTrees/Abilities/Axe/Axe_Active_3_Power.asset"
+   "assetPath": null
   },
   {
    "key": "axe-axe-active-3-mastery",
@@ -2164,7 +2170,7 @@
    "children": [],
    "attack": null,
    "abilityPerk": null,
-   "assetPath": "Assets/AbilityTrees/Abilities/Axe/Axe_Active_3_Mastery.asset"
+   "assetPath": null
   },
   {
    "key": "axe-axe-active-4",
@@ -2195,7 +2201,7 @@
    ],
    "attack": null,
    "abilityPerk": null,
-   "assetPath": "Assets/AbilityTrees/Abilities/Axe/Axe_Active_4.asset"
+   "assetPath": null
   },
   {
    "key": "axe-axe-active-4-power",
@@ -2226,7 +2232,7 @@
    ],
    "attack": null,
    "abilityPerk": null,
-   "assetPath": "Assets/AbilityTrees/Abilities/Axe/Axe_Active_4_Power.asset"
+   "assetPath": null
   },
   {
    "key": "axe-axe-active-4-mastery",
@@ -2255,7 +2261,7 @@
    "children": [],
    "attack": null,
    "abilityPerk": null,
-   "assetPath": "Assets/AbilityTrees/Abilities/Axe/Axe_Active_4_Mastery.asset"
+   "assetPath": null
   },
   {
    "key": "axe-axe-active-5",
@@ -2286,7 +2292,7 @@
    ],
    "attack": null,
    "abilityPerk": null,
-   "assetPath": "Assets/AbilityTrees/Abilities/Axe/Axe_Active_5.asset"
+   "assetPath": null
   },
   {
    "key": "axe-axe-active-5-power",
@@ -2317,7 +2323,7 @@
    ],
    "attack": null,
    "abilityPerk": null,
-   "assetPath": "Assets/AbilityTrees/Abilities/Axe/Axe_Active_5_Power.asset"
+   "assetPath": null
   },
   {
    "key": "axe-axe-active-5-mastery",
@@ -2346,7 +2352,7 @@
    "children": [],
    "attack": null,
    "abilityPerk": null,
-   "assetPath": "Assets/AbilityTrees/Abilities/Axe/Axe_Active_5_Mastery.asset"
+   "assetPath": null
   },
   {
    "key": "axe-axe-active-6",
@@ -2377,7 +2383,7 @@
    ],
    "attack": null,
    "abilityPerk": null,
-   "assetPath": "Assets/AbilityTrees/Abilities/Axe/Axe_Active_6.asset"
+   "assetPath": null
   },
   {
    "key": "axe-axe-active-6-power",
@@ -2408,7 +2414,7 @@
    ],
    "attack": null,
    "abilityPerk": null,
-   "assetPath": "Assets/AbilityTrees/Abilities/Axe/Axe_Active_6_Power.asset"
+   "assetPath": null
   },
   {
    "key": "axe-axe-active-6-mastery",
@@ -2437,7 +2443,7 @@
    "children": [],
    "attack": null,
    "abilityPerk": null,
-   "assetPath": "Assets/AbilityTrees/Abilities/Axe/Axe_Active_6_Mastery.asset"
+   "assetPath": null
   },
   {
    "key": "bow-bow-active-1",
@@ -2468,7 +2474,7 @@
    ],
    "attack": null,
    "abilityPerk": null,
-   "assetPath": "Assets/AbilityTrees/Abilities/Bow/Bow_Active_1.asset"
+   "assetPath": null
   },
   {
    "key": "bow-bow-active-1-power",
@@ -2499,7 +2505,7 @@
    ],
    "attack": null,
    "abilityPerk": null,
-   "assetPath": "Assets/AbilityTrees/Abilities/Bow/Bow_Active_1_Power.asset"
+   "assetPath": null
   },
   {
    "key": "bow-bow-active-1-mastery",
@@ -2528,7 +2534,7 @@
    "children": [],
    "attack": null,
    "abilityPerk": "bow-bow-active-1-mastery-perk",
-   "assetPath": "Assets/AbilityTrees/Abilities/Bow/Bow_Active_1_Mastery.asset"
+   "assetPath": null
   },
   {
    "key": "bow-bow-active-2",
@@ -2559,7 +2565,7 @@
    ],
    "attack": null,
    "abilityPerk": null,
-   "assetPath": "Assets/AbilityTrees/Abilities/Bow/Bow_Active_2.asset"
+   "assetPath": null
   },
   {
    "key": "bow-bow-active-2-power",
@@ -2591,7 +2597,7 @@
    ],
    "attack": null,
    "abilityPerk": null,
-   "assetPath": "Assets/AbilityTrees/Abilities/Bow/Bow_Active_2_Power.asset"
+   "assetPath": null
   },
   {
    "key": "bow-bow-active-2-mastery",
@@ -2620,7 +2626,7 @@
    "children": [],
    "attack": null,
    "abilityPerk": null,
-   "assetPath": "Assets/AbilityTrees/Abilities/Bow/Bow_Active_2_Mastery.asset"
+   "assetPath": null
   },
   {
    "key": "bow-bow-active-2-technique",
@@ -2649,7 +2655,7 @@
    "children": [],
    "attack": null,
    "abilityPerk": "bow-bow-active-2-technique-perk",
-   "assetPath": "Assets/AbilityTrees/Abilities/Bow/Bow_Active_2_Technique.asset"
+   "assetPath": null
   },
   {
    "key": "bow-bow-active-3",
@@ -2680,7 +2686,7 @@
    ],
    "attack": null,
    "abilityPerk": null,
-   "assetPath": "Assets/AbilityTrees/Abilities/Bow/Bow_Active_3.asset"
+   "assetPath": null
   },
   {
    "key": "bow-bow-active-3-power",
@@ -2711,7 +2717,7 @@
    ],
    "attack": null,
    "abilityPerk": null,
-   "assetPath": "Assets/AbilityTrees/Abilities/Bow/Bow_Active_3_Power.asset"
+   "assetPath": null
   },
   {
    "key": "bow-bow-active-3-mastery",
@@ -2740,7 +2746,7 @@
    "children": [],
    "attack": null,
    "abilityPerk": null,
-   "assetPath": "Assets/AbilityTrees/Abilities/Bow/Bow_Active_3_Mastery.asset"
+   "assetPath": null
   },
   {
    "key": "bow-bow-active-4",
@@ -2771,7 +2777,7 @@
    ],
    "attack": null,
    "abilityPerk": null,
-   "assetPath": "Assets/AbilityTrees/Abilities/Bow/Bow_Active_4.asset"
+   "assetPath": null
   },
   {
    "key": "bow-bow-active-4-power",
@@ -2802,7 +2808,7 @@
    ],
    "attack": null,
    "abilityPerk": null,
-   "assetPath": "Assets/AbilityTrees/Abilities/Bow/Bow_Active_4_Power.asset"
+   "assetPath": null
   },
   {
    "key": "bow-bow-active-4-mastery",
@@ -2831,7 +2837,7 @@
    "children": [],
    "attack": null,
    "abilityPerk": null,
-   "assetPath": "Assets/AbilityTrees/Abilities/Bow/Bow_Active_4_Mastery.asset"
+   "assetPath": null
   },
   {
    "key": "bow-bow-active-5",
@@ -2862,7 +2868,7 @@
    ],
    "attack": null,
    "abilityPerk": null,
-   "assetPath": "Assets/AbilityTrees/Abilities/Bow/Bow_Active_5.asset"
+   "assetPath": null
   },
   {
    "key": "bow-bow-active-5-power",
@@ -2893,7 +2899,7 @@
    ],
    "attack": null,
    "abilityPerk": null,
-   "assetPath": "Assets/AbilityTrees/Abilities/Bow/Bow_Active_5_Power.asset"
+   "assetPath": null
   },
   {
    "key": "bow-bow-active-5-mastery",
@@ -2922,7 +2928,7 @@
    "children": [],
    "attack": null,
    "abilityPerk": null,
-   "assetPath": "Assets/AbilityTrees/Abilities/Bow/Bow_Active_5_Mastery.asset"
+   "assetPath": null
   },
   {
    "key": "bow-bow-active-6",
@@ -2953,7 +2959,7 @@
    ],
    "attack": null,
    "abilityPerk": null,
-   "assetPath": "Assets/AbilityTrees/Abilities/Bow/Bow_Active_6.asset"
+   "assetPath": null
   },
   {
    "key": "bow-bow-active-6-power",
@@ -2984,7 +2990,7 @@
    ],
    "attack": null,
    "abilityPerk": null,
-   "assetPath": "Assets/AbilityTrees/Abilities/Bow/Bow_Active_6_Power.asset"
+   "assetPath": null
   },
   {
    "key": "bow-bow-active-6-mastery",
@@ -3013,7 +3019,7 @@
    "children": [],
    "attack": null,
    "abilityPerk": null,
-   "assetPath": "Assets/AbilityTrees/Abilities/Bow/Bow_Active_6_Mastery.asset"
+   "assetPath": null
   },
   {
    "key": "spear-spear-active-1",
@@ -3044,7 +3050,7 @@
    ],
    "attack": null,
    "abilityPerk": null,
-   "assetPath": "Assets/AbilityTrees/Abilities/Spear/Spear_Active_1.asset"
+   "assetPath": null
   },
   {
    "key": "spear-spear-active-1-power",
@@ -3075,7 +3081,7 @@
    ],
    "attack": null,
    "abilityPerk": null,
-   "assetPath": "Assets/AbilityTrees/Abilities/Spear/Spear_Active_1_Power.asset"
+   "assetPath": null
   },
   {
    "key": "spear-spear-active-1-mastery",
@@ -3104,7 +3110,7 @@
    "children": [],
    "attack": null,
    "abilityPerk": null,
-   "assetPath": "Assets/AbilityTrees/Abilities/Spear/Spear_Active_1_Mastery.asset"
+   "assetPath": null
   },
   {
    "key": "spear-spear-active-2",
@@ -3135,7 +3141,7 @@
    ],
    "attack": null,
    "abilityPerk": null,
-   "assetPath": "Assets/AbilityTrees/Abilities/Spear/Spear_Active_2.asset"
+   "assetPath": null
   },
   {
    "key": "spear-spear-active-2-power",
@@ -3167,7 +3173,7 @@
    ],
    "attack": null,
    "abilityPerk": null,
-   "assetPath": "Assets/AbilityTrees/Abilities/Spear/Spear_Active_2_Power.asset"
+   "assetPath": null
   },
   {
    "key": "spear-spear-active-2-mastery",
@@ -3196,7 +3202,7 @@
    "children": [],
    "attack": null,
    "abilityPerk": null,
-   "assetPath": "Assets/AbilityTrees/Abilities/Spear/Spear_Active_2_Mastery.asset"
+   "assetPath": null
   },
   {
    "key": "spear-spear-active-2-technique",
@@ -3225,7 +3231,7 @@
    "children": [],
    "attack": null,
    "abilityPerk": null,
-   "assetPath": "Assets/AbilityTrees/Abilities/Spear/Spear_Active_2_Technique.asset"
+   "assetPath": null
   },
   {
    "key": "spear-spear-active-3",
@@ -3256,7 +3262,7 @@
    ],
    "attack": null,
    "abilityPerk": null,
-   "assetPath": "Assets/AbilityTrees/Abilities/Spear/Spear_Active_3.asset"
+   "assetPath": null
   },
   {
    "key": "spear-spear-active-3-power",
@@ -3287,7 +3293,7 @@
    ],
    "attack": null,
    "abilityPerk": null,
-   "assetPath": "Assets/AbilityTrees/Abilities/Spear/Spear_Active_3_Power.asset"
+   "assetPath": null
   },
   {
    "key": "spear-spear-active-3-mastery",
@@ -3316,7 +3322,7 @@
    "children": [],
    "attack": null,
    "abilityPerk": null,
-   "assetPath": "Assets/AbilityTrees/Abilities/Spear/Spear_Active_3_Mastery.asset"
+   "assetPath": null
   },
   {
    "key": "spear-spear-active-4",
@@ -3347,7 +3353,7 @@
    ],
    "attack": null,
    "abilityPerk": null,
-   "assetPath": "Assets/AbilityTrees/Abilities/Spear/Spear_Active_4.asset"
+   "assetPath": null
   },
   {
    "key": "spear-spear-active-4-power",
@@ -3378,7 +3384,7 @@
    ],
    "attack": null,
    "abilityPerk": null,
-   "assetPath": "Assets/AbilityTrees/Abilities/Spear/Spear_Active_4_Power.asset"
+   "assetPath": null
   },
   {
    "key": "spear-spear-active-4-mastery",
@@ -3407,7 +3413,7 @@
    "children": [],
    "attack": null,
    "abilityPerk": null,
-   "assetPath": "Assets/AbilityTrees/Abilities/Spear/Spear_Active_4_Mastery.asset"
+   "assetPath": null
   },
   {
    "key": "spear-spear-active-5",
@@ -3438,7 +3444,7 @@
    ],
    "attack": null,
    "abilityPerk": null,
-   "assetPath": "Assets/AbilityTrees/Abilities/Spear/Spear_Active_5.asset"
+   "assetPath": null
   },
   {
    "key": "spear-spear-active-5-power",
@@ -3469,7 +3475,7 @@
    ],
    "attack": null,
    "abilityPerk": null,
-   "assetPath": "Assets/AbilityTrees/Abilities/Spear/Spear_Active_5_Power.asset"
+   "assetPath": null
   },
   {
    "key": "spear-spear-active-5-mastery",
@@ -3498,7 +3504,7 @@
    "children": [],
    "attack": null,
    "abilityPerk": null,
-   "assetPath": "Assets/AbilityTrees/Abilities/Spear/Spear_Active_5_Mastery.asset"
+   "assetPath": null
   },
   {
    "key": "spear-spear-active-6",
@@ -3529,7 +3535,7 @@
    ],
    "attack": null,
    "abilityPerk": null,
-   "assetPath": "Assets/AbilityTrees/Abilities/Spear/Spear_Active_6.asset"
+   "assetPath": null
   },
   {
    "key": "spear-spear-active-6-power",
@@ -3560,7 +3566,7 @@
    ],
    "attack": null,
    "abilityPerk": null,
-   "assetPath": "Assets/AbilityTrees/Abilities/Spear/Spear_Active_6_Power.asset"
+   "assetPath": null
   },
   {
    "key": "spear-spear-active-6-mastery",
@@ -3589,7 +3595,7 @@
    "children": [],
    "attack": null,
    "abilityPerk": null,
-   "assetPath": "Assets/AbilityTrees/Abilities/Spear/Spear_Active_6_Mastery.asset"
+   "assetPath": null
   },
   {
    "key": "sword-leaping-slash",
@@ -3621,7 +3627,7 @@
    ],
    "attack": "leapattack-sword",
    "abilityPerk": null,
-   "assetPath": "Assets/AbilityTrees/Abilities/Sword/Leaping_Slash.asset"
+   "assetPath": null
   },
   {
    "key": "sword-leaping-slash-power",
@@ -3654,7 +3660,7 @@
    ],
    "attack": null,
    "abilityPerk": null,
-   "assetPath": "Assets/AbilityTrees/Abilities/Sword/Leaping_Slash_Power.asset"
+   "assetPath": null
   },
   {
    "key": "sword-leaping-slash-mastery",
@@ -3685,7 +3691,7 @@
    "children": [],
    "attack": null,
    "abilityPerk": "sword-leaping-slash-mastery-perk",
-   "assetPath": "Assets/AbilityTrees/Abilities/Sword/Leaping_Slash_Mastery.asset"
+   "assetPath": null
   },
   {
    "key": "sword-forward-cleave",
@@ -3717,7 +3723,7 @@
    ],
    "attack": "dashattack-sword",
    "abilityPerk": null,
-   "assetPath": "Assets/AbilityTrees/Abilities/Sword/Forward_Cleave.asset"
+   "assetPath": null
   },
   {
    "key": "sword-forward-cleave-power",
@@ -3751,7 +3757,7 @@
    ],
    "attack": null,
    "abilityPerk": "sword-forward-cleave-power-perk",
-   "assetPath": "Assets/AbilityTrees/Abilities/Sword/Forward_Cleave_Power.asset"
+   "assetPath": null
   },
   {
    "key": "sword-forward-cleave-mastery",
@@ -3784,7 +3790,7 @@
    ],
    "attack": null,
    "abilityPerk": "sword-forward-cleave-mastery-perk",
-   "assetPath": "Assets/AbilityTrees/Abilities/Sword/Forward_Cleave_Mastery.asset"
+   "assetPath": null
   },
   {
    "key": "sword-forward-cleave-technique",
@@ -3815,7 +3821,7 @@
    "children": [],
    "attack": null,
    "abilityPerk": "sword-forward-cleave-technique-perk",
-   "assetPath": "Assets/AbilityTrees/Abilities/Sword/Forward_Cleave_Technique.asset"
+   "assetPath": null
   },
   {
    "key": "sword-whirling-step",
@@ -3847,7 +3853,7 @@
    ],
    "attack": "whirlingstepattack-sword",
    "abilityPerk": null,
-   "assetPath": "Assets/AbilityTrees/Abilities/Sword/Whirling_Step.asset"
+   "assetPath": null
   },
   {
    "key": "sword-whirling-step-power",
@@ -3880,7 +3886,7 @@
    ],
    "attack": null,
    "abilityPerk": null,
-   "assetPath": "Assets/AbilityTrees/Abilities/Sword/Whirling_Step_Power.asset"
+   "assetPath": null
   },
   {
    "key": "sword-whirling-step-mastery",
@@ -3911,7 +3917,7 @@
    "children": [],
    "attack": null,
    "abilityPerk": null,
-   "assetPath": "Assets/AbilityTrees/Abilities/Sword/Whirling_Step_Mastery.asset"
+   "assetPath": null
   },
   {
    "key": "sword-spinning-blade",
@@ -3943,7 +3949,7 @@
    ],
    "attack": "spinattack-sword",
    "abilityPerk": null,
-   "assetPath": "Assets/AbilityTrees/Abilities/Sword/Spinning_Blade.asset"
+   "assetPath": null
   },
   {
    "key": "sword-spinning-blade-power",
@@ -3976,7 +3982,7 @@
    ],
    "attack": null,
    "abilityPerk": null,
-   "assetPath": "Assets/AbilityTrees/Abilities/Sword/Spinning_Blade_Power.asset"
+   "assetPath": null
   },
   {
    "key": "sword-spinning-blade-mastery",
@@ -4009,7 +4015,7 @@
    ],
    "attack": null,
    "abilityPerk": null,
-   "assetPath": "Assets/AbilityTrees/Abilities/Sword/Spinning_Blade_Mastery.asset"
+   "assetPath": null
   },
   {
    "key": "sword-crushing-swing",
@@ -4041,7 +4047,7 @@
    ],
    "attack": "flourishattack-sword",
    "abilityPerk": null,
-   "assetPath": "Assets/AbilityTrees/Abilities/Sword/Crushing_Swing.asset"
+   "assetPath": null
   },
   {
    "key": "sword-crushing-swing-power",
@@ -4074,7 +4080,7 @@
    ],
    "attack": null,
    "abilityPerk": null,
-   "assetPath": "Assets/AbilityTrees/Abilities/Sword/Crushing_Swing_Power.asset"
+   "assetPath": null
   },
   {
    "key": "sword-crushing-swing-mastery",
@@ -4107,7 +4113,7 @@
    ],
    "attack": null,
    "abilityPerk": null,
-   "assetPath": "Assets/AbilityTrees/Abilities/Sword/Crushing_Swing_Mastery.asset"
+   "assetPath": null
   },
   {
    "key": "sword-needle-strike",
@@ -4139,7 +4145,7 @@
    ],
    "attack": "fencingattack-sword",
    "abilityPerk": null,
-   "assetPath": "Assets/AbilityTrees/Abilities/Sword/Needle_Strike.asset"
+   "assetPath": null
   },
   {
    "key": "sword-needle-strike-power",
@@ -4172,7 +4178,7 @@
    ],
    "attack": null,
    "abilityPerk": null,
-   "assetPath": "Assets/AbilityTrees/Abilities/Sword/Needle_Strike_Power.asset"
+   "assetPath": null
   },
   {
    "key": "sword-needle-strike-mastery",
@@ -4203,7 +4209,7 @@
    "children": [],
    "attack": null,
    "abilityPerk": null,
-   "assetPath": "Assets/AbilityTrees/Abilities/Sword/Needle_Strike_Mastery.asset"
+   "assetPath": null
   },
   {
    "key": "sword-sword-passive-1",
@@ -4232,7 +4238,7 @@
    "children": [],
    "attack": null,
    "abilityPerk": null,
-   "assetPath": "Assets/AbilityTrees/Abilities/Sword/SwordPassive1.asset"
+   "assetPath": null
   },
   {
    "key": "sword-thunderstorm-passive",
@@ -4263,7 +4269,7 @@
    "children": [],
    "attack": null,
    "abilityPerk": null,
-   "assetPath": "Assets/AbilityTrees/Abilities/Sword/SwordPassive4.asset"
+   "assetPath": null
   },
   {
    "key": "sword-sword-passive-5",
@@ -4294,7 +4300,7 @@
    "children": [],
    "attack": null,
    "abilityPerk": null,
-   "assetPath": "Assets/AbilityTrees/Abilities/Sword/SwordPassive5.asset"
+   "assetPath": null
   },
   {
    "key": "sword-sword-passive-2",
@@ -4325,7 +4331,7 @@
    "children": [],
    "attack": null,
    "abilityPerk": null,
-   "assetPath": "Assets/AbilityTrees/Abilities/Sword/SwordPassive2.asset"
+   "assetPath": null
   },
   {
    "key": "sword-sword-passive-3",
@@ -4354,7 +4360,7 @@
    "children": [],
    "attack": null,
    "abilityPerk": null,
-   "assetPath": "Assets/AbilityTrees/Abilities/Sword/SwordPassive3.asset"
+   "assetPath": null
   }
  ],
  "trees": [
@@ -4402,7 +4408,7 @@
     "axe-axe-active-6-power",
     "axe-axe-active-6-mastery"
    ],
-   "assetPath": "Assets/AbilityTrees/Trees/Axe.asset"
+   "assetPath": null
   },
   {
    "key": "bow",
@@ -4448,7 +4454,7 @@
     "bow-bow-active-6-power",
     "bow-bow-active-6-mastery"
    ],
-   "assetPath": "Assets/AbilityTrees/Trees/Bow.asset"
+   "assetPath": null
   },
   {
    "key": "spear",
@@ -4494,7 +4500,7 @@
     "spear-spear-active-6-power",
     "spear-spear-active-6-mastery"
    ],
-   "assetPath": "Assets/AbilityTrees/Trees/Spear.asset"
+   "assetPath": null
   },
   {
    "key": "sword",
@@ -4545,7 +4551,7 @@
     "sword-sword-passive-2",
     "sword-sword-passive-3"
    ],
-   "assetPath": "Assets/AbilityTrees/Trees/Sword.asset"
+   "assetPath": null
   }
  ],
  "attacks": [
@@ -4554,7 +4560,7 @@
    "name": "Aimed Shot",
    "assetName": "Bow",
    "damage": 20,
-   "hasFrameData": true,
+   "hasFrameData": false,
    "cooldownTicks": 0,
    "cooldownText": "None",
    "cancelWindow": "-",
@@ -4597,18 +4603,7 @@
    "kind": "Shot",
    "weapon": "Bow",
    "icon": null,
-   "assetPath": "Assets/QuantumUser/Resources/WarBrawl/BowWeapon.asset",
-   "windupTicks": 38,
-   "activeTicks": 0,
-   "recoveryTicks": 61,
-   "totalTicks": 99,
-   "windupText": "38 ticks (0.63 s)",
-   "activeText": "projectile",
-   "recoveryText": "61 ticks (1.02 s)",
-   "totalText": "99 ticks (1.65 s)",
-   "rehitTicks": [],
-   "airborneWindupTicks": 0,
-   "rootMotionTicks": 0
+   "assetPath": null
   },
   {
    "key": "flourishattack-sword",
@@ -4618,7 +4613,7 @@
    "cooldownTicks": 0,
    "cooldownText": "0",
    "cancelWindow": "Recovery",
-   "hasFrameData": true,
+   "hasFrameData": false,
    "moveSpeedFactor": 0.15,
    "activeMoveSpeedFactor": -1,
    "recoveryMoveSpeedFactor": 0,
@@ -4664,18 +4659,7 @@
     "file": "icons/SwordFlourish-43ed825e.png",
     "frame": "icons/SkillSlot-Hex-c7024a12.png"
    },
-   "assetPath": "Assets/QuantumUser/Resources/WarBrawl/FlourishAttack_Sword.asset",
-   "windupTicks": 55,
-   "activeTicks": 7,
-   "recoveryTicks": 20,
-   "totalTicks": 82,
-   "windupText": "55 ticks (0.92 s)",
-   "activeText": "7 ticks (0.12 s)",
-   "recoveryText": "20 ticks (0.33 s)",
-   "totalText": "82 ticks (1.37 s)",
-   "rehitTicks": [],
-   "airborneWindupTicks": 0,
-   "rootMotionTicks": 0
+   "assetPath": null
   },
   {
    "key": "dashattack-sword",
@@ -4683,9 +4667,9 @@
    "assetName": "DashAttack_Sword",
    "damage": 30,
    "cooldownTicks": 240,
-   "cooldownText": "240 ticks (4 s)",
+   "cooldownText": "240 ticks (4 sec)",
    "cancelWindow": "Recovery",
-   "hasFrameData": true,
+   "hasFrameData": false,
    "moveSpeedFactor": 0,
    "activeMoveSpeedFactor": 0,
    "recoveryMoveSpeedFactor": 0,
@@ -4731,25 +4715,14 @@
     "file": "icons/Forward-Cleave-bf55f0be.png",
     "frame": "icons/SkillSlot-Hex-c7024a12.png"
    },
-   "assetPath": "Assets/QuantumUser/Resources/WarBrawl/DashAttack_Sword.asset",
-   "windupTicks": 10,
-   "activeTicks": 12,
-   "recoveryTicks": 30,
-   "totalTicks": 52,
-   "windupText": "10 ticks (0.17 s)",
-   "activeText": "12 ticks (0.2 s)",
-   "recoveryText": "30 ticks (0.5 s)",
-   "totalText": "52 ticks (0.87 s)",
-   "rehitTicks": [],
-   "airborneWindupTicks": 0,
-   "rootMotionTicks": 52
+   "assetPath": null
   },
   {
    "key": "bow-full-draw",
    "name": "Full Draw",
    "assetName": "Bow",
    "damage": 40,
-   "hasFrameData": true,
+   "hasFrameData": false,
    "cooldownTicks": 0,
    "cooldownText": "None",
    "cancelWindow": "-",
@@ -4792,18 +4765,7 @@
    "kind": "Shot",
    "weapon": "Bow",
    "icon": null,
-   "assetPath": "Assets/QuantumUser/Resources/WarBrawl/BowWeapon.asset",
-   "windupTicks": 38,
-   "activeTicks": 0,
-   "recoveryTicks": 61,
-   "totalTicks": 99,
-   "windupText": "38 ticks (0.63 s)",
-   "activeText": "projectile",
-   "recoveryText": "61 ticks (1.02 s)",
-   "totalText": "99 ticks (1.65 s)",
-   "rehitTicks": [],
-   "airborneWindupTicks": 0,
-   "rootMotionTicks": 0
+   "assetPath": null
   },
   {
    "key": "heavyattack-sword",
@@ -4811,9 +4773,9 @@
    "assetName": "HeavyAttack_Sword",
    "damage": 45,
    "cooldownTicks": 240,
-   "cooldownText": "240 ticks (4 s)",
+   "cooldownText": "240 ticks (4 sec)",
    "cancelWindow": "None (committed)",
-   "hasFrameData": true,
+   "hasFrameData": false,
    "moveSpeedFactor": 0.06,
    "activeMoveSpeedFactor": 0,
    "recoveryMoveSpeedFactor": 0,
@@ -4852,18 +4814,7 @@
    "kind": "Heavy",
    "weapon": "Sword",
    "icon": null,
-   "assetPath": "Assets/QuantumUser/Resources/WarBrawl/HeavyAttack_Sword.asset",
-   "windupTicks": 36,
-   "activeTicks": 12,
-   "recoveryTicks": 30,
-   "totalTicks": 78,
-   "windupText": "36 ticks (0.6 s)",
-   "activeText": "12 ticks (0.2 s)",
-   "recoveryText": "30 ticks (0.5 s)",
-   "totalText": "78 ticks (1.3 s)",
-   "rehitTicks": [],
-   "airborneWindupTicks": 0,
-   "rootMotionTicks": 78
+   "assetPath": null
   },
   {
    "key": "leapattack-sword",
@@ -4871,9 +4822,9 @@
    "assetName": "LeapAttack_Sword",
    "damage": 30,
    "cooldownTicks": 240,
-   "cooldownText": "240 ticks (4 s)",
+   "cooldownText": "240 ticks (4 sec)",
    "cancelWindow": "Recovery",
-   "hasFrameData": true,
+   "hasFrameData": false,
    "moveSpeedFactor": 0.9,
    "activeMoveSpeedFactor": 2.75,
    "recoveryMoveSpeedFactor": 0,
@@ -4907,7 +4858,7 @@
      "tickDamage": 0,
      "tickDamagePercentOfHit": 0,
      "durationTicks": 60,
-     "durationText": "60 ticks (1 s)",
+     "durationText": "60 ticks (1 sec)",
      "summary": "-"
     },
     {
@@ -4918,7 +4869,7 @@
      "tickDamage": 0,
      "tickDamagePercentOfHit": 0,
      "durationTicks": 240,
-     "durationText": "240 ticks (4 s)",
+     "durationText": "240 ticks (4 sec)",
      "summary": "15%"
     }
    ],
@@ -4942,18 +4893,7 @@
     "file": "icons/Leaping-Slash-3-81051c9f.png",
     "frame": "icons/SkillSlot-Hex-c7024a12.png"
    },
-   "assetPath": "Assets/QuantumUser/Resources/WarBrawl/LeapAttack_Sword.asset",
-   "windupTicks": 60,
-   "activeTicks": 8,
-   "recoveryTicks": 26,
-   "totalTicks": 94,
-   "windupText": "60 ticks (1 s)",
-   "activeText": "8 ticks (0.13 s)",
-   "recoveryText": "26 ticks (0.43 s)",
-   "totalText": "94 ticks (1.57 s)",
-   "rehitTicks": [],
-   "airborneWindupTicks": 14,
-   "rootMotionTicks": 0
+   "assetPath": null
   },
   {
    "key": "lightattack-axe",
@@ -4961,9 +4901,9 @@
    "assetName": "LightAttack_Axe",
    "damage": 20,
    "cooldownTicks": 240,
-   "cooldownText": "240 ticks (4 s)",
+   "cooldownText": "240 ticks (4 sec)",
    "cancelWindow": "None (committed)",
-   "hasFrameData": true,
+   "hasFrameData": false,
    "moveSpeedFactor": 0,
    "activeMoveSpeedFactor": 0,
    "recoveryMoveSpeedFactor": 0,
@@ -5002,18 +4942,7 @@
    "kind": "Light",
    "weapon": "Axe",
    "icon": null,
-   "assetPath": "Assets/QuantumUser/Resources/WarBrawl/LightAttack_Axe.asset",
-   "windupTicks": 58,
-   "activeTicks": 12,
-   "recoveryTicks": 52,
-   "totalTicks": 122,
-   "windupText": "58 ticks (0.97 s)",
-   "activeText": "12 ticks (0.2 s)",
-   "recoveryText": "52 ticks (0.87 s)",
-   "totalText": "122 ticks (2.03 s)",
-   "rehitTicks": [],
-   "airborneWindupTicks": 0,
-   "rootMotionTicks": 122
+   "assetPath": null
   },
   {
    "key": "lightattack-axe-b",
@@ -5021,9 +4950,9 @@
    "assetName": "LightAttack_Axe_B",
    "damage": 22,
    "cooldownTicks": 240,
-   "cooldownText": "240 ticks (4 s)",
+   "cooldownText": "240 ticks (4 sec)",
    "cancelWindow": "None (committed)",
-   "hasFrameData": true,
+   "hasFrameData": false,
    "moveSpeedFactor": 0,
    "activeMoveSpeedFactor": 0,
    "recoveryMoveSpeedFactor": 0,
@@ -5062,18 +4991,7 @@
    "kind": "Light",
    "weapon": "Axe",
    "icon": null,
-   "assetPath": "Assets/QuantumUser/Resources/WarBrawl/LightAttack_Axe_B.asset",
-   "windupTicks": 46,
-   "activeTicks": 12,
-   "recoveryTicks": 42,
-   "totalTicks": 100,
-   "windupText": "46 ticks (0.77 s)",
-   "activeText": "12 ticks (0.2 s)",
-   "recoveryText": "42 ticks (0.7 s)",
-   "totalText": "100 ticks (1.67 s)",
-   "rehitTicks": [],
-   "airborneWindupTicks": 0,
-   "rootMotionTicks": 100
+   "assetPath": null
   },
   {
    "key": "lightattack-axe-c",
@@ -5081,9 +4999,9 @@
    "assetName": "LightAttack_Axe_C",
    "damage": 26,
    "cooldownTicks": 240,
-   "cooldownText": "240 ticks (4 s)",
+   "cooldownText": "240 ticks (4 sec)",
    "cancelWindow": "None (committed)",
-   "hasFrameData": true,
+   "hasFrameData": false,
    "moveSpeedFactor": 0,
    "activeMoveSpeedFactor": 0,
    "recoveryMoveSpeedFactor": 0,
@@ -5122,18 +5040,7 @@
    "kind": "Light",
    "weapon": "Axe",
    "icon": null,
-   "assetPath": "Assets/QuantumUser/Resources/WarBrawl/LightAttack_Axe_C.asset",
-   "windupTicks": 44,
-   "activeTicks": 12,
-   "recoveryTicks": 40,
-   "totalTicks": 96,
-   "windupText": "44 ticks (0.73 s)",
-   "activeText": "12 ticks (0.2 s)",
-   "recoveryText": "40 ticks (0.67 s)",
-   "totalText": "96 ticks (1.6 s)",
-   "rehitTicks": [],
-   "airborneWindupTicks": 0,
-   "rootMotionTicks": 96
+   "assetPath": null
   },
   {
    "key": "lightattack-spear",
@@ -5143,7 +5050,7 @@
    "cooldownTicks": 0,
    "cooldownText": "0",
    "cancelWindow": "None (committed)",
-   "hasFrameData": true,
+   "hasFrameData": false,
    "moveSpeedFactor": 0,
    "activeMoveSpeedFactor": 0.4,
    "recoveryMoveSpeedFactor": 0,
@@ -5182,18 +5089,7 @@
    "kind": "Light",
    "weapon": "Spear",
    "icon": null,
-   "assetPath": "Assets/QuantumUser/Resources/WarBrawl/LightAttack_Spear.asset",
-   "windupTicks": 52,
-   "activeTicks": 12,
-   "recoveryTicks": 18,
-   "totalTicks": 82,
-   "windupText": "52 ticks (0.87 s)",
-   "activeText": "12 ticks (0.2 s)",
-   "recoveryText": "18 ticks (0.3 s)",
-   "totalText": "82 ticks (1.37 s)",
-   "rehitTicks": [],
-   "airborneWindupTicks": 0,
-   "rootMotionTicks": 0
+   "assetPath": null
   },
   {
    "key": "lightattack-spear-b",
@@ -5203,7 +5099,7 @@
    "cooldownTicks": 0,
    "cooldownText": "0",
    "cancelWindow": "None (committed)",
-   "hasFrameData": true,
+   "hasFrameData": false,
    "moveSpeedFactor": 0,
    "activeMoveSpeedFactor": 0.4,
    "recoveryMoveSpeedFactor": 0,
@@ -5242,18 +5138,7 @@
    "kind": "Light",
    "weapon": "Spear",
    "icon": null,
-   "assetPath": "Assets/QuantumUser/Resources/WarBrawl/LightAttack_Spear_B.asset",
-   "windupTicks": 52,
-   "activeTicks": 12,
-   "recoveryTicks": 18,
-   "totalTicks": 82,
-   "windupText": "52 ticks (0.87 s)",
-   "activeText": "12 ticks (0.2 s)",
-   "recoveryText": "18 ticks (0.3 s)",
-   "totalText": "82 ticks (1.37 s)",
-   "rehitTicks": [],
-   "airborneWindupTicks": 0,
-   "rootMotionTicks": 0
+   "assetPath": null
   },
   {
    "key": "lightattack-spear-c",
@@ -5263,7 +5148,7 @@
    "cooldownTicks": 0,
    "cooldownText": "0",
    "cancelWindow": "None (committed)",
-   "hasFrameData": true,
+   "hasFrameData": false,
    "moveSpeedFactor": 0,
    "activeMoveSpeedFactor": 0.4,
    "recoveryMoveSpeedFactor": 0,
@@ -5302,18 +5187,7 @@
    "kind": "Light",
    "weapon": "Spear",
    "icon": null,
-   "assetPath": "Assets/QuantumUser/Resources/WarBrawl/LightAttack_Spear_C.asset",
-   "windupTicks": 52,
-   "activeTicks": 12,
-   "recoveryTicks": 18,
-   "totalTicks": 82,
-   "windupText": "52 ticks (0.87 s)",
-   "activeText": "12 ticks (0.2 s)",
-   "recoveryText": "18 ticks (0.3 s)",
-   "totalText": "82 ticks (1.37 s)",
-   "rehitTicks": [],
-   "airborneWindupTicks": 0,
-   "rootMotionTicks": 0
+   "assetPath": null
   },
   {
    "key": "lightattack-sword",
@@ -5321,9 +5195,9 @@
    "assetName": "LightAttack_Sword",
    "damage": 20,
    "cooldownTicks": 240,
-   "cooldownText": "240 ticks (4 s)",
+   "cooldownText": "240 ticks (4 sec)",
    "cancelWindow": "Recovery",
-   "hasFrameData": true,
+   "hasFrameData": false,
    "moveSpeedFactor": 0.25,
    "activeMoveSpeedFactor": -1,
    "recoveryMoveSpeedFactor": 0.1,
@@ -5362,18 +5236,7 @@
    "kind": "Light",
    "weapon": "Sword",
    "icon": null,
-   "assetPath": "Assets/QuantumUser/Resources/WarBrawl/LightAttack_Sword.asset",
-   "windupTicks": 15,
-   "activeTicks": 8,
-   "recoveryTicks": 25,
-   "totalTicks": 48,
-   "windupText": "15 ticks (0.25 s)",
-   "activeText": "8 ticks (0.13 s)",
-   "recoveryText": "25 ticks (0.42 s)",
-   "totalText": "48 ticks (0.8 s)",
-   "rehitTicks": [],
-   "airborneWindupTicks": 0,
-   "rootMotionTicks": 48
+   "assetPath": null
   },
   {
    "key": "lightattack-sword-b",
@@ -5381,9 +5244,9 @@
    "assetName": "LightAttack_Sword_B",
    "damage": 22,
    "cooldownTicks": 240,
-   "cooldownText": "240 ticks (4 s)",
+   "cooldownText": "240 ticks (4 sec)",
    "cancelWindow": "Recovery",
-   "hasFrameData": true,
+   "hasFrameData": false,
    "moveSpeedFactor": 0.25,
    "activeMoveSpeedFactor": -1,
    "recoveryMoveSpeedFactor": 0.1,
@@ -5422,18 +5285,7 @@
    "kind": "Light",
    "weapon": "Sword",
    "icon": null,
-   "assetPath": "Assets/QuantumUser/Resources/WarBrawl/LightAttack_Sword_B.asset",
-   "windupTicks": 10,
-   "activeTicks": 8,
-   "recoveryTicks": 22,
-   "totalTicks": 40,
-   "windupText": "10 ticks (0.17 s)",
-   "activeText": "8 ticks (0.13 s)",
-   "recoveryText": "22 ticks (0.37 s)",
-   "totalText": "40 ticks (0.67 s)",
-   "rehitTicks": [],
-   "airborneWindupTicks": 0,
-   "rootMotionTicks": 40
+   "assetPath": null
   },
   {
    "key": "lightattack-sword-c",
@@ -5441,9 +5293,9 @@
    "assetName": "LightAttack_Sword_C",
    "damage": 26,
    "cooldownTicks": 240,
-   "cooldownText": "240 ticks (4 s)",
+   "cooldownText": "240 ticks (4 sec)",
    "cancelWindow": "Recovery",
-   "hasFrameData": true,
+   "hasFrameData": false,
    "moveSpeedFactor": 0.25,
    "activeMoveSpeedFactor": -1,
    "recoveryMoveSpeedFactor": 0.1,
@@ -5482,18 +5334,7 @@
    "kind": "Light",
    "weapon": "Sword",
    "icon": null,
-   "assetPath": "Assets/QuantumUser/Resources/WarBrawl/LightAttack_Sword_C.asset",
-   "windupTicks": 22,
-   "activeTicks": 8,
-   "recoveryTicks": 14,
-   "totalTicks": 44,
-   "windupText": "22 ticks (0.37 s)",
-   "activeText": "8 ticks (0.13 s)",
-   "recoveryText": "14 ticks (0.23 s)",
-   "totalText": "44 ticks (0.73 s)",
-   "rehitTicks": [],
-   "airborneWindupTicks": 0,
-   "rootMotionTicks": 44
+   "assetPath": null
   },
   {
    "key": "fencingattack-sword",
@@ -5501,9 +5342,9 @@
    "assetName": "FencingAttack_Sword",
    "damage": 18,
    "cooldownTicks": 240,
-   "cooldownText": "240 ticks (4 s)",
+   "cooldownText": "240 ticks (4 sec)",
    "cancelWindow": "Recovery",
-   "hasFrameData": true,
+   "hasFrameData": false,
    "moveSpeedFactor": 0.5,
    "activeMoveSpeedFactor": -1,
    "recoveryMoveSpeedFactor": 0,
@@ -5537,8 +5378,8 @@
      "tickDamage": 4,
      "tickDamagePercentOfHit": 0,
      "durationTicks": 360,
-     "durationText": "360 ticks (6 s)",
-     "summary": "4 damage per tick"
+     "durationText": "360 ticks (6 sec)",
+     "summary": "4 damage per sec"
     }
    ],
    "viewStateName": "Attack_LightFencing01",
@@ -5561,27 +5402,14 @@
     "file": "icons/SwordFencing-b614f709.png",
     "frame": "icons/SkillSlot-Hex-c7024a12.png"
    },
-   "assetPath": "Assets/QuantumUser/Resources/WarBrawl/FencingAttack_Sword.asset",
-   "windupTicks": 19,
-   "activeTicks": 19,
-   "recoveryTicks": 11,
-   "totalTicks": 49,
-   "windupText": "19 ticks (0.32 s)",
-   "activeText": "19 ticks (0.32 s)",
-   "recoveryText": "11 ticks (0.18 s)",
-   "totalText": "49 ticks (0.82 s)",
-   "rehitTicks": [
-    10
-   ],
-   "airborneWindupTicks": 0,
-   "rootMotionTicks": 0
+   "assetPath": null
   },
   {
    "key": "bow-quick-shot",
    "name": "Quick Shot",
    "assetName": "Bow",
    "damage": 10,
-   "hasFrameData": true,
+   "hasFrameData": false,
    "cooldownTicks": 0,
    "cooldownText": "None",
    "cancelWindow": "-",
@@ -5624,18 +5452,7 @@
    "kind": "Shot",
    "weapon": "Bow",
    "icon": null,
-   "assetPath": "Assets/QuantumUser/Resources/WarBrawl/BowWeapon.asset",
-   "windupTicks": 8,
-   "activeTicks": 0,
-   "recoveryTicks": 56,
-   "totalTicks": 64,
-   "windupText": "8 ticks (0.13 s)",
-   "activeText": "projectile",
-   "recoveryText": "56 ticks (0.93 s)",
-   "totalText": "64 ticks (1.07 s)",
-   "rehitTicks": [],
-   "airborneWindupTicks": 0,
-   "rootMotionTicks": 0
+   "assetPath": null
   },
   {
    "key": "spinattack-sword",
@@ -5643,9 +5460,9 @@
    "assetName": "SpinAttack_Sword",
    "damage": 18,
    "cooldownTicks": 240,
-   "cooldownText": "240 ticks (4 s)",
+   "cooldownText": "240 ticks (4 sec)",
    "cancelWindow": "Active + Recovery",
-   "hasFrameData": true,
+   "hasFrameData": false,
    "moveSpeedFactor": 0,
    "activeMoveSpeedFactor": 0.2,
    "recoveryMoveSpeedFactor": 0,
@@ -5679,7 +5496,7 @@
      "tickDamage": 0,
      "tickDamagePercentOfHit": 0,
      "durationTicks": 24,
-     "durationText": "24 ticks (0.4 s)",
+     "durationText": "24 ticks (0.4 sec)",
      "summary": "-"
     }
    ],
@@ -5703,21 +5520,7 @@
     "file": "icons/SpinningBlade-0ce80772.png",
     "frame": "icons/SkillSlot-Hex-c7024a12.png"
    },
-   "assetPath": "Assets/QuantumUser/Resources/WarBrawl/SpinAttack_Sword.asset",
-   "windupTicks": 57,
-   "activeTicks": 60,
-   "recoveryTicks": 29,
-   "totalTicks": 146,
-   "windupText": "57 ticks (0.95 s)",
-   "activeText": "60 ticks (1 s)",
-   "recoveryText": "29 ticks (0.48 s)",
-   "totalText": "146 ticks (2.43 s)",
-   "rehitTicks": [
-    24,
-    54
-   ],
-   "airborneWindupTicks": 17,
-   "rootMotionTicks": 0
+   "assetPath": null
   },
   {
    "key": "whirlingstepattack-sword",
@@ -5725,9 +5528,9 @@
    "assetName": "WhirlingStepAttack_Sword",
    "damage": 28,
    "cooldownTicks": 300,
-   "cooldownText": "300 ticks (5 s)",
+   "cooldownText": "300 ticks (5 sec)",
    "cancelWindow": "Recovery",
-   "hasFrameData": true,
+   "hasFrameData": false,
    "moveSpeedFactor": 0,
    "activeMoveSpeedFactor": 0,
    "recoveryMoveSpeedFactor": 0,
@@ -5761,7 +5564,7 @@
      "tickDamage": 0,
      "tickDamagePercentOfHit": 0,
      "durationTicks": 360,
-     "durationText": "360 ticks (6 s)",
+     "durationText": "360 ticks (6 sec)",
      "summary": "30%"
     }
    ],
@@ -5785,18 +5588,7 @@
     "file": "icons/Whirling-Step-c96473a8.png",
     "frame": "icons/SkillSlot-Hex-c7024a12.png"
    },
-   "assetPath": "Assets/QuantumUser/Resources/WarBrawl/WhirlingStepAttack_Sword.asset",
-   "windupTicks": 46,
-   "activeTicks": 20,
-   "recoveryTicks": 42,
-   "totalTicks": 108,
-   "windupText": "46 ticks (0.77 s)",
-   "activeText": "20 ticks (0.33 s)",
-   "recoveryText": "42 ticks (0.7 s)",
-   "totalText": "108 ticks (1.8 s)",
-   "rehitTicks": [],
-   "airborneWindupTicks": 0,
-   "rootMotionTicks": 108
+   "assetPath": null
   }
  ],
  "weapons": [
@@ -5825,7 +5617,7 @@
    "icon": {
     "file": "icons/GearSword.png"
    },
-   "assetPath": "Assets/QuantumUser/Resources/WarBrawl/Sword.asset"
+   "assetPath": null
   },
   {
    "key": "bow",
@@ -5841,7 +5633,7 @@
    "icon": {
     "file": "icons/GearBow.png"
    },
-   "assetPath": "Assets/QuantumUser/Resources/WarBrawl/BowWeapon.asset"
+   "assetPath": null
   },
   {
    "key": "spear",
@@ -5861,7 +5653,7 @@
    "icon": {
     "file": "icons/ICON_SM_Wep_Spear_08-3e0fe679.png"
    },
-   "assetPath": "Assets/QuantumUser/Resources/WarBrawl/Spear.asset"
+   "assetPath": null
   },
   {
    "key": "axe",
@@ -5881,7 +5673,7 @@
    "icon": {
     "file": "icons/ICON_SM_Wep_Axe_07-d455ed1a.png"
    },
-   "assetPath": "Assets/QuantumUser/Resources/WarBrawl/Axe.asset"
+   "assetPath": null
   }
  ],
  "gearSlots": [
@@ -6271,8 +6063,16 @@
  "config": {
   "damage": {
    "statScalarFloor": 0.1,
-   "statScalarKneePoints": 35,
-   "statScalarKnee": 1.2,
+   "statScalarKnees": [
+    {
+     "points": 20,
+     "value": 0.84
+    },
+    {
+     "points": 35,
+     "value": 1.22
+    }
+   ],
    "statScalarMax": 1.5,
    "attributeMax": 50,
    "mitigationK": 100,
@@ -6368,12 +6168,8 @@
     "value": 0.1
    },
    {
-    "label": "StatScalarKneePoints",
-    "value": 35
-   },
-   {
-    "label": "StatScalarKnee",
-    "value": 1.2
+    "label": "StatScalarKnees",
+    "value": "{'Points': 20, 'Value': {'RawValue': 55050}}, {'Points': 35, 'Value': {'RawValue': 79954}}"
    },
    {
     "label": "StatScalarMax",
