@@ -156,7 +156,36 @@ a:hover { text-decoration: underline; }
 .search-hit:hover, .search-hit.active { background: #202836; }
 .search-hit small { color: var(--text-dim); font-size: 13px; }
 
-.stamp { margin-left: auto; display: flex; align-items: center; gap: 10px; }
+/* Top right of the bar: out to the game's main site. */
+.site-link {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--bg-raised);
+  color: var(--text);
+  font-size: 13.5px;
+  white-space: nowrap;
+}
+.site-link:hover { text-decoration: none; border-color: var(--accent-dim); color: var(--accent); }
+.site-link svg { width: 13px; height: 13px; color: #7f8c9d; }
+.site-link:hover svg { color: var(--accent); }
+
+/* Version + build stamp: under the sidebar nav on wide screens, a footer on
+   phones (the narrow media query swaps the two). */
+.stamp { display: flex; align-items: center; gap: 10px; }
+.stamp-side {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  margin: 14px 12px 8px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+.stamp-footer { display: none; }
 .generated { color: #8b98a9; font-size: 12.5px; }
 /* The game version this data was read out of, so a stale tab is obvious. */
 .version {
@@ -567,9 +596,22 @@ a.chip[class*="tone-label"]:hover { text-decoration: none; background: #202836; 
   .topbar { gap: 10px; padding: 0 10px; }
   .nav-toggle { display: grid; }
   .brand-text { display: none; }
-  .generated { display: none; }
+  .site-link { padding: 5px 9px; font-size: 12.5px; }
   .hotkey { display: none; }
   .search input, .controls input { padding-right: 11px; }
+
+  /* The stamp leaves the (now hidden) sidebar for a slim footer; the layout
+     gives up its height so the table's scroller stops above it. */
+  .stamp-side { display: none; }
+  .stamp-footer {
+    display: flex;
+    justify-content: center;
+    height: 34px;
+    padding: 0 10px;
+    background: #0a0d12;
+    border-top: 1px solid var(--line);
+  }
+  .layout { height: calc(100vh - 52px - 34px); }
 
   .sidebar {
     position: fixed;

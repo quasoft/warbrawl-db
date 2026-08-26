@@ -1063,7 +1063,7 @@ function visibleRows() {
 }
 
 function renderSidebar() {
-  const nav = $('sidebar');
+  const nav = $('nav-items');
   nav.replaceChildren(h('div', { class: 'nav-sep' }, 'Database'),
     ...SECTIONS.map((section) => h('a', {
       class: 'nav-item' + (section === state.section ? ' active' : ''),
@@ -1294,12 +1294,16 @@ function route() {
 
 function init() {
   const counts = (DB.meta && DB.meta.counts) || {};
-  const version = $('version');
-  if (DB.meta && DB.meta.version) version.textContent = `v${DB.meta.version}`;
-  else version.hidden = true;
-  $('generated').textContent = DB.meta
-    ? `${Object.values(counts).reduce((a, b) => a + b, 0)} entries - built ${DB.meta.generated}`
-    : '';
+  // The stamp exists twice - under the sidebar nav on wide screens, as a footer
+  // on phones - so both copies are filled by class.
+  const total = Object.values(counts).reduce((a, b) => a + b, 0);
+  for (const el of document.querySelectorAll('.version')) {
+    if (DB.meta && DB.meta.version) el.textContent = `v${DB.meta.version}`;
+    else el.hidden = true;
+  }
+  for (const el of document.querySelectorAll('.generated')) {
+    el.textContent = DB.meta ? `${total} entries - built ${DB.meta.generated}` : '';
+  }
   $('filter').addEventListener('input', (event) => {
     state.filter = event.target.value;
     renderTable();
