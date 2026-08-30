@@ -980,7 +980,7 @@ function damagePage() {
   ];
 
   const page = h('div', { class: 'page' },
-    block('The pipeline',
+    block('Damage Formula',
       h('table', { class: 'mini' }, h('tbody', {}, steps.map(([step, what]) =>
         h('tr', {}, h('td', {}, step), h('td', { class: 'muted' }, what))))),
       h('pre', { class: 'formula' },
