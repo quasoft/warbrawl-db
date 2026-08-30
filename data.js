@@ -4,7 +4,7 @@ window.WBDB = {
   "game": "WarBrawl",
   "version": "0.3.1",
   "internal": false,
-  "generated": "2026-08-30 21:02",
+  "generated": "2026-08-30 21:24",
   "tickRate": 60,
   "counts": {
    "perks": 16,
