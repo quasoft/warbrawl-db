@@ -2,9 +2,9 @@
 window.WBDB = {
  "meta": {
   "game": "WarBrawl",
-  "version": "0.2.1",
+  "version": "0.3.1",
   "internal": false,
-  "generated": "2026-08-26 21:17",
+  "generated": "2026-08-30 21:02",
   "tickRate": 60,
   "counts": {
    "perks": 16,
