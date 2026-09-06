@@ -2,9 +2,9 @@
 window.WBDB = {
  "meta": {
   "game": "WarBrawl",
-  "version": "0.3.1",
+  "version": "0.4.1",
   "internal": false,
-  "generated": "2026-08-30 21:38",
+  "generated": "2026-09-06 15:20",
   "tickRate": 60,
   "counts": {
    "perks": 16,
@@ -4783,7 +4783,7 @@ window.WBDB = {
    "stopMovementOnHit": false,
    "homingRange": 6,
    "homingConeDegrees": 30,
-   "disableMagnetPull": false,
+   "disableMagnetPull": true,
    "rootMotionScale": 1,
    "hitbox": {
     "shape": "Sphere",
@@ -4802,7 +4802,7 @@ window.WBDB = {
     }
    },
    "appliedStatuses": [],
-   "viewStateName": "",
+   "viewStateName": "Attack_HeavyCharged01",
    "usedBy": [
     {
      "owner": "Sword",
@@ -4911,7 +4911,7 @@ window.WBDB = {
    "stopMovementOnHit": false,
    "homingRange": 6,
    "homingConeDegrees": 30,
-   "disableMagnetPull": false,
+   "disableMagnetPull": true,
    "rootMotionScale": 1,
    "hitbox": {
     "shape": "Sphere",
@@ -4930,7 +4930,7 @@ window.WBDB = {
     }
    },
    "appliedStatuses": [],
-   "viewStateName": "",
+   "viewStateName": "Attack_AxeLight01A",
    "usedBy": [
     {
      "owner": "Axe",
@@ -4960,7 +4960,7 @@ window.WBDB = {
    "stopMovementOnHit": false,
    "homingRange": 6,
    "homingConeDegrees": 30,
-   "disableMagnetPull": false,
+   "disableMagnetPull": true,
    "rootMotionScale": 1,
    "hitbox": {
     "shape": "Sphere",
@@ -4979,7 +4979,7 @@ window.WBDB = {
     }
    },
    "appliedStatuses": [],
-   "viewStateName": "",
+   "viewStateName": "Attack_AxeLight01B",
    "usedBy": [
     {
      "owner": "Axe",
@@ -5009,7 +5009,7 @@ window.WBDB = {
    "stopMovementOnHit": false,
    "homingRange": 6,
    "homingConeDegrees": 30,
-   "disableMagnetPull": false,
+   "disableMagnetPull": true,
    "rootMotionScale": 1,
    "hitbox": {
     "shape": "Sphere",
@@ -5028,7 +5028,7 @@ window.WBDB = {
     }
    },
    "appliedStatuses": [],
-   "viewStateName": "",
+   "viewStateName": "Attack_AxeLight01C",
    "usedBy": [
     {
      "owner": "Axe",
@@ -5048,8 +5048,8 @@ window.WBDB = {
    "name": "LightAttack Spear",
    "assetName": "LightAttack_Spear",
    "damage": 16,
-   "cooldownTicks": 0,
-   "cooldownText": "0",
+   "cooldownTicks": 240,
+   "cooldownText": "240 ticks (4 sec)",
    "cancelWindow": "None (committed)",
    "hasFrameData": false,
    "moveSpeedFactor": 0,
@@ -5058,7 +5058,7 @@ window.WBDB = {
    "stopMovementOnHit": true,
    "homingRange": 6,
    "homingConeDegrees": 30,
-   "disableMagnetPull": false,
+   "disableMagnetPull": true,
    "rootMotionScale": 1,
    "hitbox": {
     "shape": "Sphere",
@@ -5077,7 +5077,7 @@ window.WBDB = {
     }
    },
    "appliedStatuses": [],
-   "viewStateName": "",
+   "viewStateName": "Attack_SpearLight01A",
    "usedBy": [
     {
      "owner": "Spear",
@@ -5097,8 +5097,8 @@ window.WBDB = {
    "name": "LightAttack Spear B",
    "assetName": "LightAttack_Spear_B",
    "damage": 16,
-   "cooldownTicks": 0,
-   "cooldownText": "0",
+   "cooldownTicks": 240,
+   "cooldownText": "240 ticks (4 sec)",
    "cancelWindow": "None (committed)",
    "hasFrameData": false,
    "moveSpeedFactor": 0,
@@ -5107,7 +5107,7 @@ window.WBDB = {
    "stopMovementOnHit": true,
    "homingRange": 6,
    "homingConeDegrees": 30,
-   "disableMagnetPull": false,
+   "disableMagnetPull": true,
    "rootMotionScale": 1,
    "hitbox": {
     "shape": "Sphere",
@@ -5126,7 +5126,7 @@ window.WBDB = {
     }
    },
    "appliedStatuses": [],
-   "viewStateName": "",
+   "viewStateName": "Attack_SpearLight01B",
    "usedBy": [
     {
      "owner": "Spear",
@@ -5146,8 +5146,8 @@ window.WBDB = {
    "name": "LightAttack Spear C",
    "assetName": "LightAttack_Spear_C",
    "damage": 22,
-   "cooldownTicks": 0,
-   "cooldownText": "0",
+   "cooldownTicks": 240,
+   "cooldownText": "240 ticks (4 sec)",
    "cancelWindow": "None (committed)",
    "hasFrameData": false,
    "moveSpeedFactor": 0,
@@ -5156,7 +5156,7 @@ window.WBDB = {
    "stopMovementOnHit": true,
    "homingRange": 6,
    "homingConeDegrees": 30,
-   "disableMagnetPull": false,
+   "disableMagnetPull": true,
    "rootMotionScale": 1,
    "hitbox": {
     "shape": "Sphere",
@@ -5175,7 +5175,7 @@ window.WBDB = {
     }
    },
    "appliedStatuses": [],
-   "viewStateName": "",
+   "viewStateName": "Attack_SpearLight01C",
    "usedBy": [
     {
      "owner": "Spear",
@@ -5205,7 +5205,7 @@ window.WBDB = {
    "stopMovementOnHit": false,
    "homingRange": 6,
    "homingConeDegrees": 30,
-   "disableMagnetPull": false,
+   "disableMagnetPull": true,
    "rootMotionScale": 1,
    "hitbox": {
     "shape": "Sphere",
@@ -5224,7 +5224,7 @@ window.WBDB = {
     }
    },
    "appliedStatuses": [],
-   "viewStateName": "",
+   "viewStateName": "Attack_LightCombo01A",
    "usedBy": [
     {
      "owner": "Sword",
@@ -5254,7 +5254,7 @@ window.WBDB = {
    "stopMovementOnHit": false,
    "homingRange": 6,
    "homingConeDegrees": 30,
-   "disableMagnetPull": false,
+   "disableMagnetPull": true,
    "rootMotionScale": 1,
    "hitbox": {
     "shape": "Sphere",
@@ -5273,7 +5273,7 @@ window.WBDB = {
     }
    },
    "appliedStatuses": [],
-   "viewStateName": "",
+   "viewStateName": "Attack_LightCombo01B",
    "usedBy": [
     {
      "owner": "Sword",
@@ -5303,7 +5303,7 @@ window.WBDB = {
    "stopMovementOnHit": false,
    "homingRange": 6,
    "homingConeDegrees": 30,
-   "disableMagnetPull": false,
+   "disableMagnetPull": true,
    "rootMotionScale": 1,
    "hitbox": {
     "shape": "Sphere",
@@ -5322,7 +5322,7 @@ window.WBDB = {
     }
    },
    "appliedStatuses": [],
-   "viewStateName": "",
+   "viewStateName": "Attack_LightCombo01C",
    "usedBy": [
     {
      "owner": "Sword",
