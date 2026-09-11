@@ -1502,7 +1502,14 @@ function treesPage(treeKey, code) {
       const paint = visual === 'Available' && !node.canEquip ? 'Locked' : visual;
       view.el.dataset.state = visual;
       view.el.dataset.paint = paint;
-      view.el.style.setProperty('--tint', TREE_COLORS[paint] || '#ffffff');
+      const tint = TREE_COLORS[paint] || '#ffffff';
+      view.el.style.setProperty('--tint', tint);
+      // A white tint has nothing to say and says it badly. Multiplying by white
+      // returns the backdrop untouched wherever the art is opaque - but where it is
+      // half-transparent, compositing falls back to a fraction of the source colour
+      // itself, so the layer paints raw white into every anti-aliased pixel and
+      // rings the plate with a thin white outline. Dropping it there is exact.
+      view.el.classList.toggle('untinted', isWhiteTint(tint));
       // A ranked node lights up as it fills rather than jumping to full on the
       // first point: rank 1 sits a step above the unbought dim and the last rank
       // reaches the brightness the theme paints a bought node at. Clearing the
@@ -1595,9 +1602,23 @@ function layer(className, file, inset) {
   } });
 }
 
+/* Whether a theme colour is plain white, however the asset spells it (#fff,
+   #ffffff, white): asked of the CSS parser rather than parsed here, so every
+   spelling normalises to one serialisation. A translucent white is not this - it
+   is not a no-op - and correctly answers false. */
+const isWhiteTint = (() => {
+  const probe = document.createElement('span');
+  return (color) => {
+    probe.style.color = '';
+    probe.style.color = color;
+    return probe.style.color === 'rgb(255, 255, 255)';
+  };
+})();
+
 /* The state colour, multiplied into the layer beneath and masked to its art so it
    tints the shape rather than a square - which is what the screen's Image.color
-   does to the same sprite. */
+   does to the same sprite. A white one is skipped; see the paint line in the tree
+   page for why. */
 function tintLayer(className, file, inset) {
   if (!file) return null;
   const el = h('span', { class: className, style: { inset: inset || '0' } });

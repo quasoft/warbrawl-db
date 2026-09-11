@@ -854,6 +854,10 @@ a.chip[class*="tone-label"]:hover { text-decoration: none; background: #202836; 
 }
 .tnode[data-paint="Locked"] .tnode-icon,
 .tnode[data-paint="Locked"] .tnode-icon-tint { opacity: var(--tnode-locked-icon, .35); }
+/* A white state colour is dropped rather than multiplied (app.js decides), because
+   a white multiply layer is an identity over the art and a white halo over its
+   anti-aliased edge - the thin outline it drew around every bought plate. */
+.tnode.untinted .tnode-frame-tint, .tnode.untinted .tnode-icon-tint { display: none; }
 /* The fade above and the ramp below key off data-paint - the look a node is given -
    rather than data-state, the rule position it is in. The two part ways for one
    case: a purchasable passive is painted locked, because on a passive only points
