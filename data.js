@@ -2,19 +2,20 @@
 window.WBDB = {
  "meta": {
   "game": "WarBrawl",
-  "version": "0.4.1",
+  "version": "0.5.1",
   "internal": false,
-  "generated": "2026-09-06 15:20",
+  "generated": "2026-09-11 20:51",
   "tickRate": 60,
   "counts": {
    "perks": 16,
-   "abilityPerks": 6,
+   "abilityPerks": 13,
    "labels": 2,
-   "statuses": 12,
-   "abilities": 81,
-   "attacks": 19,
+   "statuses": 13,
+   "abilities": 83,
+   "attacks": 25,
    "weapons": 4,
-   "slots": 12
+   "slots": 12,
+   "trees": 4
   }
  },
  "perks": [
@@ -926,19 +927,115 @@ window.WBDB = {
  ],
  "abilityPerks": [
   {
-   "key": "bow-bow-active-1-mastery-perk",
-   "name": "Bow Active 1 Mastery",
-   "description": "Arrows are affected by 50% less gravity.",
+   "key": "bow-triple-shot-power-perk",
+   "name": "Triple Shot Power",
+   "description": "Triple Shot's third arrow pushes the target back 1 / 1.5 / 2 m (per rank).",
    "icon": {
+    "file": "icons/PushBack-7090743c.png",
     "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
    },
    "tree": "Bow",
    "treeKey": "bow",
-   "ability": "bow-bow-active-1-mastery",
+   "ability": "bow-triple-shot-power",
+   "category": "Modifier",
+   "scope": "Scope (4)",
+   "scopeHelp": "",
+   "maxRank": 3,
+   "ranks": [
+    {
+     "rank": 1,
+     "effect": {
+      "trigger": 1,
+      "triggerName": "On hit",
+      "triggerHelp": "Fires on basic hits: melee light, melee heavy and any arrow. Ability hits do not fire it.",
+      "grants": [],
+      "grantsApplyToSelf": false,
+      "flatDamage": 0,
+      "flatDamageSchool": "Physical",
+      "internalCooldownTicks": 0,
+      "internalCooldownText": "None",
+      "freedomCcReduction": 0,
+      "auraDamagePerEnemy": 0,
+      "auraRadius": 0,
+      "projectileGravityReduction": 0,
+      "assetPath": null
+     },
+     "summary": "No effect payload"
+    },
+    {
+     "rank": 2,
+     "effect": {
+      "trigger": 1,
+      "triggerName": "On hit",
+      "triggerHelp": "Fires on basic hits: melee light, melee heavy and any arrow. Ability hits do not fire it.",
+      "grants": [],
+      "grantsApplyToSelf": false,
+      "flatDamage": 0,
+      "flatDamageSchool": "Physical",
+      "internalCooldownTicks": 0,
+      "internalCooldownText": "None",
+      "freedomCcReduction": 0,
+      "auraDamagePerEnemy": 0,
+      "auraRadius": 0,
+      "projectileGravityReduction": 0,
+      "assetPath": null
+     },
+     "summary": "No effect payload"
+    },
+    {
+     "rank": 3,
+     "effect": {
+      "trigger": 1,
+      "triggerName": "On hit",
+      "triggerHelp": "Fires on basic hits: melee light, melee heavy and any arrow. Ability hits do not fire it.",
+      "grants": [],
+      "grantsApplyToSelf": false,
+      "flatDamage": 0,
+      "flatDamageSchool": "Physical",
+      "internalCooldownTicks": 0,
+      "internalCooldownText": "None",
+      "freedomCcReduction": 0,
+      "auraDamagePerEnemy": 0,
+      "auraRadius": 0,
+      "projectileGravityReduction": 0,
+      "assetPath": null
+     },
+     "summary": "No effect payload"
+    }
+   ],
+   "effect": {
+    "trigger": 1,
+    "triggerName": "On hit",
+    "triggerHelp": "Fires on basic hits: melee light, melee heavy and any arrow. Ability hits do not fire it.",
+    "grants": [],
+    "grantsApplyToSelf": false,
+    "flatDamage": 0,
+    "flatDamageSchool": "Physical",
+    "internalCooldownTicks": 0,
+    "internalCooldownText": "None",
+    "freedomCcReduction": 0,
+    "auraDamagePerEnemy": 0,
+    "auraRadius": 0,
+    "projectileGravityReduction": 0,
+    "assetPath": null
+   },
+   "effectSummary": "No effect payload"
+  },
+  {
+   "key": "bow-triple-shot-mastery-perk",
+   "name": "Triple Shot Mastery",
+   "description": "Arrows are affected by 20 / 40 / 60% less gravity (per rank).",
+   "icon": {
+    "file": "icons/ArrowGravity-50b5ff8a.png",
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
+   },
+   "tree": "Bow",
+   "treeKey": "bow",
+   "ability": "bow-triple-shot-mastery",
    "category": "Passive",
    "scope": "All qualifying hits",
    "scopeHelp": "Every hit the trigger allows.",
-   "maxRank": 1,
+   "maxRank": 3,
    "ranks": [
     {
      "rank": 1,
@@ -955,10 +1052,50 @@ window.WBDB = {
       "freedomCcReduction": 0,
       "auraDamagePerEnemy": 0,
       "auraRadius": 0,
-      "projectileGravityReduction": 0.5,
+      "projectileGravityReduction": 0.2,
       "assetPath": null
      },
-     "summary": "-50% arrow gravity"
+     "summary": "-20% arrow gravity"
+    },
+    {
+     "rank": 2,
+     "effect": {
+      "trigger": 0,
+      "triggerName": "Passive",
+      "triggerHelp": "Contributes to derived stats continuously.",
+      "grants": [],
+      "grantsApplyToSelf": false,
+      "flatDamage": 0,
+      "flatDamageSchool": "Physical",
+      "internalCooldownTicks": 0,
+      "internalCooldownText": "None",
+      "freedomCcReduction": 0,
+      "auraDamagePerEnemy": 0,
+      "auraRadius": 0,
+      "projectileGravityReduction": 0.4,
+      "assetPath": null
+     },
+     "summary": "-40% arrow gravity"
+    },
+    {
+     "rank": 3,
+     "effect": {
+      "trigger": 0,
+      "triggerName": "Passive",
+      "triggerHelp": "Contributes to derived stats continuously.",
+      "grants": [],
+      "grantsApplyToSelf": false,
+      "flatDamage": 0,
+      "flatDamageSchool": "Physical",
+      "internalCooldownTicks": 0,
+      "internalCooldownText": "None",
+      "freedomCcReduction": 0,
+      "auraDamagePerEnemy": 0,
+      "auraRadius": 0,
+      "projectileGravityReduction": 0.6,
+      "assetPath": null
+     },
+     "summary": "-60% arrow gravity"
     }
    ],
    "effect": {
@@ -974,21 +1111,22 @@ window.WBDB = {
     "freedomCcReduction": 0,
     "auraDamagePerEnemy": 0,
     "auraRadius": 0,
-    "projectileGravityReduction": 0.5,
+    "projectileGravityReduction": 0.2,
     "assetPath": null
    },
-   "effectSummary": "-50% arrow gravity"
+   "effectSummary": "-20% arrow gravity"
   },
   {
-   "key": "bow-bow-active-2-technique-perk",
-   "name": "Bow Active 2 Technique",
+   "key": "bow-arrow-dodge-haste-perk",
+   "name": "Arrow Dodge Haste",
    "description": "While the bow is equipped: dodging grants +10% move speed for 6 s.",
    "icon": {
+    "file": "icons/Haste-30c13914.png",
     "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
    },
    "tree": "Bow",
    "treeKey": "bow",
-   "ability": "bow-bow-active-2-technique",
+   "ability": "bow-arrow-dodge-haste",
    "category": "Passive",
    "scope": "All qualifying hits",
    "scopeHelp": "Every hit the trigger allows.",
@@ -1058,13 +1196,694 @@ window.WBDB = {
    "effectSummary": "Haste (10%) on self for 6 sec"
   },
   {
+   "key": "bow-marked-shot-power-perk",
+   "name": "Marked Shot Power",
+   "description": "Marked Shot's arrow applies a Bleed ticking for 6/8/10% of the hit's damage for 6 s (per rank).",
+   "icon": {
+    "file": "icons/Bleed-1-232fe22c.png",
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
+   },
+   "tree": "Bow",
+   "treeKey": "bow",
+   "ability": "bow-marked-shot-power",
+   "category": "Modifier",
+   "scope": "Parent ability only",
+   "scopeHelp": "Hits of the parent Active ability only.",
+   "maxRank": 3,
+   "ranks": [
+    {
+     "rank": 1,
+     "effect": {
+      "trigger": 1,
+      "triggerName": "On hit",
+      "triggerHelp": "Fires on basic hits: melee light, melee heavy and any arrow. Ability hits do not fire it.",
+      "grants": [
+       {
+        "status": "bleed",
+        "statusName": "Bleed",
+        "magnitude": 0,
+        "magnitudeText": null,
+        "tickDamage": 0,
+        "tickDamagePercentOfHit": 0.06,
+        "durationTicks": 360,
+        "durationText": "360 ticks (6 sec)",
+        "summary": "6% of the hit per sec"
+       }
+      ],
+      "grantsApplyToSelf": false,
+      "flatDamage": 0,
+      "flatDamageSchool": "Physical",
+      "internalCooldownTicks": 0,
+      "internalCooldownText": "None",
+      "freedomCcReduction": 0,
+      "auraDamagePerEnemy": 0,
+      "auraRadius": 0,
+      "projectileGravityReduction": 0,
+      "assetPath": null
+     },
+     "summary": "Bleed (6% of the hit per sec) on target for 6 sec"
+    },
+    {
+     "rank": 2,
+     "effect": {
+      "trigger": 1,
+      "triggerName": "On hit",
+      "triggerHelp": "Fires on basic hits: melee light, melee heavy and any arrow. Ability hits do not fire it.",
+      "grants": [
+       {
+        "status": "bleed",
+        "statusName": "Bleed",
+        "magnitude": 0,
+        "magnitudeText": null,
+        "tickDamage": 0,
+        "tickDamagePercentOfHit": 0.08,
+        "durationTicks": 360,
+        "durationText": "360 ticks (6 sec)",
+        "summary": "8% of the hit per sec"
+       }
+      ],
+      "grantsApplyToSelf": false,
+      "flatDamage": 0,
+      "flatDamageSchool": "Physical",
+      "internalCooldownTicks": 0,
+      "internalCooldownText": "None",
+      "freedomCcReduction": 0,
+      "auraDamagePerEnemy": 0,
+      "auraRadius": 0,
+      "projectileGravityReduction": 0,
+      "assetPath": null
+     },
+     "summary": "Bleed (8% of the hit per sec) on target for 6 sec"
+    },
+    {
+     "rank": 3,
+     "effect": {
+      "trigger": 1,
+      "triggerName": "On hit",
+      "triggerHelp": "Fires on basic hits: melee light, melee heavy and any arrow. Ability hits do not fire it.",
+      "grants": [
+       {
+        "status": "bleed",
+        "statusName": "Bleed",
+        "magnitude": 0,
+        "magnitudeText": null,
+        "tickDamage": 0,
+        "tickDamagePercentOfHit": 0.1,
+        "durationTicks": 360,
+        "durationText": "360 ticks (6 sec)",
+        "summary": "10% of the hit per sec"
+       }
+      ],
+      "grantsApplyToSelf": false,
+      "flatDamage": 0,
+      "flatDamageSchool": "Physical",
+      "internalCooldownTicks": 0,
+      "internalCooldownText": "None",
+      "freedomCcReduction": 0,
+      "auraDamagePerEnemy": 0,
+      "auraRadius": 0,
+      "projectileGravityReduction": 0,
+      "assetPath": null
+     },
+     "summary": "Bleed (10% of the hit per sec) on target for 6 sec"
+    }
+   ],
+   "effect": {
+    "trigger": 1,
+    "triggerName": "On hit",
+    "triggerHelp": "Fires on basic hits: melee light, melee heavy and any arrow. Ability hits do not fire it.",
+    "grants": [
+     {
+      "status": "bleed",
+      "statusName": "Bleed",
+      "magnitude": 0,
+      "magnitudeText": null,
+      "tickDamage": 0,
+      "tickDamagePercentOfHit": 0.06,
+      "durationTicks": 360,
+      "durationText": "360 ticks (6 sec)",
+      "summary": "6% of the hit per sec"
+     }
+    ],
+    "grantsApplyToSelf": false,
+    "flatDamage": 0,
+    "flatDamageSchool": "Physical",
+    "internalCooldownTicks": 0,
+    "internalCooldownText": "None",
+    "freedomCcReduction": 0,
+    "auraDamagePerEnemy": 0,
+    "auraRadius": 0,
+    "projectileGravityReduction": 0,
+    "assetPath": null
+   },
+   "effectSummary": "Bleed (6% of the hit per sec) on target for 6 sec"
+  },
+  {
+   "key": "bow-burning-arrow-power-perk",
+   "name": "Burning Arrow Power",
+   "description": "Burning Arrow's hit sets a Burn ticking for 6/8/10% of the hit's damage for 6 s (per rank).",
+   "icon": {
+    "file": "icons/Burn-cce39edb.png",
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
+   },
+   "tree": "Bow",
+   "treeKey": "bow",
+   "ability": "bow-burning-arrow-power",
+   "category": "Modifier",
+   "scope": "Parent ability only",
+   "scopeHelp": "Hits of the parent Active ability only.",
+   "maxRank": 3,
+   "ranks": [
+    {
+     "rank": 1,
+     "effect": {
+      "trigger": 1,
+      "triggerName": "On hit",
+      "triggerHelp": "Fires on basic hits: melee light, melee heavy and any arrow. Ability hits do not fire it.",
+      "grants": [
+       {
+        "status": "burn",
+        "statusName": "Burn",
+        "magnitude": 0,
+        "magnitudeText": null,
+        "tickDamage": 0,
+        "tickDamagePercentOfHit": 0.06,
+        "durationTicks": 360,
+        "durationText": "360 ticks (6 sec)",
+        "summary": "6% of the hit per sec"
+       }
+      ],
+      "grantsApplyToSelf": false,
+      "flatDamage": 0,
+      "flatDamageSchool": "Physical",
+      "internalCooldownTicks": 0,
+      "internalCooldownText": "None",
+      "freedomCcReduction": 0,
+      "auraDamagePerEnemy": 0,
+      "auraRadius": 0,
+      "projectileGravityReduction": 0,
+      "assetPath": null
+     },
+     "summary": "Burn (6% of the hit per sec) on target for 6 sec"
+    },
+    {
+     "rank": 2,
+     "effect": {
+      "trigger": 1,
+      "triggerName": "On hit",
+      "triggerHelp": "Fires on basic hits: melee light, melee heavy and any arrow. Ability hits do not fire it.",
+      "grants": [
+       {
+        "status": "burn",
+        "statusName": "Burn",
+        "magnitude": 0,
+        "magnitudeText": null,
+        "tickDamage": 0,
+        "tickDamagePercentOfHit": 0.08,
+        "durationTicks": 360,
+        "durationText": "360 ticks (6 sec)",
+        "summary": "8% of the hit per sec"
+       }
+      ],
+      "grantsApplyToSelf": false,
+      "flatDamage": 0,
+      "flatDamageSchool": "Physical",
+      "internalCooldownTicks": 0,
+      "internalCooldownText": "None",
+      "freedomCcReduction": 0,
+      "auraDamagePerEnemy": 0,
+      "auraRadius": 0,
+      "projectileGravityReduction": 0,
+      "assetPath": null
+     },
+     "summary": "Burn (8% of the hit per sec) on target for 6 sec"
+    },
+    {
+     "rank": 3,
+     "effect": {
+      "trigger": 1,
+      "triggerName": "On hit",
+      "triggerHelp": "Fires on basic hits: melee light, melee heavy and any arrow. Ability hits do not fire it.",
+      "grants": [
+       {
+        "status": "burn",
+        "statusName": "Burn",
+        "magnitude": 0,
+        "magnitudeText": null,
+        "tickDamage": 0,
+        "tickDamagePercentOfHit": 0.1,
+        "durationTicks": 360,
+        "durationText": "360 ticks (6 sec)",
+        "summary": "10% of the hit per sec"
+       }
+      ],
+      "grantsApplyToSelf": false,
+      "flatDamage": 0,
+      "flatDamageSchool": "Physical",
+      "internalCooldownTicks": 0,
+      "internalCooldownText": "None",
+      "freedomCcReduction": 0,
+      "auraDamagePerEnemy": 0,
+      "auraRadius": 0,
+      "projectileGravityReduction": 0,
+      "assetPath": null
+     },
+     "summary": "Burn (10% of the hit per sec) on target for 6 sec"
+    }
+   ],
+   "effect": {
+    "trigger": 1,
+    "triggerName": "On hit",
+    "triggerHelp": "Fires on basic hits: melee light, melee heavy and any arrow. Ability hits do not fire it.",
+    "grants": [
+     {
+      "status": "burn",
+      "statusName": "Burn",
+      "magnitude": 0,
+      "magnitudeText": null,
+      "tickDamage": 0,
+      "tickDamagePercentOfHit": 0.06,
+      "durationTicks": 360,
+      "durationText": "360 ticks (6 sec)",
+      "summary": "6% of the hit per sec"
+     }
+    ],
+    "grantsApplyToSelf": false,
+    "flatDamage": 0,
+    "flatDamageSchool": "Physical",
+    "internalCooldownTicks": 0,
+    "internalCooldownText": "None",
+    "freedomCcReduction": 0,
+    "auraDamagePerEnemy": 0,
+    "auraRadius": 0,
+    "projectileGravityReduction": 0,
+    "assetPath": null
+   },
+   "effectSummary": "Burn (6% of the hit per sec) on target for 6 sec"
+  },
+  {
+   "key": "bow-burning-arrow-technique-perk",
+   "name": "Burning Arrow Technique",
+   "description": "Burning Arrow explodes where it lands, dealing 25 damage within 1.5 m.",
+   "icon": {
+    "file": "icons/Bow-Burning-Arrow-4-9896cce9.png",
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
+   },
+   "tree": "Bow",
+   "treeKey": "bow",
+   "ability": "bow-burning-arrow-technique",
+   "category": "Passive",
+   "scope": "Parent ability only",
+   "scopeHelp": "Hits of the parent Active ability only.",
+   "maxRank": 1,
+   "ranks": [
+    {
+     "rank": 1,
+     "effect": {
+      "trigger": 1,
+      "triggerName": "On hit",
+      "triggerHelp": "Fires on basic hits: melee light, melee heavy and any arrow. Ability hits do not fire it.",
+      "grants": [],
+      "grantsApplyToSelf": false,
+      "flatDamage": 0,
+      "flatDamageSchool": "Physical",
+      "internalCooldownTicks": 0,
+      "internalCooldownText": "None",
+      "freedomCcReduction": 0,
+      "auraDamagePerEnemy": 0,
+      "auraRadius": 0,
+      "projectileGravityReduction": 0,
+      "assetPath": null
+     },
+     "summary": "No effect payload"
+    }
+   ],
+   "effect": {
+    "trigger": 1,
+    "triggerName": "On hit",
+    "triggerHelp": "Fires on basic hits: melee light, melee heavy and any arrow. Ability hits do not fire it.",
+    "grants": [],
+    "grantsApplyToSelf": false,
+    "flatDamage": 0,
+    "flatDamageSchool": "Physical",
+    "internalCooldownTicks": 0,
+    "internalCooldownText": "None",
+    "freedomCcReduction": 0,
+    "auraDamagePerEnemy": 0,
+    "auraRadius": 0,
+    "projectileGravityReduction": 0,
+    "assetPath": null
+   },
+   "effectSummary": "No effect payload"
+  },
+  {
+   "key": "bow-sliding-shot-power-perk",
+   "name": "Sliding Shot Power",
+   "description": "Sliding Shot's arrow slows the target by 2 / 3 / 4% for 3 s (per rank).",
+   "icon": {
+    "file": "icons/Slow-0c6b8c1f.png",
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
+   },
+   "tree": "Bow",
+   "treeKey": "bow",
+   "ability": "bow-sliding-shot-power",
+   "category": "Modifier",
+   "scope": "Parent ability only",
+   "scopeHelp": "Hits of the parent Active ability only.",
+   "maxRank": 3,
+   "ranks": [
+    {
+     "rank": 1,
+     "effect": {
+      "trigger": 1,
+      "triggerName": "On hit",
+      "triggerHelp": "Fires on basic hits: melee light, melee heavy and any arrow. Ability hits do not fire it.",
+      "grants": [
+       {
+        "status": "slow",
+        "statusName": "Slow",
+        "magnitude": 0.02,
+        "magnitudeText": "2%",
+        "tickDamage": 0,
+        "tickDamagePercentOfHit": 0,
+        "durationTicks": 180,
+        "durationText": "180 ticks (3 sec)",
+        "summary": "2%"
+       }
+      ],
+      "grantsApplyToSelf": false,
+      "flatDamage": 0,
+      "flatDamageSchool": "Physical",
+      "internalCooldownTicks": 0,
+      "internalCooldownText": "None",
+      "freedomCcReduction": 0,
+      "auraDamagePerEnemy": 0,
+      "auraRadius": 0,
+      "projectileGravityReduction": 0,
+      "assetPath": null
+     },
+     "summary": "Slow (2%) on target for 3 sec"
+    },
+    {
+     "rank": 2,
+     "effect": {
+      "trigger": 1,
+      "triggerName": "On hit",
+      "triggerHelp": "Fires on basic hits: melee light, melee heavy and any arrow. Ability hits do not fire it.",
+      "grants": [
+       {
+        "status": "slow",
+        "statusName": "Slow",
+        "magnitude": 0.03,
+        "magnitudeText": "3%",
+        "tickDamage": 0,
+        "tickDamagePercentOfHit": 0,
+        "durationTicks": 180,
+        "durationText": "180 ticks (3 sec)",
+        "summary": "3%"
+       }
+      ],
+      "grantsApplyToSelf": false,
+      "flatDamage": 0,
+      "flatDamageSchool": "Physical",
+      "internalCooldownTicks": 0,
+      "internalCooldownText": "None",
+      "freedomCcReduction": 0,
+      "auraDamagePerEnemy": 0,
+      "auraRadius": 0,
+      "projectileGravityReduction": 0,
+      "assetPath": null
+     },
+     "summary": "Slow (3%) on target for 3 sec"
+    },
+    {
+     "rank": 3,
+     "effect": {
+      "trigger": 1,
+      "triggerName": "On hit",
+      "triggerHelp": "Fires on basic hits: melee light, melee heavy and any arrow. Ability hits do not fire it.",
+      "grants": [
+       {
+        "status": "slow",
+        "statusName": "Slow",
+        "magnitude": 0.04,
+        "magnitudeText": "4%",
+        "tickDamage": 0,
+        "tickDamagePercentOfHit": 0,
+        "durationTicks": 180,
+        "durationText": "180 ticks (3 sec)",
+        "summary": "4%"
+       }
+      ],
+      "grantsApplyToSelf": false,
+      "flatDamage": 0,
+      "flatDamageSchool": "Physical",
+      "internalCooldownTicks": 0,
+      "internalCooldownText": "None",
+      "freedomCcReduction": 0,
+      "auraDamagePerEnemy": 0,
+      "auraRadius": 0,
+      "projectileGravityReduction": 0,
+      "assetPath": null
+     },
+     "summary": "Slow (4%) on target for 3 sec"
+    }
+   ],
+   "effect": {
+    "trigger": 1,
+    "triggerName": "On hit",
+    "triggerHelp": "Fires on basic hits: melee light, melee heavy and any arrow. Ability hits do not fire it.",
+    "grants": [
+     {
+      "status": "slow",
+      "statusName": "Slow",
+      "magnitude": 0.02,
+      "magnitudeText": "2%",
+      "tickDamage": 0,
+      "tickDamagePercentOfHit": 0,
+      "durationTicks": 180,
+      "durationText": "180 ticks (3 sec)",
+      "summary": "2%"
+     }
+    ],
+    "grantsApplyToSelf": false,
+    "flatDamage": 0,
+    "flatDamageSchool": "Physical",
+    "internalCooldownTicks": 0,
+    "internalCooldownText": "None",
+    "freedomCcReduction": 0,
+    "auraDamagePerEnemy": 0,
+    "auraRadius": 0,
+    "projectileGravityReduction": 0,
+    "assetPath": null
+   },
+   "effectSummary": "Slow (2%) on target for 3 sec"
+  },
+  {
+   "key": "bow-vaulting-shot-power-perk",
+   "name": "Vaulting Shot Power",
+   "description": "Vaulting Shot's arrow slows the target by 2 / 3 / 4% for 3 s (per rank).",
+   "icon": {
+    "file": "icons/Slow-0c6b8c1f.png",
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
+   },
+   "tree": "Bow",
+   "treeKey": "bow",
+   "ability": "bow-vaulting-shot-power",
+   "category": "Modifier",
+   "scope": "Parent ability only",
+   "scopeHelp": "Hits of the parent Active ability only.",
+   "maxRank": 3,
+   "ranks": [
+    {
+     "rank": 1,
+     "effect": {
+      "trigger": 1,
+      "triggerName": "On hit",
+      "triggerHelp": "Fires on basic hits: melee light, melee heavy and any arrow. Ability hits do not fire it.",
+      "grants": [
+       {
+        "status": "slow",
+        "statusName": "Slow",
+        "magnitude": 0.02,
+        "magnitudeText": "2%",
+        "tickDamage": 0,
+        "tickDamagePercentOfHit": 0,
+        "durationTicks": 180,
+        "durationText": "180 ticks (3 sec)",
+        "summary": "2%"
+       }
+      ],
+      "grantsApplyToSelf": false,
+      "flatDamage": 0,
+      "flatDamageSchool": "Physical",
+      "internalCooldownTicks": 0,
+      "internalCooldownText": "None",
+      "freedomCcReduction": 0,
+      "auraDamagePerEnemy": 0,
+      "auraRadius": 0,
+      "projectileGravityReduction": 0,
+      "assetPath": null
+     },
+     "summary": "Slow (2%) on target for 3 sec"
+    },
+    {
+     "rank": 2,
+     "effect": {
+      "trigger": 1,
+      "triggerName": "On hit",
+      "triggerHelp": "Fires on basic hits: melee light, melee heavy and any arrow. Ability hits do not fire it.",
+      "grants": [
+       {
+        "status": "slow",
+        "statusName": "Slow",
+        "magnitude": 0.03,
+        "magnitudeText": "3%",
+        "tickDamage": 0,
+        "tickDamagePercentOfHit": 0,
+        "durationTicks": 180,
+        "durationText": "180 ticks (3 sec)",
+        "summary": "3%"
+       }
+      ],
+      "grantsApplyToSelf": false,
+      "flatDamage": 0,
+      "flatDamageSchool": "Physical",
+      "internalCooldownTicks": 0,
+      "internalCooldownText": "None",
+      "freedomCcReduction": 0,
+      "auraDamagePerEnemy": 0,
+      "auraRadius": 0,
+      "projectileGravityReduction": 0,
+      "assetPath": null
+     },
+     "summary": "Slow (3%) on target for 3 sec"
+    },
+    {
+     "rank": 3,
+     "effect": {
+      "trigger": 1,
+      "triggerName": "On hit",
+      "triggerHelp": "Fires on basic hits: melee light, melee heavy and any arrow. Ability hits do not fire it.",
+      "grants": [
+       {
+        "status": "slow",
+        "statusName": "Slow",
+        "magnitude": 0.04,
+        "magnitudeText": "4%",
+        "tickDamage": 0,
+        "tickDamagePercentOfHit": 0,
+        "durationTicks": 180,
+        "durationText": "180 ticks (3 sec)",
+        "summary": "4%"
+       }
+      ],
+      "grantsApplyToSelf": false,
+      "flatDamage": 0,
+      "flatDamageSchool": "Physical",
+      "internalCooldownTicks": 0,
+      "internalCooldownText": "None",
+      "freedomCcReduction": 0,
+      "auraDamagePerEnemy": 0,
+      "auraRadius": 0,
+      "projectileGravityReduction": 0,
+      "assetPath": null
+     },
+     "summary": "Slow (4%) on target for 3 sec"
+    }
+   ],
+   "effect": {
+    "trigger": 1,
+    "triggerName": "On hit",
+    "triggerHelp": "Fires on basic hits: melee light, melee heavy and any arrow. Ability hits do not fire it.",
+    "grants": [
+     {
+      "status": "slow",
+      "statusName": "Slow",
+      "magnitude": 0.02,
+      "magnitudeText": "2%",
+      "tickDamage": 0,
+      "tickDamagePercentOfHit": 0,
+      "durationTicks": 180,
+      "durationText": "180 ticks (3 sec)",
+      "summary": "2%"
+     }
+    ],
+    "grantsApplyToSelf": false,
+    "flatDamage": 0,
+    "flatDamageSchool": "Physical",
+    "internalCooldownTicks": 0,
+    "internalCooldownText": "None",
+    "freedomCcReduction": 0,
+    "auraDamagePerEnemy": 0,
+    "auraRadius": 0,
+    "projectileGravityReduction": 0,
+    "assetPath": null
+   },
+   "effectSummary": "Slow (2%) on target for 3 sec"
+  },
+  {
+   "key": "bow-marked-shot-technique-perk",
+   "name": "Marked Shot Technique",
+   "description": "Marked Shot's arrow marks the target for 10 s. You and your allies see a marker above it.",
+   "icon": {
+    "file": "icons/Bow-Marked-Shot-7-37ba98f9.png",
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
+   },
+   "tree": "Bow",
+   "treeKey": "bow",
+   "ability": "bow-marked-shot-technique",
+   "category": "Passive",
+   "scope": "Parent ability only",
+   "scopeHelp": "Hits of the parent Active ability only.",
+   "maxRank": 1,
+   "ranks": [
+    {
+     "rank": 1,
+     "effect": {
+      "trigger": 1,
+      "triggerName": "On hit",
+      "triggerHelp": "Fires on basic hits: melee light, melee heavy and any arrow. Ability hits do not fire it.",
+      "grants": [],
+      "grantsApplyToSelf": false,
+      "flatDamage": 0,
+      "flatDamageSchool": "Physical",
+      "internalCooldownTicks": 0,
+      "internalCooldownText": "None",
+      "freedomCcReduction": 0,
+      "auraDamagePerEnemy": 0,
+      "auraRadius": 0,
+      "projectileGravityReduction": 0,
+      "assetPath": null
+     },
+     "summary": "No effect payload"
+    }
+   ],
+   "effect": {
+    "trigger": 1,
+    "triggerName": "On hit",
+    "triggerHelp": "Fires on basic hits: melee light, melee heavy and any arrow. Ability hits do not fire it.",
+    "grants": [],
+    "grantsApplyToSelf": false,
+    "flatDamage": 0,
+    "flatDamageSchool": "Physical",
+    "internalCooldownTicks": 0,
+    "internalCooldownText": "None",
+    "freedomCcReduction": 0,
+    "auraDamagePerEnemy": 0,
+    "auraRadius": 0,
+    "projectileGravityReduction": 0,
+    "assetPath": null
+   },
+   "effectSummary": "No effect payload"
+  },
+  {
    "key": "sword-leaping-slash-mastery-perk",
    "name": "Leaping Slash Mastery",
    "description": "Sword light attacks apply a Bleed ticking for 5% of the hit's damage for 6 s.",
    "icon": {
-    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png",
-    "file": "icons/Leaping-Slash-3-81051c9f.png",
-    "inherited": true
+    "file": "icons/Bleed-1-232fe22c.png",
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
    },
    "tree": "Sword",
    "treeKey": "sword",
@@ -1142,9 +1961,8 @@ window.WBDB = {
    "name": "Forward Cleave Power",
    "description": "Forward Cleave's hits apply a Bleed ticking for 3/4/5% of the hit's damage for 6 s (per rank).",
    "icon": {
-    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png",
-    "file": "icons/Forward-Cleave-bf55f0be.png",
-    "inherited": true
+    "file": "icons/Bleed-1-232fe22c.png",
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
    },
    "tree": "Sword",
    "treeKey": "sword",
@@ -1286,9 +2104,8 @@ window.WBDB = {
    "name": "Forward Cleave Mastery",
    "description": "Sword heavy attacks Slow the target by 5% for 2 s.",
    "icon": {
-    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png",
-    "file": "icons/Forward-Cleave-bf55f0be.png",
-    "inherited": true
+    "file": "icons/Slow-0c6b8c1f.png",
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
    },
    "tree": "Sword",
    "treeKey": "sword",
@@ -1366,9 +2183,8 @@ window.WBDB = {
    "name": "Forward Cleave Technique",
    "description": "While the sword is equipped: +5% damage for each enemy within 3 m.",
    "icon": {
-    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png",
-    "file": "icons/Forward-Cleave-bf55f0be.png",
-    "inherited": true
+    "file": "icons/SurroundedDamageBoost-cdf5bd55.png",
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
    },
    "tree": "Sword",
    "treeKey": "sword",
@@ -1620,6 +2436,33 @@ window.WBDB = {
     },
     {
      "kind": "abilityPerk",
+     "key": "bow-marked-shot-power-perk",
+     "name": "Marked Shot Power (Bow)",
+     "magnitudeText": null,
+     "durationText": "360 ticks (6 sec)",
+     "summary": "6% of the hit per sec",
+     "extra": "rank 1"
+    },
+    {
+     "kind": "abilityPerk",
+     "key": "bow-marked-shot-power-perk",
+     "name": "Marked Shot Power (Bow)",
+     "magnitudeText": null,
+     "durationText": "360 ticks (6 sec)",
+     "summary": "8% of the hit per sec",
+     "extra": "rank 2"
+    },
+    {
+     "kind": "abilityPerk",
+     "key": "bow-marked-shot-power-perk",
+     "name": "Marked Shot Power (Bow)",
+     "magnitudeText": null,
+     "durationText": "360 ticks (6 sec)",
+     "summary": "10% of the hit per sec",
+     "extra": "rank 3"
+    },
+    {
+     "kind": "abilityPerk",
      "key": "sword-leaping-slash-mastery-perk",
      "name": "Leaping Slash Mastery (Sword)",
      "magnitudeText": null,
@@ -1732,8 +2575,8 @@ window.WBDB = {
     },
     {
      "kind": "abilityPerk",
-     "key": "bow-bow-active-2-technique-perk",
-     "name": "Bow Active 2 Technique (Bow)",
+     "key": "bow-arrow-dodge-haste-perk",
+     "name": "Arrow Dodge Haste (Bow)",
      "magnitudeText": "10%",
      "durationText": "360 ticks (6 sec)",
      "summary": "10%",
@@ -1765,6 +2608,60 @@ window.WBDB = {
      "durationText": "120 ticks (2 sec)",
      "summary": "15%",
      "extra": null
+    },
+    {
+     "kind": "abilityPerk",
+     "key": "bow-sliding-shot-power-perk",
+     "name": "Sliding Shot Power (Bow)",
+     "magnitudeText": "2%",
+     "durationText": "180 ticks (3 sec)",
+     "summary": "2%",
+     "extra": "rank 1"
+    },
+    {
+     "kind": "abilityPerk",
+     "key": "bow-sliding-shot-power-perk",
+     "name": "Sliding Shot Power (Bow)",
+     "magnitudeText": "3%",
+     "durationText": "180 ticks (3 sec)",
+     "summary": "3%",
+     "extra": "rank 2"
+    },
+    {
+     "kind": "abilityPerk",
+     "key": "bow-sliding-shot-power-perk",
+     "name": "Sliding Shot Power (Bow)",
+     "magnitudeText": "4%",
+     "durationText": "180 ticks (3 sec)",
+     "summary": "4%",
+     "extra": "rank 3"
+    },
+    {
+     "kind": "abilityPerk",
+     "key": "bow-vaulting-shot-power-perk",
+     "name": "Vaulting Shot Power (Bow)",
+     "magnitudeText": "2%",
+     "durationText": "180 ticks (3 sec)",
+     "summary": "2%",
+     "extra": "rank 1"
+    },
+    {
+     "kind": "abilityPerk",
+     "key": "bow-vaulting-shot-power-perk",
+     "name": "Vaulting Shot Power (Bow)",
+     "magnitudeText": "3%",
+     "durationText": "180 ticks (3 sec)",
+     "summary": "3%",
+     "extra": "rank 2"
+    },
+    {
+     "kind": "abilityPerk",
+     "key": "bow-vaulting-shot-power-perk",
+     "name": "Vaulting Shot Power (Bow)",
+     "magnitudeText": "4%",
+     "durationText": "180 ticks (3 sec)",
+     "summary": "4%",
+     "extra": "rank 3"
     },
     {
      "kind": "abilityPerk",
@@ -1867,6 +2764,53 @@ window.WBDB = {
    "school": null,
    "opposes": null,
    "appliedBy": []
+  },
+  {
+   "key": "burn",
+   "name": "Burn",
+   "type": 12,
+   "kind": "Damage over time",
+   "axis": "Fire damage over time",
+   "description": "Fire damage over time. Stacks: each application adds its own stack with its own snapshotted per-tick damage, up to the stack limit. Ticks are mitigated by armor as they land.",
+   "icon": {
+    "file": "icons/ICON_FantasyWarrior_Status_Burninating_01_Underlay-e986e5af.png"
+   },
+   "cap": null,
+   "capText": null,
+   "maxStacks": 3,
+   "school": "Fire",
+   "opposes": null,
+   "appliedBy": [
+    {
+     "kind": "abilityPerk",
+     "key": "bow-burning-arrow-power-perk",
+     "name": "Burning Arrow Power (Bow)",
+     "magnitudeText": null,
+     "durationText": "360 ticks (6 sec)",
+     "summary": "6% of the hit per sec",
+     "extra": "rank 1"
+    },
+    {
+     "kind": "abilityPerk",
+     "key": "bow-burning-arrow-power-perk",
+     "name": "Burning Arrow Power (Bow)",
+     "magnitudeText": null,
+     "durationText": "360 ticks (6 sec)",
+     "summary": "8% of the hit per sec",
+     "extra": "rank 2"
+    },
+    {
+     "kind": "abilityPerk",
+     "key": "bow-burning-arrow-power-perk",
+     "name": "Burning Arrow Power (Bow)",
+     "magnitudeText": null,
+     "durationText": "360 ticks (6 sec)",
+     "summary": "10% of the hit per sec",
+     "extra": "rank 3"
+    }
+   ],
+   "tickIntervalTicks": 60,
+   "tickIntervalText": "60 ticks (1 sec)"
   }
  ],
  "abilities": [
@@ -1892,6 +2836,15 @@ window.WBDB = {
    "canEquip": true,
    "isGroupPrerequisite": false,
    "shape": "Circle",
+   "size": "ActiveRootLarge",
+   "nodeGuid": "56afa6c7dd8985d60b0e8172a75ef1f3",
+   "branch": "d79b3a9b571ed0f37d315adc1a787d59",
+   "branchName": "Axe Active 1",
+   "row": 0,
+   "group": 0,
+   "requiredParentRank": 1,
+   "x": -650,
+   "y": 0,
    "parentNodeGuid": null,
    "parent": null,
    "children": [
@@ -1917,12 +2870,21 @@ window.WBDB = {
    "costPerRank": [
     1
    ],
-   "totalCost": 1,
+   "totalCost": 3,
    "rowIndex": 0,
    "groupIndex": 0,
    "canEquip": false,
    "isGroupPrerequisite": false,
    "shape": "Circle",
+   "size": "StandardSmall",
+   "nodeGuid": "548097788e007ccffbc972feb7ae231b",
+   "branch": "d79b3a9b571ed0f37d315adc1a787d59",
+   "branchName": "Axe Active 1",
+   "row": 1,
+   "group": 0,
+   "requiredParentRank": 1,
+   "x": -650,
+   "y": -150,
    "parentNodeGuid": "56afa6c7dd8985d60b0e8172a75ef1f3",
    "parent": "axe-axe-active-1",
    "children": [
@@ -1954,6 +2916,15 @@ window.WBDB = {
    "canEquip": false,
    "isGroupPrerequisite": false,
    "shape": "Circle",
+   "size": "StandardSmall",
+   "nodeGuid": "9273ac5558ced81a345480ccee0a83ed",
+   "branch": "d79b3a9b571ed0f37d315adc1a787d59",
+   "branchName": "Axe Active 1",
+   "row": 2,
+   "group": 0,
+   "requiredParentRank": 2,
+   "x": -650,
+   "y": -300,
    "parentNodeGuid": "548097788e007ccffbc972feb7ae231b",
    "parent": "axe-axe-active-1-power",
    "children": [],
@@ -1983,6 +2954,15 @@ window.WBDB = {
    "canEquip": true,
    "isGroupPrerequisite": false,
    "shape": "Circle",
+   "size": "ActiveRootLarge",
+   "nodeGuid": "07106aa98a9bc5e07a8881c706894ac0",
+   "branch": "16bf232e2a8d2794d84890262a8d648d",
+   "branchName": "Axe Active 2",
+   "row": 0,
+   "group": 0,
+   "requiredParentRank": 1,
+   "x": -390,
+   "y": 0,
    "parentNodeGuid": null,
    "parent": null,
    "children": [
@@ -2008,12 +2988,21 @@ window.WBDB = {
    "costPerRank": [
     1
    ],
-   "totalCost": 1,
+   "totalCost": 3,
    "rowIndex": 0,
    "groupIndex": 0,
    "canEquip": false,
    "isGroupPrerequisite": false,
    "shape": "Circle",
+   "size": "StandardSmall",
+   "nodeGuid": "3b096bf285d5bc7949d484c59c80389b",
+   "branch": "16bf232e2a8d2794d84890262a8d648d",
+   "branchName": "Axe Active 2",
+   "row": 1,
+   "group": 0,
+   "requiredParentRank": 1,
+   "x": -390,
+   "y": -150,
    "parentNodeGuid": "07106aa98a9bc5e07a8881c706894ac0",
    "parent": "axe-axe-active-2",
    "children": [
@@ -2046,6 +3035,15 @@ window.WBDB = {
    "canEquip": false,
    "isGroupPrerequisite": false,
    "shape": "Circle",
+   "size": "StandardSmall",
+   "nodeGuid": "a80bdb58b92726c3476160bbd72c7226",
+   "branch": "16bf232e2a8d2794d84890262a8d648d",
+   "branchName": "Axe Active 2",
+   "row": 2,
+   "group": 0,
+   "requiredParentRank": 1,
+   "x": -330,
+   "y": -300,
    "parentNodeGuid": "3b096bf285d5bc7949d484c59c80389b",
    "parent": "axe-axe-active-2-power",
    "children": [],
@@ -2075,6 +3073,15 @@ window.WBDB = {
    "canEquip": false,
    "isGroupPrerequisite": false,
    "shape": "Circle",
+   "size": "StandardSmall",
+   "nodeGuid": "3c2186819534842166ffb6bad87a44f7",
+   "branch": "16bf232e2a8d2794d84890262a8d648d",
+   "branchName": "Axe Active 2",
+   "row": 2,
+   "group": 0,
+   "requiredParentRank": 1,
+   "x": -450,
+   "y": -300,
    "parentNodeGuid": "3b096bf285d5bc7949d484c59c80389b",
    "parent": "axe-axe-active-2-power",
    "children": [],
@@ -2104,6 +3111,15 @@ window.WBDB = {
    "canEquip": true,
    "isGroupPrerequisite": false,
    "shape": "Circle",
+   "size": "ActiveRootLarge",
+   "nodeGuid": "2f9937565d8271908d21347df7695db7",
+   "branch": "fe83b42773874f1593b9765fe05e1a32",
+   "branchName": "Axe Active 3",
+   "row": 0,
+   "group": 0,
+   "requiredParentRank": 1,
+   "x": -130,
+   "y": 0,
    "parentNodeGuid": null,
    "parent": null,
    "children": [
@@ -2129,12 +3145,21 @@ window.WBDB = {
    "costPerRank": [
     1
    ],
-   "totalCost": 1,
+   "totalCost": 3,
    "rowIndex": 0,
    "groupIndex": 0,
    "canEquip": false,
    "isGroupPrerequisite": false,
    "shape": "Circle",
+   "size": "StandardSmall",
+   "nodeGuid": "a992248761e6226905e23fc382f8517d",
+   "branch": "fe83b42773874f1593b9765fe05e1a32",
+   "branchName": "Axe Active 3",
+   "row": 1,
+   "group": 0,
+   "requiredParentRank": 1,
+   "x": -130,
+   "y": -150,
    "parentNodeGuid": "2f9937565d8271908d21347df7695db7",
    "parent": "axe-axe-active-3",
    "children": [
@@ -2166,6 +3191,15 @@ window.WBDB = {
    "canEquip": false,
    "isGroupPrerequisite": false,
    "shape": "Circle",
+   "size": "StandardSmall",
+   "nodeGuid": "419f037222d8a7fb1aeb53ba4f3d3ed8",
+   "branch": "fe83b42773874f1593b9765fe05e1a32",
+   "branchName": "Axe Active 3",
+   "row": 2,
+   "group": 0,
+   "requiredParentRank": 1,
+   "x": -130,
+   "y": -300,
    "parentNodeGuid": "a992248761e6226905e23fc382f8517d",
    "parent": "axe-axe-active-3-power",
    "children": [],
@@ -2195,6 +3229,15 @@ window.WBDB = {
    "canEquip": true,
    "isGroupPrerequisite": false,
    "shape": "Circle",
+   "size": "ActiveRootLarge",
+   "nodeGuid": "b7031bfd2d1d097341e6be6f792daef5",
+   "branch": "8aa274f687496b1821fb14aaece98174",
+   "branchName": "Axe Active 4",
+   "row": 0,
+   "group": 0,
+   "requiredParentRank": 1,
+   "x": 130,
+   "y": 0,
    "parentNodeGuid": null,
    "parent": null,
    "children": [
@@ -2220,12 +3263,21 @@ window.WBDB = {
    "costPerRank": [
     1
    ],
-   "totalCost": 1,
+   "totalCost": 3,
    "rowIndex": 0,
    "groupIndex": 0,
    "canEquip": false,
    "isGroupPrerequisite": false,
    "shape": "Circle",
+   "size": "StandardSmall",
+   "nodeGuid": "04a36f223d43bd8150355a01f52a1a2b",
+   "branch": "8aa274f687496b1821fb14aaece98174",
+   "branchName": "Axe Active 4",
+   "row": 1,
+   "group": 0,
+   "requiredParentRank": 1,
+   "x": 130,
+   "y": -150,
    "parentNodeGuid": "b7031bfd2d1d097341e6be6f792daef5",
    "parent": "axe-axe-active-4",
    "children": [
@@ -2257,6 +3309,15 @@ window.WBDB = {
    "canEquip": false,
    "isGroupPrerequisite": false,
    "shape": "Circle",
+   "size": "StandardSmall",
+   "nodeGuid": "17d97a5162df940671c89057e2a1462f",
+   "branch": "8aa274f687496b1821fb14aaece98174",
+   "branchName": "Axe Active 4",
+   "row": 2,
+   "group": 0,
+   "requiredParentRank": 1,
+   "x": 130,
+   "y": -300,
    "parentNodeGuid": "04a36f223d43bd8150355a01f52a1a2b",
    "parent": "axe-axe-active-4-power",
    "children": [],
@@ -2286,6 +3347,15 @@ window.WBDB = {
    "canEquip": true,
    "isGroupPrerequisite": false,
    "shape": "Circle",
+   "size": "ActiveRootLarge",
+   "nodeGuid": "cb4257bcfa62406566e60d1bc8654a40",
+   "branch": "3e7a683eb694e90ae19a23fd9b3f51e5",
+   "branchName": "Axe Active 5",
+   "row": 0,
+   "group": 0,
+   "requiredParentRank": 1,
+   "x": 390,
+   "y": 0,
    "parentNodeGuid": null,
    "parent": null,
    "children": [
@@ -2311,12 +3381,21 @@ window.WBDB = {
    "costPerRank": [
     1
    ],
-   "totalCost": 1,
+   "totalCost": 3,
    "rowIndex": 0,
    "groupIndex": 0,
    "canEquip": false,
    "isGroupPrerequisite": false,
    "shape": "Circle",
+   "size": "StandardSmall",
+   "nodeGuid": "e2e4488850703c301daa3bb08d388a78",
+   "branch": "3e7a683eb694e90ae19a23fd9b3f51e5",
+   "branchName": "Axe Active 5",
+   "row": 1,
+   "group": 0,
+   "requiredParentRank": 1,
+   "x": 390,
+   "y": -150,
    "parentNodeGuid": "cb4257bcfa62406566e60d1bc8654a40",
    "parent": "axe-axe-active-5",
    "children": [
@@ -2348,6 +3427,15 @@ window.WBDB = {
    "canEquip": false,
    "isGroupPrerequisite": false,
    "shape": "Circle",
+   "size": "StandardSmall",
+   "nodeGuid": "c3451ae00a97450a90915ff6d48a0900",
+   "branch": "3e7a683eb694e90ae19a23fd9b3f51e5",
+   "branchName": "Axe Active 5",
+   "row": 2,
+   "group": 0,
+   "requiredParentRank": 1,
+   "x": 390,
+   "y": -300,
    "parentNodeGuid": "e2e4488850703c301daa3bb08d388a78",
    "parent": "axe-axe-active-5-power",
    "children": [],
@@ -2377,6 +3465,15 @@ window.WBDB = {
    "canEquip": true,
    "isGroupPrerequisite": false,
    "shape": "Circle",
+   "size": "ActiveRootLarge",
+   "nodeGuid": "788b00ab64369097aa0149e6bbc777ad",
+   "branch": "cab5822e6e153f205422f240572da09e",
+   "branchName": "Axe Active 6",
+   "row": 0,
+   "group": 0,
+   "requiredParentRank": 1,
+   "x": 650,
+   "y": 0,
    "parentNodeGuid": null,
    "parent": null,
    "children": [
@@ -2402,12 +3499,21 @@ window.WBDB = {
    "costPerRank": [
     1
    ],
-   "totalCost": 1,
+   "totalCost": 3,
    "rowIndex": 0,
    "groupIndex": 0,
    "canEquip": false,
    "isGroupPrerequisite": false,
    "shape": "Circle",
+   "size": "StandardSmall",
+   "nodeGuid": "c81854ae218d512f1ab250ec9380bc7a",
+   "branch": "cab5822e6e153f205422f240572da09e",
+   "branchName": "Axe Active 6",
+   "row": 1,
+   "group": 0,
+   "requiredParentRank": 1,
+   "x": 650,
+   "y": -150,
    "parentNodeGuid": "788b00ab64369097aa0149e6bbc777ad",
    "parent": "axe-axe-active-6",
    "children": [
@@ -2439,6 +3545,15 @@ window.WBDB = {
    "canEquip": false,
    "isGroupPrerequisite": false,
    "shape": "Circle",
+   "size": "StandardSmall",
+   "nodeGuid": "09b5c2808d79aa47353e7c241ed1c0c5",
+   "branch": "cab5822e6e153f205422f240572da09e",
+   "branchName": "Axe Active 6",
+   "row": 2,
+   "group": 0,
+   "requiredParentRank": 1,
+   "x": 650,
+   "y": -300,
    "parentNodeGuid": "c81854ae218d512f1ab250ec9380bc7a",
    "parent": "axe-axe-active-6-power",
    "children": [],
@@ -2447,11 +3562,12 @@ window.WBDB = {
    "assetPath": null
   },
   {
-   "key": "bow-bow-active-1",
-   "name": "Bow Active 1",
-   "description": "Active ability. Equip it into Ability 1/2/3 once purchased.",
+   "key": "bow-triple-shot",
+   "name": "Triple Shot",
+   "description": "Kneel and loose three fast arrows. The third is drawn longer and hits harder.",
    "icon": {
-    "frame": "icons/SkillSlot-Circle-5457dad8.png"
+    "file": "icons/Bow-Tripple-Shot-2-af6d5775.png",
+    "frame": "icons/SkillSlot-Hex-c7024a12.png"
    },
    "tree": "Bow",
    "treeKey": "bow",
@@ -2467,21 +3583,31 @@ window.WBDB = {
    "groupIndex": 0,
    "canEquip": true,
    "isGroupPrerequisite": false,
-   "shape": "Circle",
+   "shape": "Hexagon",
+   "size": "ActiveRootLarge",
+   "nodeGuid": "2a1cae2a759149d344681332964910e9",
+   "branch": "9f07376b641e98685dc2be30e3056fcd",
+   "branchName": "Triple Shot",
+   "row": 0,
+   "group": 0,
+   "requiredParentRank": 1,
+   "x": -650,
+   "y": 0,
    "parentNodeGuid": null,
    "parent": null,
    "children": [
-    "bow-bow-active-1-power"
+    "bow-triple-shot-mastery"
    ],
-   "attack": null,
+   "attack": "tripleshotattack-bow",
    "abilityPerk": null,
    "assetPath": null
   },
   {
-   "key": "bow-bow-active-1-power",
-   "name": "Bow Active 1 Power",
-   "description": "Placeholder ranked modifier for Bow Active 1.",
+   "key": "bow-triple-shot-power",
+   "name": "Triple Shot Power",
+   "description": "Triple Shot's third arrow pushes the target back 1 / 1.5 / 2 m (per rank).",
    "icon": {
+    "file": "icons/PushBack-7090743c.png",
     "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
    },
    "tree": "Bow",
@@ -2493,26 +3619,34 @@ window.WBDB = {
    "costPerRank": [
     1
    ],
-   "totalCost": 1,
+   "totalCost": 3,
    "rowIndex": 0,
    "groupIndex": 0,
    "canEquip": false,
    "isGroupPrerequisite": false,
    "shape": "Circle",
-   "parentNodeGuid": "2a1cae2a759149d344681332964910e9",
-   "parent": "bow-bow-active-1",
-   "children": [
-    "bow-bow-active-1-mastery"
-   ],
+   "size": "StandardSmall",
+   "nodeGuid": "7c1e1391b5d57506edf5932641321092",
+   "branch": "9f07376b641e98685dc2be30e3056fcd",
+   "branchName": "Triple Shot",
+   "row": 2,
+   "group": 0,
+   "requiredParentRank": 1,
+   "x": -650,
+   "y": -300,
+   "parentNodeGuid": "b4da991b69b39d3d55495444e76d0be1",
+   "parent": "bow-triple-shot-mastery",
+   "children": [],
    "attack": null,
-   "abilityPerk": null,
+   "abilityPerk": "bow-triple-shot-power-perk",
    "assetPath": null
   },
   {
-   "key": "bow-bow-active-1-mastery",
-   "name": "Bow Active 1 Mastery",
-   "description": "Arrows are affected by 50% less gravity.",
+   "key": "bow-triple-shot-mastery",
+   "name": "Triple Shot Mastery",
+   "description": "Arrows are affected by 20 / 40 / 60% less gravity (per rank).",
    "icon": {
+    "file": "icons/ArrowGravity-50b5ff8a.png",
     "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
    },
    "tree": "Bow",
@@ -2520,29 +3654,41 @@ window.WBDB = {
    "category": "Passive",
    "nodeIndex": 2,
    "nodeId": 167,
-   "maxRank": 1,
+   "maxRank": 3,
    "costPerRank": [
-    2
+    1
    ],
-   "totalCost": 2,
+   "totalCost": 3,
    "rowIndex": 0,
    "groupIndex": 0,
    "canEquip": false,
    "isGroupPrerequisite": false,
    "shape": "Circle",
-   "parentNodeGuid": "7c1e1391b5d57506edf5932641321092",
-   "parent": "bow-bow-active-1-power",
-   "children": [],
+   "size": "StandardSmall",
+   "nodeGuid": "b4da991b69b39d3d55495444e76d0be1",
+   "branch": "9f07376b641e98685dc2be30e3056fcd",
+   "branchName": "Triple Shot",
+   "row": 1,
+   "group": 0,
+   "requiredParentRank": 1,
+   "x": -650,
+   "y": -150,
+   "parentNodeGuid": "2a1cae2a759149d344681332964910e9",
+   "parent": "bow-triple-shot",
+   "children": [
+    "bow-triple-shot-power"
+   ],
    "attack": null,
-   "abilityPerk": "bow-bow-active-1-mastery-perk",
+   "abilityPerk": "bow-triple-shot-mastery-perk",
    "assetPath": null
   },
   {
-   "key": "bow-bow-active-2",
-   "name": "Bow Active 2",
-   "description": "Active ability. Equip it into Ability 1/2/3 once purchased.",
+   "key": "bow-arrow-rain",
+   "name": "Arrow Rain",
+   "description": "Kneel and take aim. Fire to rain 12 arrows on a 4 m circle.",
    "icon": {
-    "frame": "icons/SkillSlot-Circle-5457dad8.png"
+    "file": "icons/Bow-Arrow-Rain-3-d57a6cf8.png",
+    "frame": "icons/SkillSlot-Hex-c7024a12.png"
    },
    "tree": "Bow",
    "treeKey": "bow",
@@ -2558,22 +3704,34 @@ window.WBDB = {
    "groupIndex": 0,
    "canEquip": true,
    "isGroupPrerequisite": false,
-   "shape": "Circle",
+   "shape": "Hexagon",
+   "size": "ActiveRootLarge",
+   "nodeGuid": "b8ca52d9d97a3775fcc2274331c5f652",
+   "branch": "5714c104e9594010a47e7cf4e20f8133",
+   "branchName": "Arrow Rain",
+   "row": 0,
+   "group": 0,
+   "requiredParentRank": 1,
+   "x": -390,
+   "y": 0,
    "parentNodeGuid": null,
    "parent": null,
    "children": [
-    "bow-bow-active-2-power"
+    "bow-arrow-rain-power",
+    "bow-arrow-rain-mastery"
    ],
-   "attack": null,
+   "attack": "arrowrainattack-bow",
    "abilityPerk": null,
    "assetPath": null
   },
   {
-   "key": "bow-bow-active-2-power",
-   "name": "Bow Active 2 Power",
-   "description": "Placeholder ranked modifier for Bow Active 2.",
+   "key": "bow-arrow-rain-power",
+   "name": "Arrow Rain Power",
+   "description": "Placeholder ranked modifier for Arrow Rain.",
    "icon": {
-    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png",
+    "file": "icons/Bow-Arrow-Rain-3-d57a6cf8.png",
+    "inherited": true
    },
    "tree": "Bow",
    "treeKey": "bow",
@@ -2584,28 +3742,36 @@ window.WBDB = {
    "costPerRank": [
     1
    ],
-   "totalCost": 1,
+   "totalCost": 3,
    "rowIndex": 0,
    "groupIndex": 0,
    "canEquip": false,
    "isGroupPrerequisite": false,
    "shape": "Circle",
+   "size": "StandardSmall",
+   "nodeGuid": "98b711fd8ac706c740f1210b15629376",
+   "branch": "5714c104e9594010a47e7cf4e20f8133",
+   "branchName": "Arrow Rain",
+   "row": 1,
+   "group": 0,
+   "requiredParentRank": 1,
+   "x": -450,
+   "y": -150,
    "parentNodeGuid": "b8ca52d9d97a3775fcc2274331c5f652",
-   "parent": "bow-bow-active-2",
-   "children": [
-    "bow-bow-active-2-mastery",
-    "bow-bow-active-2-technique"
-   ],
+   "parent": "bow-arrow-rain",
+   "children": [],
    "attack": null,
    "abilityPerk": null,
    "assetPath": null
   },
   {
-   "key": "bow-bow-active-2-mastery",
-   "name": "Bow Active 2 Mastery",
-   "description": "Placeholder passive capstone for Bow Active 2.",
+   "key": "bow-arrow-rain-mastery",
+   "name": "Arrow Rain Mastery",
+   "description": "Placeholder passive capstone for Arrow Rain.",
    "icon": {
-    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png",
+    "file": "icons/Bow-Arrow-Rain-3-d57a6cf8.png",
+    "inherited": true
    },
    "tree": "Bow",
    "treeKey": "bow",
@@ -2622,18 +3788,28 @@ window.WBDB = {
    "canEquip": false,
    "isGroupPrerequisite": false,
    "shape": "Circle",
-   "parentNodeGuid": "98b711fd8ac706c740f1210b15629376",
-   "parent": "bow-bow-active-2-power",
+   "size": "StandardSmall",
+   "nodeGuid": "fcd9fafafd84effc68e89e285be032e7",
+   "branch": "5714c104e9594010a47e7cf4e20f8133",
+   "branchName": "Arrow Rain",
+   "row": 1,
+   "group": 0,
+   "requiredParentRank": 1,
+   "x": -330,
+   "y": -150,
+   "parentNodeGuid": "b8ca52d9d97a3775fcc2274331c5f652",
+   "parent": "bow-arrow-rain",
    "children": [],
    "attack": null,
    "abilityPerk": null,
    "assetPath": null
   },
   {
-   "key": "bow-bow-active-2-technique",
-   "name": "Bow Active 2 Technique",
+   "key": "bow-arrow-dodge-haste",
+   "name": "Arrow Dodge Haste",
    "description": "While the bow is equipped: dodging grants +10% move speed for 6 s.",
    "icon": {
+    "file": "icons/Haste-30c13914.png",
     "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
    },
    "tree": "Bow",
@@ -2647,23 +3823,33 @@ window.WBDB = {
    ],
    "totalCost": 1,
    "rowIndex": 0,
-   "groupIndex": 0,
+   "groupIndex": 1,
    "canEquip": false,
-   "isGroupPrerequisite": false,
+   "isGroupPrerequisite": true,
    "shape": "Circle",
-   "parentNodeGuid": "98b711fd8ac706c740f1210b15629376",
-   "parent": "bow-bow-active-2-power",
+   "size": "StandardSmall",
+   "nodeGuid": "8f5ac4c25c2101cac7d76dd9f8138b36",
+   "branch": "93bbc60688199e3d580053108267ca14",
+   "branchName": "Vaulting Shot",
+   "row": 0,
+   "group": 1,
+   "requiredParentRank": 1,
+   "x": 650,
+   "y": 0,
+   "parentNodeGuid": null,
+   "parent": null,
    "children": [],
    "attack": null,
-   "abilityPerk": "bow-bow-active-2-technique-perk",
+   "abilityPerk": "bow-arrow-dodge-haste-perk",
    "assetPath": null
   },
   {
-   "key": "bow-bow-active-3",
-   "name": "Bow Active 3",
-   "description": "Active ability. Equip it into Ability 1/2/3 once purchased.",
+   "key": "bow-marked-shot",
+   "name": "Marked Shot",
+   "description": "Lean back and hold a full draw. Fire to loose one heavy arrow where the crosshair points.",
    "icon": {
-    "frame": "icons/SkillSlot-Circle-5457dad8.png"
+    "file": "icons/Bow-Marked-Shot-8-4b9b4d50.png",
+    "frame": "icons/SkillSlot-Hex-c7024a12.png"
    },
    "tree": "Bow",
    "treeKey": "bow",
@@ -2679,21 +3865,31 @@ window.WBDB = {
    "groupIndex": 0,
    "canEquip": true,
    "isGroupPrerequisite": false,
-   "shape": "Circle",
+   "shape": "Hexagon",
+   "size": "ActiveRootLarge",
+   "nodeGuid": "ec42b20f4d897d3177d3907f43059fbc",
+   "branch": "f97f6e1264b587a4e6ec533cea325e38",
+   "branchName": "Marked Shot",
+   "row": 0,
+   "group": 0,
+   "requiredParentRank": 1,
+   "x": -130,
+   "y": 0,
    "parentNodeGuid": null,
    "parent": null,
    "children": [
-    "bow-bow-active-3-power"
+    "bow-marked-shot-mastery"
    ],
-   "attack": null,
+   "attack": "markedshotattack-bow",
    "abilityPerk": null,
    "assetPath": null
   },
   {
-   "key": "bow-bow-active-3-power",
-   "name": "Bow Active 3 Power",
-   "description": "Placeholder ranked modifier for Bow Active 3.",
+   "key": "bow-marked-shot-power",
+   "name": "Marked Shot Power",
+   "description": "Marked Shot's arrow applies a Bleed ticking for 6/8/10% of the hit's damage for 6 s (per rank).",
    "icon": {
+    "file": "icons/Bleed-1-232fe22c.png",
     "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
    },
    "tree": "Bow",
@@ -2705,27 +3901,36 @@ window.WBDB = {
    "costPerRank": [
     1
    ],
-   "totalCost": 1,
+   "totalCost": 3,
    "rowIndex": 0,
    "groupIndex": 0,
    "canEquip": false,
    "isGroupPrerequisite": false,
    "shape": "Circle",
-   "parentNodeGuid": "ec42b20f4d897d3177d3907f43059fbc",
-   "parent": "bow-bow-active-3",
-   "children": [
-    "bow-bow-active-3-mastery"
-   ],
+   "size": "StandardSmall",
+   "nodeGuid": "0238f1b5e304dffd270ecb03ec6c7d69",
+   "branch": "f97f6e1264b587a4e6ec533cea325e38",
+   "branchName": "Marked Shot",
+   "row": 2,
+   "group": 0,
+   "requiredParentRank": 1,
+   "x": -190,
+   "y": -300,
+   "parentNodeGuid": "b0e877ac9f7487194ecdfe8fe5a7c02b",
+   "parent": "bow-marked-shot-mastery",
+   "children": [],
    "attack": null,
-   "abilityPerk": null,
+   "abilityPerk": "bow-marked-shot-power-perk",
    "assetPath": null
   },
   {
-   "key": "bow-bow-active-3-mastery",
-   "name": "Bow Active 3 Mastery",
-   "description": "Placeholder passive capstone for Bow Active 3.",
+   "key": "bow-marked-shot-mastery",
+   "name": "Marked Shot Mastery",
+   "description": "Placeholder passive capstone for Marked Shot.",
    "icon": {
-    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png",
+    "file": "icons/Bow-Marked-Shot-8-4b9b4d50.png",
+    "inherited": true
    },
    "tree": "Bow",
    "treeKey": "bow",
@@ -2734,27 +3939,40 @@ window.WBDB = {
    "nodeId": 169,
    "maxRank": 1,
    "costPerRank": [
-    2
+    1
    ],
-   "totalCost": 2,
+   "totalCost": 1,
    "rowIndex": 0,
    "groupIndex": 0,
    "canEquip": false,
    "isGroupPrerequisite": false,
    "shape": "Circle",
-   "parentNodeGuid": "0238f1b5e304dffd270ecb03ec6c7d69",
-   "parent": "bow-bow-active-3-power",
-   "children": [],
+   "size": "StandardSmall",
+   "nodeGuid": "b0e877ac9f7487194ecdfe8fe5a7c02b",
+   "branch": "f97f6e1264b587a4e6ec533cea325e38",
+   "branchName": "Marked Shot",
+   "row": 1,
+   "group": 0,
+   "requiredParentRank": 1,
+   "x": -130,
+   "y": -150,
+   "parentNodeGuid": "ec42b20f4d897d3177d3907f43059fbc",
+   "parent": "bow-marked-shot",
+   "children": [
+    "bow-marked-shot-power",
+    "bow-marked-shot-technique"
+   ],
    "attack": null,
    "abilityPerk": null,
    "assetPath": null
   },
   {
-   "key": "bow-bow-active-4",
-   "name": "Bow Active 4",
-   "description": "Active ability. Equip it into Ability 1/2/3 once purchased.",
+   "key": "bow-burning-arrow",
+   "name": "Burning Arrow",
+   "description": "Lean back and loose one burning arrow where the crosshair points.",
    "icon": {
-    "frame": "icons/SkillSlot-Circle-5457dad8.png"
+    "file": "icons/Bow-Burning-Arrow-4-9896cce9.png",
+    "frame": "icons/SkillSlot-Hex-c7024a12.png"
    },
    "tree": "Bow",
    "treeKey": "bow",
@@ -2767,24 +3985,34 @@ window.WBDB = {
    ],
    "totalCost": 1,
    "rowIndex": 0,
-   "groupIndex": 0,
+   "groupIndex": 1,
    "canEquip": true,
    "isGroupPrerequisite": false,
-   "shape": "Circle",
+   "shape": "Hexagon",
+   "size": "ActiveRootLarge",
+   "nodeGuid": "62367a06222c5beb911f808c1915a5e1",
+   "branch": "f6380bdce9f70d30354b355692adf563",
+   "branchName": "Burning Arrow",
+   "row": 0,
+   "group": 1,
+   "requiredParentRank": 1,
+   "x": 130,
+   "y": 0,
    "parentNodeGuid": null,
    "parent": null,
    "children": [
-    "bow-bow-active-4-power"
+    "bow-burning-arrow-power"
    ],
-   "attack": null,
+   "attack": "burningarrowattack-bow",
    "abilityPerk": null,
    "assetPath": null
   },
   {
-   "key": "bow-bow-active-4-power",
-   "name": "Bow Active 4 Power",
-   "description": "Placeholder ranked modifier for Bow Active 4.",
+   "key": "bow-burning-arrow-power",
+   "name": "Burning Arrow Power",
+   "description": "Burning Arrow's hit sets a Burn ticking for 6/8/10% of the hit's damage for 6 s (per rank).",
    "icon": {
+    "file": "icons/Burn-cce39edb.png",
     "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
    },
    "tree": "Bow",
@@ -2796,27 +4024,39 @@ window.WBDB = {
    "costPerRank": [
     1
    ],
-   "totalCost": 1,
+   "totalCost": 3,
    "rowIndex": 0,
-   "groupIndex": 0,
+   "groupIndex": 1,
    "canEquip": false,
    "isGroupPrerequisite": false,
    "shape": "Circle",
+   "size": "StandardSmall",
+   "nodeGuid": "88acc9777e4dbb16a9296fb1b0a65d70",
+   "branch": "f6380bdce9f70d30354b355692adf563",
+   "branchName": "Burning Arrow",
+   "row": 1,
+   "group": 1,
+   "requiredParentRank": 1,
+   "x": 130,
+   "y": -150,
    "parentNodeGuid": "62367a06222c5beb911f808c1915a5e1",
-   "parent": "bow-bow-active-4",
+   "parent": "bow-burning-arrow",
    "children": [
-    "bow-bow-active-4-mastery"
+    "bow-burning-arrow-mastery",
+    "bow-burning-arrow-technique"
    ],
    "attack": null,
-   "abilityPerk": null,
+   "abilityPerk": "bow-burning-arrow-power-perk",
    "assetPath": null
   },
   {
-   "key": "bow-bow-active-4-mastery",
-   "name": "Bow Active 4 Mastery",
-   "description": "Placeholder passive capstone for Bow Active 4.",
+   "key": "bow-burning-arrow-mastery",
+   "name": "Burning Arrow Mastery",
+   "description": "Placeholder passive capstone for Burning Arrow.",
    "icon": {
-    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png",
+    "file": "icons/Burn-cce39edb.png",
+    "inherited": true
    },
    "tree": "Bow",
    "treeKey": "bow",
@@ -2829,28 +4069,77 @@ window.WBDB = {
    ],
    "totalCost": 2,
    "rowIndex": 0,
-   "groupIndex": 0,
+   "groupIndex": 1,
    "canEquip": false,
    "isGroupPrerequisite": false,
    "shape": "Circle",
+   "size": "StandardSmall",
+   "nodeGuid": "5c55b4cd32ad391bbc94ccdd75d6ec88",
+   "branch": "f6380bdce9f70d30354b355692adf563",
+   "branchName": "Burning Arrow",
+   "row": 2,
+   "group": 1,
+   "requiredParentRank": 1,
+   "x": 70,
+   "y": -300,
    "parentNodeGuid": "88acc9777e4dbb16a9296fb1b0a65d70",
-   "parent": "bow-bow-active-4-power",
+   "parent": "bow-burning-arrow-power",
    "children": [],
    "attack": null,
    "abilityPerk": null,
    "assetPath": null
   },
   {
-   "key": "bow-bow-active-5",
-   "name": "Bow Active 5",
-   "description": "Active ability. Equip it into Ability 1/2/3 once purchased.",
+   "key": "bow-burning-arrow-technique",
+   "name": "Burning Arrow Technique",
+   "description": "Burning Arrow explodes where it lands, dealing 25 damage within 1.5 m.",
    "icon": {
-    "frame": "icons/SkillSlot-Circle-5457dad8.png"
+    "file": "icons/Bow-Burning-Arrow-4-9896cce9.png",
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
+   },
+   "tree": "Bow",
+   "treeKey": "bow",
+   "category": "Passive",
+   "nodeIndex": 13,
+   "nodeId": 195,
+   "maxRank": 1,
+   "costPerRank": [
+    1
+   ],
+   "totalCost": 1,
+   "rowIndex": 0,
+   "groupIndex": 1,
+   "canEquip": false,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "size": "StandardSmall",
+   "nodeGuid": "91889d1ad932841021e49972a0d15121",
+   "branch": "f6380bdce9f70d30354b355692adf563",
+   "branchName": "Burning Arrow",
+   "row": 2,
+   "group": 1,
+   "requiredParentRank": 1,
+   "x": 190,
+   "y": -300,
+   "parentNodeGuid": "88acc9777e4dbb16a9296fb1b0a65d70",
+   "parent": "bow-burning-arrow-power",
+   "children": [],
+   "attack": null,
+   "abilityPerk": "bow-burning-arrow-technique-perk",
+   "assetPath": null
+  },
+  {
+   "key": "bow-sliding-shot",
+   "name": "Sliding Shot",
+   "description": "Drop into a slide and loose one arrow from the skid, carrying you about 6 m.",
+   "icon": {
+    "file": "icons/BowSlide-2-61fa8782.png",
+    "frame": "icons/SkillSlot-Hex-c7024a12.png"
    },
    "tree": "Bow",
    "treeKey": "bow",
    "category": "Active",
-   "nodeIndex": 13,
+   "nodeIndex": 14,
    "nodeId": 71,
    "maxRank": 1,
    "costPerRank": [
@@ -2858,61 +4147,82 @@ window.WBDB = {
    ],
    "totalCost": 1,
    "rowIndex": 0,
-   "groupIndex": 0,
+   "groupIndex": 1,
    "canEquip": true,
    "isGroupPrerequisite": false,
-   "shape": "Circle",
+   "shape": "Hexagon",
+   "size": "ActiveRootLarge",
+   "nodeGuid": "78fb8ceffbd04d82ddb3cb09474f00a1",
+   "branch": "2baee3f05b1646b87c81a050d5d8a9b8",
+   "branchName": "Sliding Shot",
+   "row": 0,
+   "group": 1,
+   "requiredParentRank": 1,
+   "x": 390,
+   "y": 0,
    "parentNodeGuid": null,
    "parent": null,
    "children": [
-    "bow-bow-active-5-power"
+    "bow-sliding-shot-power"
    ],
-   "attack": null,
+   "attack": "slidingshotattack-bow",
    "abilityPerk": null,
    "assetPath": null
   },
   {
-   "key": "bow-bow-active-5-power",
-   "name": "Bow Active 5 Power",
-   "description": "Placeholder ranked modifier for Bow Active 5.",
+   "key": "bow-sliding-shot-power",
+   "name": "Sliding Shot Power",
+   "description": "Sliding Shot's arrow slows the target by 2 / 3 / 4% for 3 s (per rank).",
    "icon": {
+    "file": "icons/Slow-0c6b8c1f.png",
     "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
    },
    "tree": "Bow",
    "treeKey": "bow",
    "category": "Modifier",
-   "nodeIndex": 14,
+   "nodeIndex": 15,
    "nodeId": 73,
    "maxRank": 3,
    "costPerRank": [
     1
    ],
-   "totalCost": 1,
+   "totalCost": 3,
    "rowIndex": 0,
-   "groupIndex": 0,
+   "groupIndex": 1,
    "canEquip": false,
    "isGroupPrerequisite": false,
    "shape": "Circle",
+   "size": "StandardSmall",
+   "nodeGuid": "c745c5628687598b6783fbfbeadd1d1c",
+   "branch": "2baee3f05b1646b87c81a050d5d8a9b8",
+   "branchName": "Sliding Shot",
+   "row": 1,
+   "group": 1,
+   "requiredParentRank": 1,
+   "x": 390,
+   "y": -150,
    "parentNodeGuid": "78fb8ceffbd04d82ddb3cb09474f00a1",
-   "parent": "bow-bow-active-5",
+   "parent": "bow-sliding-shot",
    "children": [
-    "bow-bow-active-5-mastery"
+    "bow-sliding-shot-mastery"
    ],
    "attack": null,
-   "abilityPerk": null,
+   "abilityPerk": "bow-sliding-shot-power-perk",
    "assetPath": null
   },
   {
-   "key": "bow-bow-active-5-mastery",
-   "name": "Bow Active 5 Mastery",
-   "description": "Placeholder passive capstone for Bow Active 5.",
+   "key": "bow-sliding-shot-mastery",
+   "name": "Sliding Shot Mastery",
+   "description": "Placeholder passive capstone for Sliding Shot.",
    "icon": {
-    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png",
+    "file": "icons/Slow-0c6b8c1f.png",
+    "inherited": true
    },
    "tree": "Bow",
    "treeKey": "bow",
    "category": "Passive",
-   "nodeIndex": 15,
+   "nodeIndex": 16,
    "nodeId": 171,
    "maxRank": 1,
    "costPerRank": [
@@ -2920,90 +4230,121 @@ window.WBDB = {
    ],
    "totalCost": 2,
    "rowIndex": 0,
-   "groupIndex": 0,
+   "groupIndex": 1,
    "canEquip": false,
    "isGroupPrerequisite": false,
    "shape": "Circle",
+   "size": "StandardSmall",
+   "nodeGuid": "5977624977b966c8e0ccc20c8dd9da29",
+   "branch": "2baee3f05b1646b87c81a050d5d8a9b8",
+   "branchName": "Sliding Shot",
+   "row": 2,
+   "group": 1,
+   "requiredParentRank": 1,
+   "x": 390,
+   "y": -300,
    "parentNodeGuid": "c745c5628687598b6783fbfbeadd1d1c",
-   "parent": "bow-bow-active-5-power",
+   "parent": "bow-sliding-shot-power",
    "children": [],
    "attack": null,
    "abilityPerk": null,
    "assetPath": null
   },
   {
-   "key": "bow-bow-active-6",
-   "name": "Bow Active 6",
-   "description": "Active ability. Equip it into Ability 1/2/3 once purchased.",
+   "key": "bow-vaulting-shot",
+   "name": "Vaulting Shot",
+   "description": "Vault forward about 8 m and loose one heavy arrow in mid-air.",
    "icon": {
-    "frame": "icons/SkillSlot-Circle-5457dad8.png"
+    "file": "icons/BowLeapingShot-3-6b57b208.png",
+    "frame": "icons/SkillSlot-Hex-c7024a12.png"
    },
    "tree": "Bow",
    "treeKey": "bow",
    "category": "Active",
-   "nodeIndex": 16,
+   "nodeIndex": 17,
    "nodeId": 77,
    "maxRank": 1,
    "costPerRank": [
     1
    ],
    "totalCost": 1,
-   "rowIndex": 0,
-   "groupIndex": 0,
+   "rowIndex": 1,
+   "groupIndex": 1,
    "canEquip": true,
-   "isGroupPrerequisite": false,
-   "shape": "Circle",
+   "isGroupPrerequisite": true,
+   "shape": "Hexagon",
+   "size": "ActiveRootLarge",
+   "nodeGuid": "d286c790c43799d74c2cb586b0665070",
+   "branch": "93bbc60688199e3d580053108267ca14",
+   "branchName": "Vaulting Shot",
+   "row": 1,
+   "group": 1,
+   "requiredParentRank": 1,
+   "x": 650,
+   "y": -150,
    "parentNodeGuid": null,
    "parent": null,
    "children": [
-    "bow-bow-active-6-power"
+    "bow-vaulting-shot-power"
    ],
-   "attack": null,
+   "attack": "vaultingshotattack-bow",
    "abilityPerk": null,
    "assetPath": null
   },
   {
-   "key": "bow-bow-active-6-power",
-   "name": "Bow Active 6 Power",
-   "description": "Placeholder ranked modifier for Bow Active 6.",
+   "key": "bow-vaulting-shot-power",
+   "name": "Vaulting Shot Power",
+   "description": "Vaulting Shot's arrow slows the target by 2 / 3 / 4% for 3 s (per rank).",
    "icon": {
+    "file": "icons/Slow-0c6b8c1f.png",
     "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
    },
    "tree": "Bow",
    "treeKey": "bow",
    "category": "Modifier",
-   "nodeIndex": 17,
+   "nodeIndex": 18,
    "nodeId": 79,
    "maxRank": 3,
    "costPerRank": [
     1
    ],
-   "totalCost": 1,
+   "totalCost": 3,
    "rowIndex": 0,
-   "groupIndex": 0,
+   "groupIndex": 1,
    "canEquip": false,
    "isGroupPrerequisite": false,
    "shape": "Circle",
+   "size": "StandardSmall",
+   "nodeGuid": "5b1043fa473a01a0f98ebf38b1e54ef9",
+   "branch": "93bbc60688199e3d580053108267ca14",
+   "branchName": "Vaulting Shot",
+   "row": 2,
+   "group": 1,
+   "requiredParentRank": 1,
+   "x": 650,
+   "y": -300,
    "parentNodeGuid": "d286c790c43799d74c2cb586b0665070",
-   "parent": "bow-bow-active-6",
+   "parent": "bow-vaulting-shot",
    "children": [
-    "bow-bow-active-6-mastery"
+    "bow-vaulting-shot-mastery"
    ],
    "attack": null,
-   "abilityPerk": null,
+   "abilityPerk": "bow-vaulting-shot-power-perk",
    "assetPath": null
   },
   {
-   "key": "bow-bow-active-6-mastery",
-   "name": "Bow Active 6 Mastery",
-   "description": "Placeholder passive capstone for Bow Active 6.",
+   "key": "bow-vaulting-shot-mastery",
+   "name": "Vaulting Shot Mastery",
+   "description": "Placeholder passive capstone for Vaulting Shot.",
    "icon": {
-    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png",
+    "file": "icons/Slow-0c6b8c1f.png",
+    "inherited": true
    },
    "tree": "Bow",
    "treeKey": "bow",
    "category": "Passive",
-   "nodeIndex": 18,
+   "nodeIndex": 19,
    "nodeId": 172,
    "maxRank": 1,
    "costPerRank": [
@@ -3011,15 +4352,63 @@ window.WBDB = {
    ],
    "totalCost": 2,
    "rowIndex": 0,
+   "groupIndex": 1,
+   "canEquip": false,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "size": "StandardSmall",
+   "nodeGuid": "0ac7fc5d8e4bbede8095a6bde805042d",
+   "branch": "93bbc60688199e3d580053108267ca14",
+   "branchName": "Vaulting Shot",
+   "row": 3,
+   "group": 1,
+   "requiredParentRank": 1,
+   "x": 650,
+   "y": -450,
+   "parentNodeGuid": "5b1043fa473a01a0f98ebf38b1e54ef9",
+   "parent": "bow-vaulting-shot-power",
+   "children": [],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": null
+  },
+  {
+   "key": "bow-marked-shot-technique",
+   "name": "Marked Shot Technique",
+   "description": "Marked Shot's arrow marks the target for 10 s. You and your allies see a marker above it.",
+   "icon": {
+    "file": "icons/Bow-Marked-Shot-7-37ba98f9.png",
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
+   },
+   "tree": "Bow",
+   "treeKey": "bow",
+   "category": "Passive",
+   "nodeIndex": 20,
+   "nodeId": 197,
+   "maxRank": 1,
+   "costPerRank": [
+    1
+   ],
+   "totalCost": 1,
+   "rowIndex": 0,
    "groupIndex": 0,
    "canEquip": false,
    "isGroupPrerequisite": false,
    "shape": "Circle",
-   "parentNodeGuid": "5b1043fa473a01a0f98ebf38b1e54ef9",
-   "parent": "bow-bow-active-6-power",
+   "size": "StandardSmall",
+   "nodeGuid": "2bf1a97cfe7e4ed69e646b167eb3507e",
+   "branch": "f97f6e1264b587a4e6ec533cea325e38",
+   "branchName": "Marked Shot",
+   "row": 2,
+   "group": 0,
+   "requiredParentRank": 1,
+   "x": -70,
+   "y": -300,
+   "parentNodeGuid": "b0e877ac9f7487194ecdfe8fe5a7c02b",
+   "parent": "bow-marked-shot-mastery",
    "children": [],
    "attack": null,
-   "abilityPerk": null,
+   "abilityPerk": "bow-marked-shot-technique-perk",
    "assetPath": null
   },
   {
@@ -3044,6 +4433,15 @@ window.WBDB = {
    "canEquip": true,
    "isGroupPrerequisite": false,
    "shape": "Circle",
+   "size": "ActiveRootLarge",
+   "nodeGuid": "3ce289d5af17041340732cdc91c2f797",
+   "branch": "530d6fcd5be53296b18f7ba6efb315fe",
+   "branchName": "Spear Active 1",
+   "row": 0,
+   "group": 0,
+   "requiredParentRank": 1,
+   "x": -650,
+   "y": 0,
    "parentNodeGuid": null,
    "parent": null,
    "children": [
@@ -3069,12 +4467,21 @@ window.WBDB = {
    "costPerRank": [
     1
    ],
-   "totalCost": 1,
+   "totalCost": 3,
    "rowIndex": 0,
    "groupIndex": 0,
    "canEquip": false,
    "isGroupPrerequisite": false,
    "shape": "Circle",
+   "size": "StandardSmall",
+   "nodeGuid": "51b1fd0d17be5a790518380cc9afd5a7",
+   "branch": "530d6fcd5be53296b18f7ba6efb315fe",
+   "branchName": "Spear Active 1",
+   "row": 1,
+   "group": 0,
+   "requiredParentRank": 1,
+   "x": -650,
+   "y": -150,
    "parentNodeGuid": "3ce289d5af17041340732cdc91c2f797",
    "parent": "spear-spear-active-1",
    "children": [
@@ -3106,6 +4513,15 @@ window.WBDB = {
    "canEquip": false,
    "isGroupPrerequisite": false,
    "shape": "Circle",
+   "size": "StandardSmall",
+   "nodeGuid": "e22003f829d4bc551823f5775279efb9",
+   "branch": "530d6fcd5be53296b18f7ba6efb315fe",
+   "branchName": "Spear Active 1",
+   "row": 2,
+   "group": 0,
+   "requiredParentRank": 2,
+   "x": -650,
+   "y": -300,
    "parentNodeGuid": "51b1fd0d17be5a790518380cc9afd5a7",
    "parent": "spear-spear-active-1-power",
    "children": [],
@@ -3135,6 +4551,15 @@ window.WBDB = {
    "canEquip": true,
    "isGroupPrerequisite": false,
    "shape": "Circle",
+   "size": "ActiveRootLarge",
+   "nodeGuid": "f1f586169a12ff4402348d25e7a3f9c9",
+   "branch": "c722cd9e2b8e043bef972d35be1cf9ce",
+   "branchName": "Spear Active 2",
+   "row": 0,
+   "group": 0,
+   "requiredParentRank": 1,
+   "x": -390,
+   "y": 0,
    "parentNodeGuid": null,
    "parent": null,
    "children": [
@@ -3160,12 +4585,21 @@ window.WBDB = {
    "costPerRank": [
     1
    ],
-   "totalCost": 1,
+   "totalCost": 3,
    "rowIndex": 0,
    "groupIndex": 0,
    "canEquip": false,
    "isGroupPrerequisite": false,
    "shape": "Circle",
+   "size": "StandardSmall",
+   "nodeGuid": "6d117f81cdc2208bae58c3f2096a923b",
+   "branch": "c722cd9e2b8e043bef972d35be1cf9ce",
+   "branchName": "Spear Active 2",
+   "row": 1,
+   "group": 0,
+   "requiredParentRank": 1,
+   "x": -390,
+   "y": -150,
    "parentNodeGuid": "f1f586169a12ff4402348d25e7a3f9c9",
    "parent": "spear-spear-active-2",
    "children": [
@@ -3198,6 +4632,15 @@ window.WBDB = {
    "canEquip": false,
    "isGroupPrerequisite": false,
    "shape": "Circle",
+   "size": "StandardSmall",
+   "nodeGuid": "ef1ad345239ad99da5bcf84ac2c267a8",
+   "branch": "c722cd9e2b8e043bef972d35be1cf9ce",
+   "branchName": "Spear Active 2",
+   "row": 2,
+   "group": 0,
+   "requiredParentRank": 1,
+   "x": -450,
+   "y": -300,
    "parentNodeGuid": "6d117f81cdc2208bae58c3f2096a923b",
    "parent": "spear-spear-active-2-power",
    "children": [],
@@ -3227,6 +4670,15 @@ window.WBDB = {
    "canEquip": false,
    "isGroupPrerequisite": false,
    "shape": "Circle",
+   "size": "StandardSmall",
+   "nodeGuid": "ff7d493c1fff615d7c591143a92cb76a",
+   "branch": "c722cd9e2b8e043bef972d35be1cf9ce",
+   "branchName": "Spear Active 2",
+   "row": 2,
+   "group": 0,
+   "requiredParentRank": 1,
+   "x": -330,
+   "y": -300,
    "parentNodeGuid": "6d117f81cdc2208bae58c3f2096a923b",
    "parent": "spear-spear-active-2-power",
    "children": [],
@@ -3256,6 +4708,15 @@ window.WBDB = {
    "canEquip": true,
    "isGroupPrerequisite": false,
    "shape": "Circle",
+   "size": "ActiveRootLarge",
+   "nodeGuid": "9d531d7ce293ac8255b80a0c00841ed8",
+   "branch": "606655665e201627d18dc4f674aeb37b",
+   "branchName": "Spear Active 3",
+   "row": 0,
+   "group": 0,
+   "requiredParentRank": 1,
+   "x": -130,
+   "y": 0,
    "parentNodeGuid": null,
    "parent": null,
    "children": [
@@ -3281,12 +4742,21 @@ window.WBDB = {
    "costPerRank": [
     1
    ],
-   "totalCost": 1,
+   "totalCost": 3,
    "rowIndex": 0,
    "groupIndex": 0,
    "canEquip": false,
    "isGroupPrerequisite": false,
    "shape": "Circle",
+   "size": "StandardSmall",
+   "nodeGuid": "8e49cb24bf49a3c91234d17ec80f09be",
+   "branch": "606655665e201627d18dc4f674aeb37b",
+   "branchName": "Spear Active 3",
+   "row": 1,
+   "group": 0,
+   "requiredParentRank": 1,
+   "x": -130,
+   "y": -150,
    "parentNodeGuid": "9d531d7ce293ac8255b80a0c00841ed8",
    "parent": "spear-spear-active-3",
    "children": [
@@ -3318,6 +4788,15 @@ window.WBDB = {
    "canEquip": false,
    "isGroupPrerequisite": false,
    "shape": "Circle",
+   "size": "StandardSmall",
+   "nodeGuid": "f8471a297749b740bfa04e3771603024",
+   "branch": "606655665e201627d18dc4f674aeb37b",
+   "branchName": "Spear Active 3",
+   "row": 2,
+   "group": 0,
+   "requiredParentRank": 1,
+   "x": -130,
+   "y": -300,
    "parentNodeGuid": "8e49cb24bf49a3c91234d17ec80f09be",
    "parent": "spear-spear-active-3-power",
    "children": [],
@@ -3347,6 +4826,15 @@ window.WBDB = {
    "canEquip": true,
    "isGroupPrerequisite": false,
    "shape": "Circle",
+   "size": "ActiveRootLarge",
+   "nodeGuid": "7b6b2f2b967cffe6a50fb10c8745a975",
+   "branch": "2bfbd5a7ef0092803e1fa31e71a0f9b1",
+   "branchName": "Spear Active 4",
+   "row": 0,
+   "group": 0,
+   "requiredParentRank": 1,
+   "x": 130,
+   "y": 0,
    "parentNodeGuid": null,
    "parent": null,
    "children": [
@@ -3372,12 +4860,21 @@ window.WBDB = {
    "costPerRank": [
     1
    ],
-   "totalCost": 1,
+   "totalCost": 3,
    "rowIndex": 0,
    "groupIndex": 0,
    "canEquip": false,
    "isGroupPrerequisite": false,
    "shape": "Circle",
+   "size": "StandardSmall",
+   "nodeGuid": "ad9a3692e893fd012f321230414a9f0d",
+   "branch": "2bfbd5a7ef0092803e1fa31e71a0f9b1",
+   "branchName": "Spear Active 4",
+   "row": 1,
+   "group": 0,
+   "requiredParentRank": 1,
+   "x": 130,
+   "y": -150,
    "parentNodeGuid": "7b6b2f2b967cffe6a50fb10c8745a975",
    "parent": "spear-spear-active-4",
    "children": [
@@ -3409,6 +4906,15 @@ window.WBDB = {
    "canEquip": false,
    "isGroupPrerequisite": false,
    "shape": "Circle",
+   "size": "StandardSmall",
+   "nodeGuid": "4873d9caa03d3104aa9c027ee138afe0",
+   "branch": "2bfbd5a7ef0092803e1fa31e71a0f9b1",
+   "branchName": "Spear Active 4",
+   "row": 2,
+   "group": 0,
+   "requiredParentRank": 1,
+   "x": 130,
+   "y": -300,
    "parentNodeGuid": "ad9a3692e893fd012f321230414a9f0d",
    "parent": "spear-spear-active-4-power",
    "children": [],
@@ -3438,6 +4944,15 @@ window.WBDB = {
    "canEquip": true,
    "isGroupPrerequisite": false,
    "shape": "Circle",
+   "size": "ActiveRootLarge",
+   "nodeGuid": "213f871200556da882b74bd4f747feea",
+   "branch": "f314b14bbcc251fc5d3d17630c9b4dcd",
+   "branchName": "Spear Active 5",
+   "row": 0,
+   "group": 0,
+   "requiredParentRank": 1,
+   "x": 390,
+   "y": 0,
    "parentNodeGuid": null,
    "parent": null,
    "children": [
@@ -3463,12 +4978,21 @@ window.WBDB = {
    "costPerRank": [
     1
    ],
-   "totalCost": 1,
+   "totalCost": 3,
    "rowIndex": 0,
    "groupIndex": 0,
    "canEquip": false,
    "isGroupPrerequisite": false,
    "shape": "Circle",
+   "size": "StandardSmall",
+   "nodeGuid": "de7784060e854a4cdb72e940d246f64e",
+   "branch": "f314b14bbcc251fc5d3d17630c9b4dcd",
+   "branchName": "Spear Active 5",
+   "row": 1,
+   "group": 0,
+   "requiredParentRank": 1,
+   "x": 390,
+   "y": -150,
    "parentNodeGuid": "213f871200556da882b74bd4f747feea",
    "parent": "spear-spear-active-5",
    "children": [
@@ -3500,6 +5024,15 @@ window.WBDB = {
    "canEquip": false,
    "isGroupPrerequisite": false,
    "shape": "Circle",
+   "size": "StandardSmall",
+   "nodeGuid": "8aa80852668251328257760f5e668c3f",
+   "branch": "f314b14bbcc251fc5d3d17630c9b4dcd",
+   "branchName": "Spear Active 5",
+   "row": 2,
+   "group": 0,
+   "requiredParentRank": 1,
+   "x": 390,
+   "y": -300,
    "parentNodeGuid": "de7784060e854a4cdb72e940d246f64e",
    "parent": "spear-spear-active-5-power",
    "children": [],
@@ -3529,6 +5062,15 @@ window.WBDB = {
    "canEquip": true,
    "isGroupPrerequisite": false,
    "shape": "Circle",
+   "size": "ActiveRootLarge",
+   "nodeGuid": "0dd7f403fa4afbdf3a00ad06851fe508",
+   "branch": "631e67ebaae5000dc1efff47b3d3b52e",
+   "branchName": "Spear Active 6",
+   "row": 0,
+   "group": 0,
+   "requiredParentRank": 1,
+   "x": 650,
+   "y": 0,
    "parentNodeGuid": null,
    "parent": null,
    "children": [
@@ -3554,12 +5096,21 @@ window.WBDB = {
    "costPerRank": [
     1
    ],
-   "totalCost": 1,
+   "totalCost": 3,
    "rowIndex": 0,
    "groupIndex": 0,
    "canEquip": false,
    "isGroupPrerequisite": false,
    "shape": "Circle",
+   "size": "StandardSmall",
+   "nodeGuid": "3a830ecd749c7e230820523d839752e7",
+   "branch": "631e67ebaae5000dc1efff47b3d3b52e",
+   "branchName": "Spear Active 6",
+   "row": 1,
+   "group": 0,
+   "requiredParentRank": 1,
+   "x": 650,
+   "y": -150,
    "parentNodeGuid": "0dd7f403fa4afbdf3a00ad06851fe508",
    "parent": "spear-spear-active-6",
    "children": [
@@ -3591,6 +5142,15 @@ window.WBDB = {
    "canEquip": false,
    "isGroupPrerequisite": false,
    "shape": "Circle",
+   "size": "StandardSmall",
+   "nodeGuid": "4c360fe4140a4f5d02d9ba8b5573b18a",
+   "branch": "631e67ebaae5000dc1efff47b3d3b52e",
+   "branchName": "Spear Active 6",
+   "row": 2,
+   "group": 0,
+   "requiredParentRank": 1,
+   "x": 650,
+   "y": -300,
    "parentNodeGuid": "3a830ecd749c7e230820523d839752e7",
    "parent": "spear-spear-active-6-power",
    "children": [],
@@ -3603,7 +5163,7 @@ window.WBDB = {
    "name": "Leaping Slash",
    "description": "Charge forward and leap towards your enemy, ending the leap with a powerful slash.",
    "icon": {
-    "file": "icons/Leaping-Slash-3-81051c9f.png",
+    "file": "icons/Leaping-Slash-4-d8fef08c.png",
     "frame": "icons/SkillSlot-Hex-c7024a12.png"
    },
    "tree": "Sword",
@@ -3621,6 +5181,15 @@ window.WBDB = {
    "canEquip": true,
    "isGroupPrerequisite": true,
    "shape": "Hexagon",
+   "size": "ActiveRootLarge",
+   "nodeGuid": "51a1ea3c6ca21c1b47fcce190c8657fb",
+   "branch": "877ca6067bb93bec33e2d6647ad411fb",
+   "branchName": "Leaping Slash",
+   "row": 1,
+   "group": 0,
+   "requiredParentRank": 1,
+   "x": -650,
+   "y": -150,
    "parentNodeGuid": null,
    "parent": null,
    "children": [
@@ -3636,7 +5205,7 @@ window.WBDB = {
    "description": "Placeholder modifier for Leaping Slash.",
    "icon": {
     "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png",
-    "file": "icons/Leaping-Slash-3-81051c9f.png",
+    "file": "icons/Leaping-Slash-4-d8fef08c.png",
     "inherited": true
    },
    "tree": "Sword",
@@ -3654,6 +5223,15 @@ window.WBDB = {
    "canEquip": false,
    "isGroupPrerequisite": false,
    "shape": "Circle",
+   "size": "StandardSmall",
+   "nodeGuid": "4cbb73316aa38cd1b2ac7250d30c931d",
+   "branch": "877ca6067bb93bec33e2d6647ad411fb",
+   "branchName": "Leaping Slash",
+   "row": 2,
+   "group": 0,
+   "requiredParentRank": 1,
+   "x": -650,
+   "y": -300,
    "parentNodeGuid": "51a1ea3c6ca21c1b47fcce190c8657fb",
    "parent": "sword-leaping-slash",
    "children": [
@@ -3668,9 +5246,8 @@ window.WBDB = {
    "name": "Leaping Slash Mastery",
    "description": "Sword light attacks apply a Bleed ticking for 5% of the hit's damage for 6 s.",
    "icon": {
-    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png",
-    "file": "icons/Leaping-Slash-3-81051c9f.png",
-    "inherited": true
+    "file": "icons/Bleed-1-232fe22c.png",
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
    },
    "tree": "Sword",
    "treeKey": "sword",
@@ -3687,6 +5264,15 @@ window.WBDB = {
    "canEquip": false,
    "isGroupPrerequisite": false,
    "shape": "Circle",
+   "size": "StandardSmall",
+   "nodeGuid": "b2d2cd6541b1d30776af22f27714d3f6",
+   "branch": "877ca6067bb93bec33e2d6647ad411fb",
+   "branchName": "Leaping Slash",
+   "row": 3,
+   "group": 0,
+   "requiredParentRank": 1,
+   "x": -650,
+   "y": -450,
    "parentNodeGuid": "4cbb73316aa38cd1b2ac7250d30c931d",
    "parent": "sword-leaping-slash-power",
    "children": [],
@@ -3699,7 +5285,7 @@ window.WBDB = {
    "name": "Forward Cleave",
    "description": "Dash forward and cleave anyone in front of you.",
    "icon": {
-    "file": "icons/Forward-Cleave-bf55f0be.png",
+    "file": "icons/Forward-Cleave-6-43c365e0.png",
     "frame": "icons/SkillSlot-Hex-c7024a12.png"
    },
    "tree": "Sword",
@@ -3717,6 +5303,15 @@ window.WBDB = {
    "canEquip": true,
    "isGroupPrerequisite": false,
    "shape": "Hexagon",
+   "size": "ActiveRootLarge",
+   "nodeGuid": "df531f7425825e5258baa20bebe3d900",
+   "branch": "cc88a118d910c569775706e11d8e13af",
+   "branchName": "Forward Cleave",
+   "row": 0,
+   "group": 0,
+   "requiredParentRank": 1,
+   "x": -390,
+   "y": 0,
    "parentNodeGuid": null,
    "parent": null,
    "children": [
@@ -3731,9 +5326,8 @@ window.WBDB = {
    "name": "Forward Cleave Power",
    "description": "Forward Cleave's hits apply a Bleed ticking for 3/4/5% of the hit's damage for 6 s (per rank).",
    "icon": {
-    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png",
-    "file": "icons/Forward-Cleave-bf55f0be.png",
-    "inherited": true
+    "file": "icons/Bleed-1-232fe22c.png",
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
    },
    "tree": "Sword",
    "treeKey": "sword",
@@ -3744,12 +5338,21 @@ window.WBDB = {
    "costPerRank": [
     1
    ],
-   "totalCost": 1,
+   "totalCost": 3,
    "rowIndex": 0,
    "groupIndex": 0,
    "canEquip": false,
    "isGroupPrerequisite": false,
    "shape": "Circle",
+   "size": "StandardSmall",
+   "nodeGuid": "cca609b4eaa264b5987ca07ee64f5f8d",
+   "branch": "cc88a118d910c569775706e11d8e13af",
+   "branchName": "Forward Cleave",
+   "row": 1,
+   "group": 0,
+   "requiredParentRank": 1,
+   "x": -390,
+   "y": -150,
    "parentNodeGuid": "df531f7425825e5258baa20bebe3d900",
    "parent": "sword-forward-cleave",
    "children": [
@@ -3765,9 +5368,8 @@ window.WBDB = {
    "name": "Forward Cleave Mastery",
    "description": "Sword heavy attacks Slow the target by 5% for 2 s.",
    "icon": {
-    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png",
-    "file": "icons/Forward-Cleave-bf55f0be.png",
-    "inherited": true
+    "file": "icons/Slow-0c6b8c1f.png",
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
    },
    "tree": "Sword",
    "treeKey": "sword",
@@ -3784,6 +5386,15 @@ window.WBDB = {
    "canEquip": false,
    "isGroupPrerequisite": false,
    "shape": "Circle",
+   "size": "StandardSmall",
+   "nodeGuid": "254c65f03a0173c3b7f856d6363a1b32",
+   "branch": "cc88a118d910c569775706e11d8e13af",
+   "branchName": "Forward Cleave",
+   "row": 2,
+   "group": 0,
+   "requiredParentRank": 1,
+   "x": -450,
+   "y": -300,
    "parentNodeGuid": "cca609b4eaa264b5987ca07ee64f5f8d",
    "parent": "sword-forward-cleave-power",
    "children": [
@@ -3798,9 +5409,8 @@ window.WBDB = {
    "name": "Forward Cleave Technique",
    "description": "While the sword is equipped: +5% damage for each enemy within 3 m.",
    "icon": {
-    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png",
-    "file": "icons/Forward-Cleave-bf55f0be.png",
-    "inherited": true
+    "file": "icons/SurroundedDamageBoost-cdf5bd55.png",
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
    },
    "tree": "Sword",
    "treeKey": "sword",
@@ -3817,6 +5427,15 @@ window.WBDB = {
    "canEquip": false,
    "isGroupPrerequisite": false,
    "shape": "Circle",
+   "size": "StandardSmall",
+   "nodeGuid": "4b3b8dcb3419ed2e81931d6446e24112",
+   "branch": "cc88a118d910c569775706e11d8e13af",
+   "branchName": "Forward Cleave",
+   "row": 2,
+   "group": 0,
+   "requiredParentRank": 1,
+   "x": -330,
+   "y": -300,
    "parentNodeGuid": "cca609b4eaa264b5987ca07ee64f5f8d",
    "parent": "sword-forward-cleave-power",
    "children": [],
@@ -3829,7 +5448,7 @@ window.WBDB = {
    "name": "Whirling Step",
    "description": "Step forward, turn in air and deliver a powerful strike in close range.",
    "icon": {
-    "file": "icons/Whirling-Step-c96473a8.png",
+    "file": "icons/WhirlingStep-2-56f34a2f.png",
     "frame": "icons/SkillSlot-Hex-c7024a12.png"
    },
    "tree": "Sword",
@@ -3847,6 +5466,15 @@ window.WBDB = {
    "canEquip": true,
    "isGroupPrerequisite": false,
    "shape": "Hexagon",
+   "size": "ActiveRootLarge",
+   "nodeGuid": "b8c011227f9d6061c382fce50a04812a",
+   "branch": "f7970004b52d5f80c23b7c138c463e4b",
+   "branchName": "Whirling Step",
+   "row": 0,
+   "group": 0,
+   "requiredParentRank": 1,
+   "x": -130,
+   "y": 0,
    "parentNodeGuid": null,
    "parent": null,
    "children": [
@@ -3862,7 +5490,7 @@ window.WBDB = {
    "description": "Placeholder ranked modifier for Whirling Step.",
    "icon": {
     "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png",
-    "file": "icons/Whirling-Step-c96473a8.png",
+    "file": "icons/WhirlingStep-2-56f34a2f.png",
     "inherited": true
    },
    "tree": "Sword",
@@ -3874,12 +5502,21 @@ window.WBDB = {
    "costPerRank": [
     1
    ],
-   "totalCost": 1,
+   "totalCost": 3,
    "rowIndex": 0,
    "groupIndex": 0,
    "canEquip": false,
    "isGroupPrerequisite": false,
    "shape": "Circle",
+   "size": "StandardSmall",
+   "nodeGuid": "349860a9c8df70a749f1c167019dcc4a",
+   "branch": "f7970004b52d5f80c23b7c138c463e4b",
+   "branchName": "Whirling Step",
+   "row": 1,
+   "group": 0,
+   "requiredParentRank": 1,
+   "x": -130,
+   "y": -150,
    "parentNodeGuid": "b8c011227f9d6061c382fce50a04812a",
    "parent": "sword-whirling-step",
    "children": [
@@ -3895,7 +5532,7 @@ window.WBDB = {
    "description": "Placeholder passive capstone for Whirling Step.",
    "icon": {
     "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png",
-    "file": "icons/Whirling-Step-c96473a8.png",
+    "file": "icons/WhirlingStep-2-56f34a2f.png",
     "inherited": true
    },
    "tree": "Sword",
@@ -3913,6 +5550,15 @@ window.WBDB = {
    "canEquip": false,
    "isGroupPrerequisite": false,
    "shape": "Circle",
+   "size": "StandardSmall",
+   "nodeGuid": "41154ebc449cb8db8a063c0be6d5fb8c",
+   "branch": "f7970004b52d5f80c23b7c138c463e4b",
+   "branchName": "Whirling Step",
+   "row": 2,
+   "group": 0,
+   "requiredParentRank": 1,
+   "x": -130,
+   "y": -300,
    "parentNodeGuid": "349860a9c8df70a749f1c167019dcc4a",
    "parent": "sword-whirling-step-power",
    "children": [],
@@ -3943,6 +5589,15 @@ window.WBDB = {
    "canEquip": true,
    "isGroupPrerequisite": false,
    "shape": "Hexagon",
+   "size": "ActiveRootLarge",
+   "nodeGuid": "a1c04b25db960619e80d8d8e2b529ae8",
+   "branch": "587e323f09b1683ffecaefd54c189422",
+   "branchName": "Spinning Blade",
+   "row": 0,
+   "group": 1,
+   "requiredParentRank": 1,
+   "x": 130,
+   "y": 0,
    "parentNodeGuid": null,
    "parent": null,
    "children": [
@@ -3970,12 +5625,21 @@ window.WBDB = {
    "costPerRank": [
     1
    ],
-   "totalCost": 1,
+   "totalCost": 3,
    "rowIndex": 0,
    "groupIndex": 1,
    "canEquip": false,
    "isGroupPrerequisite": false,
    "shape": "Circle",
+   "size": "StandardSmall",
+   "nodeGuid": "fabb5eb11bc7da083c3cc218f039584c",
+   "branch": "587e323f09b1683ffecaefd54c189422",
+   "branchName": "Spinning Blade",
+   "row": 1,
+   "group": 1,
+   "requiredParentRank": 1,
+   "x": 130,
+   "y": -150,
    "parentNodeGuid": "a1c04b25db960619e80d8d8e2b529ae8",
    "parent": "sword-spinning-blade",
    "children": [
@@ -4009,6 +5673,15 @@ window.WBDB = {
    "canEquip": false,
    "isGroupPrerequisite": false,
    "shape": "Circle",
+   "size": "StandardSmall",
+   "nodeGuid": "87127b5c28e4fc3238106f2ce1ef7b3d",
+   "branch": "587e323f09b1683ffecaefd54c189422",
+   "branchName": "Spinning Blade",
+   "row": 2,
+   "group": 1,
+   "requiredParentRank": 1,
+   "x": 130,
+   "y": -300,
    "parentNodeGuid": "fabb5eb11bc7da083c3cc218f039584c",
    "parent": "sword-spinning-blade-power",
    "children": [
@@ -4041,6 +5714,15 @@ window.WBDB = {
    "canEquip": true,
    "isGroupPrerequisite": false,
    "shape": "Hexagon",
+   "size": "ActiveRootLarge",
+   "nodeGuid": "db839d0ece9498b8a980a3fa31c6430d",
+   "branch": "313e00d8755e50865fe32505362e4622",
+   "branchName": "Flourish",
+   "row": 0,
+   "group": 1,
+   "requiredParentRank": 1,
+   "x": 390,
+   "y": 0,
    "parentNodeGuid": null,
    "parent": null,
    "children": [
@@ -4068,12 +5750,21 @@ window.WBDB = {
    "costPerRank": [
     1
    ],
-   "totalCost": 1,
+   "totalCost": 3,
    "rowIndex": 0,
    "groupIndex": 1,
    "canEquip": false,
    "isGroupPrerequisite": false,
    "shape": "Circle",
+   "size": "StandardSmall",
+   "nodeGuid": "6992706f840cc1a02c36bc5eff49fb5c",
+   "branch": "313e00d8755e50865fe32505362e4622",
+   "branchName": "Flourish",
+   "row": 1,
+   "group": 1,
+   "requiredParentRank": 1,
+   "x": 390,
+   "y": -150,
    "parentNodeGuid": "db839d0ece9498b8a980a3fa31c6430d",
    "parent": "sword-crushing-swing",
    "children": [
@@ -4107,6 +5798,15 @@ window.WBDB = {
    "canEquip": false,
    "isGroupPrerequisite": false,
    "shape": "Circle",
+   "size": "StandardSmall",
+   "nodeGuid": "e10ab0f341abebfd83d0ff8edd1f99ba",
+   "branch": "313e00d8755e50865fe32505362e4622",
+   "branchName": "Flourish",
+   "row": 2,
+   "group": 1,
+   "requiredParentRank": 1,
+   "x": 390,
+   "y": -300,
    "parentNodeGuid": "6992706f840cc1a02c36bc5eff49fb5c",
    "parent": "sword-crushing-swing-power",
    "children": [
@@ -4139,6 +5839,15 @@ window.WBDB = {
    "canEquip": true,
    "isGroupPrerequisite": false,
    "shape": "Hexagon",
+   "size": "ActiveRootLarge",
+   "nodeGuid": "71c8536b54026e761962d1d604db278a",
+   "branch": "7bb242f56775210911cd2a2e8c6ab8a7",
+   "branchName": "Fencing",
+   "row": 0,
+   "group": 1,
+   "requiredParentRank": 1,
+   "x": 650,
+   "y": 0,
    "parentNodeGuid": null,
    "parent": null,
    "children": [
@@ -4166,12 +5875,21 @@ window.WBDB = {
    "costPerRank": [
     1
    ],
-   "totalCost": 1,
+   "totalCost": 3,
    "rowIndex": 0,
    "groupIndex": 1,
    "canEquip": false,
    "isGroupPrerequisite": false,
    "shape": "Circle",
+   "size": "StandardSmall",
+   "nodeGuid": "2c3800ffc4e58aacc6ab1f2d29e45970",
+   "branch": "7bb242f56775210911cd2a2e8c6ab8a7",
+   "branchName": "Fencing",
+   "row": 1,
+   "group": 1,
+   "requiredParentRank": 1,
+   "x": 650,
+   "y": -150,
    "parentNodeGuid": "71c8536b54026e761962d1d604db278a",
    "parent": "sword-needle-strike",
    "children": [
@@ -4205,6 +5923,15 @@ window.WBDB = {
    "canEquip": false,
    "isGroupPrerequisite": false,
    "shape": "Circle",
+   "size": "StandardSmall",
+   "nodeGuid": "5371f3a0ead12766bec60231138f9870",
+   "branch": "7bb242f56775210911cd2a2e8c6ab8a7",
+   "branchName": "Fencing",
+   "row": 2,
+   "group": 1,
+   "requiredParentRank": 1,
+   "x": 650,
+   "y": -300,
    "parentNodeGuid": "2c3800ffc4e58aacc6ab1f2d29e45970",
    "parent": "sword-needle-strike-power",
    "children": [],
@@ -4215,8 +5942,9 @@ window.WBDB = {
   {
    "key": "sword-sword-passive-1",
    "name": "Sword Passive 1",
-   "description": "Gives 200% haste after pressing ALT+F4",
+   "description": "Placeholder",
    "icon": {
+    "file": "icons/Haste-30c13914.png",
     "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
    },
    "tree": "Sword",
@@ -4234,6 +5962,15 @@ window.WBDB = {
    "canEquip": false,
    "isGroupPrerequisite": true,
    "shape": "Circle",
+   "size": "StandardSmall",
+   "nodeGuid": "dd5d7fd9872f41e0b2b2fb284a32ed78",
+   "branch": "877ca6067bb93bec33e2d6647ad411fb",
+   "branchName": "Leaping Slash",
+   "row": 4,
+   "group": 0,
+   "requiredParentRank": 1,
+   "x": -650,
+   "y": -600,
    "parentNodeGuid": null,
    "parent": null,
    "children": [],
@@ -4244,10 +5981,10 @@ window.WBDB = {
   {
    "key": "sword-thunderstorm-passive",
    "name": "Thunderstorm Passive",
-   "description": "Increases CPU load causing your PC to sound like a Thunderstorm coming for your enemy",
+   "description": "Placeholder",
    "icon": {
     "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png",
-    "file": "icons/Forward-Cleave-bf55f0be.png",
+    "file": "icons/Slow-0c6b8c1f.png",
     "inherited": true
    },
    "tree": "Sword",
@@ -4265,6 +6002,15 @@ window.WBDB = {
    "canEquip": false,
    "isGroupPrerequisite": false,
    "shape": "Circle",
+   "size": "StandardSmall",
+   "nodeGuid": "92ac7e4beed9467ea2f0ab1ddfe5064f",
+   "branch": "cc88a118d910c569775706e11d8e13af",
+   "branchName": "Forward Cleave",
+   "row": 3,
+   "group": 0,
+   "requiredParentRank": 1,
+   "x": -450,
+   "y": -450,
    "parentNodeGuid": "254c65f03a0173c3b7f856d6363a1b32",
    "parent": "sword-forward-cleave-mastery",
    "children": [],
@@ -4296,6 +6042,15 @@ window.WBDB = {
    "canEquip": false,
    "isGroupPrerequisite": false,
    "shape": "Circle",
+   "size": "StandardSmall",
+   "nodeGuid": "ab028877324949e097350c4f9ddb261e",
+   "branch": "587e323f09b1683ffecaefd54c189422",
+   "branchName": "Spinning Blade",
+   "row": 3,
+   "group": 1,
+   "requiredParentRank": 1,
+   "x": 130,
+   "y": -450,
    "parentNodeGuid": "87127b5c28e4fc3238106f2ce1ef7b3d",
    "parent": "sword-spinning-blade-mastery",
    "children": [],
@@ -4327,6 +6082,15 @@ window.WBDB = {
    "canEquip": false,
    "isGroupPrerequisite": false,
    "shape": "Circle",
+   "size": "StandardSmall",
+   "nodeGuid": "1fcd2ee91c4c453d9eb2b64299d9d54f",
+   "branch": "313e00d8755e50865fe32505362e4622",
+   "branchName": "Flourish",
+   "row": 3,
+   "group": 1,
+   "requiredParentRank": 1,
+   "x": 390,
+   "y": -450,
    "parentNodeGuid": "e10ab0f341abebfd83d0ff8edd1f99ba",
    "parent": "sword-crushing-swing-mastery",
    "children": [],
@@ -4337,7 +6101,7 @@ window.WBDB = {
   {
    "key": "sword-sword-passive-3",
    "name": "Sword Passive 3",
-   "description": "Useless passive no smart soul would ever select",
+   "description": "Placeholder",
    "icon": {
     "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
    },
@@ -4356,6 +6120,15 @@ window.WBDB = {
    "canEquip": false,
    "isGroupPrerequisite": true,
    "shape": "Circle",
+   "size": "StandardSmall",
+   "nodeGuid": "2a50db496fe84ac79d36bd5d840cd625",
+   "branch": "877ca6067bb93bec33e2d6647ad411fb",
+   "branchName": "Leaping Slash",
+   "row": 0,
+   "group": 0,
+   "requiredParentRank": 1,
+   "x": -650,
+   "y": 0,
    "parentNodeGuid": null,
    "parent": null,
    "children": [],
@@ -4366,166 +6139,85 @@ window.WBDB = {
  ],
  "trees": [
   {
-   "key": "axe",
-   "name": "Axe",
-   "pointBudget": 20,
-   "groupCount": 1,
-   "slots": [
-    {
-     "name": "Ability 1",
-     "binding": "Q",
-     "action": "Ability1"
-    },
-    {
-     "name": "Ability 2",
-     "binding": "R",
-     "action": "Ability2"
-    },
-    {
-     "name": "Ability 3",
-     "binding": "F",
-     "action": "Ability3"
-    }
-   ],
-   "maxSlots": 3,
-   "nodes": [
-    "axe-axe-active-1",
-    "axe-axe-active-1-power",
-    "axe-axe-active-1-mastery",
-    "axe-axe-active-2",
-    "axe-axe-active-2-power",
-    "axe-axe-active-2-mastery",
-    "axe-axe-active-2-technique",
-    "axe-axe-active-3",
-    "axe-axe-active-3-power",
-    "axe-axe-active-3-mastery",
-    "axe-axe-active-4",
-    "axe-axe-active-4-power",
-    "axe-axe-active-4-mastery",
-    "axe-axe-active-5",
-    "axe-axe-active-5-power",
-    "axe-axe-active-5-mastery",
-    "axe-axe-active-6",
-    "axe-axe-active-6-power",
-    "axe-axe-active-6-mastery"
-   ],
-   "assetPath": null
-  },
-  {
-   "key": "bow",
-   "name": "Bow",
-   "pointBudget": 20,
-   "groupCount": 1,
-   "slots": [
-    {
-     "name": "Ability 1",
-     "binding": "Q",
-     "action": "Ability1"
-    },
-    {
-     "name": "Ability 2",
-     "binding": "R",
-     "action": "Ability2"
-    },
-    {
-     "name": "Ability 3",
-     "binding": "F",
-     "action": "Ability3"
-    }
-   ],
-   "maxSlots": 3,
-   "nodes": [
-    "bow-bow-active-1",
-    "bow-bow-active-1-power",
-    "bow-bow-active-1-mastery",
-    "bow-bow-active-2",
-    "bow-bow-active-2-power",
-    "bow-bow-active-2-mastery",
-    "bow-bow-active-2-technique",
-    "bow-bow-active-3",
-    "bow-bow-active-3-power",
-    "bow-bow-active-3-mastery",
-    "bow-bow-active-4",
-    "bow-bow-active-4-power",
-    "bow-bow-active-4-mastery",
-    "bow-bow-active-5",
-    "bow-bow-active-5-power",
-    "bow-bow-active-5-mastery",
-    "bow-bow-active-6",
-    "bow-bow-active-6-power",
-    "bow-bow-active-6-mastery"
-   ],
-   "assetPath": null
-  },
-  {
-   "key": "spear",
-   "name": "Spear",
-   "pointBudget": 20,
-   "groupCount": 1,
-   "slots": [
-    {
-     "name": "Ability 1",
-     "binding": "Q",
-     "action": "Ability1"
-    },
-    {
-     "name": "Ability 2",
-     "binding": "R",
-     "action": "Ability2"
-    },
-    {
-     "name": "Ability 3",
-     "binding": "F",
-     "action": "Ability3"
-    }
-   ],
-   "maxSlots": 3,
-   "nodes": [
-    "spear-spear-active-1",
-    "spear-spear-active-1-power",
-    "spear-spear-active-1-mastery",
-    "spear-spear-active-2",
-    "spear-spear-active-2-power",
-    "spear-spear-active-2-mastery",
-    "spear-spear-active-2-technique",
-    "spear-spear-active-3",
-    "spear-spear-active-3-power",
-    "spear-spear-active-3-mastery",
-    "spear-spear-active-4",
-    "spear-spear-active-4-power",
-    "spear-spear-active-4-mastery",
-    "spear-spear-active-5",
-    "spear-spear-active-5-power",
-    "spear-spear-active-5-mastery",
-    "spear-spear-active-6",
-    "spear-spear-active-6-power",
-    "spear-spear-active-6-mastery"
-   ],
-   "assetPath": null
-  },
-  {
    "key": "sword",
    "name": "Sword",
+   "sortOrder": 0,
    "pointBudget": 20,
    "groupCount": 2,
+   "effectiveGroupCount": 2,
+   "groupNames": [
+    "Chaser",
+    "Finisher"
+   ],
+   "branches": [
+    {
+     "key": "877ca6067bb93bec33e2d6647ad411fb",
+     "name": "Leaping Slash",
+     "sortOrder": 0,
+     "group": 0
+    },
+    {
+     "key": "cc88a118d910c569775706e11d8e13af",
+     "name": "Forward Cleave",
+     "sortOrder": 1,
+     "group": 0
+    },
+    {
+     "key": "f7970004b52d5f80c23b7c138c463e4b",
+     "name": "Whirling Step",
+     "sortOrder": 2,
+     "group": 0
+    },
+    {
+     "key": "587e323f09b1683ffecaefd54c189422",
+     "name": "Spinning Blade",
+     "sortOrder": 3,
+     "group": 1
+    },
+    {
+     "key": "313e00d8755e50865fe32505362e4622",
+     "name": "Flourish",
+     "sortOrder": 4,
+     "group": 1
+    },
+    {
+     "key": "7bb242f56775210911cd2a2e8c6ab8a7",
+     "name": "Fencing",
+     "sortOrder": 5,
+     "group": 1
+    }
+   ],
    "slots": [
     {
+     "key": "1b9a0d53bc7683a4dc261e70405b831a",
      "name": "Ability 1",
      "binding": "Q",
      "action": "Ability1"
     },
     {
+     "key": "86caa76922a52dfda9a3a21d4e610421",
      "name": "Ability 2",
      "binding": "R",
      "action": "Ability2"
     },
     {
+     "key": "7af5541b610b28585cdc9b643fc5d270",
      "name": "Ability 3",
      "binding": "F",
      "action": "Ability3"
     }
    ],
    "maxSlots": 3,
+   "minSlots": 0,
+   "loadoutRules": {
+    "allowedCategories": [
+     "Active"
+    ],
+    "allowDuplicateNode": false,
+    "allowSameAbilityTwice": false,
+    "autoUnequipInvalidated": true,
+    "replacementPolicy": "Replace"
+   },
    "nodes": [
     "sword-leaping-slash",
     "sword-leaping-slash-power",
@@ -4553,8 +6245,365 @@ window.WBDB = {
     "sword-sword-passive-3"
    ],
    "assetPath": null
+  },
+  {
+   "key": "bow",
+   "name": "Bow",
+   "sortOrder": 1,
+   "pointBudget": 20,
+   "groupCount": 2,
+   "effectiveGroupCount": 2,
+   "groupNames": [
+    "Aggresive",
+    "Runner"
+   ],
+   "branches": [
+    {
+     "key": "9f07376b641e98685dc2be30e3056fcd",
+     "name": "Triple Shot",
+     "sortOrder": 0,
+     "group": 0
+    },
+    {
+     "key": "5714c104e9594010a47e7cf4e20f8133",
+     "name": "Arrow Rain",
+     "sortOrder": 1,
+     "group": 0
+    },
+    {
+     "key": "f97f6e1264b587a4e6ec533cea325e38",
+     "name": "Marked Shot",
+     "sortOrder": 2,
+     "group": 0
+    },
+    {
+     "key": "f6380bdce9f70d30354b355692adf563",
+     "name": "Burning Arrow",
+     "sortOrder": 3,
+     "group": 1
+    },
+    {
+     "key": "2baee3f05b1646b87c81a050d5d8a9b8",
+     "name": "Sliding Shot",
+     "sortOrder": 4,
+     "group": 1
+    },
+    {
+     "key": "93bbc60688199e3d580053108267ca14",
+     "name": "Vaulting Shot",
+     "sortOrder": 5,
+     "group": 1
+    }
+   ],
+   "slots": [
+    {
+     "key": "1b9a0d53bc7683a4dc261e70405b831a",
+     "name": "Ability 1",
+     "binding": "Q",
+     "action": "Ability1"
+    },
+    {
+     "key": "86caa76922a52dfda9a3a21d4e610421",
+     "name": "Ability 2",
+     "binding": "R",
+     "action": "Ability2"
+    },
+    {
+     "key": "7af5541b610b28585cdc9b643fc5d270",
+     "name": "Ability 3",
+     "binding": "F",
+     "action": "Ability3"
+    }
+   ],
+   "maxSlots": 3,
+   "minSlots": 0,
+   "loadoutRules": {
+    "allowedCategories": [
+     "Active"
+    ],
+    "allowDuplicateNode": false,
+    "allowSameAbilityTwice": false,
+    "autoUnequipInvalidated": true,
+    "replacementPolicy": "Replace"
+   },
+   "nodes": [
+    "bow-triple-shot",
+    "bow-triple-shot-power",
+    "bow-triple-shot-mastery",
+    "bow-arrow-rain",
+    "bow-arrow-rain-power",
+    "bow-arrow-rain-mastery",
+    "bow-arrow-dodge-haste",
+    "bow-marked-shot",
+    "bow-marked-shot-power",
+    "bow-marked-shot-mastery",
+    "bow-burning-arrow",
+    "bow-burning-arrow-power",
+    "bow-burning-arrow-mastery",
+    "bow-burning-arrow-technique",
+    "bow-sliding-shot",
+    "bow-sliding-shot-power",
+    "bow-sliding-shot-mastery",
+    "bow-vaulting-shot",
+    "bow-vaulting-shot-power",
+    "bow-vaulting-shot-mastery",
+    "bow-marked-shot-technique"
+   ],
+   "assetPath": null
+  },
+  {
+   "key": "spear",
+   "name": "Spear",
+   "sortOrder": 2,
+   "pointBudget": 20,
+   "groupCount": 1,
+   "effectiveGroupCount": 1,
+   "groupNames": [
+    ""
+   ],
+   "branches": [
+    {
+     "key": "530d6fcd5be53296b18f7ba6efb315fe",
+     "name": "Spear Active 1",
+     "sortOrder": 0,
+     "group": 0
+    },
+    {
+     "key": "c722cd9e2b8e043bef972d35be1cf9ce",
+     "name": "Spear Active 2",
+     "sortOrder": 1,
+     "group": 0
+    },
+    {
+     "key": "606655665e201627d18dc4f674aeb37b",
+     "name": "Spear Active 3",
+     "sortOrder": 2,
+     "group": 0
+    },
+    {
+     "key": "2bfbd5a7ef0092803e1fa31e71a0f9b1",
+     "name": "Spear Active 4",
+     "sortOrder": 3,
+     "group": 0
+    },
+    {
+     "key": "f314b14bbcc251fc5d3d17630c9b4dcd",
+     "name": "Spear Active 5",
+     "sortOrder": 4,
+     "group": 0
+    },
+    {
+     "key": "631e67ebaae5000dc1efff47b3d3b52e",
+     "name": "Spear Active 6",
+     "sortOrder": 5,
+     "group": 0
+    }
+   ],
+   "slots": [
+    {
+     "key": "1b9a0d53bc7683a4dc261e70405b831a",
+     "name": "Ability 1",
+     "binding": "Q",
+     "action": "Ability1"
+    },
+    {
+     "key": "86caa76922a52dfda9a3a21d4e610421",
+     "name": "Ability 2",
+     "binding": "R",
+     "action": "Ability2"
+    },
+    {
+     "key": "7af5541b610b28585cdc9b643fc5d270",
+     "name": "Ability 3",
+     "binding": "F",
+     "action": "Ability3"
+    }
+   ],
+   "maxSlots": 3,
+   "minSlots": 0,
+   "loadoutRules": {
+    "allowedCategories": [
+     "Active"
+    ],
+    "allowDuplicateNode": false,
+    "allowSameAbilityTwice": false,
+    "autoUnequipInvalidated": true,
+    "replacementPolicy": "Replace"
+   },
+   "nodes": [
+    "spear-spear-active-1",
+    "spear-spear-active-1-power",
+    "spear-spear-active-1-mastery",
+    "spear-spear-active-2",
+    "spear-spear-active-2-power",
+    "spear-spear-active-2-mastery",
+    "spear-spear-active-2-technique",
+    "spear-spear-active-3",
+    "spear-spear-active-3-power",
+    "spear-spear-active-3-mastery",
+    "spear-spear-active-4",
+    "spear-spear-active-4-power",
+    "spear-spear-active-4-mastery",
+    "spear-spear-active-5",
+    "spear-spear-active-5-power",
+    "spear-spear-active-5-mastery",
+    "spear-spear-active-6",
+    "spear-spear-active-6-power",
+    "spear-spear-active-6-mastery"
+   ],
+   "assetPath": null
+  },
+  {
+   "key": "axe",
+   "name": "Axe",
+   "sortOrder": 3,
+   "pointBudget": 20,
+   "groupCount": 1,
+   "effectiveGroupCount": 1,
+   "groupNames": [
+    ""
+   ],
+   "branches": [
+    {
+     "key": "d79b3a9b571ed0f37d315adc1a787d59",
+     "name": "Axe Active 1",
+     "sortOrder": 0,
+     "group": 0
+    },
+    {
+     "key": "16bf232e2a8d2794d84890262a8d648d",
+     "name": "Axe Active 2",
+     "sortOrder": 1,
+     "group": 0
+    },
+    {
+     "key": "fe83b42773874f1593b9765fe05e1a32",
+     "name": "Axe Active 3",
+     "sortOrder": 2,
+     "group": 0
+    },
+    {
+     "key": "8aa274f687496b1821fb14aaece98174",
+     "name": "Axe Active 4",
+     "sortOrder": 3,
+     "group": 0
+    },
+    {
+     "key": "3e7a683eb694e90ae19a23fd9b3f51e5",
+     "name": "Axe Active 5",
+     "sortOrder": 4,
+     "group": 0
+    },
+    {
+     "key": "cab5822e6e153f205422f240572da09e",
+     "name": "Axe Active 6",
+     "sortOrder": 5,
+     "group": 0
+    }
+   ],
+   "slots": [
+    {
+     "key": "1b9a0d53bc7683a4dc261e70405b831a",
+     "name": "Ability 1",
+     "binding": "Q",
+     "action": "Ability1"
+    },
+    {
+     "key": "86caa76922a52dfda9a3a21d4e610421",
+     "name": "Ability 2",
+     "binding": "R",
+     "action": "Ability2"
+    },
+    {
+     "key": "7af5541b610b28585cdc9b643fc5d270",
+     "name": "Ability 3",
+     "binding": "F",
+     "action": "Ability3"
+    }
+   ],
+   "maxSlots": 3,
+   "minSlots": 0,
+   "loadoutRules": {
+    "allowedCategories": [
+     "Active"
+    ],
+    "allowDuplicateNode": false,
+    "allowSameAbilityTwice": false,
+    "autoUnequipInvalidated": true,
+    "replacementPolicy": "Replace"
+   },
+   "nodes": [
+    "axe-axe-active-1",
+    "axe-axe-active-1-power",
+    "axe-axe-active-1-mastery",
+    "axe-axe-active-2",
+    "axe-axe-active-2-power",
+    "axe-axe-active-2-mastery",
+    "axe-axe-active-2-technique",
+    "axe-axe-active-3",
+    "axe-axe-active-3-power",
+    "axe-axe-active-3-mastery",
+    "axe-axe-active-4",
+    "axe-axe-active-4-power",
+    "axe-axe-active-4-mastery",
+    "axe-axe-active-5",
+    "axe-axe-active-5-power",
+    "axe-axe-active-5-mastery",
+    "axe-axe-active-6",
+    "axe-axe-active-6-power",
+    "axe-axe-active-6-mastery"
+   ],
+   "assetPath": null
   }
  ],
+ "abilityTheme": {
+  "slotSprites": {
+   "Circle": "icons/SkillSlot-Circle-5457dad8.png",
+   "Square": "icons/SkillSlot-Square-5a97432d.png",
+   "Diamond": "icons/SkillSlot-Circle-5457dad8.png",
+   "Hexagon": "icons/SkillSlot-Hex-c7024a12.png"
+  },
+  "diameters": {
+   "ActiveRootLarge": 140,
+   "StandardSmall": 90,
+   "Medium": 76,
+   "Custom": 90
+  },
+  "iconInset": 0.15,
+  "tintIconWithState": true,
+  "showOutlineRing": false,
+  "lockedIconOpacity": 0.35,
+  "colors": {
+   "Locked": "#383842",
+   "Available": "#738094",
+   "Purchased": "#ffffff",
+   "MaxRank": "#ffffff",
+   "Invalid": "#d94c4c",
+   "Selected": "#ffffff",
+   "Equipped": "#59f28c"
+  },
+  "connection": {
+   "width": 4,
+   "curvature": 0,
+   "Locked": "#40404c",
+   "Available": "#8c94a6",
+   "Purchased": "#ffffff"
+  },
+  "groupBands": {
+   "show": true,
+   "colorA": "rgba(26,26,26,0.196)",
+   "colorB": "rgba(26,26,26,0.294)",
+   "padding": 130,
+   "spacing": 40,
+   "showLabels": true,
+   "labelColor": "rgba(235,237,242,0.75)",
+   "labelFontSize": 32.5,
+   "labelInset": 20,
+   "labelSpacing": 24
+  },
+  "columnSpacing": 260.0,
+  "rowSpacing": 150.0
+ },
  "attacks": [
   {
    "key": "bow-aimed-shot",
@@ -4604,6 +6653,118 @@ window.WBDB = {
    "kind": "Shot",
    "weapon": "Bow",
    "icon": null,
+   "assetPath": null
+  },
+  {
+   "key": "arrowrainattack-bow",
+   "name": "Arrow Rain",
+   "assetName": "ArrowRainAttack_Bow",
+   "damage": 35,
+   "cooldownTicks": 600,
+   "cooldownText": "600 ticks (10 sec)",
+   "cancelWindow": "None (committed)",
+   "hasFrameData": false,
+   "moveSpeedFactor": 0,
+   "activeMoveSpeedFactor": 0,
+   "recoveryMoveSpeedFactor": 0,
+   "stopMovementOnHit": false,
+   "homingRange": 0,
+   "homingConeDegrees": 0,
+   "disableMagnetPull": true,
+   "rootMotionScale": 1,
+   "hitbox": {
+    "shape": "None",
+    "sphereRadius": 0.5,
+    "capsuleRadius": 0.5,
+    "capsuleHeight": 2,
+    "boxExtents": {
+     "x": 0.5,
+     "y": 0.5,
+     "z": 0.5
+    },
+    "offset": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0
+    }
+   },
+   "appliedStatuses": [],
+   "viewStateName": "Attack_BowArrowRainEnter",
+   "usedBy": [
+    {
+     "owner": "Bow",
+     "role": "Fallback ability slot 2"
+    },
+    {
+     "owner": "Bow",
+     "role": "Ability: Arrow Rain"
+    }
+   ],
+   "kinds": [
+    "Ability"
+   ],
+   "kind": "Ability",
+   "weapon": "Bow",
+   "icon": {
+    "file": "icons/Bow-Arrow-Rain-3-d57a6cf8.png",
+    "frame": "icons/SkillSlot-Hex-c7024a12.png"
+   },
+   "assetPath": null
+  },
+  {
+   "key": "burningarrowattack-bow",
+   "name": "Burning Arrow",
+   "assetName": "BurningArrowAttack_Bow",
+   "damage": 40,
+   "cooldownTicks": 420,
+   "cooldownText": "420 ticks (7 sec)",
+   "cancelWindow": "Recovery",
+   "hasFrameData": false,
+   "moveSpeedFactor": 0,
+   "activeMoveSpeedFactor": 0,
+   "recoveryMoveSpeedFactor": 0,
+   "stopMovementOnHit": false,
+   "homingRange": 0,
+   "homingConeDegrees": 0,
+   "disableMagnetPull": true,
+   "rootMotionScale": 1,
+   "hitbox": {
+    "shape": "None",
+    "sphereRadius": 0.5,
+    "capsuleRadius": 0.5,
+    "capsuleHeight": 2,
+    "boxExtents": {
+     "x": 0.5,
+     "y": 0.5,
+     "z": 0.5
+    },
+    "offset": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0
+    }
+   },
+   "appliedStatuses": [],
+   "viewStateName": "",
+   "usedBy": [
+    {
+     "owner": "Bow",
+     "role": "Fallback ability slot 4"
+    },
+    {
+     "owner": "Bow",
+     "role": "Ability: Burning Arrow"
+    }
+   ],
+   "kinds": [
+    "Ability"
+   ],
+   "kind": "Ability",
+   "weapon": "Bow",
+   "icon": {
+    "file": "icons/Bow-Burning-Arrow-4-9896cce9.png",
+    "frame": "icons/SkillSlot-Hex-c7024a12.png"
+   },
    "assetPath": null
   },
   {
@@ -4713,7 +6874,7 @@ window.WBDB = {
    "kind": "Ability",
    "weapon": "Sword",
    "icon": {
-    "file": "icons/Forward-Cleave-bf55f0be.png",
+    "file": "icons/Forward-Cleave-6-43c365e0.png",
     "frame": "icons/SkillSlot-Hex-c7024a12.png"
    },
    "assetPath": null
@@ -4891,7 +7052,7 @@ window.WBDB = {
    "kind": "Ability",
    "weapon": "Sword",
    "icon": {
-    "file": "icons/Leaping-Slash-3-81051c9f.png",
+    "file": "icons/Leaping-Slash-4-d8fef08c.png",
     "frame": "icons/SkillSlot-Hex-c7024a12.png"
    },
    "assetPath": null
@@ -5338,6 +7499,62 @@ window.WBDB = {
    "assetPath": null
   },
   {
+   "key": "markedshotattack-bow",
+   "name": "Marked Shot",
+   "assetName": "MarkedShotAttack_Bow",
+   "damage": 50,
+   "cooldownTicks": 360,
+   "cooldownText": "360 ticks (6 sec)",
+   "cancelWindow": "None (committed)",
+   "hasFrameData": false,
+   "moveSpeedFactor": 0,
+   "activeMoveSpeedFactor": 0,
+   "recoveryMoveSpeedFactor": 0,
+   "stopMovementOnHit": false,
+   "homingRange": 0,
+   "homingConeDegrees": 0,
+   "disableMagnetPull": true,
+   "rootMotionScale": 1,
+   "hitbox": {
+    "shape": "None",
+    "sphereRadius": 0.5,
+    "capsuleRadius": 0.5,
+    "capsuleHeight": 2,
+    "boxExtents": {
+     "x": 0.5,
+     "y": 0.5,
+     "z": 0.5
+    },
+    "offset": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0
+    }
+   },
+   "appliedStatuses": [],
+   "viewStateName": "Attack_BowMarkedShotEnter",
+   "usedBy": [
+    {
+     "owner": "Bow",
+     "role": "Fallback ability slot 3"
+    },
+    {
+     "owner": "Bow",
+     "role": "Ability: Marked Shot"
+    }
+   ],
+   "kinds": [
+    "Ability"
+   ],
+   "kind": "Ability",
+   "weapon": "Bow",
+   "icon": {
+    "file": "icons/Bow-Marked-Shot-8-4b9b4d50.png",
+    "frame": "icons/SkillSlot-Hex-c7024a12.png"
+   },
+   "assetPath": null
+  },
+  {
    "key": "fencingattack-sword",
    "name": "Needle Strike",
    "assetName": "FencingAttack_Sword",
@@ -5456,6 +7673,62 @@ window.WBDB = {
    "assetPath": null
   },
   {
+   "key": "slidingshotattack-bow",
+   "name": "Sliding Shot",
+   "assetName": "SlidingShotAttack_Bow",
+   "damage": 30,
+   "cooldownTicks": 360,
+   "cooldownText": "360 ticks (6 sec)",
+   "cancelWindow": "Recovery",
+   "hasFrameData": false,
+   "moveSpeedFactor": 0,
+   "activeMoveSpeedFactor": 0,
+   "recoveryMoveSpeedFactor": 0,
+   "stopMovementOnHit": false,
+   "homingRange": 0,
+   "homingConeDegrees": 0,
+   "disableMagnetPull": true,
+   "rootMotionScale": 0.6,
+   "hitbox": {
+    "shape": "None",
+    "sphereRadius": 0.5,
+    "capsuleRadius": 0.5,
+    "capsuleHeight": 2,
+    "boxExtents": {
+     "x": 0.5,
+     "y": 0.5,
+     "z": 0.5
+    },
+    "offset": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0
+    }
+   },
+   "appliedStatuses": [],
+   "viewStateName": "Attack_BowSlidingShot",
+   "usedBy": [
+    {
+     "owner": "Bow",
+     "role": "Fallback ability slot 5"
+    },
+    {
+     "owner": "Bow",
+     "role": "Ability: Sliding Shot"
+    }
+   ],
+   "kinds": [
+    "Ability"
+   ],
+   "kind": "Ability",
+   "weapon": "Bow",
+   "icon": {
+    "file": "icons/BowSlide-2-61fa8782.png",
+    "frame": "icons/SkillSlot-Hex-c7024a12.png"
+   },
+   "assetPath": null
+  },
+  {
    "key": "spinattack-sword",
    "name": "Spinning Blade",
    "assetName": "SpinAttack_Sword",
@@ -5524,6 +7797,118 @@ window.WBDB = {
    "assetPath": null
   },
   {
+   "key": "tripleshotattack-bow",
+   "name": "Triple Shot",
+   "assetName": "TripleShotAttack_Bow",
+   "damage": 15,
+   "cooldownTicks": 300,
+   "cooldownText": "300 ticks (5 sec)",
+   "cancelWindow": "Recovery",
+   "hasFrameData": false,
+   "moveSpeedFactor": 0,
+   "activeMoveSpeedFactor": 0,
+   "recoveryMoveSpeedFactor": 0,
+   "stopMovementOnHit": false,
+   "homingRange": 0,
+   "homingConeDegrees": 0,
+   "disableMagnetPull": true,
+   "rootMotionScale": 1,
+   "hitbox": {
+    "shape": "None",
+    "sphereRadius": 0.5,
+    "capsuleRadius": 0.5,
+    "capsuleHeight": 2,
+    "boxExtents": {
+     "x": 0.5,
+     "y": 0.5,
+     "z": 0.5
+    },
+    "offset": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0
+    }
+   },
+   "appliedStatuses": [],
+   "viewStateName": "Attack_BowTripleShot",
+   "usedBy": [
+    {
+     "owner": "Bow",
+     "role": "Fallback ability slot 1"
+    },
+    {
+     "owner": "Bow",
+     "role": "Ability: Triple Shot"
+    }
+   ],
+   "kinds": [
+    "Ability"
+   ],
+   "kind": "Ability",
+   "weapon": "Bow",
+   "icon": {
+    "file": "icons/Bow-Tripple-Shot-2-af6d5775.png",
+    "frame": "icons/SkillSlot-Hex-c7024a12.png"
+   },
+   "assetPath": null
+  },
+  {
+   "key": "vaultingshotattack-bow",
+   "name": "Vaulting Shot",
+   "assetName": "VaultingShotAttack_Bow",
+   "damage": 35,
+   "cooldownTicks": 420,
+   "cooldownText": "420 ticks (7 sec)",
+   "cancelWindow": "Recovery",
+   "hasFrameData": false,
+   "moveSpeedFactor": 0,
+   "activeMoveSpeedFactor": 0,
+   "recoveryMoveSpeedFactor": 0,
+   "stopMovementOnHit": false,
+   "homingRange": 0,
+   "homingConeDegrees": 0,
+   "disableMagnetPull": true,
+   "rootMotionScale": 1,
+   "hitbox": {
+    "shape": "None",
+    "sphereRadius": 0.5,
+    "capsuleRadius": 0.5,
+    "capsuleHeight": 2,
+    "boxExtents": {
+     "x": 0.5,
+     "y": 0.5,
+     "z": 0.5
+    },
+    "offset": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0
+    }
+   },
+   "appliedStatuses": [],
+   "viewStateName": "Attack_BowVaultingShot",
+   "usedBy": [
+    {
+     "owner": "Bow",
+     "role": "Fallback ability slot 6"
+    },
+    {
+     "owner": "Bow",
+     "role": "Ability: Vaulting Shot"
+    }
+   ],
+   "kinds": [
+    "Ability"
+   ],
+   "kind": "Ability",
+   "weapon": "Bow",
+   "icon": {
+    "file": "icons/BowLeapingShot-3-6b57b208.png",
+    "frame": "icons/SkillSlot-Hex-c7024a12.png"
+   },
+   "assetPath": null
+  },
+  {
    "key": "whirlingstepattack-sword",
    "name": "Whirling Step",
    "assetName": "WhirlingStepAttack_Sword",
@@ -5586,7 +7971,7 @@ window.WBDB = {
    "kind": "Ability",
    "weapon": "Sword",
    "icon": {
-    "file": "icons/Whirling-Step-c96473a8.png",
+    "file": "icons/WhirlingStep-2-56f34a2f.png",
     "frame": "icons/SkillSlot-Hex-c7024a12.png"
    },
    "assetPath": null
@@ -5630,7 +8015,14 @@ window.WBDB = {
    "secondaryCoefficient": 0,
    "lightCombo": [],
    "heavyAttack": null,
-   "abilities": [],
+   "abilities": [
+    "tripleshotattack-bow",
+    "arrowrainattack-bow",
+    "markedshotattack-bow",
+    "burningarrowattack-bow",
+    "slidingshotattack-bow",
+    "vaultingshotattack-bow"
+   ],
    "icon": {
     "file": "icons/GearBow.png"
    },
@@ -6141,6 +8533,10 @@ window.WBDB = {
    {
     "label": "PoisonMaxStacks",
     "value": 1
+   },
+   {
+    "label": "BurnMaxStacks",
+    "value": 3
    },
    {
     "label": "DotTickIntervalTicks",

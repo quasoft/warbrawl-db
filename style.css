@@ -256,6 +256,10 @@ a:hover { text-decoration: underline; }
 .list-head h1 svg { width: 23px; height: 23px; flex: 0 0 23px; color: var(--accent); }
 .blurb { margin: 5px 0 0; color: var(--text-dim); font-size: 14px; max-width: 78ch; }
 
+/* A custom section (the damage page, the ability trees) owns the whole pane and
+   hides the filter row; the display rule below would otherwise outrank the hidden
+   attribute the router sets on it. */
+.controls[hidden] { display: none; }
 .controls { display: flex; gap: 10px 16px; align-items: center; flex-wrap: wrap; margin-top: 12px; }
 .filter-wrap { width: 280px; flex: 0 0 280px; }
 /* ---- facet filters ----------------------------------------------------- */
@@ -754,3 +758,300 @@ a.chip[class*="tone-label"]:hover { text-decoration: none; background: #202836; 
 .calc-total strong { font-size: 26px; color: var(--gold); font-variant-numeric: tabular-nums; }
 .calc-total.sub { border-top: 0; padding-top: 0; margin-top: 4px; }
 .calc-total.sub strong { font-size: 17px; color: var(--text); }
+
+/* ---- ability trees ---------------------------------------------------- */
+/* A rebuild of the in-game ability screen. Everything that decides how a node
+   looks - its diameter, its plate sprite, its state colour, the group bands, the
+   wire colours - is authored in AbilityTreeTheme.asset and arrives as data, so
+   the rules here only do the parts CSS owns: stacking, masking and hit areas. */
+
+.tree-page { max-width: 1500px; }
+
+.tree-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 18px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--line);
+}
+.tree-tabs { display: flex; gap: 4px; flex: 1 1 auto; }
+.tree-tab {
+  padding: 7px 16px;
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  color: var(--text-dim);
+  font-size: 15px;
+  font-weight: 600;
+}
+.tree-tab:hover { background: var(--bg-raised); color: var(--text-bright); text-decoration: none; }
+.tree-tab.on {
+  background: var(--bg-raised);
+  border-color: var(--accent-dim);
+  color: var(--accent);
+}
+.tree-bar-right { display: flex; align-items: center; gap: 12px; }
+.tree-points { color: var(--text-dim); font-variant-numeric: tabular-nums; }
+.tree-points b { color: var(--gold); font-size: 20px; }
+.tree-btn {
+  padding: 6px 12px;
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  color: var(--text-dim);
+  font: inherit;
+  font-size: 14px;
+  cursor: pointer;
+}
+.tree-btn:hover { border-color: var(--accent-dim); color: var(--text-bright); }
+/* The stage is the viewport; the canvas inside it holds the tree at its authored
+   size and is scaled to fit the width, the way the screen fits its viewport. */
+.tree-stage { position: relative; margin-top: 18px; overflow-x: auto; overflow-y: hidden; }
+.tree-fit { position: relative; }
+.tree-canvas { position: absolute; top: 0; left: 0; transform-origin: top left; }
+.tree-band { position: absolute; border-radius: 10px; }
+/* line-height is load-bearing: app.js reserves the caption strip from it. */
+.tree-band-label {
+  position: absolute;
+  line-height: 1.2;
+  text-align: center;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  pointer-events: none;
+}
+.tree-links { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+
+.tnode {
+  position: absolute;
+  padding: 0;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  /* Nodes sit above the bands and the wires; the wires already run under them. */
+  z-index: 1;
+}
+.tnode-art { position: absolute; inset: 0; isolation: isolate; }
+.tnode-frame, .tnode-icon, .tnode-frame-tint, .tnode-icon-tint {
+  position: absolute;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+}
+/* Unity multiplies the sprite by the state colour; masking the colour to the
+   sprite's own alpha and multiplying does the same thing without painting a
+   square of it over the page. */
+.tnode-frame-tint, .tnode-icon-tint {
+  background-color: var(--tint, #fff);
+  mix-blend-mode: multiply;
+  mask-size: 100% 100%;
+  -webkit-mask-size: 100% 100%;
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-position: center;
+}
+.tnode[data-paint="Locked"] .tnode-icon,
+.tnode[data-paint="Locked"] .tnode-icon-tint { opacity: var(--tnode-locked-icon, .35); }
+/* The fade above and the ramp below key off data-paint - the look a node is given -
+   rather than data-state, the rule position it is in. The two part ways for one
+   case: a purchasable passive is painted locked, because on a passive only points
+   actually spent are allowed to light a plate up (see the paint line in app.js).
+   The theme's state colours are a value ramp for a screen glanced at mid-fight;
+   on a page that is read, half-brightness over saturated plate art still reads as
+   lit, and every node looks bought. Unbought ones take an extra dim and a pull
+   towards grey on top of the tint, so colour means bought. A bought node is left
+   exactly as the theme paints it. */
+.tnode-art { filter: brightness(var(--dim, 1)) saturate(var(--sat, 1)); }
+.tnode[data-paint="Available"] { --dim: .7; --sat: .5; }
+/* Locked barely moves: the tint has it near-black already, and dimming it hard
+   would sink the small plates into the page and take the tree's shape with them.
+   What it needs is only to stay clearly under Available. */
+.tnode[data-paint="Locked"] { --dim: .8; --sat: .25; }
+.tnode:hover .tnode-art { filter: brightness(calc(var(--dim, 1) * 1.35)) saturate(var(--sat, 1)); }
+.tnode:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 50%; }
+
+.tnode-rank, .tnode-badge {
+  position: absolute;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  pointer-events: none;
+}
+/* Ranked nodes only: the count sits inside the plate under the symbol, which the
+   larger icon inset has already made room for. */
+.tnode-rank {
+  left: 0; right: 0; bottom: 15%;
+  color: var(--text-bright);
+  line-height: 1;
+  text-align: center;
+  text-shadow: 0 1px 3px #000;
+}
+.tnode.ranked .tnode-icon, .tnode.ranked .tnode-icon-tint { transform: translateY(-14%); }
+.tnode[data-paint="Available"] .tnode-rank { color: #c9d2df; }
+.tnode[data-paint="Locked"] .tnode-rank { color: #8d93a0; }
+/* Which slot a bought ability is sitting in. The screen has no node-level glyph
+   for this - its theme turns the outline ring off and the slot bar carries it -
+   but a page that cannot be glanced down at needs the answer on the node. */
+.tnode-badge {
+  display: grid;
+  place-items: center;
+  top: -6px; right: -6px;
+  width: 26px; height: 26px;
+  background: #123a22;
+  border: 2px solid #59f28c;
+  border-radius: 50%;
+  color: #7dffb0;
+  font-size: 13px;
+}
+.tnode-rank:empty, .tnode-badge:empty { display: none; }
+
+/* ---- loadout ---------------------------------------------------------- */
+.tree-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 20px;
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+.tree-footer-label {
+  color: #8b98a9;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+}
+.tree-slots { display: flex; gap: 14px; }
+.tslot-wrap { position: relative; width: 92px; text-align: center; }
+.tslot {
+  position: relative;
+  width: 80px; height: 80px;
+  margin: 0 6px;
+  padding: 0;
+  background: #383d4d;
+  border: 0;
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+.tslot:hover { filter: brightness(1.2); }
+.tslot.filled { background: #2a3040; }
+.tslot-shape, .tslot-icon {
+  position: absolute;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+}
+.tslot-key {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: var(--text-dim);
+  font-size: 26px;
+  font-weight: 700;
+}
+/* Once a plate carries art the hotkey moves off it, the way the screen hides the
+   binding label behind an equipped ability - but a page has no keyboard hints
+   anywhere else, so it keeps a corner. */
+.tslot-key.filled {
+  inset: auto -4px -6px auto;
+  width: 24px; height: 24px;
+  background: #0d1016;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  font-size: 13px;
+  color: var(--text-bright);
+}
+.tslot-name {
+  margin-top: 6px;
+  color: var(--text-dim);
+  font-size: 12px;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+.tree-status { color: var(--good); font-size: 13px; }
+
+.tslot-picker {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  z-index: 40;
+  min-width: 260px;
+  max-height: 340px;
+  margin-bottom: 8px;
+  padding: 6px;
+  overflow-y: auto;
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, .55);
+}
+.tslot-picker-head {
+  padding: 4px 8px 8px;
+  color: var(--gold);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: .6px;
+}
+.tslot-choice {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 6px 8px;
+  background: none;
+  border: 0;
+  border-radius: var(--radius);
+  color: var(--text);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.tslot-choice:hover { background: #222b38; }
+.tslot-choice.on { background: #2a2013; color: var(--accent); }
+.tslot-choice small { margin-left: auto; color: #8b98a9; }
+.tslot-choice.clear { margin-top: 4px; border-top: 1px solid var(--line); border-radius: 0; color: var(--text-dim); }
+.tslot-empty { padding: 6px 8px 10px; color: var(--text-dim); font-size: 13px; }
+
+/* ---- node tooltip ------------------------------------------------------ */
+/* The tooltip carries the same detail the Abilities pane does, so it is sized
+   for that content and stays hoverable: its links are meant to be followed, and
+   a tall one has to be able to scroll. */
+.tree-tip {
+  position: fixed;
+  z-index: 60;
+  width: 380px;
+  max-height: calc(100vh - 16px);
+  padding: 14px 16px;
+  overflow-y: auto;
+  background: #12161d;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, .6);
+  font-size: 14px;
+}
+/* The last block sits against the footer rule; its own bottom margin doubles it. */
+.tree-tip .block:last-of-type { margin-bottom: 0; }
+/* What a click will do is the one line worth never scrolling for, so it rides
+   the bottom of the card however far the detail runs. */
+.tree-tip-foot {
+  position: sticky;
+  bottom: -14px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 14px;
+  padding: 10px 0 14px;
+  border-top: 1px solid var(--line);
+  background: #12161d;
+  font-size: 13px;
+}
+.tree-tip-foot .ok { color: var(--good); }
+.tree-tip-foot .no { color: var(--bad); }
+.tree-tip-foot .dim { color: #8b98a9; }
+
+@media (max-width: 700px) {
+  .tree-slots { flex-wrap: wrap; }
+  .tree-tip { width: min(380px, calc(100vw - 24px)); }
+}

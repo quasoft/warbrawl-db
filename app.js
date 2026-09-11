@@ -117,6 +117,8 @@ const NAV_ICONS = {
   ],
   labels: [['p', 'M3.6 12.9 12.5 4h7.1v7.1l-8.9 8.9z'], ['c', [16.3, 7.7, 1.2]]],
   abilities: [['p', 'M12 2.8 19.8 7.4v9.2L12 21.2 4.2 16.6V7.4z']],
+  trees: [['p', 'M12 5.6v4.2M12 9.8 6.6 14M12 9.8 17.4 14'],
+          ['c', [12, 3.8, 1.9]], ['c', [5.4, 15.6, 1.9]], ['c', [18.6, 15.6, 1.9]]],
   attacks: [
     ['c', [12, 12, 6.4]], ['c', [12, 12, 2]],
     ['p', 'M12 2.2v3.2M12 18.6v3.2M2.2 12h3.2M18.6 12h3.2'],
@@ -342,6 +344,15 @@ const SECTIONS = [
     detail: statusDetail,
   },
   {
+    id: 'trees',
+    label: 'Ability trees',
+    rows: DB.trees || [],
+    columns: [],
+    facets: [],
+    custom: treesPage,
+    detail: () => null,
+  },
+  {
     id: 'abilities',
     label: 'Abilities',
     rows: DB.abilities || [],
@@ -350,7 +361,7 @@ const SECTIONS = [
       { key: 'tree', label: 'Tree', get: (r) => r.tree, sort: (r) => r.tree },
       { key: 'category', label: 'Category', get: (r) => r.category, sort: (r) => r.category },
       { key: 'rank', label: 'Max rank', cls: 'num', get: (r) => r.maxRank, sort: (r) => r.maxRank },
-      { key: 'cost', label: 'Points', cls: 'num', get: (r) => r.totalCost, sort: (r) => r.totalCost },
+      { key: 'cost', label: 'Points to max', cls: 'num', get: (r) => r.totalCost, sort: (r) => r.totalCost },
       { key: 'payload', label: 'Payload',
         get: (r) => (r.attack ? link('attacks', r.attack, 'Attack')
           : r.abilityPerk ? link('perks', r.abilityPerk, 'Perk')
@@ -574,7 +585,7 @@ function statusDetail(status) {
       status.maxStacks ? ['Maximum stacks', stackCount(status.maxStacks)] : null,
       status.tickIntervalText ? ['Tick interval', status.tickIntervalText] : null,
       status.actionLockText ? ['Action lock', status.actionLockText] : null,
-      status.school ? ['Damage school', status.school] : null,
+      status.school ? ['Damage type', status.school] : null,
       ['Slot index', status.type],
       status.opposes ? ['Nets against', link('statuses', status.opposes)] : null,
     ])),
@@ -588,34 +599,75 @@ function statusDetail(status) {
       ]))) || block('Applied by', h('p', { class: 'muted' }, 'Nothing applies this yet.')));
 }
 
-function abilityDetail(ability) {
+/* One builder for both places an ability is described: the Abilities table's
+   detail pane, and the tree page's node tooltip. `onTree` drops the two things
+   the tree itself already says - the rank, which is written on the node and in
+   the tooltip's own subtitle, and what a node leads to, which is what the wires
+   out of it are. Everything else, perk payload and all, is the same in both. */
+/* The effect summary with its status names turned back into links.
+
+   The sentence itself is the exporter's - one place builds that prose - so the
+   names are found inside the finished string rather than the clauses being
+   rebuilt here. They are the only part of it worth following, and a second row
+   repeating them beside it says the same thing twice. */
+function effectText(perk) {
+  const summary = perk.effectSummary || '';
+  const grants = ((perk.effect || {}).grants || []).filter((g) => g.statusName);
+  if (!grants.length) return summary;
+  // Longest first, so a name that contains another is matched whole.
+  const names = [...new Set(grants.map((g) => g.statusName))]
+    .sort((a, b) => b.length - a.length);
+  const out = [];
+  let rest = summary;
+  while (rest) {
+    let hit = null;
+    for (const name of names) {
+      const at = rest.indexOf(name);
+      if (at >= 0 && (!hit || at < hit.at)) hit = { at, name };
+    }
+    if (!hit) { out.push(rest); break; }
+    if (hit.at) out.push(rest.slice(0, hit.at));
+    const grant = grants.find((g) => g.statusName === hit.name);
+    out.push(link('statuses', grant.status, grant.statusName));
+    rest = rest.slice(hit.at + hit.name.length);
+  }
+  return out;
+}
+
+function abilityDetail(ability, options) {
+  const opts = options || {};
   const attack = ability.attack ? indexOf('attacks', ability.attack) : null;
+  const perk = ability.abilityPerk ? indexOf('perks', ability.abilityPerk) : null;
   return h('div', {},
-    detailHead(ability, `${ability.tree} tree - ${ability.category}`),
+    detailHead(ability, opts.kicker || `${ability.tree} tree - ${ability.category}`),
     ability.description && h('p', { class: 'detail-desc' }, ability.description),
+    // Whether a node can be slotted is what Category already says - every Active
+    // can, nothing else can - and its row is a fact about the drawing, not about
+    // the ability. Rank and what a node leads to are dropped on the tree page
+    // alone, where the node's own label and the wires out of it say both.
     block('Node', kv([
       ['Category', ability.category],
-      ['Maximum rank', ability.maxRank],
+      opts.onTree ? null : ['Maximum rank', ability.maxRank],
       ['Cost per rank', ability.costPerRank.join(' + ') || '-'],
-      ['Total points', ability.totalCost],
-      ['Can be equipped', yesNo(ability.canEquip)],
+      ['Points to max', ability.totalCost],
       ability.isGroupPrerequisite ? ['Unlocks its branch group', 'Yes'] : null,
-      ['Row in tree', ability.rowIndex],
       ability.nodeId !== null ? ['Simulation node id', ability.nodeId] : null,
     ])),
     ability.parent && block('Requires', link('abilities', ability.parent)),
-    ability.children.length ? block('Leads to',
+    !opts.onTree && ability.children.length ? block('Leads to',
       ability.children.map((key) => link('abilities', key, null, 'chip link'))) : null,
+    // An ability is talked about in seconds and in the damage it is authored
+    // with; the tick counts behind both live on the attack's own page.
     attack && block('Attack', kv([
       ['Move', link('attacks', attack.key, attack.name)],
-      ['Damage', attack.damage],
+      ['Base damage', attack.damage],
       INTERNAL ? ['Windup / active / recovery',
         `${attack.windupTicks} / ${attack.activeTicks} / ${attack.recoveryTicks} ticks`] : null,
-      ['Cooldown', attack.cooldownText],
+      ['Cooldown', attack.cooldownTicks ? seconds(attack.cooldownTicks) : 'None'],
     ])),
-    ability.abilityPerk && block('Perk payload', kv([
+    perk && block('Perk payload', kv([
       ['Perk', link('perks', ability.abilityPerk)],
-      ['Effect', indexOf('perks', ability.abilityPerk).effectSummary],
+      ['Effect', effectText(perk)],
     ])),
     assetBlock(ability.assetPath));
 }
@@ -1030,6 +1082,678 @@ function damagePage() {
   return page;
 }
 
+/* ---- ability trees ------------------------------------------------------- */
+/* The in-game ability screen, rebuilt from the data it is itself drawn from.
+
+   Three things have to agree with the game or the page is a lie: the structural
+   layout (branch columns, depth rows, sibling spread - computed by the exporter's
+   port of the package's AbilityTreeLayout, never the authored EditorPosition), the
+   art and state colours (AbilityTreeTheme, exported as data.abilityTheme), and the
+   rules below, which mirror AbilityPrerequisites and AbilityTreeService: what a
+   click buys, what a refund cascades into, and what may sit in a slot.
+
+   That last part is the point of the page. Twenty points, six branches and three
+   slots is a question a player answers by trying, and trying it here costs no
+   launch. */
+
+const TREES = DB.trees || [];
+const TREE_THEME = DB.abilityTheme || {};
+const TREE_DIAMETERS = TREE_THEME.diameters || {};
+const TREE_COLORS = TREE_THEME.colors || {};
+const TREE_LINES = TREE_THEME.connection || {};
+
+/* One draft per weapon, kept for the session the way the screen's draft session
+   keeps every tree: switching tabs and coming back finds the build as it was. */
+const treeDrafts = new Map();
+
+function treeDraft(tree) {
+  let draft = treeDrafts.get(tree.key);
+  if (!draft) {
+    draft = { ranks: new Map(), slots: tree.slots.map(() => null) };
+    treeDrafts.set(tree.key, draft);
+  }
+  return draft;
+}
+
+const treeNodes = (tree) =>
+  tree.nodes.map((key) => indexOf('abilities', key)).filter(Boolean);
+
+/* ---- rules (ported; keep in step with the package) ----------------------- */
+const rankOf = (draft, node) => (node ? draft.ranks.get(node.key) || 0 : 0);
+
+function costOfRank(node, rank) {
+  if (rank < 1 || rank > node.maxRank || !node.costPerRank.length) return -1;
+  return node.costPerRank[Math.min(rank - 1, node.costPerRank.length - 1)];
+}
+
+function costUpToRank(node, rank) {
+  let total = 0;
+  for (let r = 1; r <= rank; r += 1) {
+    const cost = costOfRank(node, r);
+    if (cost < 0) return -1;
+    total += cost;
+  }
+  return total;
+}
+
+function spentPoints(tree, draft) {
+  return treeNodes(tree).reduce((sum, node) => {
+    const cost = costUpToRank(node, rankOf(draft, node));
+    return sum + (cost > 0 ? cost : 0);
+  }, 0);
+}
+
+/* The single purchase gate (AbilityPrerequisites.Check). Returns the reason a node
+   is locked, or null when it is not. */
+function prerequisiteBlocker(tree, draft, node) {
+  if (node.isGroupPrerequisite) {
+    // Row 0 is freely purchasable, like a branch root.
+    if (node.row <= 0) return null;
+    const satisfied = treeNodes(tree).some((other) => other.key !== node.key
+      && other.group === node.group && other.row === node.row - 1
+      && rankOf(draft, other) >= 1);
+    return satisfied ? null : 'Needs any ability of the row above bought first';
+  }
+  if (!node.parent) return null;
+  const parent = indexOf('abilities', node.parent);
+  if (!parent) return 'Its parent node is missing';
+  if (rankOf(draft, parent) >= node.requiredParentRank) return null;
+  return node.requiredParentRank > 1
+    ? `Requires ${parent.name} at rank ${node.requiredParentRank}`
+    : `Requires ${parent.name}`;
+}
+
+function purchaseBlocker(tree, draft, node) {
+  const rank = rankOf(draft, node);
+  if (rank >= node.maxRank) return 'Already at maximum rank';
+  const cost = costOfRank(node, rank + 1);
+  if (cost < 0) return 'This node has no valid cost';
+  const gate = prerequisiteBlocker(tree, draft, node);
+  if (gate) return gate;
+  if (cost > tree.pointBudget - spentPoints(tree, draft)) return 'Not enough points left';
+  return null;
+}
+
+function nodeVisualState(tree, draft, node) {
+  const rank = rankOf(draft, node);
+  // MaxRank is the fully-invested accent, and only means something where investment
+  // is graded: a one-rank node at 1/1 is simply Purchased.
+  if (rank >= node.maxRank && node.maxRank > 1) return 'MaxRank';
+  if (rank > 0) return 'Purchased';
+  return purchaseBlocker(tree, draft, node) ? 'Locked' : 'Available';
+}
+
+/* Emptying a node empties everything that depended on it: the same fixed-point
+   pass the service runs, driven by re-checking each purchase rather than by
+   walking the graph, so a group-gated node falls with the row it stood on. */
+function refundNode(tree, draft, node) {
+  draft.ranks.set(node.key, 0);
+  let changed = true;
+  while (changed) {
+    changed = false;
+    for (const other of treeNodes(tree)) {
+      if (rankOf(draft, other) < 1) continue;
+      if (!prerequisiteBlocker(tree, draft, other)) continue;
+      draft.ranks.set(other.key, 0);
+      changed = true;
+    }
+  }
+  if ((tree.loadoutRules || {}).autoUnequipInvalidated !== false) {
+    draft.slots = draft.slots.map((key) =>
+      (key && rankOf(draft, indexOf('abilities', key)) >= 1 ? key : null));
+  }
+}
+
+/* Clicking a node cycles it: buy the next rank when that is possible, otherwise
+   empty a node that holds points, so a click loops 0 -> 1 -> ... -> max -> 0 with
+   no separate remove control. */
+function clickNode(tree, draft, node) {
+  if (!purchaseBlocker(tree, draft, node)) {
+    draft.ranks.set(node.key, rankOf(draft, node) + 1);
+    return;
+  }
+  if (rankOf(draft, node) > 0) refundNode(tree, draft, node);
+}
+
+function equipBlocker(tree, draft, node) {
+  const rules = tree.loadoutRules || {};
+  if (rankOf(draft, node) < 1) return 'Buy it first';
+  if (!node.canEquip) return 'This node is a modifier, not a slotted ability';
+  if ((rules.allowedCategories || []).length
+      && !rules.allowedCategories.includes(node.category)) {
+    return `${node.category} abilities do not go in a slot`;
+  }
+  return null;
+}
+
+/* Picking a node that already occupies another slot swaps the two, the way the
+   screen's assign does; picking nothing clears the slot. */
+function equipNode(tree, draft, slotIndex, key) {
+  const rules = tree.loadoutRules || {};
+  const held = key ? draft.slots.indexOf(key) : -1;
+  if (held >= 0 && held !== slotIndex && !rules.allowDuplicateNode) {
+    draft.slots[held] = draft.slots[slotIndex];
+  }
+  draft.slots[slotIndex] = key;
+}
+
+/* ---- share codes --------------------------------------------------------- */
+/* A build is a rank per node in tree order plus one base-36 slot index each, so a
+   link is short enough to paste into chat. It is replayed through the purchase
+   rules rather than trusted: a code made before the tree changed shape then loses
+   whatever no longer holds instead of producing a build the game would reject. */
+function buildCode(tree, draft) {
+  const nodes = treeNodes(tree);
+  // Trailing unbought nodes are dropped rather than spelled out as zeroes; the
+  // reader treats a missing digit as one.
+  const ranks = nodes.map((node) => Math.min(9, rankOf(draft, node)))
+    .join('').replace(/0+$/, '');
+  const slots = draft.slots
+    .map((key) => (key ? nodes.findIndex((n) => n.key === key) : -1))
+    .map((index) => (index < 0 ? 'z' : index.toString(36))).join('');
+  return /[1-9]/.test(ranks) ? `${ranks}-${slots}` : '';
+}
+
+function applyBuildCode(tree, draft, code) {
+  const nodes = treeNodes(tree);
+  const [ranks = '', slots = ''] = String(code || '').split('-');
+  draft.ranks.clear();
+  draft.slots = tree.slots.map(() => null);
+
+  // Shallow rows first, so a parent is bought before the child that needs it; the
+  // rules then decide, and anything unaffordable or unreachable simply stays out.
+  const wanted = nodes
+    .map((node, index) => ({ node, rank: parseInt(ranks[index], 10) || 0 }))
+    .filter((entry) => entry.rank > 0)
+    .sort((a, b) => a.node.row - b.node.row);
+  let progressed = true;
+  while (progressed) {
+    progressed = false;
+    for (const entry of wanted) {
+      while (rankOf(draft, entry.node) < entry.rank
+             && !purchaseBlocker(tree, draft, entry.node)) {
+        draft.ranks.set(entry.node.key, rankOf(draft, entry.node) + 1);
+        progressed = true;
+      }
+    }
+  }
+
+  [...slots].forEach((char, slotIndex) => {
+    const node = nodes[parseInt(char, 36)];
+    if (node && slotIndex < draft.slots.length && !equipBlocker(tree, draft, node)) {
+      equipNode(tree, draft, slotIndex, node.key);
+    }
+  });
+}
+
+/* ---- geometry ------------------------------------------------------------ */
+const ownIcon = (node) =>
+  (node.icon && node.icon.file && !node.icon.inherited ? node.icon.file : null);
+
+const nodeDiameter = (node) => TREE_DIAMETERS[node.size] || TREE_DIAMETERS.StandardSmall || 90;
+
+/* Ratio the caption strip is measured with; the stylesheet's .tree-band-label
+   line-height must match it, or the reserved strip and the drawn text disagree. */
+const BAND_LABEL_LINE_HEIGHT = 1.2;
+
+/* One striped band per branch group: horizontal extent from that group's node
+   positions, vertical extent shared by all bands so they align like columns, and
+   the gap between neighbours carved out of the facing edges only. A named group
+   draws its caption in a strip reserved at the top of EVERY band, named or not, so
+   the bands keep one top edge and no caption sits on the first row of nodes. */
+function groupBands(nodes, tree) {
+  const style = TREE_THEME.groupBands || {};
+  if (!style.show && !style.showLabels) return [];
+  const spans = new Map();
+  let minY = Infinity;
+  let maxY = -Infinity;
+  for (const node of nodes) {
+    if (node.group < 0) continue;
+    const span = spans.get(node.group);
+    if (span) {
+      span.min = Math.min(span.min, node.x);
+      span.max = Math.max(span.max, node.x);
+    } else {
+      spans.set(node.group, { min: node.x, max: node.x });
+    }
+    minY = Math.min(minY, node.y);
+    maxY = Math.max(maxY, node.y);
+  }
+  const groups = [...spans.keys()].sort((a, b) => a - b);
+  const pad = style.padding || 0;
+  const halfGap = (style.spacing || 0) / 2;
+  const names = (tree && tree.groupNames) || [];
+  const captionOf = (group) => (style.showLabels && names[group] ? names[group] : '');
+  const labelSize = style.labelFontSize || 0;
+  const labelHeight = labelSize * BAND_LABEL_LINE_HEIGHT;
+  const strip = groups.some(captionOf) ? labelHeight + (style.labelSpacing || 0) : 0;
+  return groups.map((group, index) => {
+    const span = spans.get(group);
+    const x0 = span.min - pad + (index > 0 ? halfGap : 0);
+    const y1 = maxY + pad + strip;
+    return {
+      x0,
+      x1: Math.max(span.max + pad - (index < groups.length - 1 ? halfGap : 0), x0),
+      y0: minY - pad,
+      y1,
+      color: style.show ? (group % 2 === 0 ? style.colorA : style.colorB) : null,
+      label: captionOf(group),
+      labelTop: y1 - (style.labelInset || 0),
+      labelHeight,
+      labelSize,
+      labelColor: style.labelColor,
+    };
+  });
+}
+
+function treeGeometry(tree) {
+  const nodes = treeNodes(tree);
+  const bands = groupBands(nodes, tree);
+  const box = { minX: Infinity, maxX: -Infinity, minY: Infinity, maxY: -Infinity };
+  const swallow = (x0, y0, x1, y1) => {
+    box.minX = Math.min(box.minX, x0); box.maxX = Math.max(box.maxX, x1);
+    box.minY = Math.min(box.minY, y0); box.maxY = Math.max(box.maxY, y1);
+  };
+  for (const node of nodes) {
+    const half = nodeDiameter(node) / 2;
+    swallow(node.x - half, node.y - half, node.x + half, node.y + half);
+  }
+  for (const band of bands) swallow(band.x0, band.y0, band.x1, band.y1);
+  if (!nodes.length) swallow(0, 0, 1, 1);
+  // Screen space: x grows right as in the layout, y flips because the layout puts
+  // up at +y and rows descend into -y.
+  return {
+    nodes,
+    bands,
+    width: box.maxX - box.minX,
+    height: box.maxY - box.minY,
+    left: (x) => x - box.minX,
+    top: (y) => box.maxY - y,
+  };
+}
+
+/* ---- the page ------------------------------------------------------------ */
+function treesPage(treeKey, code) {
+  if (!TREES.length) {
+    return h('p', { class: 'muted' }, 'This build carries no ability trees.');
+  }
+  const tree = TREES.find((t) => t.key === treeKey) || TREES[0];
+  const draft = treeDraft(tree);
+  if (code) applyBuildCode(tree, draft, code);
+
+  const geometry = treeGeometry(tree);
+  const points = h('span', { class: 'tree-points' });
+  const stage = h('div', { class: 'tree-stage' });
+  const canvas = h('div', { class: 'tree-canvas', style: {
+    width: `${geometry.width}px`, height: `${geometry.height}px` } });
+  // The canvas keeps its authored size and is scaled; this box carries the scaled
+  // size, so the stage scrolls by what is drawn rather than by what was authored.
+  const fitBox = h('div', { class: 'tree-fit' }, canvas);
+  const links = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  links.setAttribute('class', 'tree-links');
+  links.setAttribute('viewBox', `0 0 ${geometry.width} ${geometry.height}`);
+  const slotRow = h('div', { class: 'tree-slots' });
+  const status = h('div', { class: 'tree-status' });
+  const nodeViews = [];
+
+  // Bands, then wires, then nodes: the same order the screen stacks them in.
+  for (const band of geometry.bands) {
+    if (band.color) {
+      canvas.append(h('div', { class: 'tree-band', style: {
+        left: `${geometry.left(band.x0)}px`,
+        top: `${geometry.top(band.y1)}px`,
+        width: `${band.x1 - band.x0}px`,
+        height: `${band.y1 - band.y0}px`,
+        background: band.color,
+      } }));
+    }
+    if (band.label) {
+      canvas.append(h('div', { class: 'tree-band-label', style: {
+        left: `${geometry.left(band.x0)}px`,
+        top: `${geometry.top(band.labelTop)}px`,
+        width: `${band.x1 - band.x0}px`,
+        height: `${band.labelHeight}px`,
+        fontSize: `${band.labelSize}px`,
+        color: band.labelColor,
+      } }, band.label));
+    }
+  }
+  canvas.append(links);
+
+  for (const node of geometry.nodes) {
+    const parent = node.parent ? indexOf('abilities', node.parent) : null;
+    if (parent) {
+      const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+      line.setAttribute('x1', geometry.left(parent.x));
+      line.setAttribute('y1', geometry.top(parent.y));
+      line.setAttribute('x2', geometry.left(node.x));
+      line.setAttribute('y2', geometry.top(node.y));
+      line.setAttribute('stroke-width', TREE_LINES.width || 4);
+      links.append(line);
+      nodeViews.push({ node, line });
+    } else {
+      nodeViews.push({ node, line: null });
+    }
+  }
+
+  for (const view of nodeViews) {
+    const node = view.node;
+    const size = nodeDiameter(node);
+    // A ranked node gives the bottom of its plate over to the rank readout, so its
+    // symbol shrinks and lifts to leave that strip clear.
+    const ranked = node.maxRank > 1;
+    const inset = `${(TREE_THEME.iconInset || 0) * 100 + (ranked ? 8 : 0)}%`;
+    // Only art the node itself carries: the exporter lends a modifier its branch
+    // root's icon so the abilities table reads well, but the screen draws a
+    // borrowed icon nowhere, and this page is that screen.
+    const art = h('span', { class: 'tnode-art' },
+      layer('tnode-frame', node.icon && node.icon.frame),
+      tintLayer('tnode-frame-tint', node.icon && node.icon.frame),
+      layer('tnode-icon', ownIcon(node), inset),
+      TREE_THEME.tintIconWithState
+        ? tintLayer('tnode-icon-tint', ownIcon(node), inset) : null);
+    const rank = h('span', { class: 'tnode-rank' });
+    // Sized off the node, the way the screen sizes it: a percentage here would
+    // measure against the button's font size, not its diameter.
+    rank.style.fontSize = `${Math.max(11, size * 0.18)}px`;
+    const badge = h('span', { class: 'tnode-badge' });
+    const el = h('button', {
+      type: 'button',
+      class: 'tnode' + (ranked ? ' ranked' : ''),
+      style: {
+        width: `${size}px`,
+        height: `${size}px`,
+        left: `${geometry.left(node.x) - size / 2}px`,
+        top: `${geometry.top(node.y) - size / 2}px`,
+      },
+      'aria-label': node.name,
+      onclick: () => { clickNode(tree, draft, node); refresh(); },
+      // The tooltip is anchored to the node, not to the pointer, so entering is
+      // the only move that has anything to say.
+      onmouseenter: () => showTreeTip(el, tree, draft, node),
+      onmouseleave: hideTreeTip,
+      onfocus: () => showTreeTip(el, tree, draft, node),
+      onblur: hideTreeTip,
+    }, art, rank, badge);
+    view.el = el;
+    view.rank = rank;
+    view.badge = badge;
+    canvas.append(el);
+  }
+
+  stage.append(fitBox);
+
+  function refresh() {
+    const spent = spentPoints(tree, draft);
+    points.replaceChildren(h('b', {}, `${spent}`), ` / ${tree.pointBudget} points`);
+    for (const view of nodeViews) {
+      const node = view.node;
+      const visual = nodeVisualState(tree, draft, node);
+      const rank = rankOf(draft, node);
+      const slot = draft.slots.indexOf(node.key);
+      // What a node IS and what a node LOOKS LIKE part ways for one case: a passive
+      // that has merely become affordable is painted as though it were still locked.
+      // Lit has to mean bought and nothing else - a passive is never named in the
+      // slot bar, so its plate is the only place the page can say so, and a plate
+      // that brightens the moment a node becomes reachable spends that signal on
+      // something the player has not done. Everything the paint reaches follows this
+      // (tint, dim, saturation, icon opacity, rank colour, the wire into it); the
+      // purchase rules go on reading the real state.
+      const paint = visual === 'Available' && !node.canEquip ? 'Locked' : visual;
+      view.el.dataset.state = visual;
+      view.el.dataset.paint = paint;
+      view.el.style.setProperty('--tint', TREE_COLORS[paint] || '#ffffff');
+      // A ranked node lights up as it fills rather than jumping to full on the
+      // first point: rank 1 sits a step above the unbought dim and the last rank
+      // reaches the brightness the theme paints a bought node at. Clearing the
+      // properties hands the node back to the per-state rules in the stylesheet.
+      // Passives start that climb higher than actives do, for the same reason the
+      // paint above holds them dark until they are bought: an active is named again
+      // in the slot bar, while a passive has only its plate to say it. At the old
+      // floor a bought 1/3 came out darker than the very same node had looked
+      // unbought, so passives now open where a hover used to have to reveal them.
+      if (node.maxRank > 1 && rank > 0) {
+        const filled = (rank - 1) / (node.maxRank - 1);
+        const dimFloor = node.canEquip ? 0.55 : 0.74;
+        const satFloor = node.canEquip ? 0.6 : 0.82;
+        view.el.style.setProperty('--dim', (dimFloor + (1 - dimFloor) * filled).toFixed(3));
+        view.el.style.setProperty('--sat', (satFloor + (1 - satFloor) * filled).toFixed(3));
+      } else {
+        view.el.style.removeProperty('--dim');
+        view.el.style.removeProperty('--sat');
+      }
+      view.rank.textContent = node.maxRank > 1 ? `${rank}/${node.maxRank}` : '';
+      view.badge.textContent = slot >= 0 ? (tree.slots[slot].binding || '') : '';
+      if (view.line) {
+        // A wire reads as its child's state: bought, reachable, or neither.
+        view.line.setAttribute('stroke', rank > 0 ? TREE_LINES.Purchased
+          : paint === 'Available' ? TREE_LINES.Available : TREE_LINES.Locked);
+      }
+    }
+    renderTreeSlots(slotRow, tree, draft, refresh);
+    if (treeTipFor && treeTipFor.isConnected) {
+      const view = nodeViews.find((v) => v.el === treeTipFor);
+      if (view) showTreeTip(view.el, tree, draft, view.node);
+    }
+  }
+
+  function fit() {
+    // Fit to width like the screen's static fit, but never past 1 - the icons are
+    // 128px and blow up badly - and never below the floor either: on a phone a
+    // tree scaled to a fifth is unreadable, so it stays legible and scrolls.
+    const available = stage.clientWidth - 2;
+    if (available <= 0 || !geometry.width) return;
+    const scale = Math.max(0.45, Math.min(1, available / geometry.width));
+    canvas.style.transform = `scale(${scale})`;
+    fitBox.style.width = `${geometry.width * scale}px`;
+    fitBox.style.height = `${geometry.height * scale}px`;
+  }
+
+  const page = h('div', { class: 'tree-page' },
+    h('div', { class: 'tree-bar' },
+      h('div', { class: 'tree-tabs' }, TREES.map((entry) => h('a', {
+        class: 'tree-tab' + (entry === tree ? ' on' : ''),
+        href: `#trees/${entry.key}`,
+      }, entry.name))),
+      h('div', { class: 'tree-bar-right' },
+        points,
+        h('button', {
+          type: 'button', class: 'tree-btn',
+          onclick: () => {
+            draft.ranks.clear();
+            draft.slots = tree.slots.map(() => null);
+            status.textContent = '';
+            refresh();
+          },
+        }, 'Reset'),
+        h('button', {
+          type: 'button', class: 'tree-btn',
+          onclick: (event) => copyBuildLink(tree, draft, event.currentTarget, status),
+        }, 'Copy build link'))),
+    stage,
+    h('div', { class: 'tree-footer' },
+      h('div', { class: 'tree-footer-label' }, 'Loadout'),
+      slotRow, status));
+
+  page.style.setProperty('--tnode-locked-icon', TREE_THEME.lockedIconOpacity || 0.35);
+  refresh();
+  fit();
+  // The custom pane is built before it is measured on first paint, and the stage
+  // width moves with the sidebar, the drawer and the window.
+  requestAnimationFrame(fit);
+  if (window.ResizeObserver) new ResizeObserver(fit).observe(stage);
+  else window.addEventListener('resize', fit);
+  return page;
+}
+
+/* An image layer of a node: the shape plate, or the ability art inset in it. */
+function layer(className, file, inset) {
+  if (!file) return null;
+  return h('span', { class: className, style: {
+    backgroundImage: `url("${file}")`,
+    inset: inset || '0',
+  } });
+}
+
+/* The state colour, multiplied into the layer beneath and masked to its art so it
+   tints the shape rather than a square - which is what the screen's Image.color
+   does to the same sprite. */
+function tintLayer(className, file, inset) {
+  if (!file) return null;
+  const el = h('span', { class: className, style: { inset: inset || '0' } });
+  el.style.maskImage = el.style.webkitMaskImage = `url("${file}")`;
+  return el;
+}
+
+/* ---- loadout slots ------------------------------------------------------- */
+function renderTreeSlots(host, tree, draft, refresh) {
+  host.replaceChildren(...tree.slots.map((slot, index) => {
+    const node = draft.slots[index] ? indexOf('abilities', draft.slots[index]) : null;
+    const plate = h('button', {
+      type: 'button',
+      class: 'tslot' + (node ? ' filled' : ''),
+      title: node ? `${node.name} - click to change` : `${slot.name} - click to equip`,
+      onclick: (event) => {
+        event.stopPropagation();
+        openSlotPicker(event.currentTarget, tree, draft, index, refresh);
+      },
+    });
+    if (node) {
+      const shape = (TREE_THEME.slotSprites || {})[node.shape];
+      if (shape) plate.append(layer('tslot-shape', shape));
+      if (node.icon && node.icon.file) plate.append(layer('tslot-icon', node.icon.file, '18%'));
+      plate.append(h('span', { class: 'tslot-key filled' }, slot.binding || ''));
+    } else {
+      plate.append(h('span', { class: 'tslot-key' }, slot.binding || '?'));
+    }
+    return h('div', { class: 'tslot-wrap' }, plate,
+      h('div', { class: 'tslot-name' }, node ? node.name : 'Empty'));
+  }));
+}
+
+let openPicker = null;
+
+function closeSlotPicker() {
+  if (openPicker) openPicker.remove();
+  openPicker = null;
+}
+
+function openSlotPicker(anchor, tree, draft, slotIndex, refresh) {
+  closeSlotPicker();
+  const choices = treeNodes(tree).filter((node) => !equipBlocker(tree, draft, node));
+  const pick = (key) => {
+    equipNode(tree, draft, slotIndex, key);
+    closeSlotPicker();
+    refresh();
+  };
+  const menu = h('div', { class: 'tslot-picker', onclick: (e) => e.stopPropagation() },
+    h('div', { class: 'tslot-picker-head' },
+      `${tree.slots[slotIndex].name} (${tree.slots[slotIndex].binding})`),
+    choices.length ? choices.map((node) => h('button', {
+      type: 'button',
+      class: 'tslot-choice' + (draft.slots[slotIndex] === node.key ? ' on' : ''),
+      onclick: () => pick(node.key),
+    }, iconEl(node.icon), h('span', {}, node.name),
+       draft.slots.includes(node.key) && draft.slots[slotIndex] !== node.key
+         ? h('small', {}, 'equipped') : null))
+      : h('div', { class: 'tslot-empty' },
+          'Buy an active ability first.'),
+    draft.slots[slotIndex] ? h('button', {
+      type: 'button', class: 'tslot-choice clear', onclick: () => pick(null),
+    }, 'Clear slot') : null);
+  anchor.parentElement.append(menu);
+  openPicker = menu;
+}
+
+function copyBuildLink(tree, draft, button, status) {
+  const code = buildCode(tree, draft);
+  const link = `${location.origin}${location.pathname}#trees/${tree.key}${code ? `/${code}` : ''}`;
+  const done = (ok) => {
+    status.textContent = ok ? 'Build link copied to the clipboard.' : link;
+    button.textContent = ok ? 'Copied' : 'Copy build link';
+    if (ok) setTimeout(() => { button.textContent = 'Copy build link'; }, 1600);
+  };
+  // navigator.clipboard is unavailable on file:// in some browsers; showing the
+  // link to copy by hand beats a button that silently does nothing.
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(link).then(() => done(true), () => done(false));
+  } else {
+    done(false);
+  }
+}
+
+const pointsText = (n) => `${n} point${n === 1 ? '' : 's'}`;
+
+/* ---- node tooltip -------------------------------------------------------- */
+/* The screen's tooltip is name + description; this one adds what a planner wants
+   in front of them - cost, payload, and the reason a locked node is locked. */
+let treeTip = null;
+let treeTipFor = null;
+let treeTipTimer = null;
+
+function showTreeTip(anchor, tree, draft, node) {
+  if (!treeTip) {
+    treeTip = h('div', {
+      class: 'tree-tip',
+      // Crossing the gap from node to tooltip must not dismiss it, or a link
+      // inside could never be reached.
+      onmouseenter: () => clearTimeout(treeTipTimer),
+      onmouseleave: hideTreeTip,
+    });
+    document.body.append(treeTip);
+  }
+  clearTimeout(treeTipTimer);
+  treeTipFor = anchor;
+  const blocker = purchaseBlocker(tree, draft, node);
+  const rank = rankOf(draft, node);
+  const cost = costOfRank(node, rank + 1);
+  // A branch usually takes its name from the ability at its root, and repeating
+  // that under the title says nothing; the category always does.
+  const kicker = [node.category,
+    node.branchName && node.branchName !== node.name ? `${node.branchName} branch` : null,
+    node.maxRank > 1 ? `rank ${rank}/${node.maxRank}` : null].filter(Boolean).join(' - ');
+
+  treeTip.replaceChildren(
+    abilityDetail(node, { onTree: true, kicker }),
+    // What a click would actually do, in the order clickNode decides it: the next
+    // rank when one is affordable, otherwise emptying a node that holds points.
+    h('div', { class: 'tree-tip-foot' },
+      !blocker
+        ? h('span', { class: 'ok' },
+            `Click to ${rank > 0 ? `raise to rank ${rank + 1}` : 'buy'} - ${pointsText(cost)}`)
+        : rank > 0
+          ? h('span', { class: 'ok' },
+              `Bought for ${pointsText(costUpToRank(node, rank))}. Click to refund.`)
+          : h('span', { class: 'no' }, blocker),
+      node.canEquip ? h('span', { class: 'dim' }, 'Can be slotted') : null));
+
+  // Beside the node rather than over it, and always fully on screen: the detail
+  // is tall enough that an above/below placement would run off the top.
+  const box = anchor.getBoundingClientRect();
+  treeTip.hidden = false;
+  const tip = treeTip.getBoundingClientRect();
+  const gap = 12;
+  let left = box.right + gap;
+  if (left + tip.width > window.innerWidth - 8) left = box.left - gap - tip.width;
+  if (left < 8) {
+    left = Math.min(Math.max(8, box.left + box.width / 2 - tip.width / 2),
+      window.innerWidth - tip.width - 8);
+  }
+  treeTip.style.left = `${Math.max(8, left)}px`;
+  treeTip.style.top = `${Math.min(Math.max(8, box.top + box.height / 2 - tip.height / 2),
+    Math.max(8, window.innerHeight - tip.height - 8))}px`;
+}
+
+/* Hidden on a delay, so the pointer can travel from the node into the tooltip
+   without it vanishing on the way. */
+function hideTreeTip() {
+  clearTimeout(treeTipTimer);
+  treeTipTimer = setTimeout(() => {
+    if (treeTip) treeTip.hidden = true;
+    treeTipFor = null;
+  }, 160);
+}
+
 /* ---- table rendering ----------------------------------------------------- */
 const state = { section: SECTIONS[0], selected: null, filter: '', facets: {}, sort: null, asc: true };
 
@@ -1243,7 +1967,10 @@ let pendingFacet = null;
 const SECTION_ALIASES = { abilityPerks: 'perks' };
 
 function route() {
-  const [rawSection, key] = decodeURIComponent(location.hash.replace(/^#/, '')).split('/');
+  // A custom section may take an argument of its own after the key (the ability
+  // tree page takes a build code), so the tail of the hash is kept, not dropped.
+  const [rawSection, key, ...rest] = decodeURIComponent(
+    location.hash.replace(/^#/, '')).split('/');
   const sectionId = SECTION_ALIASES[rawSection] || rawSection;
   const section = SECTION_BY_ID[sectionId] || SECTIONS[0];
   if (section !== state.section) {
@@ -1280,7 +2007,7 @@ function route() {
   $('custom').hidden = !custom;
   document.querySelector('.detail-pane').hidden = custom;
   if (custom) {
-    $('custom').replaceChildren(section.custom());
+    $('custom').replaceChildren(section.custom(key, rest.join('/')));
     return;
   }
   $('custom').replaceChildren();
@@ -1326,6 +2053,7 @@ function init() {
     if (event.target.closest('a')) setNav(false);
   });
   document.addEventListener('click', closeFacetMenus);
+  document.addEventListener('click', closeSlotPicker);
   const filter = $('filter');
   document.addEventListener('keydown', (event) => {
     // Ctrl/Cmd+K goes to the table filter, "/" to the global search - the same
@@ -1340,7 +2068,7 @@ function init() {
     }
     if (event.key === 'Escape') {
       search.blur(); filter.blur(); $('search-results').hidden = true;
-      closeFacetMenus(); setNav(false);
+      closeFacetMenus(); closeSlotPicker(); hideTreeTip(); setNav(false);
     }
   });
   window.addEventListener('hashchange', route);
