@@ -350,6 +350,9 @@ const SECTIONS = [
     columns: [],
     facets: [],
     custom: treesPage,
+    // The reading-width cap the other custom page wants would cost the tree the
+    // width the card's column takes.
+    wide: true,
     detail: () => null,
   },
   {
@@ -1395,6 +1398,11 @@ function treesPage(treeKey, code) {
   const slotRow = h('div', { class: 'tree-slots' });
   const status = h('div', { class: 'tree-status' });
   const nodeViews = [];
+  // The hover card's home. It is laid out on every render, hovered or not, so the
+  // tree keeps the same width and the same place whatever the pointer is doing.
+  treeTipHint = h('p', { class: 'tree-tip-hint' }, 'Hover a node to see more details.');
+  treeTip = h('div', { class: 'tree-tip', hidden: true });
+  treeTipFor = null;
 
   // Bands, then wires, then nodes: the same order the screen stacks them in.
   for (const band of geometry.bands) {
@@ -1468,12 +1476,10 @@ function treesPage(treeKey, code) {
       },
       'aria-label': node.name,
       onclick: () => { clickNode(tree, draft, node); refresh(); },
-      // The tooltip is anchored to the node, not to the pointer, so entering is
-      // the only move that has anything to say.
+      // Arriving is the only move that has anything to say: the card holds the
+      // node it was last given, so leaving one has nothing to replace it with.
       onmouseenter: () => showTreeTip(el, tree, draft, node),
-      onmouseleave: hideTreeTip,
       onfocus: () => showTreeTip(el, tree, draft, node),
-      onblur: hideTreeTip,
     }, art, rank, badge);
     view.el = el;
     view.rank = rank;
@@ -1577,10 +1583,13 @@ function treesPage(treeKey, code) {
           type: 'button', class: 'tree-btn',
           onclick: (event) => copyBuildLink(tree, draft, event.currentTarget, status),
         }, 'Copy build link'))),
-    stage,
-    h('div', { class: 'tree-footer' },
-      h('div', { class: 'tree-footer-label' }, 'Loadout'),
-      slotRow, status));
+    h('div', { class: 'tree-body' },
+      h('div', { class: 'tree-main' },
+        stage,
+        h('div', { class: 'tree-footer' },
+          h('div', { class: 'tree-footer-label' }, 'Loadout'),
+          slotRow, status)),
+      h('aside', { class: 'tree-aside' }, treeTipHint, treeTip)));
 
   page.style.setProperty('--tnode-locked-icon', TREE_THEME.lockedIconOpacity || 0.35);
   refresh();
@@ -1705,25 +1714,23 @@ function copyBuildLink(tree, draft, button, status) {
 
 const pointsText = (n) => `${n} point${n === 1 ? '' : 's'}`;
 
-/* ---- node tooltip -------------------------------------------------------- */
+/* ---- node card ----------------------------------------------------------- */
 /* The screen's tooltip is name + description; this one adds what a planner wants
-   in front of them - cost, payload, and the reason a locked node is locked. */
+   in front of them - cost, payload, and the reason a locked node is locked.
+   It is not a tooltip in the floating sense: it has a reserved column of its own
+   down the right of the tree (built in treesPage), because a card that follows
+   the pointer covers the nodes the pointer is on its way to, and a column that
+   only exists while a card shows moves the tree every time one appears.
+   It holds the node it was last given until another node is hovered: a card that
+   emptied itself on the way out could not be read at leisure, and its links -
+   which are meant to be followed - could not be reached at all. */
 let treeTip = null;
+let treeTipHint = null;
 let treeTipFor = null;
-let treeTipTimer = null;
 
 function showTreeTip(anchor, tree, draft, node) {
-  if (!treeTip) {
-    treeTip = h('div', {
-      class: 'tree-tip',
-      // Crossing the gap from node to tooltip must not dismiss it, or a link
-      // inside could never be reached.
-      onmouseenter: () => clearTimeout(treeTipTimer),
-      onmouseleave: hideTreeTip,
-    });
-    document.body.append(treeTip);
-  }
-  clearTimeout(treeTipTimer);
+  if (!treeTip) return;
+  const another = treeTipFor !== anchor;
   treeTipFor = anchor;
   const blocker = purchaseBlocker(tree, draft, node);
   const rank = rankOf(draft, node);
@@ -1748,31 +1755,12 @@ function showTreeTip(anchor, tree, draft, node) {
           : h('span', { class: 'no' }, blocker),
       node.canEquip ? h('span', { class: 'dim' }, 'Can be slotted') : null));
 
-  // Beside the node rather than over it, and always fully on screen: the detail
-  // is tall enough that an above/below placement would run off the top.
-  const box = anchor.getBoundingClientRect();
   treeTip.hidden = false;
-  const tip = treeTip.getBoundingClientRect();
-  const gap = 12;
-  let left = box.right + gap;
-  if (left + tip.width > window.innerWidth - 8) left = box.left - gap - tip.width;
-  if (left < 8) {
-    left = Math.min(Math.max(8, box.left + box.width / 2 - tip.width / 2),
-      window.innerWidth - tip.width - 8);
-  }
-  treeTip.style.left = `${Math.max(8, left)}px`;
-  treeTip.style.top = `${Math.min(Math.max(8, box.top + box.height / 2 - tip.height / 2),
-    Math.max(8, window.innerHeight - tip.height - 8))}px`;
-}
-
-/* Hidden on a delay, so the pointer can travel from the node into the tooltip
-   without it vanishing on the way. */
-function hideTreeTip() {
-  clearTimeout(treeTipTimer);
-  treeTipTimer = setTimeout(() => {
-    if (treeTip) treeTip.hidden = true;
-    treeTipFor = null;
-  }, 160);
+  // The hint has served its purpose once a card has stood in its place.
+  treeTipHint.hidden = true;
+  // A different node reads from the top; a re-render of the same one (a click
+  // bought a rank) keeps whatever the reader had scrolled to.
+  if (another) treeTip.scrollTop = 0;
 }
 
 /* ---- table rendering ----------------------------------------------------- */
@@ -2026,6 +2014,7 @@ function route() {
   $('table').hidden = custom;
   $('empty').hidden = true;
   $('custom').hidden = !custom;
+  $('custom').classList.toggle('wide', custom && !!section.wide);
   document.querySelector('.detail-pane').hidden = custom;
   if (custom) {
     $('custom').replaceChildren(section.custom(key, rest.join('/')));
@@ -2089,7 +2078,7 @@ function init() {
     }
     if (event.key === 'Escape') {
       search.blur(); filter.blur(); $('search-results').hidden = true;
-      closeFacetMenus(); closeSlotPicker(); hideTreeTip(); setNav(false);
+      closeFacetMenus(); closeSlotPicker(); setNav(false);
     }
   });
   window.addEventListener('hashchange', route);

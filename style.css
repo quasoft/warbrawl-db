@@ -651,6 +651,9 @@ a.chip[class*="tone-label"]:hover { text-decoration: none; background: #202836; 
 
 /* ---- damage page ------------------------------------------------------- */
 .custom { padding-top: 4px; max-width: 1080px; }
+/* A custom page that lays something out across the pane rather than setting text
+   in a column: the reading-width cap is not its measure. */
+.custom.wide { max-width: none; }
 .page .block { margin-bottom: 26px; }
 .formula {
   margin: 12px 0 0;
@@ -765,7 +768,7 @@ a.chip[class*="tone-label"]:hover { text-decoration: none; background: #202836; 
    wire colours - is authored in AbilityTreeTheme.asset and arrives as data, so
    the rules here only do the parts CSS owns: stacking, masking and hit areas. */
 
-.tree-page { max-width: 1500px; }
+.tree-page { max-width: 1900px; }
 
 .tree-bar {
   display: flex;
@@ -804,6 +807,36 @@ a.chip[class*="tone-label"]:hover { text-decoration: none; background: #202836; 
   cursor: pointer;
 }
 .tree-btn:hover { border-color: var(--accent-dim); color: var(--text-bright); }
+/* Tree on the left, the hover card's column on the right. The column is laid out
+   whether or not a card is showing, and is never positioned against a node, so
+   nothing under the pointer moves when one appears and nothing the reader is
+   looking at is covered. */
+.tree-body { display: flex; align-items: stretch; gap: 16px; }
+.tree-main { flex: 1 1 auto; min-width: 0; }
+.tree-aside {
+  /* Wide enough to read a payload table in, and no wider: what it takes here the
+     tree pays for, and below about 1300px the two stop fitting side by side. */
+  flex: 0 0 clamp(320px, 24vw, 400px);
+  width: clamp(320px, 24vw, 400px);
+  /* The height comes from the window, never from the card. A column that sized
+     itself to its content would change the page's height every time the pointer
+     crossed a node - and at the threshold where that flips the scroller on, the
+     scrollbar takes its width out of the tree. Deep enough for most cards to
+     stand without scrolling; a taller one scrolls inside. */
+  height: clamp(340px, calc(100vh - 210px), 680px);
+  margin-top: 18px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.tree-tip-hint {
+  margin: 0;
+  padding: 2px 2px 0;
+  color: #74808f;
+  font-size: 13.5px;
+  line-height: 1.5;
+}
+
 /* The stage is the viewport; the canvas inside it holds the tree at its authored
    size and is scaled to fit the width, the way the screen fits its viewport. */
 .tree-stage { position: relative; margin-top: 18px; overflow-x: auto; overflow-y: hidden; }
@@ -1018,21 +1051,19 @@ a.chip[class*="tone-label"]:hover { text-decoration: none; background: #202836; 
 .tslot-choice.clear { margin-top: 4px; border-top: 1px solid var(--line); border-radius: 0; color: var(--text-dim); }
 .tslot-empty { padding: 6px 8px 10px; color: var(--text-dim); font-size: 13px; }
 
-/* ---- node tooltip ------------------------------------------------------ */
-/* The tooltip carries the same detail the Abilities pane does, so it is sized
-   for that content and stays hoverable: its links are meant to be followed, and
-   a tall one has to be able to scroll. */
+/* ---- node card --------------------------------------------------------- */
+/* The card carries the same detail the Abilities pane does, so it is sized for
+   that content and stays hoverable: its links are meant to be followed, and one
+   taller than its column has to be able to scroll. */
 .tree-tip {
-  position: fixed;
-  z-index: 60;
-  width: 380px;
-  max-height: calc(100vh - 16px);
+  /* Shrinks to the column and scrolls inside it rather than growing the page. */
+  flex: 0 1 auto;
+  min-height: 0;
   padding: 14px 16px;
   overflow-y: auto;
   background: #12161d;
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  box-shadow: 0 14px 36px rgba(0, 0, 0, .6);
   font-size: 14px;
 }
 /* The last block sits against the footer rule; its own bottom margin doubles it. */
@@ -1055,7 +1086,13 @@ a.chip[class*="tone-label"]:hover { text-decoration: none; background: #202836; 
 .tree-tip-foot .no { color: var(--bad); }
 .tree-tip-foot .dim { color: #8b98a9; }
 
+/* Too narrow to hold the tree and the card side by side: the card goes under the
+   tree, still reserved, so a hover moves nothing there either. */
+@media (max-width: 1300px) {
+  .tree-body { display: block; }
+  .tree-aside { width: auto; max-width: 560px; height: clamp(320px, 55vh, 520px); }
+}
+
 @media (max-width: 700px) {
   .tree-slots { flex-wrap: wrap; }
-  .tree-tip { width: min(380px, calc(100vw - 24px)); }
 }
