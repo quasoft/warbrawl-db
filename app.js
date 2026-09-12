@@ -1392,6 +1392,7 @@ function treesPage(treeKey, code) {
   // The canvas keeps its authored size and is scaled; this box carries the scaled
   // size, so the stage scrolls by what is drawn rather than by what was authored.
   const fitBox = h('div', { class: 'tree-fit' }, canvas);
+  const tints = tintFilterDefs();
   const links = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
   links.setAttribute('class', 'tree-links');
   links.setAttribute('viewBox', `0 0 ${geometry.width} ${geometry.height}`);
@@ -1455,11 +1456,9 @@ function treesPage(treeKey, code) {
     // root's icon so the abilities table reads well, but the screen draws a
     // borrowed icon nowhere, and this page is that screen.
     const art = h('span', { class: 'tnode-art' },
-      layer('tnode-frame', node.icon && node.icon.frame),
-      tintLayer('tnode-frame-tint', node.icon && node.icon.frame),
-      layer('tnode-icon', ownIcon(node), inset),
-      TREE_THEME.tintIconWithState
-        ? tintLayer('tnode-icon-tint', ownIcon(node), inset) : null);
+      layer('tnode-frame tnode-tinted', node.icon && node.icon.frame),
+      layer('tnode-icon' + (TREE_THEME.tintIconWithState ? ' tnode-tinted' : ''),
+        ownIcon(node), inset));
     const rank = h('span', { class: 'tnode-rank' });
     // Sized off the node, the way the screen sizes it: a percentage here would
     // measure against the button's font size, not its diameter.
@@ -1508,14 +1507,8 @@ function treesPage(treeKey, code) {
       const paint = visual === 'Available' && !node.canEquip ? 'Locked' : visual;
       view.el.dataset.state = visual;
       view.el.dataset.paint = paint;
-      const tint = TREE_COLORS[paint] || '#ffffff';
-      view.el.style.setProperty('--tint', tint);
-      // A white tint has nothing to say and says it badly. Multiplying by white
-      // returns the backdrop untouched wherever the art is opaque - but where it is
-      // half-transparent, compositing falls back to a fraction of the source colour
-      // itself, so the layer paints raw white into every anti-aliased pixel and
-      // rings the plate with a thin white outline. Dropping it there is exact.
-      view.el.classList.toggle('untinted', isWhiteTint(tint));
+      view.el.style.setProperty('--tint-filter',
+        tintFilter(TREE_COLORS[paint] || '#ffffff'));
       // A ranked node lights up as it fills rather than jumping to full on the
       // first point: rank 1 sits a step above the unbought dim and the last rank
       // reaches the brightness the theme paints a bought node at. Clearing the
@@ -1589,7 +1582,8 @@ function treesPage(treeKey, code) {
         h('div', { class: 'tree-footer' },
           h('div', { class: 'tree-footer-label' }, 'Loadout'),
           slotRow, status)),
-      h('aside', { class: 'tree-aside' }, treeTipHint, treeTip)));
+      h('aside', { class: 'tree-aside' }, treeTipHint, treeTip)),
+    tints);
 
   page.style.setProperty('--tnode-locked-icon', TREE_THEME.lockedIconOpacity || 0.35);
   refresh();
@@ -1611,28 +1605,65 @@ function layer(className, file, inset) {
   } });
 }
 
-/* Whether a theme colour is plain white, however the asset spells it (#fff,
-   #ffffff, white): asked of the CSS parser rather than parsed here, so every
-   spelling normalises to one serialisation. A translucent white is not this - it
-   is not a no-op - and correctly answers false. */
-const isWhiteTint = (() => {
+/* A theme colour as 0-255 channels, read back from the CSS parser rather than
+   parsed here, so every spelling (#fff, #ffffff, white) lands on one answer. */
+const tintChannels = (() => {
   const probe = document.createElement('span');
   return (color) => {
     probe.style.color = '';
     probe.style.color = color;
-    return probe.style.color === 'rgb(255, 255, 255)';
+    const parts = /^rgba?\((\d+),\s*(\d+),\s*(\d+)/.exec(probe.style.color);
+    return parts ? [+parts[1], +parts[2], +parts[3]] : null;
   };
 })();
 
-/* The state colour, multiplied into the layer beneath and masked to its art so it
-   tints the shape rather than a square - which is what the screen's Image.color
-   does to the same sprite. A white one is skipped; see the paint line in the tree
-   page for why. */
-function tintLayer(className, file, inset) {
-  if (!file) return null;
-  const el = h('span', { class: className, style: { inset: inset || '0' } });
-  el.style.maskImage = el.style.webkitMaskImage = `url("${file}")`;
-  return el;
+/* What the screen does to a plate is multiply its sprite by the state colour, and
+   a colour matrix is exactly that: it scales the colour channels and leaves alpha
+   alone, so an anti-aliased edge comes out tinted at the coverage it was drawn
+   at. A second layer of the colour, masked to the same sprite and multiplied over
+   it, cannot do this - across an edge pixel the two alphas overlap only by alpha
+   squared, and the rest of the pixel keeps the art untinted. That leftover is
+   what ringed every plate with a pale outline and lit unbought icons that should
+   have been dark, and no amount of tuning the colour fixes it; the geometry of
+   the composite is wrong. White is skipped: scaling by 1 is a no-op. */
+const tintFilterId = (rgb) => `tnode-tint-${rgb.join('-')}`;
+const isWhiteTint = (rgb) => rgb[0] === 255 && rgb[1] === 255 && rgb[2] === 255;
+
+function tintFilter(color) {
+  const rgb = tintChannels(color);
+  return !rgb || isWhiteTint(rgb) ? 'none' : `url(#${tintFilterId(rgb)})`;
+}
+
+/* One filter per colour the theme paints a state with, carried by the page that
+   uses them so they leave with it. */
+function tintFilterDefs() {
+  const ns = 'http://www.w3.org/2000/svg';
+  const svg = document.createElementNS(ns, 'svg');
+  svg.setAttribute('class', 'tnode-tints');
+  svg.setAttribute('aria-hidden', 'true');
+  const defs = document.createElementNS(ns, 'defs');
+  const made = new Set();
+  for (const color of Object.values(TREE_COLORS)) {
+    const rgb = tintChannels(color);
+    if (!rgb || isWhiteTint(rgb)) continue;
+    const id = tintFilterId(rgb);
+    if (made.has(id)) continue;
+    made.add(id);
+    const filter = document.createElementNS(ns, 'filter');
+    filter.setAttribute('id', id);
+    // The default filter space is linearRGB, which would multiply in a space the
+    // screen does not and come back lighter than the game's plate.
+    filter.setAttribute('color-interpolation-filters', 'sRGB');
+    const matrix = document.createElementNS(ns, 'feColorMatrix');
+    matrix.setAttribute('type', 'matrix');
+    const [r, g, b] = rgb.map((c) => c / 255);
+    matrix.setAttribute('values',
+      `${r} 0 0 0 0  0 ${g} 0 0 0  0 0 ${b} 0 0  0 0 0 1 0`);
+    filter.append(matrix);
+    defs.append(filter);
+  }
+  svg.append(defs);
+  return svg;
 }
 
 /* ---- loadout slots ------------------------------------------------------- */

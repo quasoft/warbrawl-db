@@ -387,7 +387,10 @@ tbody tr:nth-child(even) { background: var(--bg-row-alt); }
 tbody tr:hover { background: #212a36; }
 tbody tr.selected { background: #2b3546; box-shadow: inset 2px 0 0 var(--accent); }
 
-.cell-name { display: flex; align-items: center; gap: 9px; min-width: 190px; }
+.cell-name { display: flex; align-items: center; gap: 11px; min-width: 190px; }
+/* The name column's tile is the row's picture and carries the scanning - bigger
+   than an icon standing in a sentence or in the search drop-down. */
+.cell-name .icon { width: 48px; height: 48px; flex-basis: 48px; border-radius: 7px; }
 .cell-name strong { font-weight: 600; color: var(--text-bright); }
 .muted { color: var(--text-dim); }
 .num { font-variant-numeric: tabular-nums; text-align: right; }
@@ -395,15 +398,15 @@ td.wrap-desc { color: #d5dce5; font-size: 14.5px; max-width: 46ch; }
 
 /* ---- icons ------------------------------------------------------------ */
 .icon {
-  width: 30px; height: 30px;
-  flex: 0 0 30px;
-  border-radius: 5px;
+  width: 38px; height: 38px;
+  flex: 0 0 38px;
+  border-radius: 6px;
   background: #0a0d12 center/86% no-repeat;
   border: 1px solid var(--line);
 }
 .icon.tinted { background-color: currentColor; }
-.icon.big { width: 52px; height: 52px; flex-basis: 52px; }
-.icon.small { width: 20px; height: 20px; flex-basis: 20px; border-radius: 4px; }
+.icon.big { width: 76px; height: 76px; flex-basis: 76px; border-radius: 8px; }
+.icon.small { width: 26px; height: 26px; flex-basis: 26px; border-radius: 5px; }
 /* Any cross-reference carries its subject's icon, so a Bleed in a table reads
    as the same thing as the Bleed row on the status page. */
 .ref { display: inline-flex; align-items: center; gap: 6px; vertical-align: middle; }
@@ -483,7 +486,7 @@ a.chip[class*="tone-label"]:hover { text-decoration: none; background: #202836; 
 .detail-empty { color: var(--text-dim); padding: 40px 6px; text-align: center; font-size: 15px; }
 
 .detail-head { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 12px; }
-.detail-head h2 { margin: 0 0 3px; font-size: 21px; color: var(--text-bright); }
+.detail-head h2 { margin: 0 0 3px; font-size: 23px; color: var(--text-bright); }
 .detail-head .kicker { color: var(--text-dim); font-size: 13px; }
 .detail-desc {
   margin: 0 0 18px;
@@ -865,32 +868,22 @@ a.chip[class*="tone-label"]:hover { text-decoration: none; background: #202836; 
   /* Nodes sit above the bands and the wires; the wires already run under them. */
   z-index: 1;
 }
-.tnode-art { position: absolute; inset: 0; isolation: isolate; }
-.tnode-frame, .tnode-icon, .tnode-frame-tint, .tnode-icon-tint {
+.tnode-art { position: absolute; inset: 0; }
+.tnode-frame, .tnode-icon {
   position: absolute;
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100% 100%;
 }
-/* Unity multiplies the sprite by the state colour; masking the colour to the
-   sprite's own alpha and multiplying does the same thing without painting a
-   square of it over the page. */
-.tnode-frame-tint, .tnode-icon-tint {
-  background-color: var(--tint, #fff);
-  mix-blend-mode: multiply;
-  mask-size: 100% 100%;
-  -webkit-mask-size: 100% 100%;
-  mask-repeat: no-repeat;
-  -webkit-mask-repeat: no-repeat;
-  mask-position: center;
-  -webkit-mask-position: center;
-}
-.tnode[data-paint="Locked"] .tnode-icon,
-.tnode[data-paint="Locked"] .tnode-icon-tint { opacity: var(--tnode-locked-icon, .35); }
-/* A white state colour is dropped rather than multiplied (app.js decides), because
-   a white multiply layer is an identity over the art and a white halo over its
-   anti-aliased edge - the thin outline it drew around every bought plate. */
-.tnode.untinted .tnode-frame-tint, .tnode.untinted .tnode-icon-tint { display: none; }
+/* Unity multiplies the sprite by the state colour; a colour matrix scales the
+   same channels and leaves alpha alone, so the sprite's anti-aliased edge is
+   tinted at the coverage it was drawn at. app.js builds one filter per state
+   colour and names it here; white resolves to none. See tintFilterDefs for why a
+   second, masked layer of the colour cannot do this without ringing the plate. */
+.tnode-art .tnode-tinted { filter: var(--tint-filter, none); }
+.tnode[data-paint="Locked"] .tnode-icon { opacity: var(--tnode-locked-icon, .35); }
+/* Definitions only - it draws nothing itself. */
+.tnode-tints { position: absolute; width: 0; height: 0; }
 /* The fade above and the ramp below key off data-paint - the look a node is given -
    rather than data-state, the rule position it is in. The two part ways for one
    case: a purchasable passive is painted locked, because on a passive only points
@@ -924,7 +917,7 @@ a.chip[class*="tone-label"]:hover { text-decoration: none; background: #202836; 
   text-align: center;
   text-shadow: 0 1px 3px #000;
 }
-.tnode.ranked .tnode-icon, .tnode.ranked .tnode-icon-tint { transform: translateY(-14%); }
+.tnode.ranked .tnode-icon { transform: translateY(-14%); }
 .tnode[data-paint="Available"] .tnode-rank { color: #c9d2df; }
 .tnode[data-paint="Locked"] .tnode-rank { color: #8d93a0; }
 /* Which slot a bought ability is sitting in. The screen has no node-level glyph
