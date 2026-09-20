@@ -748,6 +748,8 @@ function weaponDetail(weapon) {
     block('Light combo', weapon.lightCombo.map((key, i) =>
       link('attacks', key, `${i + 1}. ${indexOf('attacks', key).name}`, 'chip link'))),
     weapon.heavyAttack && block('Heavy attack', link('attacks', weapon.heavyAttack, null, 'chip link')),
+    (weapon.heavyCombo || []).length > 0 && block('Heavy combo', weapon.heavyCombo.map((key, i) =>
+      link('attacks', key, `${i + 1}. ${indexOf('attacks', key).name}`, 'chip link'))),
     assetBlock(weapon.assetPath));
 }
 

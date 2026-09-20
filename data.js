@@ -2,20 +2,20 @@
 window.WBDB = {
  "meta": {
   "game": "WarBrawl",
-  "version": "0.5.1",
+  "version": "0.6.1",
   "internal": false,
-  "generated": "2026-09-12 13:19",
+  "generated": "2026-09-20 11:59",
   "tickRate": 60,
   "counts": {
    "perks": 16,
-   "abilityPerks": 13,
+   "abilityPerks": 24,
    "labels": 2,
-   "statuses": 13,
-   "abilities": 83,
-   "attacks": 25,
-   "weapons": 4,
-   "slots": 12,
-   "trees": 4
+   "statuses": 15,
+   "abilities": 104,
+   "attacks": 50,
+   "weapons": 5,
+   "slots": 13,
+   "trees": 5
   }
  },
  "perks": [
@@ -47,7 +47,8 @@ window.WBDB = {
     "sword",
     "bow",
     "spear",
-    "axe"
+    "axe",
+    "hammer"
    ],
    "effect": {
     "trigger": 1,
@@ -108,7 +109,8 @@ window.WBDB = {
     "sword",
     "bow",
     "spear",
-    "axe"
+    "axe",
+    "hammer"
    ],
    "effect": {
     "trigger": 2,
@@ -169,7 +171,8 @@ window.WBDB = {
     "sword",
     "bow",
     "spear",
-    "axe"
+    "axe",
+    "hammer"
    ],
    "effect": {
     "trigger": 1,
@@ -230,7 +233,8 @@ window.WBDB = {
     "sword",
     "bow",
     "spear",
-    "axe"
+    "axe",
+    "hammer"
    ],
    "effect": {
     "trigger": 1,
@@ -296,7 +300,8 @@ window.WBDB = {
     "sword",
     "bow",
     "spear",
-    "axe"
+    "axe",
+    "hammer"
    ],
    "effect": {
     "trigger": 1,
@@ -362,7 +367,8 @@ window.WBDB = {
     "sword",
     "bow",
     "spear",
-    "axe"
+    "axe",
+    "hammer"
    ],
    "effect": {
     "trigger": 1,
@@ -475,7 +481,8 @@ window.WBDB = {
     "sword",
     "bow",
     "spear",
-    "axe"
+    "axe",
+    "hammer"
    ],
    "effect": {
     "trigger": 1,
@@ -541,7 +548,8 @@ window.WBDB = {
     "sword",
     "bow",
     "spear",
-    "axe"
+    "axe",
+    "hammer"
    ],
    "effect": {
     "trigger": 1,
@@ -595,7 +603,8 @@ window.WBDB = {
     "sword",
     "bow",
     "spear",
-    "axe"
+    "axe",
+    "hammer"
    ],
    "effect": {
     "trigger": 1,
@@ -619,7 +628,7 @@ window.WBDB = {
   {
    "key": "freedom",
    "name": "Freedom",
-   "description": "Slow, Stun and Stagger on you last 25% shorter.",
+   "description": "Slow, Stun, Stagger and Knockdown on you last 25% shorter.",
    "icon": {
     "file": "icons/ICON_FantasyWarrior_Status_Fortified_01_Underlay-3d88a205.png"
    },
@@ -689,7 +698,8 @@ window.WBDB = {
     "sword",
     "bow",
     "spear",
-    "axe"
+    "axe",
+    "hammer"
    ],
    "effect": {
     "trigger": 2,
@@ -750,7 +760,8 @@ window.WBDB = {
     "sword",
     "bow",
     "spear",
-    "axe"
+    "axe",
+    "hammer"
    ],
    "effect": {
     "trigger": 2,
@@ -926,6 +937,661 @@ window.WBDB = {
   }
  ],
  "abilityPerks": [
+  {
+   "key": "axe-shockwave-perk",
+   "name": "Shockwave",
+   "description": "The slam's shockwave grants you and allies within 2 m of the impact +20% armor for 4 s.",
+   "icon": {
+    "file": "icons/Fortify-1-2acdf1cd.png",
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
+   },
+   "tree": "Axe",
+   "treeKey": "axe",
+   "ability": "axe-shockwave",
+   "category": "Modifier",
+   "scope": "Parent ability only",
+   "scopeHelp": "Hits of the parent Active ability only.",
+   "maxRank": 1,
+   "ranks": [
+    {
+     "rank": 1,
+     "effect": {
+      "trigger": 0,
+      "triggerName": "Passive",
+      "triggerHelp": "Contributes to derived stats continuously.",
+      "grants": [],
+      "grantsApplyToSelf": false,
+      "flatDamage": 0,
+      "flatDamageSchool": "Physical",
+      "internalCooldownTicks": 0,
+      "internalCooldownText": "None",
+      "freedomCcReduction": 0,
+      "auraDamagePerEnemy": 0,
+      "auraRadius": 0,
+      "projectileGravityReduction": 0,
+      "assetPath": null
+     },
+     "summary": "No effect payload"
+    }
+   ],
+   "effect": {
+    "trigger": 0,
+    "triggerName": "Passive",
+    "triggerHelp": "Contributes to derived stats continuously.",
+    "grants": [],
+    "grantsApplyToSelf": false,
+    "flatDamage": 0,
+    "flatDamageSchool": "Physical",
+    "internalCooldownTicks": 0,
+    "internalCooldownText": "None",
+    "freedomCcReduction": 0,
+    "auraDamagePerEnemy": 0,
+    "auraRadius": 0,
+    "projectileGravityReduction": 0,
+    "assetPath": null
+   },
+   "effectSummary": "No effect payload"
+  },
+  {
+   "key": "axe-rushing-spin-perk",
+   "name": "Rushing Spin",
+   "description": "Headlong Rush's cleave is followed by a spinning second blow.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png",
+    "file": "icons/AxeHeadlongRush-ea879199.png",
+    "inherited": true
+   },
+   "tree": "Axe",
+   "treeKey": "axe",
+   "ability": "axe-rushing-spin",
+   "category": "Passive",
+   "scope": "Parent ability only",
+   "scopeHelp": "Hits of the parent Active ability only.",
+   "maxRank": 1,
+   "ranks": [
+    {
+     "rank": 1,
+     "effect": {
+      "trigger": 0,
+      "triggerName": "Passive",
+      "triggerHelp": "Contributes to derived stats continuously.",
+      "grants": [],
+      "grantsApplyToSelf": false,
+      "flatDamage": 0,
+      "flatDamageSchool": "Physical",
+      "internalCooldownTicks": 0,
+      "internalCooldownText": "None",
+      "freedomCcReduction": 0,
+      "auraDamagePerEnemy": 0,
+      "auraRadius": 0,
+      "projectileGravityReduction": 0,
+      "assetPath": null
+     },
+     "summary": "No effect payload"
+    }
+   ],
+   "effect": {
+    "trigger": 0,
+    "triggerName": "Passive",
+    "triggerHelp": "Contributes to derived stats continuously.",
+    "grants": [],
+    "grantsApplyToSelf": false,
+    "flatDamage": 0,
+    "flatDamageSchool": "Physical",
+    "internalCooldownTicks": 0,
+    "internalCooldownText": "None",
+    "freedomCcReduction": 0,
+    "auraDamagePerEnemy": 0,
+    "auraRadius": 0,
+    "projectileGravityReduction": 0,
+    "assetPath": null
+   },
+   "effectSummary": "No effect payload"
+  },
+  {
+   "key": "axe-felling-chop-perk",
+   "name": "Felling Chop",
+   "description": "Goodnight Sweep continues into an overhead chop on the ground ahead, hitting everyone within 2 m for 42 damage.",
+   "icon": {
+    "file": "icons/AxeGoodnightSweepChop-3-23dfaf4d.png",
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
+   },
+   "tree": "Axe",
+   "treeKey": "axe",
+   "ability": "axe-felling-chop",
+   "category": "Modifier",
+   "scope": "Parent ability only",
+   "scopeHelp": "Hits of the parent Active ability only.",
+   "maxRank": 1,
+   "ranks": [
+    {
+     "rank": 1,
+     "effect": {
+      "trigger": 0,
+      "triggerName": "Passive",
+      "triggerHelp": "Contributes to derived stats continuously.",
+      "grants": [],
+      "grantsApplyToSelf": false,
+      "flatDamage": 0,
+      "flatDamageSchool": "Physical",
+      "internalCooldownTicks": 0,
+      "internalCooldownText": "None",
+      "freedomCcReduction": 0,
+      "auraDamagePerEnemy": 0,
+      "auraRadius": 0,
+      "projectileGravityReduction": 0,
+      "assetPath": null
+     },
+     "summary": "No effect payload"
+    }
+   ],
+   "effect": {
+    "trigger": 0,
+    "triggerName": "Passive",
+    "triggerHelp": "Contributes to derived stats continuously.",
+    "grants": [],
+    "grantsApplyToSelf": false,
+    "flatDamage": 0,
+    "flatDamageSchool": "Physical",
+    "internalCooldownTicks": 0,
+    "internalCooldownText": "None",
+    "freedomCcReduction": 0,
+    "auraDamagePerEnemy": 0,
+    "auraRadius": 0,
+    "projectileGravityReduction": 0,
+    "assetPath": null
+   },
+   "effectSummary": "No effect payload"
+  },
+  {
+   "key": "axe-third-spin-perk",
+   "name": "Third Spin",
+   "description": "Tornado spins a third time, striking everyone around you again for 20 damage.",
+   "icon": {
+    "file": "icons/ExtraSpin-432c93e2.png",
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
+   },
+   "tree": "Axe",
+   "treeKey": "axe",
+   "ability": "axe-third-spin",
+   "category": "Modifier",
+   "scope": "Parent ability only",
+   "scopeHelp": "Hits of the parent Active ability only.",
+   "maxRank": 1,
+   "ranks": [
+    {
+     "rank": 1,
+     "effect": {
+      "trigger": 0,
+      "triggerName": "Passive",
+      "triggerHelp": "Contributes to derived stats continuously.",
+      "grants": [],
+      "grantsApplyToSelf": false,
+      "flatDamage": 0,
+      "flatDamageSchool": "Physical",
+      "internalCooldownTicks": 0,
+      "internalCooldownText": "None",
+      "freedomCcReduction": 0,
+      "auraDamagePerEnemy": 0,
+      "auraRadius": 0,
+      "projectileGravityReduction": 0,
+      "assetPath": null
+     },
+     "summary": "No effect payload"
+    }
+   ],
+   "effect": {
+    "trigger": 0,
+    "triggerName": "Passive",
+    "triggerHelp": "Contributes to derived stats continuously.",
+    "grants": [],
+    "grantsApplyToSelf": false,
+    "flatDamage": 0,
+    "flatDamageSchool": "Physical",
+    "internalCooldownTicks": 0,
+    "internalCooldownText": "None",
+    "freedomCcReduction": 0,
+    "auraDamagePerEnemy": 0,
+    "auraRadius": 0,
+    "projectileGravityReduction": 0,
+    "assetPath": null
+   },
+   "effectSummary": "No effect payload"
+  },
+  {
+   "key": "axe-fourth-spin-perk",
+   "name": "Fourth Spin",
+   "description": "Tornado spins a fourth time, striking everyone around you again for 20 damage.",
+   "icon": {
+    "file": "icons/ExtraSpin-432c93e2.png",
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
+   },
+   "tree": "Axe",
+   "treeKey": "axe",
+   "ability": "axe-fourth-spin",
+   "category": "Modifier",
+   "scope": "Parent ability only",
+   "scopeHelp": "Hits of the parent Active ability only.",
+   "maxRank": 1,
+   "ranks": [
+    {
+     "rank": 1,
+     "effect": {
+      "trigger": 0,
+      "triggerName": "Passive",
+      "triggerHelp": "Contributes to derived stats continuously.",
+      "grants": [],
+      "grantsApplyToSelf": false,
+      "flatDamage": 0,
+      "flatDamageSchool": "Physical",
+      "internalCooldownTicks": 0,
+      "internalCooldownText": "None",
+      "freedomCcReduction": 0,
+      "auraDamagePerEnemy": 0,
+      "auraRadius": 0,
+      "projectileGravityReduction": 0,
+      "assetPath": null
+     },
+     "summary": "No effect payload"
+    }
+   ],
+   "effect": {
+    "trigger": 0,
+    "triggerName": "Passive",
+    "triggerHelp": "Contributes to derived stats continuously.",
+    "grants": [],
+    "grantsApplyToSelf": false,
+    "flatDamage": 0,
+    "flatDamageSchool": "Physical",
+    "internalCooldownTicks": 0,
+    "internalCooldownText": "None",
+    "freedomCcReduction": 0,
+    "auraDamagePerEnemy": 0,
+    "auraRadius": 0,
+    "projectileGravityReduction": 0,
+    "assetPath": null
+   },
+   "effectSummary": "No effect payload"
+  },
+  {
+   "key": "axe-second-flip-perk",
+   "name": "Second Flip",
+   "description": "Iron Wheel somersaults a second time, hitting everyone you roll through again for 16 damage.",
+   "icon": {
+    "file": "icons/ExtraSpin-432c93e2.png",
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
+   },
+   "tree": "Axe",
+   "treeKey": "axe",
+   "ability": "axe-second-flip",
+   "category": "Modifier",
+   "scope": "Parent ability only",
+   "scopeHelp": "Hits of the parent Active ability only.",
+   "maxRank": 1,
+   "ranks": [
+    {
+     "rank": 1,
+     "effect": {
+      "trigger": 0,
+      "triggerName": "Passive",
+      "triggerHelp": "Contributes to derived stats continuously.",
+      "grants": [],
+      "grantsApplyToSelf": false,
+      "flatDamage": 0,
+      "flatDamageSchool": "Physical",
+      "internalCooldownTicks": 0,
+      "internalCooldownText": "None",
+      "freedomCcReduction": 0,
+      "auraDamagePerEnemy": 0,
+      "auraRadius": 0,
+      "projectileGravityReduction": 0,
+      "assetPath": null
+     },
+     "summary": "No effect payload"
+    }
+   ],
+   "effect": {
+    "trigger": 0,
+    "triggerName": "Passive",
+    "triggerHelp": "Contributes to derived stats continuously.",
+    "grants": [],
+    "grantsApplyToSelf": false,
+    "flatDamage": 0,
+    "flatDamageSchool": "Physical",
+    "internalCooldownTicks": 0,
+    "internalCooldownText": "None",
+    "freedomCcReduction": 0,
+    "auraDamagePerEnemy": 0,
+    "auraRadius": 0,
+    "projectileGravityReduction": 0,
+    "assetPath": null
+   },
+   "effectSummary": "No effect payload"
+  },
+  {
+   "key": "axe-quaking-slam-perk",
+   "name": "Quaking Slam",
+   "description": "Iron Wheel's landing knocks down everyone it hits for 2.0 s.",
+   "icon": {
+    "file": "icons/PushBack-7090743c.png",
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
+   },
+   "tree": "Axe",
+   "treeKey": "axe",
+   "ability": "axe-quaking-slam",
+   "category": "Modifier",
+   "scope": "Parent ability only",
+   "scopeHelp": "Hits of the parent Active ability only.",
+   "maxRank": 1,
+   "ranks": [
+    {
+     "rank": 1,
+     "effect": {
+      "trigger": 0,
+      "triggerName": "Passive",
+      "triggerHelp": "Contributes to derived stats continuously.",
+      "grants": [],
+      "grantsApplyToSelf": false,
+      "flatDamage": 0,
+      "flatDamageSchool": "Physical",
+      "internalCooldownTicks": 0,
+      "internalCooldownText": "None",
+      "freedomCcReduction": 0,
+      "auraDamagePerEnemy": 0,
+      "auraRadius": 0,
+      "projectileGravityReduction": 0,
+      "assetPath": null
+     },
+     "summary": "No effect payload"
+    }
+   ],
+   "effect": {
+    "trigger": 0,
+    "triggerName": "Passive",
+    "triggerHelp": "Contributes to derived stats continuously.",
+    "grants": [],
+    "grantsApplyToSelf": false,
+    "flatDamage": 0,
+    "flatDamageSchool": "Physical",
+    "internalCooldownTicks": 0,
+    "internalCooldownText": "None",
+    "freedomCcReduction": 0,
+    "auraDamagePerEnemy": 0,
+    "auraRadius": 0,
+    "projectileGravityReduction": 0,
+    "assetPath": null
+   },
+   "effectSummary": "No effect payload"
+  },
+  {
+   "key": "axe-void-pull-perk",
+   "name": "Void Pull",
+   "description": "Battle Cry's roar drags everyone within 4.5 m toward you.",
+   "icon": {
+    "file": "icons/VoidPull-cfc3970f.png",
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
+   },
+   "tree": "Axe",
+   "treeKey": "axe",
+   "ability": "axe-void-pull",
+   "category": "Modifier",
+   "scope": "Parent ability only",
+   "scopeHelp": "Hits of the parent Active ability only.",
+   "maxRank": 1,
+   "ranks": [
+    {
+     "rank": 1,
+     "effect": {
+      "trigger": 0,
+      "triggerName": "Passive",
+      "triggerHelp": "Contributes to derived stats continuously.",
+      "grants": [],
+      "grantsApplyToSelf": false,
+      "flatDamage": 0,
+      "flatDamageSchool": "Physical",
+      "internalCooldownTicks": 0,
+      "internalCooldownText": "None",
+      "freedomCcReduction": 0,
+      "auraDamagePerEnemy": 0,
+      "auraRadius": 0,
+      "projectileGravityReduction": 0,
+      "assetPath": null
+     },
+     "summary": "No effect payload"
+    }
+   ],
+   "effect": {
+    "trigger": 0,
+    "triggerName": "Passive",
+    "triggerHelp": "Contributes to derived stats continuously.",
+    "grants": [],
+    "grantsApplyToSelf": false,
+    "flatDamage": 0,
+    "flatDamageSchool": "Physical",
+    "internalCooldownTicks": 0,
+    "internalCooldownText": "None",
+    "freedomCcReduction": 0,
+    "auraDamagePerEnemy": 0,
+    "auraRadius": 0,
+    "projectileGravityReduction": 0,
+    "assetPath": null
+   },
+   "effectSummary": "No effect payload"
+  },
+  {
+   "key": "axe-void-rot-perk",
+   "name": "Void Rot",
+   "description": "Everyone Void Pull drags takes 5 void damage a second for 6 s.",
+   "icon": {
+    "file": "icons/VoidDoT-8634e5f4.png",
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
+   },
+   "tree": "Axe",
+   "treeKey": "axe",
+   "ability": "axe-void-rot",
+   "category": "Modifier",
+   "scope": "Parent ability only",
+   "scopeHelp": "Hits of the parent Active ability only.",
+   "maxRank": 1,
+   "ranks": [
+    {
+     "rank": 1,
+     "effect": {
+      "trigger": 6,
+      "triggerName": "Trigger (6)",
+      "triggerHelp": "",
+      "grants": [
+       {
+        "status": "void",
+        "statusName": "Void",
+        "magnitude": 0,
+        "magnitudeText": null,
+        "tickDamage": 5,
+        "tickDamagePercentOfHit": 0,
+        "durationTicks": 360,
+        "durationText": "360 ticks (6 sec)",
+        "summary": "5 damage per sec"
+       }
+      ],
+      "grantsApplyToSelf": false,
+      "flatDamage": 0,
+      "flatDamageSchool": "Physical",
+      "internalCooldownTicks": 0,
+      "internalCooldownText": "None",
+      "freedomCcReduction": 0,
+      "auraDamagePerEnemy": 0,
+      "auraRadius": 0,
+      "projectileGravityReduction": 0,
+      "assetPath": null
+     },
+     "summary": "Void (5 damage per sec) on target for 6 sec"
+    }
+   ],
+   "effect": {
+    "trigger": 6,
+    "triggerName": "Trigger (6)",
+    "triggerHelp": "",
+    "grants": [
+     {
+      "status": "void",
+      "statusName": "Void",
+      "magnitude": 0,
+      "magnitudeText": null,
+      "tickDamage": 5,
+      "tickDamagePercentOfHit": 0,
+      "durationTicks": 360,
+      "durationText": "360 ticks (6 sec)",
+      "summary": "5 damage per sec"
+     }
+    ],
+    "grantsApplyToSelf": false,
+    "flatDamage": 0,
+    "flatDamageSchool": "Physical",
+    "internalCooldownTicks": 0,
+    "internalCooldownText": "None",
+    "freedomCcReduction": 0,
+    "auraDamagePerEnemy": 0,
+    "auraRadius": 0,
+    "projectileGravityReduction": 0,
+    "assetPath": null
+   },
+   "effectSummary": "Void (5 damage per sec) on target for 6 sec"
+  },
+  {
+   "key": "axe-grinding-wheel-perk",
+   "name": "Grinding Wheel",
+   "description": "Iron Wheel's hits slow the target by 15% for 3 s.",
+   "icon": {
+    "file": "icons/Slow-0c6b8c1f.png",
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
+   },
+   "tree": "Axe",
+   "treeKey": "axe",
+   "ability": "axe-grinding-wheel",
+   "category": "Modifier",
+   "scope": "Parent ability only",
+   "scopeHelp": "Hits of the parent Active ability only.",
+   "maxRank": 1,
+   "ranks": [
+    {
+     "rank": 1,
+     "effect": {
+      "trigger": 4,
+      "triggerName": "On ability hit",
+      "triggerHelp": "Fires only when an ability lands a hit.",
+      "grants": [
+       {
+        "status": "slow",
+        "statusName": "Slow",
+        "magnitude": 0.15,
+        "magnitudeText": "15%",
+        "tickDamage": 0,
+        "tickDamagePercentOfHit": 0,
+        "durationTicks": 180,
+        "durationText": "180 ticks (3 sec)",
+        "summary": "15%"
+       }
+      ],
+      "grantsApplyToSelf": false,
+      "flatDamage": 0,
+      "flatDamageSchool": "Physical",
+      "internalCooldownTicks": 0,
+      "internalCooldownText": "None",
+      "freedomCcReduction": 0,
+      "auraDamagePerEnemy": 0,
+      "auraRadius": 0,
+      "projectileGravityReduction": 0,
+      "assetPath": null
+     },
+     "summary": "Slow (15%) on target for 3 sec"
+    }
+   ],
+   "effect": {
+    "trigger": 4,
+    "triggerName": "On ability hit",
+    "triggerHelp": "Fires only when an ability lands a hit.",
+    "grants": [
+     {
+      "status": "slow",
+      "statusName": "Slow",
+      "magnitude": 0.15,
+      "magnitudeText": "15%",
+      "tickDamage": 0,
+      "tickDamagePercentOfHit": 0,
+      "durationTicks": 180,
+      "durationText": "180 ticks (3 sec)",
+      "summary": "15%"
+     }
+    ],
+    "grantsApplyToSelf": false,
+    "flatDamage": 0,
+    "flatDamageSchool": "Physical",
+    "internalCooldownTicks": 0,
+    "internalCooldownText": "None",
+    "freedomCcReduction": 0,
+    "auraDamagePerEnemy": 0,
+    "auraRadius": 0,
+    "projectileGravityReduction": 0,
+    "assetPath": null
+   },
+   "effectSummary": "Slow (15%) on target for 3 sec"
+  },
+  {
+   "key": "axe-void-burst-perk",
+   "name": "Void Burst",
+   "description": "Void Pull ends in a burst: 30 void damage to everyone within 2.5 m of you.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png",
+    "file": "icons/VoidPull-cfc3970f.png",
+    "inherited": true
+   },
+   "tree": "Axe",
+   "treeKey": "axe",
+   "ability": "axe-void-burst",
+   "category": "Modifier",
+   "scope": "Parent ability only",
+   "scopeHelp": "Hits of the parent Active ability only.",
+   "maxRank": 1,
+   "ranks": [
+    {
+     "rank": 1,
+     "effect": {
+      "trigger": 0,
+      "triggerName": "Passive",
+      "triggerHelp": "Contributes to derived stats continuously.",
+      "grants": [],
+      "grantsApplyToSelf": false,
+      "flatDamage": 0,
+      "flatDamageSchool": "Physical",
+      "internalCooldownTicks": 0,
+      "internalCooldownText": "None",
+      "freedomCcReduction": 0,
+      "auraDamagePerEnemy": 0,
+      "auraRadius": 0,
+      "projectileGravityReduction": 0,
+      "assetPath": null
+     },
+     "summary": "No effect payload"
+    }
+   ],
+   "effect": {
+    "trigger": 0,
+    "triggerName": "Passive",
+    "triggerHelp": "Contributes to derived stats continuously.",
+    "grants": [],
+    "grantsApplyToSelf": false,
+    "flatDamage": 0,
+    "flatDamageSchool": "Physical",
+    "internalCooldownTicks": 0,
+    "internalCooldownText": "None",
+    "freedomCcReduction": 0,
+    "auraDamagePerEnemy": 0,
+    "auraRadius": 0,
+    "projectileGravityReduction": 0,
+    "assetPath": null
+   },
+   "effectSummary": "No effect payload"
+  },
   {
    "key": "bow-triple-shot-power-perk",
    "name": "Triple Shot Power",
@@ -2281,6 +2947,24 @@ window.WBDB = {
      "durationText": "180 ticks (3 sec)",
      "summary": "10%",
      "extra": "on self"
+    },
+    {
+     "kind": "attack",
+     "key": "berserkattack-axe",
+     "name": "Battle Cry",
+     "magnitudeText": "20%",
+     "durationText": "480 ticks (8 sec)",
+     "summary": "20%",
+     "extra": "on self"
+    },
+    {
+     "kind": "attack",
+     "key": "berserkpullattack-axe",
+     "name": "Battle Cry (perk variant)",
+     "magnitudeText": "20%",
+     "durationText": "480 ticks (8 sec)",
+     "summary": "20%",
+     "extra": "on self"
     }
    ]
   },
@@ -2317,7 +3001,7 @@ window.WBDB = {
    "type": 2,
    "kind": "Buff",
    "axis": "Armor",
-   "description": "Increases armor rating, reducing incoming mitigated damage. Schema only in v1 - nothing applies it yet.",
+   "description": "Increases armor rating, reducing incoming mitigated damage. Sources sum, then net against Rend, and the result is clamped by the Fortify cap.",
    "icon": {
     "file": "icons/ICON_FantasyWarrior_Status_DefenseUp_01_Underlay-74636b19.png"
    },
@@ -2326,7 +3010,17 @@ window.WBDB = {
    "maxStacks": null,
    "school": null,
    "opposes": "rend",
-   "appliedBy": []
+   "appliedBy": [
+    {
+     "kind": "attack",
+     "key": "crushingleapshockwaveattack-axe",
+     "name": "Crushing Leap (perk variant)",
+     "magnitudeText": "20%",
+     "durationText": "240 ticks (4 sec)",
+     "summary": "20%",
+     "extra": "you and allies within 2 m of the impact"
+    }
+   ]
   },
   {
    "key": "rend",
@@ -2581,6 +3275,24 @@ window.WBDB = {
      "durationText": "360 ticks (6 sec)",
      "summary": "10%",
      "extra": null
+    },
+    {
+     "kind": "attack",
+     "key": "berserkattack-axe",
+     "name": "Battle Cry",
+     "magnitudeText": "15%",
+     "durationText": "480 ticks (8 sec)",
+     "summary": "15%",
+     "extra": "on self"
+    },
+    {
+     "kind": "attack",
+     "key": "berserkpullattack-axe",
+     "name": "Battle Cry (perk variant)",
+     "magnitudeText": "15%",
+     "durationText": "480 ticks (8 sec)",
+     "summary": "15%",
+     "extra": "on self"
     }
    ]
   },
@@ -2606,6 +3318,15 @@ window.WBDB = {
      "name": "Hobbling Strikes",
      "magnitudeText": "15%",
      "durationText": "120 ticks (2 sec)",
+     "summary": "15%",
+     "extra": null
+    },
+    {
+     "kind": "abilityPerk",
+     "key": "axe-grinding-wheel-perk",
+     "name": "Grinding Wheel (Axe)",
+     "magnitudeText": "15%",
+     "durationText": "180 ticks (3 sec)",
      "summary": "15%",
      "extra": null
     },
@@ -2745,6 +3466,15 @@ window.WBDB = {
      "durationText": "60 ticks (1 sec)",
      "summary": "-",
      "extra": null
+    },
+    {
+     "kind": "attack",
+     "key": "clearthewayattack-hammer",
+     "name": "Clear the Way",
+     "magnitudeText": "100%",
+     "durationText": "48 ticks (0.8 sec)",
+     "summary": "100%",
+     "extra": null
     }
    ]
   },
@@ -2811,15 +3541,99 @@ window.WBDB = {
    ],
    "tickIntervalTicks": 60,
    "tickIntervalText": "60 ticks (1 sec)"
+  },
+  {
+   "key": "knockdown",
+   "name": "KnockDown",
+   "type": 13,
+   "kind": "Control",
+   "axis": "Action + movement lockout, on the ground",
+   "description": "Locks out both actions and movement and lays the knight on the ground for its duration. Diminishing returns: a second knockdown within the window lasts half as long, and a third within it is refused outright. A grant may also push the target, either away from the attacker or along a direction the attack sets. Shortened by the target's Freedom stat.",
+   "icon": {
+    "file": "icons/ICON_FantasyWarrior_Status_Down_01_Underlay-b34a7599.png"
+   },
+   "cap": null,
+   "capText": null,
+   "maxStacks": null,
+   "school": null,
+   "opposes": null,
+   "appliedBy": [
+    {
+     "kind": "attack",
+     "key": "fellingsweepattack-axe",
+     "name": "Goodnight Sweep",
+     "magnitudeText": null,
+     "durationText": "220 ticks (3.67 sec)",
+     "summary": "-",
+     "extra": null
+    },
+    {
+     "kind": "attack",
+     "key": "fellingsweepchainattack-axe",
+     "name": "Goodnight Sweep (perk variant)",
+     "magnitudeText": null,
+     "durationText": "220 ticks (3.67 sec)",
+     "summary": "-",
+     "extra": null
+    },
+    {
+     "kind": "attack",
+     "key": "ironwheelquakeattack-axe",
+     "name": "Iron Wheel (perk variant)",
+     "magnitudeText": null,
+     "durationText": "120 ticks (2 sec)",
+     "summary": "-",
+     "extra": null
+    },
+    {
+     "kind": "attack",
+     "key": "clearthewayspinattack-hammer",
+     "name": "Clear the Way (follow-up)",
+     "magnitudeText": "500%",
+     "durationText": "240 ticks (4 sec)",
+     "summary": "500%",
+     "extra": null
+    }
+   ]
+  },
+  {
+   "key": "void",
+   "name": "Void",
+   "type": 14,
+   "kind": "Damage over time",
+   "axis": "Void damage over time",
+   "description": "Void damage over time. Stacks: each application adds its own stack with its own snapshotted per-tick damage, up to the stack limit. Ticks are mitigated by armor as they land.",
+   "icon": {
+    "file": "icons/ICON_FantasyWarrior_Status_Cursed_02_Underlay-593c3bc8.png"
+   },
+   "cap": null,
+   "capText": null,
+   "maxStacks": 3,
+   "school": "Void",
+   "opposes": null,
+   "appliedBy": [
+    {
+     "kind": "abilityPerk",
+     "key": "axe-void-rot-perk",
+     "name": "Void Rot (Axe)",
+     "magnitudeText": null,
+     "durationText": "360 ticks (6 sec)",
+     "summary": "5 damage per sec",
+     "extra": null
+    }
+   ],
+   "tickIntervalTicks": 60,
+   "tickIntervalText": "60 ticks (1 sec)"
   }
  ],
  "abilities": [
   {
-   "key": "axe-axe-active-1",
-   "name": "Axe Active 1",
-   "description": "Active ability. Equip it into Ability 1/2/3 once purchased.",
+   "key": "axe-crushing-leap",
+   "name": "Crushing Leap",
+   "description": "Leap about 5 m forward and bury the axe on landing. Hits everyone caught in the impact.",
    "icon": {
-    "frame": "icons/SkillSlot-Circle-5457dad8.png"
+    "file": "icons/AxeCrushingLeap-0b70c937.png",
+    "frame": "icons/SkillSlot-Hex-c7024a12.png"
    },
    "tree": "Axe",
    "treeKey": "axe",
@@ -2835,11 +3649,11 @@ window.WBDB = {
    "groupIndex": 0,
    "canEquip": true,
    "isGroupPrerequisite": false,
-   "shape": "Circle",
+   "shape": "Hexagon",
    "size": "ActiveRootLarge",
    "nodeGuid": "56afa6c7dd8985d60b0e8172a75ef1f3",
    "branch": "d79b3a9b571ed0f37d315adc1a787d59",
-   "branchName": "Axe Active 1",
+   "branchName": "Crushing Leap",
    "row": 0,
    "group": 0,
    "requiredParentRank": 1,
@@ -2848,17 +3662,18 @@ window.WBDB = {
    "parentNodeGuid": null,
    "parent": null,
    "children": [
-    "axe-axe-active-1-power"
+    "axe-shockwave"
    ],
-   "attack": null,
+   "attack": "crushingleapattack-axe",
    "abilityPerk": null,
    "assetPath": null
   },
   {
-   "key": "axe-axe-active-1-power",
-   "name": "Axe Active 1 Power",
-   "description": "Placeholder ranked modifier for Axe Active 1.",
+   "key": "axe-shockwave",
+   "name": "Shockwave",
+   "description": "The slam's shockwave grants you and allies within 2 m of the impact +20% armor for 4 s.",
    "icon": {
+    "file": "icons/Fortify-1-2acdf1cd.png",
     "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
    },
    "tree": "Axe",
@@ -2866,11 +3681,11 @@ window.WBDB = {
    "category": "Modifier",
    "nodeIndex": 1,
    "nodeId": 125,
-   "maxRank": 3,
+   "maxRank": 1,
    "costPerRank": [
     1
    ],
-   "totalCost": 3,
+   "totalCost": 1,
    "rowIndex": 0,
    "groupIndex": 0,
    "canEquip": false,
@@ -2879,27 +3694,29 @@ window.WBDB = {
    "size": "StandardSmall",
    "nodeGuid": "548097788e007ccffbc972feb7ae231b",
    "branch": "d79b3a9b571ed0f37d315adc1a787d59",
-   "branchName": "Axe Active 1",
+   "branchName": "Crushing Leap",
    "row": 1,
    "group": 0,
    "requiredParentRank": 1,
    "x": -650,
    "y": -150,
    "parentNodeGuid": "56afa6c7dd8985d60b0e8172a75ef1f3",
-   "parent": "axe-axe-active-1",
+   "parent": "axe-crushing-leap",
    "children": [
-    "axe-axe-active-1-mastery"
+    "axe-crushing-leap-mastery"
    ],
    "attack": null,
-   "abilityPerk": null,
+   "abilityPerk": "axe-shockwave-perk",
    "assetPath": null
   },
   {
-   "key": "axe-axe-active-1-mastery",
-   "name": "Axe Active 1 Mastery",
-   "description": "Placeholder passive capstone for Axe Active 1.",
+   "key": "axe-crushing-leap-mastery",
+   "name": "Crushing Leap Mastery",
+   "description": "Placeholder passive capstone for Crushing Leap.",
    "icon": {
-    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png",
+    "file": "icons/Fortify-1-2acdf1cd.png",
+    "inherited": true
    },
    "tree": "Axe",
    "treeKey": "axe",
@@ -2919,25 +3736,26 @@ window.WBDB = {
    "size": "StandardSmall",
    "nodeGuid": "9273ac5558ced81a345480ccee0a83ed",
    "branch": "d79b3a9b571ed0f37d315adc1a787d59",
-   "branchName": "Axe Active 1",
+   "branchName": "Crushing Leap",
    "row": 2,
    "group": 0,
-   "requiredParentRank": 2,
+   "requiredParentRank": 1,
    "x": -650,
    "y": -300,
    "parentNodeGuid": "548097788e007ccffbc972feb7ae231b",
-   "parent": "axe-axe-active-1-power",
+   "parent": "axe-shockwave",
    "children": [],
    "attack": null,
    "abilityPerk": null,
    "assetPath": null
   },
   {
-   "key": "axe-axe-active-2",
-   "name": "Axe Active 2",
-   "description": "Active ability. Equip it into Ability 1/2/3 once purchased.",
+   "key": "axe-headlong-rush",
+   "name": "Headlong Rush",
+   "description": "Break into a sprint you can steer, for about 15 m. Press again to end it with a leaping cleave. Cooldown 6 s.",
    "icon": {
-    "frame": "icons/SkillSlot-Circle-5457dad8.png"
+    "file": "icons/AxeHeadlongRush-ea879199.png",
+    "frame": "icons/SkillSlot-Hex-c7024a12.png"
    },
    "tree": "Axe",
    "treeKey": "axe",
@@ -2953,11 +3771,11 @@ window.WBDB = {
    "groupIndex": 0,
    "canEquip": true,
    "isGroupPrerequisite": false,
-   "shape": "Circle",
+   "shape": "Hexagon",
    "size": "ActiveRootLarge",
    "nodeGuid": "07106aa98a9bc5e07a8881c706894ac0",
    "branch": "16bf232e2a8d2794d84890262a8d648d",
-   "branchName": "Axe Active 2",
+   "branchName": "Headlong Rush",
    "row": 0,
    "group": 0,
    "requiredParentRank": 1,
@@ -2968,7 +3786,7 @@ window.WBDB = {
    "children": [
     "axe-axe-active-2-power"
    ],
-   "attack": null,
+   "attack": "headlongrushattack-axe",
    "abilityPerk": null,
    "assetPath": null
   },
@@ -2977,7 +3795,9 @@ window.WBDB = {
    "name": "Axe Active 2 Power",
    "description": "Placeholder ranked modifier for Axe Active 2.",
    "icon": {
-    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png",
+    "file": "icons/AxeHeadlongRush-ea879199.png",
+    "inherited": true
    },
    "tree": "Axe",
    "treeKey": "axe",
@@ -2997,17 +3817,17 @@ window.WBDB = {
    "size": "StandardSmall",
    "nodeGuid": "3b096bf285d5bc7949d484c59c80389b",
    "branch": "16bf232e2a8d2794d84890262a8d648d",
-   "branchName": "Axe Active 2",
+   "branchName": "Headlong Rush",
    "row": 1,
    "group": 0,
    "requiredParentRank": 1,
    "x": -390,
    "y": -150,
    "parentNodeGuid": "07106aa98a9bc5e07a8881c706894ac0",
-   "parent": "axe-axe-active-2",
+   "parent": "axe-headlong-rush",
    "children": [
     "axe-axe-active-2-mastery",
-    "axe-axe-active-2-technique"
+    "axe-rushing-spin"
    ],
    "attack": null,
    "abilityPerk": null,
@@ -3018,7 +3838,9 @@ window.WBDB = {
    "name": "Axe Active 2 Mastery",
    "description": "Placeholder passive capstone for Axe Active 2.",
    "icon": {
-    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png",
+    "file": "icons/AxeHeadlongRush-ea879199.png",
+    "inherited": true
    },
    "tree": "Axe",
    "treeKey": "axe",
@@ -3038,7 +3860,7 @@ window.WBDB = {
    "size": "StandardSmall",
    "nodeGuid": "a80bdb58b92726c3476160bbd72c7226",
    "branch": "16bf232e2a8d2794d84890262a8d648d",
-   "branchName": "Axe Active 2",
+   "branchName": "Headlong Rush",
    "row": 2,
    "group": 0,
    "requiredParentRank": 1,
@@ -3052,11 +3874,13 @@ window.WBDB = {
    "assetPath": null
   },
   {
-   "key": "axe-axe-active-2-technique",
-   "name": "Axe Active 2 Technique",
-   "description": "Placeholder forked technique for Axe Active 2.",
+   "key": "axe-rushing-spin",
+   "name": "Rushing Spin",
+   "description": "Headlong Rush's cleave is followed by a spinning second blow.",
    "icon": {
-    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png",
+    "file": "icons/AxeHeadlongRush-ea879199.png",
+    "inherited": true
    },
    "tree": "Axe",
    "treeKey": "axe",
@@ -3076,7 +3900,7 @@ window.WBDB = {
    "size": "StandardSmall",
    "nodeGuid": "3c2186819534842166ffb6bad87a44f7",
    "branch": "16bf232e2a8d2794d84890262a8d648d",
-   "branchName": "Axe Active 2",
+   "branchName": "Headlong Rush",
    "row": 2,
    "group": 0,
    "requiredParentRank": 1,
@@ -3086,15 +3910,16 @@ window.WBDB = {
    "parent": "axe-axe-active-2-power",
    "children": [],
    "attack": null,
-   "abilityPerk": null,
+   "abilityPerk": "axe-rushing-spin-perk",
    "assetPath": null
   },
   {
-   "key": "axe-axe-active-3",
-   "name": "Axe Active 3",
-   "description": "Active ability. Equip it into Ability 1/2/3 once purchased.",
+   "key": "axe-goodnight-sweep",
+   "name": "Goodnight Sweep",
+   "description": "Sweep the legs of everyone within 2.5 m in front of you and knock them down for about 3.7 s. Cooldown 8 s.",
    "icon": {
-    "frame": "icons/SkillSlot-Circle-5457dad8.png"
+    "file": "icons/AxeGoodnightSweep-2d959583.png",
+    "frame": "icons/SkillSlot-Hex-c7024a12.png"
    },
    "tree": "Axe",
    "treeKey": "axe",
@@ -3110,11 +3935,11 @@ window.WBDB = {
    "groupIndex": 0,
    "canEquip": true,
    "isGroupPrerequisite": false,
-   "shape": "Circle",
+   "shape": "Hexagon",
    "size": "ActiveRootLarge",
    "nodeGuid": "2f9937565d8271908d21347df7695db7",
    "branch": "fe83b42773874f1593b9765fe05e1a32",
-   "branchName": "Axe Active 3",
+   "branchName": "Goodnight Sweep",
    "row": 0,
    "group": 0,
    "requiredParentRank": 1,
@@ -3123,17 +3948,18 @@ window.WBDB = {
    "parentNodeGuid": null,
    "parent": null,
    "children": [
-    "axe-axe-active-3-power"
+    "axe-felling-chop"
    ],
-   "attack": null,
+   "attack": "fellingsweepattack-axe",
    "abilityPerk": null,
    "assetPath": null
   },
   {
-   "key": "axe-axe-active-3-power",
-   "name": "Axe Active 3 Power",
-   "description": "Placeholder ranked modifier for Axe Active 3.",
+   "key": "axe-felling-chop",
+   "name": "Felling Chop",
+   "description": "Goodnight Sweep continues into an overhead chop on the ground ahead, hitting everyone within 2 m for 42 damage.",
    "icon": {
+    "file": "icons/AxeGoodnightSweepChop-3-23dfaf4d.png",
     "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
    },
    "tree": "Axe",
@@ -3141,11 +3967,11 @@ window.WBDB = {
    "category": "Modifier",
    "nodeIndex": 8,
    "nodeId": 139,
-   "maxRank": 3,
+   "maxRank": 1,
    "costPerRank": [
     1
    ],
-   "totalCost": 3,
+   "totalCost": 1,
    "rowIndex": 0,
    "groupIndex": 0,
    "canEquip": false,
@@ -3154,27 +3980,29 @@ window.WBDB = {
    "size": "StandardSmall",
    "nodeGuid": "a992248761e6226905e23fc382f8517d",
    "branch": "fe83b42773874f1593b9765fe05e1a32",
-   "branchName": "Axe Active 3",
+   "branchName": "Goodnight Sweep",
    "row": 1,
    "group": 0,
    "requiredParentRank": 1,
    "x": -130,
    "y": -150,
    "parentNodeGuid": "2f9937565d8271908d21347df7695db7",
-   "parent": "axe-axe-active-3",
+   "parent": "axe-goodnight-sweep",
    "children": [
-    "axe-axe-active-3-mastery"
+    "axe-goodnight-sweep-mastery"
    ],
    "attack": null,
-   "abilityPerk": null,
+   "abilityPerk": "axe-felling-chop-perk",
    "assetPath": null
   },
   {
-   "key": "axe-axe-active-3-mastery",
-   "name": "Axe Active 3 Mastery",
-   "description": "Placeholder passive capstone for Axe Active 3.",
+   "key": "axe-goodnight-sweep-mastery",
+   "name": "Goodnight Sweep Mastery",
+   "description": "Placeholder passive capstone for Goodnight Sweep.",
    "icon": {
-    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png",
+    "file": "icons/AxeGoodnightSweepChop-3-23dfaf4d.png",
+    "inherited": true
    },
    "tree": "Axe",
    "treeKey": "axe",
@@ -3194,25 +4022,26 @@ window.WBDB = {
    "size": "StandardSmall",
    "nodeGuid": "419f037222d8a7fb1aeb53ba4f3d3ed8",
    "branch": "fe83b42773874f1593b9765fe05e1a32",
-   "branchName": "Axe Active 3",
+   "branchName": "Goodnight Sweep",
    "row": 2,
    "group": 0,
    "requiredParentRank": 1,
    "x": -130,
    "y": -300,
    "parentNodeGuid": "a992248761e6226905e23fc382f8517d",
-   "parent": "axe-axe-active-3-power",
+   "parent": "axe-felling-chop",
    "children": [],
    "attack": null,
    "abilityPerk": null,
    "assetPath": null
   },
   {
-   "key": "axe-axe-active-4",
-   "name": "Axe Active 4",
-   "description": "Active ability. Equip it into Ability 1/2/3 once purchased.",
+   "key": "axe-tornado",
+   "name": "Tornado",
+   "description": "Raise the axe and spin in place twice, striking everyone around you for 20 damage per spin. Cooldown 6 s.",
    "icon": {
-    "frame": "icons/SkillSlot-Circle-5457dad8.png"
+    "file": "icons/AxeTornado-333c1c70.png",
+    "frame": "icons/SkillSlot-Hex-c7024a12.png"
    },
    "tree": "Axe",
    "treeKey": "axe",
@@ -3228,11 +4057,11 @@ window.WBDB = {
    "groupIndex": 0,
    "canEquip": true,
    "isGroupPrerequisite": false,
-   "shape": "Circle",
+   "shape": "Hexagon",
    "size": "ActiveRootLarge",
    "nodeGuid": "b7031bfd2d1d097341e6be6f792daef5",
    "branch": "8aa274f687496b1821fb14aaece98174",
-   "branchName": "Axe Active 4",
+   "branchName": "Tornado",
    "row": 0,
    "group": 0,
    "requiredParentRank": 1,
@@ -3241,17 +4070,18 @@ window.WBDB = {
    "parentNodeGuid": null,
    "parent": null,
    "children": [
-    "axe-axe-active-4-power"
+    "axe-third-spin"
    ],
-   "attack": null,
+   "attack": "tornadoattack-axe",
    "abilityPerk": null,
    "assetPath": null
   },
   {
-   "key": "axe-axe-active-4-power",
-   "name": "Axe Active 4 Power",
-   "description": "Placeholder ranked modifier for Axe Active 4.",
+   "key": "axe-third-spin",
+   "name": "Third Spin",
+   "description": "Tornado spins a third time, striking everyone around you again for 20 damage.",
    "icon": {
+    "file": "icons/ExtraSpin-432c93e2.png",
     "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
    },
    "tree": "Axe",
@@ -3259,11 +4089,11 @@ window.WBDB = {
    "category": "Modifier",
    "nodeIndex": 11,
    "nodeId": 145,
-   "maxRank": 3,
+   "maxRank": 1,
    "costPerRank": [
     1
    ],
-   "totalCost": 3,
+   "totalCost": 1,
    "rowIndex": 0,
    "groupIndex": 0,
    "canEquip": false,
@@ -3272,31 +4102,32 @@ window.WBDB = {
    "size": "StandardSmall",
    "nodeGuid": "04a36f223d43bd8150355a01f52a1a2b",
    "branch": "8aa274f687496b1821fb14aaece98174",
-   "branchName": "Axe Active 4",
+   "branchName": "Tornado",
    "row": 1,
    "group": 0,
    "requiredParentRank": 1,
    "x": 130,
    "y": -150,
    "parentNodeGuid": "b7031bfd2d1d097341e6be6f792daef5",
-   "parent": "axe-axe-active-4",
+   "parent": "axe-tornado",
    "children": [
-    "axe-axe-active-4-mastery"
+    "axe-fourth-spin"
    ],
    "attack": null,
-   "abilityPerk": null,
+   "abilityPerk": "axe-third-spin-perk",
    "assetPath": null
   },
   {
-   "key": "axe-axe-active-4-mastery",
-   "name": "Axe Active 4 Mastery",
-   "description": "Placeholder passive capstone for Axe Active 4.",
+   "key": "axe-fourth-spin",
+   "name": "Fourth Spin",
+   "description": "Tornado spins a fourth time, striking everyone around you again for 20 damage.",
    "icon": {
+    "file": "icons/ExtraSpin-432c93e2.png",
     "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
    },
    "tree": "Axe",
    "treeKey": "axe",
-   "category": "Passive",
+   "category": "Modifier",
    "nodeIndex": 12,
    "nodeId": 182,
    "maxRank": 1,
@@ -3312,25 +4143,26 @@ window.WBDB = {
    "size": "StandardSmall",
    "nodeGuid": "17d97a5162df940671c89057e2a1462f",
    "branch": "8aa274f687496b1821fb14aaece98174",
-   "branchName": "Axe Active 4",
+   "branchName": "Tornado",
    "row": 2,
    "group": 0,
    "requiredParentRank": 1,
    "x": 130,
    "y": -300,
    "parentNodeGuid": "04a36f223d43bd8150355a01f52a1a2b",
-   "parent": "axe-axe-active-4-power",
+   "parent": "axe-third-spin",
    "children": [],
    "attack": null,
-   "abilityPerk": null,
+   "abilityPerk": "axe-fourth-spin-perk",
    "assetPath": null
   },
   {
-   "key": "axe-axe-active-5",
-   "name": "Axe Active 5",
-   "description": "Active ability. Equip it into Ability 1/2/3 once purchased.",
+   "key": "axe-iron-wheel",
+   "name": "Iron Wheel",
+   "description": "Hop forward and somersault with the axe out, hitting everyone you roll through for 16 damage, then slam the axe into the ground ahead for 36 damage. Cooldown 6 s.",
    "icon": {
-    "frame": "icons/SkillSlot-Circle-5457dad8.png"
+    "file": "icons/AxeIronWheel-a3516168.png",
+    "frame": "icons/SkillSlot-Hex-c7024a12.png"
    },
    "tree": "Axe",
    "treeKey": "axe",
@@ -3346,11 +4178,11 @@ window.WBDB = {
    "groupIndex": 0,
    "canEquip": true,
    "isGroupPrerequisite": false,
-   "shape": "Circle",
+   "shape": "Hexagon",
    "size": "ActiveRootLarge",
    "nodeGuid": "cb4257bcfa62406566e60d1bc8654a40",
    "branch": "3e7a683eb694e90ae19a23fd9b3f51e5",
-   "branchName": "Axe Active 5",
+   "branchName": "Iron Wheel",
    "row": 0,
    "group": 0,
    "requiredParentRank": 1,
@@ -3359,17 +4191,19 @@ window.WBDB = {
    "parentNodeGuid": null,
    "parent": null,
    "children": [
-    "axe-axe-active-5-power"
+    "axe-second-flip",
+    "axe-grinding-wheel"
    ],
-   "attack": null,
+   "attack": "ironwheelattack-axe",
    "abilityPerk": null,
    "assetPath": null
   },
   {
-   "key": "axe-axe-active-5-power",
-   "name": "Axe Active 5 Power",
-   "description": "Placeholder ranked modifier for Axe Active 5.",
+   "key": "axe-second-flip",
+   "name": "Second Flip",
+   "description": "Iron Wheel somersaults a second time, hitting everyone you roll through again for 16 damage.",
    "icon": {
+    "file": "icons/ExtraSpin-432c93e2.png",
     "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
    },
    "tree": "Axe",
@@ -3377,11 +4211,11 @@ window.WBDB = {
    "category": "Modifier",
    "nodeIndex": 14,
    "nodeId": 151,
-   "maxRank": 3,
+   "maxRank": 1,
    "costPerRank": [
     1
    ],
-   "totalCost": 3,
+   "totalCost": 1,
    "rowIndex": 0,
    "groupIndex": 0,
    "canEquip": false,
@@ -3390,31 +4224,32 @@ window.WBDB = {
    "size": "StandardSmall",
    "nodeGuid": "e2e4488850703c301daa3bb08d388a78",
    "branch": "3e7a683eb694e90ae19a23fd9b3f51e5",
-   "branchName": "Axe Active 5",
+   "branchName": "Iron Wheel",
    "row": 1,
    "group": 0,
    "requiredParentRank": 1,
-   "x": 390,
+   "x": 450,
    "y": -150,
    "parentNodeGuid": "cb4257bcfa62406566e60d1bc8654a40",
-   "parent": "axe-axe-active-5",
+   "parent": "axe-iron-wheel",
    "children": [
-    "axe-axe-active-5-mastery"
+    "axe-quaking-slam"
    ],
    "attack": null,
-   "abilityPerk": null,
+   "abilityPerk": "axe-second-flip-perk",
    "assetPath": null
   },
   {
-   "key": "axe-axe-active-5-mastery",
-   "name": "Axe Active 5 Mastery",
-   "description": "Placeholder passive capstone for Axe Active 5.",
+   "key": "axe-quaking-slam",
+   "name": "Quaking Slam",
+   "description": "Iron Wheel's landing knocks down everyone it hits for 2.0 s.",
    "icon": {
+    "file": "icons/PushBack-7090743c.png",
     "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
    },
    "tree": "Axe",
    "treeKey": "axe",
-   "category": "Passive",
+   "category": "Modifier",
    "nodeIndex": 15,
    "nodeId": 183,
    "maxRank": 1,
@@ -3430,25 +4265,26 @@ window.WBDB = {
    "size": "StandardSmall",
    "nodeGuid": "c3451ae00a97450a90915ff6d48a0900",
    "branch": "3e7a683eb694e90ae19a23fd9b3f51e5",
-   "branchName": "Axe Active 5",
+   "branchName": "Iron Wheel",
    "row": 2,
    "group": 0,
    "requiredParentRank": 1,
-   "x": 390,
+   "x": 450,
    "y": -300,
    "parentNodeGuid": "e2e4488850703c301daa3bb08d388a78",
-   "parent": "axe-axe-active-5-power",
+   "parent": "axe-second-flip",
    "children": [],
    "attack": null,
-   "abilityPerk": null,
+   "abilityPerk": "axe-quaking-slam-perk",
    "assetPath": null
   },
   {
-   "key": "axe-axe-active-6",
-   "name": "Axe Active 6",
-   "description": "Active ability. Equip it into Ability 1/2/3 once purchased.",
+   "key": "axe-battle-cry",
+   "name": "Battle Cry",
+   "description": "Roar into a frenzy: +20% damage and +15% move speed for 8 s. Cooldown 4 s.",
    "icon": {
-    "frame": "icons/SkillSlot-Circle-5457dad8.png"
+    "file": "icons/AxeBattleCry-f951cd75.png",
+    "frame": "icons/SkillSlot-Hex-c7024a12.png"
    },
    "tree": "Axe",
    "treeKey": "axe",
@@ -3464,11 +4300,11 @@ window.WBDB = {
    "groupIndex": 0,
    "canEquip": true,
    "isGroupPrerequisite": false,
-   "shape": "Circle",
+   "shape": "Hexagon",
    "size": "ActiveRootLarge",
    "nodeGuid": "788b00ab64369097aa0149e6bbc777ad",
    "branch": "cab5822e6e153f205422f240572da09e",
-   "branchName": "Axe Active 6",
+   "branchName": "Battle Cry",
    "row": 0,
    "group": 0,
    "requiredParentRank": 1,
@@ -3477,17 +4313,18 @@ window.WBDB = {
    "parentNodeGuid": null,
    "parent": null,
    "children": [
-    "axe-axe-active-6-power"
+    "axe-void-pull"
    ],
-   "attack": null,
+   "attack": "berserkattack-axe",
    "abilityPerk": null,
    "assetPath": null
   },
   {
-   "key": "axe-axe-active-6-power",
-   "name": "Axe Active 6 Power",
-   "description": "Placeholder ranked modifier for Axe Active 6.",
+   "key": "axe-void-pull",
+   "name": "Void Pull",
+   "description": "Battle Cry's roar drags everyone within 4.5 m toward you.",
    "icon": {
+    "file": "icons/VoidPull-cfc3970f.png",
     "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
    },
    "tree": "Axe",
@@ -3495,11 +4332,11 @@ window.WBDB = {
    "category": "Modifier",
    "nodeIndex": 17,
    "nodeId": 157,
-   "maxRank": 3,
+   "maxRank": 1,
    "costPerRank": [
     1
    ],
-   "totalCost": 3,
+   "totalCost": 1,
    "rowIndex": 0,
    "groupIndex": 0,
    "canEquip": false,
@@ -3508,31 +4345,33 @@ window.WBDB = {
    "size": "StandardSmall",
    "nodeGuid": "c81854ae218d512f1ab250ec9380bc7a",
    "branch": "cab5822e6e153f205422f240572da09e",
-   "branchName": "Axe Active 6",
+   "branchName": "Battle Cry",
    "row": 1,
    "group": 0,
    "requiredParentRank": 1,
    "x": 650,
    "y": -150,
    "parentNodeGuid": "788b00ab64369097aa0149e6bbc777ad",
-   "parent": "axe-axe-active-6",
+   "parent": "axe-battle-cry",
    "children": [
-    "axe-axe-active-6-mastery"
+    "axe-void-rot",
+    "axe-void-burst"
    ],
    "attack": null,
-   "abilityPerk": null,
+   "abilityPerk": "axe-void-pull-perk",
    "assetPath": null
   },
   {
-   "key": "axe-axe-active-6-mastery",
-   "name": "Axe Active 6 Mastery",
-   "description": "Placeholder passive capstone for Axe Active 6.",
+   "key": "axe-void-rot",
+   "name": "Void Rot",
+   "description": "Everyone Void Pull drags takes 5 void damage a second for 6 s.",
    "icon": {
+    "file": "icons/VoidDoT-8634e5f4.png",
     "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
    },
    "tree": "Axe",
    "treeKey": "axe",
-   "category": "Passive",
+   "category": "Modifier",
    "nodeIndex": 18,
    "nodeId": 184,
    "maxRank": 1,
@@ -3548,17 +4387,96 @@ window.WBDB = {
    "size": "StandardSmall",
    "nodeGuid": "09b5c2808d79aa47353e7c241ed1c0c5",
    "branch": "cab5822e6e153f205422f240572da09e",
-   "branchName": "Axe Active 6",
+   "branchName": "Battle Cry",
    "row": 2,
    "group": 0,
    "requiredParentRank": 1,
-   "x": 650,
+   "x": 590,
    "y": -300,
    "parentNodeGuid": "c81854ae218d512f1ab250ec9380bc7a",
-   "parent": "axe-axe-active-6-power",
+   "parent": "axe-void-pull",
    "children": [],
    "attack": null,
-   "abilityPerk": null,
+   "abilityPerk": "axe-void-rot-perk",
+   "assetPath": null
+  },
+  {
+   "key": "axe-grinding-wheel",
+   "name": "Grinding Wheel",
+   "description": "Iron Wheel's hits slow the target by 15% for 3 s.",
+   "icon": {
+    "file": "icons/Slow-0c6b8c1f.png",
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
+   },
+   "tree": "Axe",
+   "treeKey": "axe",
+   "category": "Modifier",
+   "nodeIndex": 19,
+   "nodeId": 238,
+   "maxRank": 1,
+   "costPerRank": [
+    1
+   ],
+   "totalCost": 1,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": false,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "size": "StandardSmall",
+   "nodeGuid": "07115e6544a3486395c33a4bb630c4fe",
+   "branch": "3e7a683eb694e90ae19a23fd9b3f51e5",
+   "branchName": "Iron Wheel",
+   "row": 1,
+   "group": 0,
+   "requiredParentRank": 1,
+   "x": 330,
+   "y": -150,
+   "parentNodeGuid": "cb4257bcfa62406566e60d1bc8654a40",
+   "parent": "axe-iron-wheel",
+   "children": [],
+   "attack": null,
+   "abilityPerk": "axe-grinding-wheel-perk",
+   "assetPath": null
+  },
+  {
+   "key": "axe-void-burst",
+   "name": "Void Burst",
+   "description": "Void Pull ends in a burst: 30 void damage to everyone within 2.5 m of you.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png",
+    "file": "icons/VoidPull-cfc3970f.png",
+    "inherited": true
+   },
+   "tree": "Axe",
+   "treeKey": "axe",
+   "category": "Modifier",
+   "nodeIndex": 20,
+   "nodeId": 240,
+   "maxRank": 1,
+   "costPerRank": [
+    2
+   ],
+   "totalCost": 2,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": false,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "size": "StandardSmall",
+   "nodeGuid": "ec3a02b3de4e497f8d369e2ce989ea79",
+   "branch": "cab5822e6e153f205422f240572da09e",
+   "branchName": "Battle Cry",
+   "row": 2,
+   "group": 0,
+   "requiredParentRank": 1,
+   "x": 710,
+   "y": -300,
+   "parentNodeGuid": "c81854ae218d512f1ab250ec9380bc7a",
+   "parent": "axe-void-pull",
+   "children": [],
+   "attack": null,
+   "abilityPerk": "axe-void-burst-perk",
    "assetPath": null
   },
   {
@@ -4409,6 +5327,758 @@ window.WBDB = {
    "children": [],
    "attack": null,
    "abilityPerk": "bow-marked-shot-technique-perk",
+   "assetPath": null
+  },
+  {
+   "key": "hammer-clear-the-way",
+   "name": "Clear the Way",
+   "description": "Bring the hammer down for 18 damage and stun the target for 0.8 s, then sweep a full turn for 32 damage, knocking down everyone in front of you and flinging them 5 m to your right for about 4 s. Cooldown 8 s.",
+   "icon": {
+    "file": "icons/HammerClearTheWay-87e06e6a.png",
+    "frame": "icons/SkillSlot-Circle-5457dad8.png"
+   },
+   "tree": "Hammer",
+   "treeKey": "hammer",
+   "category": "Active",
+   "nodeIndex": 0,
+   "nodeId": 200,
+   "maxRank": 1,
+   "costPerRank": [
+    1
+   ],
+   "totalCost": 1,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": true,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "size": "ActiveRootLarge",
+   "nodeGuid": "63fbbf97552d425f2566546f4a2ed515",
+   "branch": "c0a82d44faf203815e9641d80e902a64",
+   "branchName": "Clear the Way",
+   "row": 0,
+   "group": 0,
+   "requiredParentRank": 1,
+   "x": -650,
+   "y": 0,
+   "parentNodeGuid": null,
+   "parent": null,
+   "children": [
+    "hammer-hammer-active-1-power"
+   ],
+   "attack": "clearthewayattack-hammer",
+   "abilityPerk": null,
+   "assetPath": null
+  },
+  {
+   "key": "hammer-hammer-active-1-power",
+   "name": "Hammer Active 1 Power",
+   "description": "Placeholder ranked modifier for Hammer Active 1.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png",
+    "file": "icons/HammerClearTheWay-87e06e6a.png",
+    "inherited": true
+   },
+   "tree": "Hammer",
+   "treeKey": "hammer",
+   "category": "Modifier",
+   "nodeIndex": 1,
+   "nodeId": 202,
+   "maxRank": 3,
+   "costPerRank": [
+    1
+   ],
+   "totalCost": 3,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": false,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "size": "StandardSmall",
+   "nodeGuid": "a733b90c2060560a73e612449a367c65",
+   "branch": "c0a82d44faf203815e9641d80e902a64",
+   "branchName": "Clear the Way",
+   "row": 1,
+   "group": 0,
+   "requiredParentRank": 1,
+   "x": -650,
+   "y": -150,
+   "parentNodeGuid": "63fbbf97552d425f2566546f4a2ed515",
+   "parent": "hammer-clear-the-way",
+   "children": [
+    "hammer-hammer-active-1-mastery"
+   ],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": null
+  },
+  {
+   "key": "hammer-hammer-active-1-mastery",
+   "name": "Hammer Active 1 Mastery",
+   "description": "Placeholder passive capstone for Hammer Active 1.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png",
+    "file": "icons/HammerClearTheWay-87e06e6a.png",
+    "inherited": true
+   },
+   "tree": "Hammer",
+   "treeKey": "hammer",
+   "category": "Passive",
+   "nodeIndex": 2,
+   "nodeId": 204,
+   "maxRank": 1,
+   "costPerRank": [
+    2
+   ],
+   "totalCost": 2,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": false,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "size": "StandardSmall",
+   "nodeGuid": "73d60616a1b0fd4d2116391385d3fda1",
+   "branch": "c0a82d44faf203815e9641d80e902a64",
+   "branchName": "Clear the Way",
+   "row": 2,
+   "group": 0,
+   "requiredParentRank": 2,
+   "x": -650,
+   "y": -300,
+   "parentNodeGuid": "a733b90c2060560a73e612449a367c65",
+   "parent": "hammer-hammer-active-1-power",
+   "children": [],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": null
+  },
+  {
+   "key": "hammer-hammer-active-2",
+   "name": "Hammer Active 2",
+   "description": "Active ability. Equip it into Ability 1/2/3 once purchased.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-5457dad8.png"
+   },
+   "tree": "Hammer",
+   "treeKey": "hammer",
+   "category": "Active",
+   "nodeIndex": 3,
+   "nodeId": 206,
+   "maxRank": 1,
+   "costPerRank": [
+    1
+   ],
+   "totalCost": 1,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": true,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "size": "ActiveRootLarge",
+   "nodeGuid": "c44cd56ba82bfb86ccb493ac937a8d61",
+   "branch": "fbc4ce76b8f91ad86d45b32f26aad7cc",
+   "branchName": "Hammer Active 2",
+   "row": 0,
+   "group": 0,
+   "requiredParentRank": 1,
+   "x": -390,
+   "y": 0,
+   "parentNodeGuid": null,
+   "parent": null,
+   "children": [
+    "hammer-hammer-active-2-power"
+   ],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": null
+  },
+  {
+   "key": "hammer-hammer-active-2-power",
+   "name": "Hammer Active 2 Power",
+   "description": "Placeholder ranked modifier for Hammer Active 2.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
+   },
+   "tree": "Hammer",
+   "treeKey": "hammer",
+   "category": "Modifier",
+   "nodeIndex": 4,
+   "nodeId": 208,
+   "maxRank": 3,
+   "costPerRank": [
+    1
+   ],
+   "totalCost": 3,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": false,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "size": "StandardSmall",
+   "nodeGuid": "4dd1bf0c3d3db612a54b5bda8eb6545c",
+   "branch": "fbc4ce76b8f91ad86d45b32f26aad7cc",
+   "branchName": "Hammer Active 2",
+   "row": 1,
+   "group": 0,
+   "requiredParentRank": 1,
+   "x": -390,
+   "y": -150,
+   "parentNodeGuid": "c44cd56ba82bfb86ccb493ac937a8d61",
+   "parent": "hammer-hammer-active-2",
+   "children": [
+    "hammer-hammer-active-2-mastery",
+    "hammer-hammer-active-2-technique"
+   ],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": null
+  },
+  {
+   "key": "hammer-hammer-active-2-mastery",
+   "name": "Hammer Active 2 Mastery",
+   "description": "Placeholder passive capstone for Hammer Active 2.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
+   },
+   "tree": "Hammer",
+   "treeKey": "hammer",
+   "category": "Passive",
+   "nodeIndex": 5,
+   "nodeId": 210,
+   "maxRank": 1,
+   "costPerRank": [
+    2
+   ],
+   "totalCost": 2,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": false,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "size": "StandardSmall",
+   "nodeGuid": "ba67cec57e4591ab1971ec0ceb1cfe6f",
+   "branch": "fbc4ce76b8f91ad86d45b32f26aad7cc",
+   "branchName": "Hammer Active 2",
+   "row": 2,
+   "group": 0,
+   "requiredParentRank": 1,
+   "x": -330,
+   "y": -300,
+   "parentNodeGuid": "4dd1bf0c3d3db612a54b5bda8eb6545c",
+   "parent": "hammer-hammer-active-2-power",
+   "children": [],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": null
+  },
+  {
+   "key": "hammer-hammer-active-2-technique",
+   "name": "Hammer Active 2 Technique",
+   "description": "Placeholder forked technique for Hammer Active 2.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
+   },
+   "tree": "Hammer",
+   "treeKey": "hammer",
+   "category": "Passive",
+   "nodeIndex": 6,
+   "nodeId": 212,
+   "maxRank": 1,
+   "costPerRank": [
+    1
+   ],
+   "totalCost": 1,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": false,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "size": "StandardSmall",
+   "nodeGuid": "04cab52b12f7cc9dca6805701b52ace3",
+   "branch": "fbc4ce76b8f91ad86d45b32f26aad7cc",
+   "branchName": "Hammer Active 2",
+   "row": 2,
+   "group": 0,
+   "requiredParentRank": 1,
+   "x": -450,
+   "y": -300,
+   "parentNodeGuid": "4dd1bf0c3d3db612a54b5bda8eb6545c",
+   "parent": "hammer-hammer-active-2-power",
+   "children": [],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": null
+  },
+  {
+   "key": "hammer-hammer-active-3",
+   "name": "Hammer Active 3",
+   "description": "Active ability. Equip it into Ability 1/2/3 once purchased.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-5457dad8.png"
+   },
+   "tree": "Hammer",
+   "treeKey": "hammer",
+   "category": "Active",
+   "nodeIndex": 7,
+   "nodeId": 214,
+   "maxRank": 1,
+   "costPerRank": [
+    1
+   ],
+   "totalCost": 1,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": true,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "size": "ActiveRootLarge",
+   "nodeGuid": "3ef7aef8de8a4a86c812267607186b0d",
+   "branch": "cc27c63bdae311e3fec24c0f2b475c42",
+   "branchName": "Hammer Active 3",
+   "row": 0,
+   "group": 0,
+   "requiredParentRank": 1,
+   "x": -130,
+   "y": 0,
+   "parentNodeGuid": null,
+   "parent": null,
+   "children": [
+    "hammer-hammer-active-3-power"
+   ],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": null
+  },
+  {
+   "key": "hammer-hammer-active-3-power",
+   "name": "Hammer Active 3 Power",
+   "description": "Placeholder ranked modifier for Hammer Active 3.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
+   },
+   "tree": "Hammer",
+   "treeKey": "hammer",
+   "category": "Modifier",
+   "nodeIndex": 8,
+   "nodeId": 216,
+   "maxRank": 3,
+   "costPerRank": [
+    1
+   ],
+   "totalCost": 3,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": false,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "size": "StandardSmall",
+   "nodeGuid": "796029f8e469b82eca7ad99bb7cddcd1",
+   "branch": "cc27c63bdae311e3fec24c0f2b475c42",
+   "branchName": "Hammer Active 3",
+   "row": 1,
+   "group": 0,
+   "requiredParentRank": 1,
+   "x": -130,
+   "y": -150,
+   "parentNodeGuid": "3ef7aef8de8a4a86c812267607186b0d",
+   "parent": "hammer-hammer-active-3",
+   "children": [
+    "hammer-hammer-active-3-mastery"
+   ],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": null
+  },
+  {
+   "key": "hammer-hammer-active-3-mastery",
+   "name": "Hammer Active 3 Mastery",
+   "description": "Placeholder passive capstone for Hammer Active 3.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
+   },
+   "tree": "Hammer",
+   "treeKey": "hammer",
+   "category": "Passive",
+   "nodeIndex": 9,
+   "nodeId": 218,
+   "maxRank": 1,
+   "costPerRank": [
+    2
+   ],
+   "totalCost": 2,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": false,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "size": "StandardSmall",
+   "nodeGuid": "a394fe95fb0423d5306d175cc38b74c1",
+   "branch": "cc27c63bdae311e3fec24c0f2b475c42",
+   "branchName": "Hammer Active 3",
+   "row": 2,
+   "group": 0,
+   "requiredParentRank": 1,
+   "x": -130,
+   "y": -300,
+   "parentNodeGuid": "796029f8e469b82eca7ad99bb7cddcd1",
+   "parent": "hammer-hammer-active-3-power",
+   "children": [],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": null
+  },
+  {
+   "key": "hammer-hammer-active-4",
+   "name": "Hammer Active 4",
+   "description": "Active ability. Equip it into Ability 1/2/3 once purchased.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-5457dad8.png"
+   },
+   "tree": "Hammer",
+   "treeKey": "hammer",
+   "category": "Active",
+   "nodeIndex": 10,
+   "nodeId": 220,
+   "maxRank": 1,
+   "costPerRank": [
+    1
+   ],
+   "totalCost": 1,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": true,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "size": "ActiveRootLarge",
+   "nodeGuid": "5509f44f2b4c731a921496dbd39a2223",
+   "branch": "523c35603344146ccfa9a8c8164ca521",
+   "branchName": "Hammer Active 4",
+   "row": 0,
+   "group": 0,
+   "requiredParentRank": 1,
+   "x": 130,
+   "y": 0,
+   "parentNodeGuid": null,
+   "parent": null,
+   "children": [
+    "hammer-hammer-active-4-power"
+   ],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": null
+  },
+  {
+   "key": "hammer-hammer-active-4-power",
+   "name": "Hammer Active 4 Power",
+   "description": "Placeholder ranked modifier for Hammer Active 4.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
+   },
+   "tree": "Hammer",
+   "treeKey": "hammer",
+   "category": "Modifier",
+   "nodeIndex": 11,
+   "nodeId": 222,
+   "maxRank": 3,
+   "costPerRank": [
+    1
+   ],
+   "totalCost": 3,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": false,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "size": "StandardSmall",
+   "nodeGuid": "7603d6246996849759340230c3612463",
+   "branch": "523c35603344146ccfa9a8c8164ca521",
+   "branchName": "Hammer Active 4",
+   "row": 1,
+   "group": 0,
+   "requiredParentRank": 1,
+   "x": 130,
+   "y": -150,
+   "parentNodeGuid": "5509f44f2b4c731a921496dbd39a2223",
+   "parent": "hammer-hammer-active-4",
+   "children": [
+    "hammer-hammer-active-4-mastery"
+   ],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": null
+  },
+  {
+   "key": "hammer-hammer-active-4-mastery",
+   "name": "Hammer Active 4 Mastery",
+   "description": "Placeholder passive capstone for Hammer Active 4.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
+   },
+   "tree": "Hammer",
+   "treeKey": "hammer",
+   "category": "Passive",
+   "nodeIndex": 12,
+   "nodeId": 224,
+   "maxRank": 1,
+   "costPerRank": [
+    2
+   ],
+   "totalCost": 2,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": false,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "size": "StandardSmall",
+   "nodeGuid": "7ba177112659e6699a9d14d7342641bb",
+   "branch": "523c35603344146ccfa9a8c8164ca521",
+   "branchName": "Hammer Active 4",
+   "row": 2,
+   "group": 0,
+   "requiredParentRank": 1,
+   "x": 130,
+   "y": -300,
+   "parentNodeGuid": "7603d6246996849759340230c3612463",
+   "parent": "hammer-hammer-active-4-power",
+   "children": [],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": null
+  },
+  {
+   "key": "hammer-hammer-active-5",
+   "name": "Hammer Active 5",
+   "description": "Active ability. Equip it into Ability 1/2/3 once purchased.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-5457dad8.png"
+   },
+   "tree": "Hammer",
+   "treeKey": "hammer",
+   "category": "Active",
+   "nodeIndex": 13,
+   "nodeId": 226,
+   "maxRank": 1,
+   "costPerRank": [
+    1
+   ],
+   "totalCost": 1,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": true,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "size": "ActiveRootLarge",
+   "nodeGuid": "794e049c347738d6b6e809226daa2d55",
+   "branch": "f7df9b785d82fae08da09c196a79f3d7",
+   "branchName": "Hammer Active 5",
+   "row": 0,
+   "group": 0,
+   "requiredParentRank": 1,
+   "x": 390,
+   "y": 0,
+   "parentNodeGuid": null,
+   "parent": null,
+   "children": [
+    "hammer-hammer-active-5-power"
+   ],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": null
+  },
+  {
+   "key": "hammer-hammer-active-5-power",
+   "name": "Hammer Active 5 Power",
+   "description": "Placeholder ranked modifier for Hammer Active 5.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
+   },
+   "tree": "Hammer",
+   "treeKey": "hammer",
+   "category": "Modifier",
+   "nodeIndex": 14,
+   "nodeId": 228,
+   "maxRank": 3,
+   "costPerRank": [
+    1
+   ],
+   "totalCost": 3,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": false,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "size": "StandardSmall",
+   "nodeGuid": "3ff812bedab63c95c5bc8e9c05c33086",
+   "branch": "f7df9b785d82fae08da09c196a79f3d7",
+   "branchName": "Hammer Active 5",
+   "row": 1,
+   "group": 0,
+   "requiredParentRank": 1,
+   "x": 390,
+   "y": -150,
+   "parentNodeGuid": "794e049c347738d6b6e809226daa2d55",
+   "parent": "hammer-hammer-active-5",
+   "children": [
+    "hammer-hammer-active-5-mastery"
+   ],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": null
+  },
+  {
+   "key": "hammer-hammer-active-5-mastery",
+   "name": "Hammer Active 5 Mastery",
+   "description": "Placeholder passive capstone for Hammer Active 5.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
+   },
+   "tree": "Hammer",
+   "treeKey": "hammer",
+   "category": "Passive",
+   "nodeIndex": 15,
+   "nodeId": 230,
+   "maxRank": 1,
+   "costPerRank": [
+    2
+   ],
+   "totalCost": 2,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": false,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "size": "StandardSmall",
+   "nodeGuid": "38952edf040938098dd43d3732322399",
+   "branch": "f7df9b785d82fae08da09c196a79f3d7",
+   "branchName": "Hammer Active 5",
+   "row": 2,
+   "group": 0,
+   "requiredParentRank": 1,
+   "x": 390,
+   "y": -300,
+   "parentNodeGuid": "3ff812bedab63c95c5bc8e9c05c33086",
+   "parent": "hammer-hammer-active-5-power",
+   "children": [],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": null
+  },
+  {
+   "key": "hammer-hammer-active-6",
+   "name": "Hammer Active 6",
+   "description": "Active ability. Equip it into Ability 1/2/3 once purchased.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-5457dad8.png"
+   },
+   "tree": "Hammer",
+   "treeKey": "hammer",
+   "category": "Active",
+   "nodeIndex": 16,
+   "nodeId": 232,
+   "maxRank": 1,
+   "costPerRank": [
+    1
+   ],
+   "totalCost": 1,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": true,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "size": "ActiveRootLarge",
+   "nodeGuid": "9db38e1da8646d6df0036d48772d7605",
+   "branch": "07dfbd9452c07d1c1ddd140c731f7894",
+   "branchName": "Hammer Active 6",
+   "row": 0,
+   "group": 0,
+   "requiredParentRank": 1,
+   "x": 650,
+   "y": 0,
+   "parentNodeGuid": null,
+   "parent": null,
+   "children": [
+    "hammer-hammer-active-6-power"
+   ],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": null
+  },
+  {
+   "key": "hammer-hammer-active-6-power",
+   "name": "Hammer Active 6 Power",
+   "description": "Placeholder ranked modifier for Hammer Active 6.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
+   },
+   "tree": "Hammer",
+   "treeKey": "hammer",
+   "category": "Modifier",
+   "nodeIndex": 17,
+   "nodeId": 234,
+   "maxRank": 3,
+   "costPerRank": [
+    1
+   ],
+   "totalCost": 3,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": false,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "size": "StandardSmall",
+   "nodeGuid": "769b4426b7af15d01c8a111d95a231d3",
+   "branch": "07dfbd9452c07d1c1ddd140c731f7894",
+   "branchName": "Hammer Active 6",
+   "row": 1,
+   "group": 0,
+   "requiredParentRank": 1,
+   "x": 650,
+   "y": -150,
+   "parentNodeGuid": "9db38e1da8646d6df0036d48772d7605",
+   "parent": "hammer-hammer-active-6",
+   "children": [
+    "hammer-hammer-active-6-mastery"
+   ],
+   "attack": null,
+   "abilityPerk": null,
+   "assetPath": null
+  },
+  {
+   "key": "hammer-hammer-active-6-mastery",
+   "name": "Hammer Active 6 Mastery",
+   "description": "Placeholder passive capstone for Hammer Active 6.",
+   "icon": {
+    "frame": "icons/SkillSlot-Circle-Small-85c0b3d5.png"
+   },
+   "tree": "Hammer",
+   "treeKey": "hammer",
+   "category": "Passive",
+   "nodeIndex": 18,
+   "nodeId": 236,
+   "maxRank": 1,
+   "costPerRank": [
+    2
+   ],
+   "totalCost": 2,
+   "rowIndex": 0,
+   "groupIndex": 0,
+   "canEquip": false,
+   "isGroupPrerequisite": false,
+   "shape": "Circle",
+   "size": "StandardSmall",
+   "nodeGuid": "a6a3042933404adcec82cd004fa24482",
+   "branch": "07dfbd9452c07d1c1ddd140c731f7894",
+   "branchName": "Hammer Active 6",
+   "row": 2,
+   "group": 0,
+   "requiredParentRank": 1,
+   "x": 650,
+   "y": -300,
+   "parentNodeGuid": "769b4426b7af15d01c8a111d95a231d3",
+   "parent": "hammer-hammer-active-6-power",
+   "children": [],
+   "attack": null,
+   "abilityPerk": null,
    "assetPath": null
   },
   {
@@ -6466,37 +8136,37 @@ window.WBDB = {
    "branches": [
     {
      "key": "d79b3a9b571ed0f37d315adc1a787d59",
-     "name": "Axe Active 1",
+     "name": "Crushing Leap",
      "sortOrder": 0,
      "group": 0
     },
     {
      "key": "16bf232e2a8d2794d84890262a8d648d",
-     "name": "Axe Active 2",
+     "name": "Headlong Rush",
      "sortOrder": 1,
      "group": 0
     },
     {
      "key": "fe83b42773874f1593b9765fe05e1a32",
-     "name": "Axe Active 3",
+     "name": "Goodnight Sweep",
      "sortOrder": 2,
      "group": 0
     },
     {
      "key": "8aa274f687496b1821fb14aaece98174",
-     "name": "Axe Active 4",
+     "name": "Tornado",
      "sortOrder": 3,
      "group": 0
     },
     {
      "key": "3e7a683eb694e90ae19a23fd9b3f51e5",
-     "name": "Axe Active 5",
+     "name": "Iron Wheel",
      "sortOrder": 4,
      "group": 0
     },
     {
      "key": "cab5822e6e153f205422f240572da09e",
-     "name": "Axe Active 6",
+     "name": "Battle Cry",
      "sortOrder": 5,
      "group": 0
     }
@@ -6533,25 +8203,129 @@ window.WBDB = {
     "replacementPolicy": "Replace"
    },
    "nodes": [
-    "axe-axe-active-1",
-    "axe-axe-active-1-power",
-    "axe-axe-active-1-mastery",
-    "axe-axe-active-2",
+    "axe-crushing-leap",
+    "axe-shockwave",
+    "axe-crushing-leap-mastery",
+    "axe-headlong-rush",
     "axe-axe-active-2-power",
     "axe-axe-active-2-mastery",
-    "axe-axe-active-2-technique",
-    "axe-axe-active-3",
-    "axe-axe-active-3-power",
-    "axe-axe-active-3-mastery",
-    "axe-axe-active-4",
-    "axe-axe-active-4-power",
-    "axe-axe-active-4-mastery",
-    "axe-axe-active-5",
-    "axe-axe-active-5-power",
-    "axe-axe-active-5-mastery",
-    "axe-axe-active-6",
-    "axe-axe-active-6-power",
-    "axe-axe-active-6-mastery"
+    "axe-rushing-spin",
+    "axe-goodnight-sweep",
+    "axe-felling-chop",
+    "axe-goodnight-sweep-mastery",
+    "axe-tornado",
+    "axe-third-spin",
+    "axe-fourth-spin",
+    "axe-iron-wheel",
+    "axe-second-flip",
+    "axe-quaking-slam",
+    "axe-battle-cry",
+    "axe-void-pull",
+    "axe-void-rot",
+    "axe-grinding-wheel",
+    "axe-void-burst"
+   ],
+   "assetPath": null
+  },
+  {
+   "key": "hammer",
+   "name": "Hammer",
+   "sortOrder": 4,
+   "pointBudget": 20,
+   "groupCount": 1,
+   "effectiveGroupCount": 1,
+   "groupNames": [
+    ""
+   ],
+   "branches": [
+    {
+     "key": "c0a82d44faf203815e9641d80e902a64",
+     "name": "Clear the Way",
+     "sortOrder": 0,
+     "group": 0
+    },
+    {
+     "key": "fbc4ce76b8f91ad86d45b32f26aad7cc",
+     "name": "Hammer Active 2",
+     "sortOrder": 1,
+     "group": 0
+    },
+    {
+     "key": "cc27c63bdae311e3fec24c0f2b475c42",
+     "name": "Hammer Active 3",
+     "sortOrder": 2,
+     "group": 0
+    },
+    {
+     "key": "523c35603344146ccfa9a8c8164ca521",
+     "name": "Hammer Active 4",
+     "sortOrder": 3,
+     "group": 0
+    },
+    {
+     "key": "f7df9b785d82fae08da09c196a79f3d7",
+     "name": "Hammer Active 5",
+     "sortOrder": 4,
+     "group": 0
+    },
+    {
+     "key": "07dfbd9452c07d1c1ddd140c731f7894",
+     "name": "Hammer Active 6",
+     "sortOrder": 5,
+     "group": 0
+    }
+   ],
+   "slots": [
+    {
+     "key": "1b9a0d53bc7683a4dc261e70405b831a",
+     "name": "Ability 1",
+     "binding": "Q",
+     "action": "Ability1"
+    },
+    {
+     "key": "86caa76922a52dfda9a3a21d4e610421",
+     "name": "Ability 2",
+     "binding": "R",
+     "action": "Ability2"
+    },
+    {
+     "key": "7af5541b610b28585cdc9b643fc5d270",
+     "name": "Ability 3",
+     "binding": "F",
+     "action": "Ability3"
+    }
+   ],
+   "maxSlots": 3,
+   "minSlots": 0,
+   "loadoutRules": {
+    "allowedCategories": [
+     "Active"
+    ],
+    "allowDuplicateNode": false,
+    "allowSameAbilityTwice": false,
+    "autoUnequipInvalidated": true,
+    "replacementPolicy": "Replace"
+   },
+   "nodes": [
+    "hammer-clear-the-way",
+    "hammer-hammer-active-1-power",
+    "hammer-hammer-active-1-mastery",
+    "hammer-hammer-active-2",
+    "hammer-hammer-active-2-power",
+    "hammer-hammer-active-2-mastery",
+    "hammer-hammer-active-2-technique",
+    "hammer-hammer-active-3",
+    "hammer-hammer-active-3-power",
+    "hammer-hammer-active-3-mastery",
+    "hammer-hammer-active-4",
+    "hammer-hammer-active-4-power",
+    "hammer-hammer-active-4-mastery",
+    "hammer-hammer-active-5",
+    "hammer-hammer-active-5-power",
+    "hammer-hammer-active-5-mastery",
+    "hammer-hammer-active-6",
+    "hammer-hammer-active-6-power",
+    "hammer-hammer-active-6-mastery"
    ],
    "assetPath": null
   }
@@ -6689,7 +8463,13 @@ window.WBDB = {
     }
    },
    "appliedStatuses": [],
+   "selfStatuses": [],
+   "areaStatuses": [],
+   "areaStatusRadius": 0,
+   "areaStatusTick": 0,
+   "areaStatusAllies": false,
    "viewStateName": "Attack_BowArrowRainEnter",
+   "chainParent": null,
    "usedBy": [
     {
      "owner": "Bow",
@@ -6709,6 +8489,169 @@ window.WBDB = {
     "file": "icons/Bow-Arrow-Rain-3-d57a6cf8.png",
     "frame": "icons/SkillSlot-Hex-c7024a12.png"
    },
+   "assetPath": null
+  },
+  {
+   "key": "berserkattack-axe",
+   "name": "Battle Cry",
+   "assetName": "BerserkAttack_Axe",
+   "damage": 0,
+   "cooldownTicks": 240,
+   "cooldownText": "240 ticks (4 sec)",
+   "cancelWindow": "Recovery",
+   "hasFrameData": false,
+   "moveSpeedFactor": 0,
+   "activeMoveSpeedFactor": 0,
+   "recoveryMoveSpeedFactor": 0,
+   "stopMovementOnHit": false,
+   "homingRange": 0,
+   "homingConeDegrees": 0,
+   "disableMagnetPull": true,
+   "rootMotionScale": 1,
+   "hitbox": {
+    "shape": "None",
+    "sphereRadius": 0.5,
+    "capsuleRadius": 0.5,
+    "capsuleHeight": 2,
+    "boxExtents": {
+     "x": 0.5,
+     "y": 0.5,
+     "z": 0.5
+    },
+    "offset": {
+     "x": 0.0,
+     "y": 1.0,
+     "z": 1.0
+    }
+   },
+   "appliedStatuses": [],
+   "selfStatuses": [
+    {
+     "status": "empower",
+     "statusName": "Empower",
+     "magnitude": 0.2,
+     "magnitudeText": "20%",
+     "tickDamage": 0,
+     "tickDamagePercentOfHit": 0,
+     "durationTicks": 480,
+     "durationText": "480 ticks (8 sec)",
+     "summary": "20%"
+    },
+    {
+     "status": "haste",
+     "statusName": "Haste",
+     "magnitude": 0.15,
+     "magnitudeText": "15%",
+     "tickDamage": 0,
+     "tickDamagePercentOfHit": 0,
+     "durationTicks": 480,
+     "durationText": "480 ticks (8 sec)",
+     "summary": "15%"
+    }
+   ],
+   "areaStatuses": [],
+   "areaStatusRadius": 0,
+   "areaStatusTick": 0,
+   "areaStatusAllies": false,
+   "viewStateName": "Attack_AxeBerserk",
+   "chainParent": null,
+   "usedBy": [
+    {
+     "owner": "Axe",
+     "role": "Fallback ability slot 6"
+    },
+    {
+     "owner": "Axe",
+     "role": "Ability: Battle Cry"
+    }
+   ],
+   "kinds": [
+    "Ability"
+   ],
+   "kind": "Ability",
+   "weapon": "Axe",
+   "icon": {
+    "file": "icons/AxeBattleCry-f951cd75.png",
+    "frame": "icons/SkillSlot-Hex-c7024a12.png"
+   },
+   "assetPath": null
+  },
+  {
+   "key": "berserkpullattack-axe",
+   "name": "Battle Cry (perk variant)",
+   "assetName": "BerserkPullAttack_Axe",
+   "damage": 0,
+   "cooldownTicks": 240,
+   "cooldownText": "240 ticks (4 sec)",
+   "cancelWindow": "Recovery",
+   "hasFrameData": false,
+   "moveSpeedFactor": 0,
+   "activeMoveSpeedFactor": 0,
+   "recoveryMoveSpeedFactor": 0,
+   "stopMovementOnHit": false,
+   "homingRange": 0,
+   "homingConeDegrees": 0,
+   "disableMagnetPull": true,
+   "rootMotionScale": 1,
+   "hitbox": {
+    "shape": "None",
+    "sphereRadius": 0.5,
+    "capsuleRadius": 0.5,
+    "capsuleHeight": 2,
+    "boxExtents": {
+     "x": 0.5,
+     "y": 0.5,
+     "z": 0.5
+    },
+    "offset": {
+     "x": 0.0,
+     "y": 1.0,
+     "z": 1.0
+    }
+   },
+   "appliedStatuses": [],
+   "selfStatuses": [
+    {
+     "status": "empower",
+     "statusName": "Empower",
+     "magnitude": 0.2,
+     "magnitudeText": "20%",
+     "tickDamage": 0,
+     "tickDamagePercentOfHit": 0,
+     "durationTicks": 480,
+     "durationText": "480 ticks (8 sec)",
+     "summary": "20%"
+    },
+    {
+     "status": "haste",
+     "statusName": "Haste",
+     "magnitude": 0.15,
+     "magnitudeText": "15%",
+     "tickDamage": 0,
+     "tickDamagePercentOfHit": 0,
+     "durationTicks": 480,
+     "durationText": "480 ticks (8 sec)",
+     "summary": "15%"
+    }
+   ],
+   "areaStatuses": [],
+   "areaStatusRadius": 0,
+   "areaStatusTick": 0,
+   "areaStatusAllies": false,
+   "viewStateName": "Attack_AxeBerserk",
+   "chainParent": "berserkattack-axe",
+   "usedBy": [
+    {
+     "owner": "Battle Cry",
+     "role": "Ability perk variant"
+    }
+   ],
+   "kinds": [
+    "Ability"
+   ],
+   "kind": "Ability",
+   "weapon": "Axe",
+   "icon": null,
    "assetPath": null
   },
   {
@@ -6745,7 +8688,13 @@ window.WBDB = {
     }
    },
    "appliedStatuses": [],
+   "selfStatuses": [],
+   "areaStatuses": [],
+   "areaStatusRadius": 0,
+   "areaStatusTick": 0,
+   "areaStatusAllies": false,
    "viewStateName": "",
+   "chainParent": null,
    "usedBy": [
     {
      "owner": "Bow",
@@ -6768,12 +8717,282 @@ window.WBDB = {
    "assetPath": null
   },
   {
+   "key": "clearthewayattack-hammer",
+   "name": "Clear the Way",
+   "assetName": "ClearTheWayAttack_Hammer",
+   "damage": 18,
+   "cooldownTicks": 480,
+   "cooldownText": "480 ticks (8 sec)",
+   "cancelWindow": "Cancel (3)",
+   "hasFrameData": false,
+   "moveSpeedFactor": 0,
+   "activeMoveSpeedFactor": 0,
+   "recoveryMoveSpeedFactor": 0,
+   "stopMovementOnHit": false,
+   "homingRange": 6,
+   "homingConeDegrees": 30,
+   "disableMagnetPull": false,
+   "rootMotionScale": 1,
+   "hitbox": {
+    "shape": "Sphere",
+    "sphereRadius": 0.9,
+    "capsuleRadius": 0.5,
+    "capsuleHeight": 2,
+    "boxExtents": {
+     "x": 0.5,
+     "y": 0.5,
+     "z": 0.5
+    },
+    "offset": {
+     "x": 0.0,
+     "y": 1.0,
+     "z": 1.1999969482421875
+    }
+   },
+   "appliedStatuses": [
+    {
+     "status": "stun",
+     "statusName": "Stun",
+     "magnitude": 1,
+     "magnitudeText": "100%",
+     "tickDamage": 0,
+     "tickDamagePercentOfHit": 0,
+     "durationTicks": 48,
+     "durationText": "48 ticks (0.8 sec)",
+     "summary": "100%"
+    }
+   ],
+   "selfStatuses": [],
+   "areaStatuses": [],
+   "areaStatusRadius": 0,
+   "areaStatusTick": 0,
+   "areaStatusAllies": false,
+   "viewStateName": "Attack_HammerClearTheWay",
+   "chainParent": null,
+   "usedBy": [
+    {
+     "owner": "Hammer",
+     "role": "Fallback ability slot 1"
+    },
+    {
+     "owner": "Hammer",
+     "role": "Ability: Clear the Way"
+    }
+   ],
+   "kinds": [
+    "Ability"
+   ],
+   "kind": "Ability",
+   "weapon": "Hammer",
+   "icon": {
+    "file": "icons/HammerClearTheWay-87e06e6a.png",
+    "frame": "icons/SkillSlot-Circle-5457dad8.png"
+   },
+   "assetPath": null
+  },
+  {
+   "key": "clearthewayspinattack-hammer",
+   "name": "Clear the Way (follow-up)",
+   "assetName": "ClearTheWaySpinAttack_Hammer",
+   "damage": 32,
+   "cooldownTicks": 0,
+   "cooldownText": "0",
+   "cancelWindow": "Cancel (3)",
+   "hasFrameData": false,
+   "moveSpeedFactor": 0,
+   "activeMoveSpeedFactor": 0,
+   "recoveryMoveSpeedFactor": 0,
+   "stopMovementOnHit": false,
+   "homingRange": 0,
+   "homingConeDegrees": 0,
+   "disableMagnetPull": true,
+   "rootMotionScale": 1,
+   "hitbox": {
+    "shape": "Sphere",
+    "sphereRadius": 1.7,
+    "capsuleRadius": 0.5,
+    "capsuleHeight": 2,
+    "boxExtents": {
+     "x": 0.5,
+     "y": 0.5,
+     "z": 0.5
+    },
+    "offset": {
+     "x": 0.0,
+     "y": 1.0,
+     "z": 0.899993896484375
+    }
+   },
+   "appliedStatuses": [
+    {
+     "status": "knockdown",
+     "statusName": "KnockDown",
+     "magnitude": 5,
+     "magnitudeText": "500%",
+     "tickDamage": 0,
+     "tickDamagePercentOfHit": 0,
+     "durationTicks": 240,
+     "durationText": "240 ticks (4 sec)",
+     "summary": "500%"
+    }
+   ],
+   "selfStatuses": [],
+   "areaStatuses": [],
+   "areaStatusRadius": 0,
+   "areaStatusTick": 0,
+   "areaStatusAllies": false,
+   "viewStateName": "Attack_HammerClearTheWaySpin",
+   "chainParent": "clearthewayattack-hammer",
+   "usedBy": [
+    {
+     "owner": "Clear the Way",
+     "role": "Ability follow-up"
+    }
+   ],
+   "kinds": [
+    "Ability"
+   ],
+   "kind": "Ability",
+   "weapon": "Hammer",
+   "icon": null,
+   "assetPath": null
+  },
+  {
+   "key": "crushingleapattack-axe",
+   "name": "Crushing Leap",
+   "assetName": "CrushingLeapAttack_Axe",
+   "damage": 38,
+   "cooldownTicks": 300,
+   "cooldownText": "300 ticks (5 sec)",
+   "cancelWindow": "Recovery",
+   "hasFrameData": false,
+   "moveSpeedFactor": 0,
+   "activeMoveSpeedFactor": 0,
+   "recoveryMoveSpeedFactor": 0,
+   "stopMovementOnHit": false,
+   "homingRange": 6,
+   "homingConeDegrees": 30,
+   "disableMagnetPull": false,
+   "rootMotionScale": 1,
+   "hitbox": {
+    "shape": "Sphere",
+    "sphereRadius": 1.2,
+    "capsuleRadius": 0.5,
+    "capsuleHeight": 2,
+    "boxExtents": {
+     "x": 0.5,
+     "y": 0.5,
+     "z": 0.5
+    },
+    "offset": {
+     "x": 0.0,
+     "y": 0.79998779296875,
+     "z": 1.1999969482421875
+    }
+   },
+   "appliedStatuses": [],
+   "selfStatuses": [],
+   "areaStatuses": [],
+   "areaStatusRadius": 0,
+   "areaStatusTick": 0,
+   "areaStatusAllies": false,
+   "viewStateName": "Attack_AxeCrushingLeap",
+   "chainParent": null,
+   "usedBy": [
+    {
+     "owner": "Axe",
+     "role": "Fallback ability slot 1"
+    },
+    {
+     "owner": "Axe",
+     "role": "Ability: Crushing Leap"
+    }
+   ],
+   "kinds": [
+    "Ability"
+   ],
+   "kind": "Ability",
+   "weapon": "Axe",
+   "icon": {
+    "file": "icons/AxeCrushingLeap-0b70c937.png",
+    "frame": "icons/SkillSlot-Hex-c7024a12.png"
+   },
+   "assetPath": null
+  },
+  {
+   "key": "crushingleapshockwaveattack-axe",
+   "name": "Crushing Leap (perk variant)",
+   "assetName": "CrushingLeapShockwaveAttack_Axe",
+   "damage": 38,
+   "cooldownTicks": 300,
+   "cooldownText": "300 ticks (5 sec)",
+   "cancelWindow": "Recovery",
+   "hasFrameData": false,
+   "moveSpeedFactor": 0,
+   "activeMoveSpeedFactor": 0,
+   "recoveryMoveSpeedFactor": 0,
+   "stopMovementOnHit": false,
+   "homingRange": 6,
+   "homingConeDegrees": 30,
+   "disableMagnetPull": false,
+   "rootMotionScale": 1,
+   "hitbox": {
+    "shape": "Sphere",
+    "sphereRadius": 1.2,
+    "capsuleRadius": 0.5,
+    "capsuleHeight": 2,
+    "boxExtents": {
+     "x": 0.5,
+     "y": 0.5,
+     "z": 0.5
+    },
+    "offset": {
+     "x": 0.0,
+     "y": 0.79998779296875,
+     "z": 1.1999969482421875
+    }
+   },
+   "appliedStatuses": [],
+   "selfStatuses": [],
+   "areaStatuses": [
+    {
+     "status": "fortify",
+     "statusName": "Fortify",
+     "magnitude": 0.2,
+     "magnitudeText": "20%",
+     "tickDamage": 0,
+     "tickDamagePercentOfHit": 0,
+     "durationTicks": 240,
+     "durationText": "240 ticks (4 sec)",
+     "summary": "20%"
+    }
+   ],
+   "areaStatusRadius": 2,
+   "areaStatusTick": 30,
+   "areaStatusAllies": true,
+   "viewStateName": "Attack_AxeCrushingLeap",
+   "chainParent": "crushingleapattack-axe",
+   "usedBy": [
+    {
+     "owner": "Crushing Leap",
+     "role": "Ability perk variant"
+    }
+   ],
+   "kinds": [
+    "Ability"
+   ],
+   "kind": "Ability",
+   "weapon": "Axe",
+   "icon": null,
+   "assetPath": null
+  },
+  {
    "key": "flourishattack-sword",
    "name": "Crushing Swing",
    "assetName": "FlourishAttack_Sword",
    "damage": 40,
-   "cooldownTicks": 0,
-   "cooldownText": "0",
+   "cooldownTicks": 240,
+   "cooldownText": "240 ticks (4 sec)",
    "cancelWindow": "Recovery",
    "hasFrameData": false,
    "moveSpeedFactor": 0.15,
@@ -6801,7 +9020,13 @@ window.WBDB = {
     }
    },
    "appliedStatuses": [],
+   "selfStatuses": [],
+   "areaStatuses": [],
+   "areaStatusRadius": 0,
+   "areaStatusTick": 0,
+   "areaStatusAllies": false,
    "viewStateName": "Attack_HeavyFlourish01",
+   "chainParent": null,
    "usedBy": [
     {
      "owner": "Sword",
@@ -6857,7 +9082,13 @@ window.WBDB = {
     }
    },
    "appliedStatuses": [],
+   "selfStatuses": [],
+   "areaStatuses": [],
+   "areaStatusRadius": 0,
+   "areaStatusTick": 0,
+   "areaStatusAllies": false,
    "viewStateName": "Attack_SwordDash",
+   "chainParent": null,
    "usedBy": [
     {
      "owner": "Sword",
@@ -6930,6 +9161,539 @@ window.WBDB = {
    "assetPath": null
   },
   {
+   "key": "fellingsweepattack-axe",
+   "name": "Goodnight Sweep",
+   "assetName": "FellingSweepAttack_Axe",
+   "damage": 18,
+   "cooldownTicks": 480,
+   "cooldownText": "480 ticks (8 sec)",
+   "cancelWindow": "Cancel (3)",
+   "hasFrameData": false,
+   "moveSpeedFactor": 0,
+   "activeMoveSpeedFactor": 0,
+   "recoveryMoveSpeedFactor": 0,
+   "stopMovementOnHit": false,
+   "homingRange": 6,
+   "homingConeDegrees": 30,
+   "disableMagnetPull": false,
+   "rootMotionScale": 1,
+   "hitbox": {
+    "shape": "Sphere",
+    "sphereRadius": 1.3,
+    "capsuleRadius": 0.5,
+    "capsuleHeight": 2,
+    "boxExtents": {
+     "x": 0.5,
+     "y": 0.5,
+     "z": 0.5
+    },
+    "offset": {
+     "x": 0.0,
+     "y": 0.5999908447265625,
+     "z": 1.0999908447265625
+    }
+   },
+   "appliedStatuses": [
+    {
+     "status": "knockdown",
+     "statusName": "KnockDown",
+     "magnitude": 0,
+     "magnitudeText": null,
+     "tickDamage": 0,
+     "tickDamagePercentOfHit": 0,
+     "durationTicks": 220,
+     "durationText": "220 ticks (3.67 sec)",
+     "summary": "-"
+    }
+   ],
+   "selfStatuses": [],
+   "areaStatuses": [],
+   "areaStatusRadius": 0,
+   "areaStatusTick": 0,
+   "areaStatusAllies": false,
+   "viewStateName": "Attack_AxeFellingSweepToIdle",
+   "chainParent": null,
+   "usedBy": [
+    {
+     "owner": "Axe",
+     "role": "Fallback ability slot 3"
+    },
+    {
+     "owner": "Axe",
+     "role": "Ability: Goodnight Sweep"
+    }
+   ],
+   "kinds": [
+    "Ability"
+   ],
+   "kind": "Ability",
+   "weapon": "Axe",
+   "icon": {
+    "file": "icons/AxeGoodnightSweep-2d959583.png",
+    "frame": "icons/SkillSlot-Hex-c7024a12.png"
+   },
+   "assetPath": null
+  },
+  {
+   "key": "fellingchopattack-axe",
+   "name": "Goodnight Sweep (perk finisher)",
+   "assetName": "FellingChopAttack_Axe",
+   "damage": 42,
+   "cooldownTicks": 0,
+   "cooldownText": "0",
+   "cancelWindow": "Cancel (3)",
+   "hasFrameData": false,
+   "moveSpeedFactor": 0,
+   "activeMoveSpeedFactor": 0,
+   "recoveryMoveSpeedFactor": 0,
+   "stopMovementOnHit": false,
+   "homingRange": 0,
+   "homingConeDegrees": 0,
+   "disableMagnetPull": true,
+   "rootMotionScale": 1,
+   "hitbox": {
+    "shape": "Sphere",
+    "sphereRadius": 1,
+    "capsuleRadius": 0.5,
+    "capsuleHeight": 2,
+    "boxExtents": {
+     "x": 0.5,
+     "y": 0.5,
+     "z": 0.5
+    },
+    "offset": {
+     "x": 0.0,
+     "y": 0.29998779296875,
+     "z": 1.1999969482421875
+    }
+   },
+   "appliedStatuses": [],
+   "selfStatuses": [],
+   "areaStatuses": [],
+   "areaStatusRadius": 0,
+   "areaStatusTick": 0,
+   "areaStatusAllies": false,
+   "viewStateName": "Attack_AxeFellingChop",
+   "chainParent": "fellingsweepchainattack-axe",
+   "usedBy": [
+    {
+     "owner": "Goodnight Sweep",
+     "role": "Ability perk finisher"
+    }
+   ],
+   "kinds": [
+    "Ability"
+   ],
+   "kind": "Ability",
+   "weapon": "Axe",
+   "icon": null,
+   "assetPath": null
+  },
+  {
+   "key": "fellingsweepchainattack-axe",
+   "name": "Goodnight Sweep (perk variant)",
+   "assetName": "FellingSweepChainAttack_Axe",
+   "damage": 18,
+   "cooldownTicks": 480,
+   "cooldownText": "480 ticks (8 sec)",
+   "cancelWindow": "Cancel (3)",
+   "hasFrameData": false,
+   "moveSpeedFactor": 0,
+   "activeMoveSpeedFactor": 0,
+   "recoveryMoveSpeedFactor": 0,
+   "stopMovementOnHit": false,
+   "homingRange": 6,
+   "homingConeDegrees": 30,
+   "disableMagnetPull": false,
+   "rootMotionScale": 1,
+   "hitbox": {
+    "shape": "Sphere",
+    "sphereRadius": 1.3,
+    "capsuleRadius": 0.5,
+    "capsuleHeight": 2,
+    "boxExtents": {
+     "x": 0.5,
+     "y": 0.5,
+     "z": 0.5
+    },
+    "offset": {
+     "x": 0.0,
+     "y": 0.5999908447265625,
+     "z": 1.0999908447265625
+    }
+   },
+   "appliedStatuses": [
+    {
+     "status": "knockdown",
+     "statusName": "KnockDown",
+     "magnitude": 0,
+     "magnitudeText": null,
+     "tickDamage": 0,
+     "tickDamagePercentOfHit": 0,
+     "durationTicks": 220,
+     "durationText": "220 ticks (3.67 sec)",
+     "summary": "-"
+    }
+   ],
+   "selfStatuses": [],
+   "areaStatuses": [],
+   "areaStatusRadius": 0,
+   "areaStatusTick": 0,
+   "areaStatusAllies": false,
+   "viewStateName": "Attack_AxeFellingSweep",
+   "chainParent": "fellingsweepattack-axe",
+   "usedBy": [
+    {
+     "owner": "Goodnight Sweep",
+     "role": "Ability perk variant"
+    }
+   ],
+   "kinds": [
+    "Ability"
+   ],
+   "kind": "Ability",
+   "weapon": "Axe",
+   "icon": null,
+   "assetPath": null
+  },
+  {
+   "key": "headlongrushattack-axe",
+   "name": "Headlong Rush",
+   "assetName": "HeadlongRushAttack_Axe",
+   "damage": 0,
+   "cooldownTicks": 360,
+   "cooldownText": "360 ticks (6 sec)",
+   "cancelWindow": "Recovery",
+   "hasFrameData": false,
+   "moveSpeedFactor": 0,
+   "activeMoveSpeedFactor": 0,
+   "recoveryMoveSpeedFactor": 0,
+   "stopMovementOnHit": false,
+   "homingRange": 0,
+   "homingConeDegrees": 0,
+   "disableMagnetPull": true,
+   "rootMotionScale": 1,
+   "hitbox": {
+    "shape": "None",
+    "sphereRadius": 0.5,
+    "capsuleRadius": 0.5,
+    "capsuleHeight": 2,
+    "boxExtents": {
+     "x": 0.5,
+     "y": 0.5,
+     "z": 0.5
+    },
+    "offset": {
+     "x": 0.0,
+     "y": 1.0,
+     "z": 1.0
+    }
+   },
+   "appliedStatuses": [],
+   "selfStatuses": [],
+   "areaStatuses": [],
+   "areaStatusRadius": 0,
+   "areaStatusTick": 0,
+   "areaStatusAllies": false,
+   "viewStateName": "Attack_AxeRush",
+   "chainParent": null,
+   "usedBy": [
+    {
+     "owner": "Axe",
+     "role": "Fallback ability slot 2"
+    },
+    {
+     "owner": "Axe",
+     "role": "Ability: Headlong Rush"
+    }
+   ],
+   "kinds": [
+    "Ability"
+   ],
+   "kind": "Ability",
+   "weapon": "Axe",
+   "icon": {
+    "file": "icons/AxeHeadlongRush-ea879199.png",
+    "frame": "icons/SkillSlot-Hex-c7024a12.png"
+   },
+   "assetPath": null
+  },
+  {
+   "key": "headlongcleaveattack-axe",
+   "name": "Headlong Rush (charge finisher)",
+   "assetName": "HeadlongCleaveAttack_Axe",
+   "damage": 38,
+   "cooldownTicks": 0,
+   "cooldownText": "0",
+   "cancelWindow": "Recovery",
+   "hasFrameData": false,
+   "moveSpeedFactor": 0,
+   "activeMoveSpeedFactor": 0,
+   "recoveryMoveSpeedFactor": 0,
+   "stopMovementOnHit": false,
+   "homingRange": 6,
+   "homingConeDegrees": 30,
+   "disableMagnetPull": false,
+   "rootMotionScale": 1,
+   "hitbox": {
+    "shape": "Sphere",
+    "sphereRadius": 1.2,
+    "capsuleRadius": 0.5,
+    "capsuleHeight": 2,
+    "boxExtents": {
+     "x": 0.5,
+     "y": 0.5,
+     "z": 0.5
+    },
+    "offset": {
+     "x": 0.0,
+     "y": 0.79998779296875,
+     "z": 1.1999969482421875
+    }
+   },
+   "appliedStatuses": [],
+   "selfStatuses": [],
+   "areaStatuses": [],
+   "areaStatusRadius": 0,
+   "areaStatusTick": 0,
+   "areaStatusAllies": false,
+   "viewStateName": "Attack_AxeRushCleave",
+   "chainParent": "headlongrushattack-axe",
+   "usedBy": [
+    {
+     "owner": "Headlong Rush",
+     "role": "Ability charge finisher"
+    }
+   ],
+   "kinds": [
+    "Ability"
+   ],
+   "kind": "Ability",
+   "weapon": "Axe",
+   "icon": null,
+   "assetPath": null
+  },
+  {
+   "key": "headlongspinattack-axe",
+   "name": "Headlong Rush (perk finisher)",
+   "assetName": "HeadlongSpinAttack_Axe",
+   "damage": 22,
+   "cooldownTicks": 0,
+   "cooldownText": "0",
+   "cancelWindow": "Active + Recovery",
+   "hasFrameData": false,
+   "moveSpeedFactor": 0,
+   "activeMoveSpeedFactor": 0,
+   "recoveryMoveSpeedFactor": 0,
+   "stopMovementOnHit": false,
+   "homingRange": 0,
+   "homingConeDegrees": 0,
+   "disableMagnetPull": true,
+   "rootMotionScale": 1,
+   "hitbox": {
+    "shape": "Sphere",
+    "sphereRadius": 1.9,
+    "capsuleRadius": 0.5,
+    "capsuleHeight": 2,
+    "boxExtents": {
+     "x": 0.5,
+     "y": 0.5,
+     "z": 0.5
+    },
+    "offset": {
+     "x": 0.0,
+     "y": 1.0,
+     "z": 0.29998779296875
+    }
+   },
+   "appliedStatuses": [],
+   "selfStatuses": [],
+   "areaStatuses": [],
+   "areaStatusRadius": 0,
+   "areaStatusTick": 0,
+   "areaStatusAllies": false,
+   "viewStateName": "Attack_AxeRushSpin",
+   "chainParent": "headlongcleavechainattack-axe",
+   "usedBy": [
+    {
+     "owner": "Headlong Rush",
+     "role": "Ability perk finisher"
+    }
+   ],
+   "kinds": [
+    "Ability"
+   ],
+   "kind": "Ability",
+   "weapon": "Axe",
+   "icon": null,
+   "assetPath": null
+  },
+  {
+   "key": "headlongcleavechainattack-axe",
+   "name": "Headlong Rush (perk variant)",
+   "assetName": "HeadlongCleaveChainAttack_Axe",
+   "damage": 38,
+   "cooldownTicks": 0,
+   "cooldownText": "0",
+   "cancelWindow": "Recovery",
+   "hasFrameData": false,
+   "moveSpeedFactor": 0,
+   "activeMoveSpeedFactor": 0,
+   "recoveryMoveSpeedFactor": 0,
+   "stopMovementOnHit": false,
+   "homingRange": 6,
+   "homingConeDegrees": 30,
+   "disableMagnetPull": false,
+   "rootMotionScale": 1,
+   "hitbox": {
+    "shape": "Sphere",
+    "sphereRadius": 1.2,
+    "capsuleRadius": 0.5,
+    "capsuleHeight": 2,
+    "boxExtents": {
+     "x": 0.5,
+     "y": 0.5,
+     "z": 0.5
+    },
+    "offset": {
+     "x": 0.0,
+     "y": 0.79998779296875,
+     "z": 1.1999969482421875
+    }
+   },
+   "appliedStatuses": [],
+   "selfStatuses": [],
+   "areaStatuses": [],
+   "areaStatusRadius": 0,
+   "areaStatusTick": 0,
+   "areaStatusAllies": false,
+   "viewStateName": "Attack_AxeRushCleaveChain",
+   "chainParent": "headlongcleaveattack-axe",
+   "usedBy": [
+    {
+     "owner": "Headlong Rush",
+     "role": "Ability perk variant"
+    }
+   ],
+   "kinds": [
+    "Ability"
+   ],
+   "kind": "Ability",
+   "weapon": "Axe",
+   "icon": null,
+   "assetPath": null
+  },
+  {
+   "key": "heavyattack-axe",
+   "name": "HeavyAttack Axe",
+   "assetName": "HeavyAttack_Axe",
+   "damage": 45,
+   "cooldownTicks": 240,
+   "cooldownText": "240 ticks (4 sec)",
+   "cancelWindow": "None (committed)",
+   "hasFrameData": false,
+   "moveSpeedFactor": 0.06,
+   "activeMoveSpeedFactor": 0,
+   "recoveryMoveSpeedFactor": 0,
+   "stopMovementOnHit": false,
+   "homingRange": 6,
+   "homingConeDegrees": 30,
+   "disableMagnetPull": true,
+   "rootMotionScale": 1,
+   "hitbox": {
+    "shape": "Sphere",
+    "sphereRadius": 0.9,
+    "capsuleRadius": 0.5,
+    "capsuleHeight": 2,
+    "boxExtents": {
+     "x": 0.5,
+     "y": 0.5,
+     "z": 0.5
+    },
+    "offset": {
+     "x": 0.0,
+     "y": 1.0,
+     "z": 1.0
+    }
+   },
+   "appliedStatuses": [],
+   "selfStatuses": [],
+   "areaStatuses": [],
+   "areaStatusRadius": 0,
+   "areaStatusTick": 0,
+   "areaStatusAllies": false,
+   "viewStateName": "Attack_AxeHeavy01A",
+   "chainParent": null,
+   "usedBy": [
+    {
+     "owner": "Axe",
+     "role": "Heavy combo 1"
+    }
+   ],
+   "kinds": [
+    "Heavy"
+   ],
+   "kind": "Heavy",
+   "weapon": "Axe",
+   "icon": null,
+   "assetPath": null
+  },
+  {
+   "key": "heavyattack-axe-b",
+   "name": "HeavyAttack Axe B",
+   "assetName": "HeavyAttack_Axe_B",
+   "damage": 45,
+   "cooldownTicks": 240,
+   "cooldownText": "240 ticks (4 sec)",
+   "cancelWindow": "None (committed)",
+   "hasFrameData": false,
+   "moveSpeedFactor": 0.06,
+   "activeMoveSpeedFactor": 0,
+   "recoveryMoveSpeedFactor": 0,
+   "stopMovementOnHit": false,
+   "homingRange": 6,
+   "homingConeDegrees": 30,
+   "disableMagnetPull": true,
+   "rootMotionScale": 1,
+   "hitbox": {
+    "shape": "Sphere",
+    "sphereRadius": 0.9,
+    "capsuleRadius": 0.5,
+    "capsuleHeight": 2,
+    "boxExtents": {
+     "x": 0.5,
+     "y": 0.5,
+     "z": 0.5
+    },
+    "offset": {
+     "x": 0.0,
+     "y": 1.0,
+     "z": 1.0
+    }
+   },
+   "appliedStatuses": [],
+   "selfStatuses": [],
+   "areaStatuses": [],
+   "areaStatusRadius": 0,
+   "areaStatusTick": 0,
+   "areaStatusAllies": false,
+   "viewStateName": "Attack_AxeHeavy01B",
+   "chainParent": null,
+   "usedBy": [
+    {
+     "owner": "Axe",
+     "role": "Heavy combo 2"
+    }
+   ],
+   "kinds": [
+    "Heavy"
+   ],
+   "kind": "Heavy",
+   "weapon": "Axe",
+   "icon": null,
+   "assetPath": null
+  },
+  {
    "key": "heavyattack-sword",
    "name": "HeavyAttack Sword",
    "assetName": "HeavyAttack_Sword",
@@ -6963,7 +9727,13 @@ window.WBDB = {
     }
    },
    "appliedStatuses": [],
+   "selfStatuses": [],
+   "areaStatuses": [],
+   "areaStatusRadius": 0,
+   "areaStatusTick": 0,
+   "areaStatusAllies": false,
    "viewStateName": "Attack_HeavyCharged01",
+   "chainParent": null,
    "usedBy": [
     {
      "owner": "Sword",
@@ -6975,6 +9745,249 @@ window.WBDB = {
    ],
    "kind": "Heavy",
    "weapon": "Sword",
+   "icon": null,
+   "assetPath": null
+  },
+  {
+   "key": "ironwheelattack-axe",
+   "name": "Iron Wheel",
+   "assetName": "IronWheelAttack_Axe",
+   "damage": 16,
+   "cooldownTicks": 360,
+   "cooldownText": "360 ticks (6 sec)",
+   "cancelWindow": "None (committed)",
+   "hasFrameData": false,
+   "moveSpeedFactor": 0,
+   "activeMoveSpeedFactor": 0,
+   "recoveryMoveSpeedFactor": 0,
+   "stopMovementOnHit": false,
+   "homingRange": 4,
+   "homingConeDegrees": 30,
+   "disableMagnetPull": false,
+   "rootMotionScale": 1,
+   "hitbox": {
+    "shape": "Sphere",
+    "sphereRadius": 1.5,
+    "capsuleRadius": 0.5,
+    "capsuleHeight": 2,
+    "boxExtents": {
+     "x": 0.5,
+     "y": 0.5,
+     "z": 0.5
+    },
+    "offset": {
+     "x": 0.0,
+     "y": 1.0,
+     "z": 0.5
+    }
+   },
+   "appliedStatuses": [],
+   "selfStatuses": [],
+   "areaStatuses": [],
+   "areaStatusRadius": 0,
+   "areaStatusTick": 0,
+   "areaStatusAllies": false,
+   "viewStateName": "Attack_AxeIronWheel",
+   "chainParent": null,
+   "usedBy": [
+    {
+     "owner": "Axe",
+     "role": "Fallback ability slot 5"
+    },
+    {
+     "owner": "Axe",
+     "role": "Ability: Iron Wheel"
+    }
+   ],
+   "kinds": [
+    "Ability"
+   ],
+   "kind": "Ability",
+   "weapon": "Axe",
+   "icon": {
+    "file": "icons/AxeIronWheel-a3516168.png",
+    "frame": "icons/SkillSlot-Hex-c7024a12.png"
+   },
+   "assetPath": null
+  },
+  {
+   "key": "ironwheelslamattack-axe",
+   "name": "Iron Wheel (follow-up)",
+   "assetName": "IronWheelSlamAttack_Axe",
+   "damage": 36,
+   "cooldownTicks": 0,
+   "cooldownText": "0",
+   "cancelWindow": "Active + Recovery",
+   "hasFrameData": false,
+   "moveSpeedFactor": 0,
+   "activeMoveSpeedFactor": 0,
+   "recoveryMoveSpeedFactor": 0,
+   "stopMovementOnHit": false,
+   "homingRange": 0,
+   "homingConeDegrees": 0,
+   "disableMagnetPull": true,
+   "rootMotionScale": 1,
+   "hitbox": {
+    "shape": "Sphere",
+    "sphereRadius": 1.4,
+    "capsuleRadius": 0.5,
+    "capsuleHeight": 2,
+    "boxExtents": {
+     "x": 0.5,
+     "y": 0.5,
+     "z": 0.5
+    },
+    "offset": {
+     "x": 0.0,
+     "y": 0.5999908447265625,
+     "z": 0.899993896484375
+    }
+   },
+   "appliedStatuses": [],
+   "selfStatuses": [],
+   "areaStatuses": [],
+   "areaStatusRadius": 0,
+   "areaStatusTick": 0,
+   "areaStatusAllies": false,
+   "viewStateName": "Attack_AxeIronWheelSlam",
+   "chainParent": "ironwheelattack-axe",
+   "usedBy": [
+    {
+     "owner": "Iron Wheel",
+     "role": "Ability follow-up"
+    },
+    {
+     "owner": "Iron Wheel",
+     "role": "Ability follow-up"
+    }
+   ],
+   "kinds": [
+    "Ability"
+   ],
+   "kind": "Ability",
+   "weapon": "Axe",
+   "icon": null,
+   "assetPath": null
+  },
+  {
+   "key": "ironwheelflipattack-axe",
+   "name": "Iron Wheel (perk finisher)",
+   "assetName": "IronWheelFlipAttack_Axe",
+   "damage": 16,
+   "cooldownTicks": 0,
+   "cooldownText": "0",
+   "cancelWindow": "None (committed)",
+   "hasFrameData": false,
+   "moveSpeedFactor": 0,
+   "activeMoveSpeedFactor": 0,
+   "recoveryMoveSpeedFactor": 0,
+   "stopMovementOnHit": false,
+   "homingRange": 0,
+   "homingConeDegrees": 0,
+   "disableMagnetPull": true,
+   "rootMotionScale": 1,
+   "hitbox": {
+    "shape": "Sphere",
+    "sphereRadius": 1.5,
+    "capsuleRadius": 0.5,
+    "capsuleHeight": 2,
+    "boxExtents": {
+     "x": 0.5,
+     "y": 0.5,
+     "z": 0.5
+    },
+    "offset": {
+     "x": 0.0,
+     "y": 1.0,
+     "z": 0.5
+    }
+   },
+   "appliedStatuses": [],
+   "selfStatuses": [],
+   "areaStatuses": [],
+   "areaStatusRadius": 0,
+   "areaStatusTick": 0,
+   "areaStatusAllies": false,
+   "viewStateName": "Attack_AxeIronWheelFlip",
+   "chainParent": "ironwheelattack-axe",
+   "usedBy": [
+    {
+     "owner": "Iron Wheel",
+     "role": "Ability perk finisher"
+    }
+   ],
+   "kinds": [
+    "Ability"
+   ],
+   "kind": "Ability",
+   "weapon": "Axe",
+   "icon": null,
+   "assetPath": null
+  },
+  {
+   "key": "ironwheelquakeattack-axe",
+   "name": "Iron Wheel (perk variant)",
+   "assetName": "IronWheelQuakeAttack_Axe",
+   "damage": 36,
+   "cooldownTicks": 0,
+   "cooldownText": "0",
+   "cancelWindow": "Active + Recovery",
+   "hasFrameData": false,
+   "moveSpeedFactor": 0,
+   "activeMoveSpeedFactor": 0,
+   "recoveryMoveSpeedFactor": 0,
+   "stopMovementOnHit": false,
+   "homingRange": 0,
+   "homingConeDegrees": 0,
+   "disableMagnetPull": true,
+   "rootMotionScale": 1,
+   "hitbox": {
+    "shape": "Sphere",
+    "sphereRadius": 1.4,
+    "capsuleRadius": 0.5,
+    "capsuleHeight": 2,
+    "boxExtents": {
+     "x": 0.5,
+     "y": 0.5,
+     "z": 0.5
+    },
+    "offset": {
+     "x": 0.0,
+     "y": 0.5999908447265625,
+     "z": 0.899993896484375
+    }
+   },
+   "appliedStatuses": [
+    {
+     "status": "knockdown",
+     "statusName": "KnockDown",
+     "magnitude": 0,
+     "magnitudeText": null,
+     "tickDamage": 0,
+     "tickDamagePercentOfHit": 0,
+     "durationTicks": 120,
+     "durationText": "120 ticks (2 sec)",
+     "summary": "-"
+    }
+   ],
+   "selfStatuses": [],
+   "areaStatuses": [],
+   "areaStatusRadius": 0,
+   "areaStatusTick": 0,
+   "areaStatusAllies": false,
+   "viewStateName": "Attack_AxeIronWheelSlam",
+   "chainParent": "ironwheelslamattack-axe",
+   "usedBy": [
+    {
+     "owner": "Iron Wheel",
+     "role": "Ability perk variant"
+    }
+   ],
+   "kinds": [
+    "Ability"
+   ],
+   "kind": "Ability",
+   "weapon": "Axe",
    "icon": null,
    "assetPath": null
   },
@@ -7035,7 +10048,13 @@ window.WBDB = {
      "summary": "15%"
     }
    ],
+   "selfStatuses": [],
+   "areaStatuses": [],
+   "areaStatusRadius": 0,
+   "areaStatusTick": 0,
+   "areaStatusAllies": false,
    "viewStateName": "Attack_LightLeaping01",
+   "chainParent": null,
    "usedBy": [
     {
      "owner": "Sword",
@@ -7064,7 +10083,7 @@ window.WBDB = {
    "damage": 20,
    "cooldownTicks": 240,
    "cooldownText": "240 ticks (4 sec)",
-   "cancelWindow": "None (committed)",
+   "cancelWindow": "Recovery",
    "hasFrameData": false,
    "moveSpeedFactor": 0,
    "activeMoveSpeedFactor": 0,
@@ -7091,7 +10110,13 @@ window.WBDB = {
     }
    },
    "appliedStatuses": [],
+   "selfStatuses": [],
+   "areaStatuses": [],
+   "areaStatusRadius": 0,
+   "areaStatusTick": 0,
+   "areaStatusAllies": false,
    "viewStateName": "Attack_AxeLight01A",
+   "chainParent": null,
    "usedBy": [
     {
      "owner": "Axe",
@@ -7113,7 +10138,7 @@ window.WBDB = {
    "damage": 22,
    "cooldownTicks": 240,
    "cooldownText": "240 ticks (4 sec)",
-   "cancelWindow": "None (committed)",
+   "cancelWindow": "Recovery",
    "hasFrameData": false,
    "moveSpeedFactor": 0,
    "activeMoveSpeedFactor": 0,
@@ -7140,7 +10165,13 @@ window.WBDB = {
     }
    },
    "appliedStatuses": [],
+   "selfStatuses": [],
+   "areaStatuses": [],
+   "areaStatusRadius": 0,
+   "areaStatusTick": 0,
+   "areaStatusAllies": false,
    "viewStateName": "Attack_AxeLight01B",
+   "chainParent": null,
    "usedBy": [
     {
      "owner": "Axe",
@@ -7156,13 +10187,13 @@ window.WBDB = {
    "assetPath": null
   },
   {
-   "key": "lightattack-axe-c",
-   "name": "LightAttack Axe C",
-   "assetName": "LightAttack_Axe_C",
-   "damage": 26,
+   "key": "lightattack-hammer",
+   "name": "LightAttack Hammer",
+   "assetName": "LightAttack_Hammer",
+   "damage": 20,
    "cooldownTicks": 240,
    "cooldownText": "240 ticks (4 sec)",
-   "cancelWindow": "None (committed)",
+   "cancelWindow": "Recovery",
    "hasFrameData": false,
    "moveSpeedFactor": 0,
    "activeMoveSpeedFactor": 0,
@@ -7189,10 +10220,126 @@ window.WBDB = {
     }
    },
    "appliedStatuses": [],
-   "viewStateName": "Attack_AxeLight01C",
+   "selfStatuses": [],
+   "areaStatuses": [],
+   "areaStatusRadius": 0,
+   "areaStatusTick": 0,
+   "areaStatusAllies": false,
+   "viewStateName": "Attack_HammerLight01A",
+   "chainParent": null,
    "usedBy": [
     {
-     "owner": "Axe",
+     "owner": "Hammer",
+     "role": "Light combo 1"
+    }
+   ],
+   "kinds": [
+    "Light"
+   ],
+   "kind": "Light",
+   "weapon": "Hammer",
+   "icon": null,
+   "assetPath": null
+  },
+  {
+   "key": "lightattack-hammer-b",
+   "name": "LightAttack Hammer B",
+   "assetName": "LightAttack_Hammer_B",
+   "damage": 22,
+   "cooldownTicks": 240,
+   "cooldownText": "240 ticks (4 sec)",
+   "cancelWindow": "Recovery",
+   "hasFrameData": false,
+   "moveSpeedFactor": 0,
+   "activeMoveSpeedFactor": 0,
+   "recoveryMoveSpeedFactor": 0,
+   "stopMovementOnHit": false,
+   "homingRange": 6,
+   "homingConeDegrees": 30,
+   "disableMagnetPull": true,
+   "rootMotionScale": 1,
+   "hitbox": {
+    "shape": "Sphere",
+    "sphereRadius": 0.7,
+    "capsuleRadius": 0.5,
+    "capsuleHeight": 2,
+    "boxExtents": {
+     "x": 0.5,
+     "y": 0.5,
+     "z": 0.5
+    },
+    "offset": {
+     "x": 0.0,
+     "y": 1.0,
+     "z": 1.0
+    }
+   },
+   "appliedStatuses": [],
+   "selfStatuses": [],
+   "areaStatuses": [],
+   "areaStatusRadius": 0,
+   "areaStatusTick": 0,
+   "areaStatusAllies": false,
+   "viewStateName": "Attack_HammerLight01B",
+   "chainParent": null,
+   "usedBy": [
+    {
+     "owner": "Hammer",
+     "role": "Light combo 2"
+    }
+   ],
+   "kinds": [
+    "Light"
+   ],
+   "kind": "Light",
+   "weapon": "Hammer",
+   "icon": null,
+   "assetPath": null
+  },
+  {
+   "key": "lightattack-hammer-c",
+   "name": "LightAttack Hammer C",
+   "assetName": "LightAttack_Hammer_C",
+   "damage": 26,
+   "cooldownTicks": 240,
+   "cooldownText": "240 ticks (4 sec)",
+   "cancelWindow": "Recovery",
+   "hasFrameData": false,
+   "moveSpeedFactor": 0,
+   "activeMoveSpeedFactor": 0,
+   "recoveryMoveSpeedFactor": 0,
+   "stopMovementOnHit": false,
+   "homingRange": 6,
+   "homingConeDegrees": 30,
+   "disableMagnetPull": true,
+   "rootMotionScale": 1,
+   "hitbox": {
+    "shape": "Sphere",
+    "sphereRadius": 0.7,
+    "capsuleRadius": 0.5,
+    "capsuleHeight": 2,
+    "boxExtents": {
+     "x": 0.5,
+     "y": 0.5,
+     "z": 0.5
+    },
+    "offset": {
+     "x": 0.0,
+     "y": 1.0,
+     "z": 1.0
+    }
+   },
+   "appliedStatuses": [],
+   "selfStatuses": [],
+   "areaStatuses": [],
+   "areaStatusRadius": 0,
+   "areaStatusTick": 0,
+   "areaStatusAllies": false,
+   "viewStateName": "Attack_HammerLight01C",
+   "chainParent": null,
+   "usedBy": [
+    {
+     "owner": "Hammer",
      "role": "Light combo 3"
     }
    ],
@@ -7200,7 +10347,7 @@ window.WBDB = {
     "Light"
    ],
    "kind": "Light",
-   "weapon": "Axe",
+   "weapon": "Hammer",
    "icon": null,
    "assetPath": null
   },
@@ -7211,7 +10358,7 @@ window.WBDB = {
    "damage": 16,
    "cooldownTicks": 240,
    "cooldownText": "240 ticks (4 sec)",
-   "cancelWindow": "None (committed)",
+   "cancelWindow": "Recovery",
    "hasFrameData": false,
    "moveSpeedFactor": 0,
    "activeMoveSpeedFactor": 0.4,
@@ -7238,7 +10385,13 @@ window.WBDB = {
     }
    },
    "appliedStatuses": [],
+   "selfStatuses": [],
+   "areaStatuses": [],
+   "areaStatusRadius": 0,
+   "areaStatusTick": 0,
+   "areaStatusAllies": false,
    "viewStateName": "Attack_SpearLight01A",
+   "chainParent": null,
    "usedBy": [
     {
      "owner": "Spear",
@@ -7260,7 +10413,7 @@ window.WBDB = {
    "damage": 16,
    "cooldownTicks": 240,
    "cooldownText": "240 ticks (4 sec)",
-   "cancelWindow": "None (committed)",
+   "cancelWindow": "Recovery",
    "hasFrameData": false,
    "moveSpeedFactor": 0,
    "activeMoveSpeedFactor": 0.4,
@@ -7287,7 +10440,13 @@ window.WBDB = {
     }
    },
    "appliedStatuses": [],
+   "selfStatuses": [],
+   "areaStatuses": [],
+   "areaStatusRadius": 0,
+   "areaStatusTick": 0,
+   "areaStatusAllies": false,
    "viewStateName": "Attack_SpearLight01B",
+   "chainParent": null,
    "usedBy": [
     {
      "owner": "Spear",
@@ -7309,7 +10468,7 @@ window.WBDB = {
    "damage": 22,
    "cooldownTicks": 240,
    "cooldownText": "240 ticks (4 sec)",
-   "cancelWindow": "None (committed)",
+   "cancelWindow": "Recovery",
    "hasFrameData": false,
    "moveSpeedFactor": 0,
    "activeMoveSpeedFactor": 0.4,
@@ -7336,7 +10495,13 @@ window.WBDB = {
     }
    },
    "appliedStatuses": [],
+   "selfStatuses": [],
+   "areaStatuses": [],
+   "areaStatusRadius": 0,
+   "areaStatusTick": 0,
+   "areaStatusAllies": false,
    "viewStateName": "Attack_SpearLight01C",
+   "chainParent": null,
    "usedBy": [
     {
      "owner": "Spear",
@@ -7385,7 +10550,13 @@ window.WBDB = {
     }
    },
    "appliedStatuses": [],
+   "selfStatuses": [],
+   "areaStatuses": [],
+   "areaStatusRadius": 0,
+   "areaStatusTick": 0,
+   "areaStatusAllies": false,
    "viewStateName": "Attack_LightCombo01A",
+   "chainParent": null,
    "usedBy": [
     {
      "owner": "Sword",
@@ -7434,7 +10605,13 @@ window.WBDB = {
     }
    },
    "appliedStatuses": [],
+   "selfStatuses": [],
+   "areaStatuses": [],
+   "areaStatusRadius": 0,
+   "areaStatusTick": 0,
+   "areaStatusAllies": false,
    "viewStateName": "Attack_LightCombo01B",
+   "chainParent": null,
    "usedBy": [
     {
      "owner": "Sword",
@@ -7483,7 +10660,13 @@ window.WBDB = {
     }
    },
    "appliedStatuses": [],
+   "selfStatuses": [],
+   "areaStatuses": [],
+   "areaStatusRadius": 0,
+   "areaStatusTick": 0,
+   "areaStatusAllies": false,
    "viewStateName": "Attack_LightCombo01C",
+   "chainParent": null,
    "usedBy": [
     {
      "owner": "Sword",
@@ -7532,7 +10715,13 @@ window.WBDB = {
     }
    },
    "appliedStatuses": [],
+   "selfStatuses": [],
+   "areaStatuses": [],
+   "areaStatusRadius": 0,
+   "areaStatusTick": 0,
+   "areaStatusAllies": false,
    "viewStateName": "Attack_BowMarkedShotEnter",
+   "chainParent": null,
    "usedBy": [
     {
      "owner": "Bow",
@@ -7600,7 +10789,13 @@ window.WBDB = {
      "summary": "4 damage per sec"
     }
    ],
+   "selfStatuses": [],
+   "areaStatuses": [],
+   "areaStatusRadius": 0,
+   "areaStatusTick": 0,
+   "areaStatusAllies": false,
    "viewStateName": "Attack_LightFencing01",
+   "chainParent": null,
    "usedBy": [
     {
      "owner": "Sword",
@@ -7706,7 +10901,13 @@ window.WBDB = {
     }
    },
    "appliedStatuses": [],
+   "selfStatuses": [],
+   "areaStatuses": [],
+   "areaStatusRadius": 0,
+   "areaStatusTick": 0,
+   "areaStatusAllies": false,
    "viewStateName": "Attack_BowSlidingShot",
+   "chainParent": null,
    "usedBy": [
     {
      "owner": "Bow",
@@ -7774,7 +10975,13 @@ window.WBDB = {
      "summary": "-"
     }
    ],
+   "selfStatuses": [],
+   "areaStatuses": [],
+   "areaStatusRadius": 0,
+   "areaStatusTick": 0,
+   "areaStatusAllies": false,
    "viewStateName": "Attack_SwordSpin01",
+   "chainParent": null,
    "usedBy": [
     {
      "owner": "Sword",
@@ -7794,6 +11001,233 @@ window.WBDB = {
     "file": "icons/SpinningBlade-0ce80772.png",
     "frame": "icons/SkillSlot-Hex-c7024a12.png"
    },
+   "assetPath": null
+  },
+  {
+   "key": "tornadoattack-axe",
+   "name": "Tornado",
+   "assetName": "TornadoAttack_Axe",
+   "damage": 20,
+   "cooldownTicks": 360,
+   "cooldownText": "360 ticks (6 sec)",
+   "cancelWindow": "Active + Recovery",
+   "hasFrameData": false,
+   "moveSpeedFactor": 0,
+   "activeMoveSpeedFactor": 0,
+   "recoveryMoveSpeedFactor": 0,
+   "stopMovementOnHit": false,
+   "homingRange": 0,
+   "homingConeDegrees": 0,
+   "disableMagnetPull": true,
+   "rootMotionScale": 1,
+   "hitbox": {
+    "shape": "Sphere",
+    "sphereRadius": 3,
+    "capsuleRadius": 0.5,
+    "capsuleHeight": 2,
+    "boxExtents": {
+     "x": 0.5,
+     "y": 0.5,
+     "z": 0.5
+    },
+    "offset": {
+     "x": 0.0,
+     "y": 1.0,
+     "z": 0.0
+    }
+   },
+   "appliedStatuses": [],
+   "selfStatuses": [],
+   "areaStatuses": [],
+   "areaStatusRadius": 0,
+   "areaStatusTick": 0,
+   "areaStatusAllies": false,
+   "viewStateName": "Attack_AxeTornado",
+   "chainParent": null,
+   "usedBy": [
+    {
+     "owner": "Axe",
+     "role": "Fallback ability slot 4"
+    },
+    {
+     "owner": "Axe",
+     "role": "Ability: Tornado"
+    }
+   ],
+   "kinds": [
+    "Ability"
+   ],
+   "kind": "Ability",
+   "weapon": "Axe",
+   "icon": {
+    "file": "icons/AxeTornado-333c1c70.png",
+    "frame": "icons/SkillSlot-Hex-c7024a12.png"
+   },
+   "assetPath": null
+  },
+  {
+   "key": "tornadospin2attack-axe",
+   "name": "Tornado (follow-up)",
+   "assetName": "TornadoSpin2Attack_Axe",
+   "damage": 20,
+   "cooldownTicks": 0,
+   "cooldownText": "0",
+   "cancelWindow": "Active + Recovery",
+   "hasFrameData": false,
+   "moveSpeedFactor": 0,
+   "activeMoveSpeedFactor": 0,
+   "recoveryMoveSpeedFactor": 0,
+   "stopMovementOnHit": false,
+   "homingRange": 0,
+   "homingConeDegrees": 0,
+   "disableMagnetPull": true,
+   "rootMotionScale": 1,
+   "hitbox": {
+    "shape": "Sphere",
+    "sphereRadius": 3,
+    "capsuleRadius": 0.5,
+    "capsuleHeight": 2,
+    "boxExtents": {
+     "x": 0.5,
+     "y": 0.5,
+     "z": 0.5
+    },
+    "offset": {
+     "x": 0.0,
+     "y": 1.0,
+     "z": 0.0
+    }
+   },
+   "appliedStatuses": [],
+   "selfStatuses": [],
+   "areaStatuses": [],
+   "areaStatusRadius": 0,
+   "areaStatusTick": 0,
+   "areaStatusAllies": false,
+   "viewStateName": "Attack_AxeTornadoSpin2",
+   "chainParent": "tornadoattack-axe",
+   "usedBy": [
+    {
+     "owner": "Tornado",
+     "role": "Ability follow-up"
+    }
+   ],
+   "kinds": [
+    "Ability"
+   ],
+   "kind": "Ability",
+   "weapon": "Axe",
+   "icon": null,
+   "assetPath": null
+  },
+  {
+   "key": "tornadospin3attack-axe",
+   "name": "Tornado (perk finisher 2)",
+   "assetName": "TornadoSpin3Attack_Axe",
+   "damage": 20,
+   "cooldownTicks": 0,
+   "cooldownText": "0",
+   "cancelWindow": "Active + Recovery",
+   "hasFrameData": false,
+   "moveSpeedFactor": 0,
+   "activeMoveSpeedFactor": 0,
+   "recoveryMoveSpeedFactor": 0,
+   "stopMovementOnHit": false,
+   "homingRange": 0,
+   "homingConeDegrees": 0,
+   "disableMagnetPull": true,
+   "rootMotionScale": 1,
+   "hitbox": {
+    "shape": "Sphere",
+    "sphereRadius": 3,
+    "capsuleRadius": 0.5,
+    "capsuleHeight": 2,
+    "boxExtents": {
+     "x": 0.5,
+     "y": 0.5,
+     "z": 0.5
+    },
+    "offset": {
+     "x": 0.0,
+     "y": 1.0,
+     "z": 0.0
+    }
+   },
+   "appliedStatuses": [],
+   "selfStatuses": [],
+   "areaStatuses": [],
+   "areaStatusRadius": 0,
+   "areaStatusTick": 0,
+   "areaStatusAllies": false,
+   "viewStateName": "Attack_AxeTornadoSpin3",
+   "chainParent": "tornadospin2attack-axe",
+   "usedBy": [
+    {
+     "owner": "Tornado",
+     "role": "Ability perk finisher"
+    }
+   ],
+   "kinds": [
+    "Ability"
+   ],
+   "kind": "Ability",
+   "weapon": "Axe",
+   "icon": null,
+   "assetPath": null
+  },
+  {
+   "key": "tornadospin4attack-axe",
+   "name": "Tornado (perk finisher)",
+   "assetName": "TornadoSpin4Attack_Axe",
+   "damage": 20,
+   "cooldownTicks": 0,
+   "cooldownText": "0",
+   "cancelWindow": "Active + Recovery",
+   "hasFrameData": false,
+   "moveSpeedFactor": 0,
+   "activeMoveSpeedFactor": 0,
+   "recoveryMoveSpeedFactor": 0,
+   "stopMovementOnHit": false,
+   "homingRange": 0,
+   "homingConeDegrees": 0,
+   "disableMagnetPull": true,
+   "rootMotionScale": 1,
+   "hitbox": {
+    "shape": "Sphere",
+    "sphereRadius": 3,
+    "capsuleRadius": 0.5,
+    "capsuleHeight": 2,
+    "boxExtents": {
+     "x": 0.5,
+     "y": 0.5,
+     "z": 0.5
+    },
+    "offset": {
+     "x": 0.0,
+     "y": 1.0,
+     "z": 0.0
+    }
+   },
+   "appliedStatuses": [],
+   "selfStatuses": [],
+   "areaStatuses": [],
+   "areaStatusRadius": 0,
+   "areaStatusTick": 0,
+   "areaStatusAllies": false,
+   "viewStateName": "Attack_AxeTornadoSpin4",
+   "chainParent": "tornadospin3attack-axe",
+   "usedBy": [
+    {
+     "owner": "Tornado",
+     "role": "Ability perk finisher"
+    }
+   ],
+   "kinds": [
+    "Ability"
+   ],
+   "kind": "Ability",
+   "weapon": "Axe",
+   "icon": null,
    "assetPath": null
   },
   {
@@ -7830,7 +11264,13 @@ window.WBDB = {
     }
    },
    "appliedStatuses": [],
+   "selfStatuses": [],
+   "areaStatuses": [],
+   "areaStatusRadius": 0,
+   "areaStatusTick": 0,
+   "areaStatusAllies": false,
    "viewStateName": "Attack_BowTripleShot",
+   "chainParent": null,
    "usedBy": [
     {
      "owner": "Bow",
@@ -7886,7 +11326,13 @@ window.WBDB = {
     }
    },
    "appliedStatuses": [],
+   "selfStatuses": [],
+   "areaStatuses": [],
+   "areaStatusRadius": 0,
+   "areaStatusTick": 0,
+   "areaStatusAllies": false,
    "viewStateName": "Attack_BowVaultingShot",
+   "chainParent": null,
    "usedBy": [
     {
      "owner": "Bow",
@@ -7954,7 +11400,13 @@ window.WBDB = {
      "summary": "30%"
     }
    ],
+   "selfStatuses": [],
+   "areaStatuses": [],
+   "areaStatusRadius": 0,
+   "areaStatusTick": 0,
+   "areaStatusAllies": false,
    "viewStateName": "Attack_SwordWhirlingStep",
+   "chainParent": null,
    "usedBy": [
     {
      "owner": "Sword",
@@ -7983,15 +11435,16 @@ window.WBDB = {
    "name": "Sword",
    "index": 0,
    "primaryAttribute": "Strength",
-   "primaryCoefficient": 1,
-   "secondaryAttribute": "Strength",
-   "secondaryCoefficient": 0,
+   "primaryCoefficient": 0.8,
+   "secondaryAttribute": "Dexterity",
+   "secondaryCoefficient": 0.5,
    "lightCombo": [
     "lightattack-sword",
     "lightattack-sword-b",
     "lightattack-sword-c"
    ],
    "heavyAttack": "heavyattack-sword",
+   "heavyCombo": [],
    "abilities": [
     "leapattack-sword",
     "flourishattack-sword",
@@ -8015,6 +11468,7 @@ window.WBDB = {
    "secondaryCoefficient": 0,
    "lightCombo": [],
    "heavyAttack": null,
+   "heavyCombo": [],
    "abilities": [
     "tripleshotattack-bow",
     "arrowrainattack-bow",
@@ -8042,6 +11496,7 @@ window.WBDB = {
     "lightattack-spear-c"
    ],
    "heavyAttack": null,
+   "heavyCombo": [],
    "abilities": [],
    "icon": {
     "file": "icons/ICON_SM_Wep_Spear_08-3e0fe679.png"
@@ -8058,13 +11513,51 @@ window.WBDB = {
    "secondaryCoefficient": 0,
    "lightCombo": [
     "lightattack-axe",
-    "lightattack-axe-b",
-    "lightattack-axe-c"
+    "lightattack-axe-b"
    ],
    "heavyAttack": null,
-   "abilities": [],
+   "heavyCombo": [
+    "heavyattack-axe",
+    "heavyattack-axe-b"
+   ],
+   "abilities": [
+    "crushingleapattack-axe",
+    "headlongrushattack-axe",
+    "fellingsweepattack-axe",
+    "tornadoattack-axe",
+    "ironwheelattack-axe",
+    "berserkattack-axe"
+   ],
    "icon": {
     "file": "icons/ICON_SM_Wep_Axe_07-d455ed1a.png"
+   },
+   "assetPath": null
+  },
+  {
+   "key": "hammer",
+   "name": "Hammer",
+   "index": 4,
+   "primaryAttribute": "Strength",
+   "primaryCoefficient": 1,
+   "secondaryAttribute": "Strength",
+   "secondaryCoefficient": 0,
+   "lightCombo": [
+    "lightattack-hammer",
+    "lightattack-hammer-b",
+    "lightattack-hammer-c"
+   ],
+   "heavyAttack": null,
+   "heavyCombo": [],
+   "abilities": [
+    "clearthewayattack-hammer",
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "icon": {
+    "file": "icons/ICON_SM_Wep_Hammer_01-878a3cdd.png"
    },
    "assetPath": null
   }
@@ -8451,6 +11944,36 @@ window.WBDB = {
     "staggering-blow",
     "thundering-impact"
    ]
+  },
+  {
+   "key": "hammer",
+   "name": "Hammer",
+   "index": 12,
+   "group": 2,
+   "groupName": "Weapon",
+   "allowedTags": [
+    "offense",
+    "control"
+   ],
+   "perkCapacity": 3,
+   "weaponIndex": 4,
+   "weapon": "Hammer",
+   "icon": {
+    "file": "icons/ICON_SM_Wep_Hammer_01-878a3cdd.png"
+   },
+   "perks": [
+    "rending-strikes",
+    "battle-fury",
+    "weakening-blows",
+    "plaguebearer",
+    "serrated-edge",
+    "venom-coating",
+    "hobbling-strikes",
+    "lightning-strikes",
+    "keen-edge",
+    "staggering-blow",
+    "thundering-impact"
+   ]
   }
  ],
  "config": {
@@ -8539,6 +12062,10 @@ window.WBDB = {
     "value": 3
    },
    {
+    "label": "VoidMaxStacks",
+    "value": 3
+   },
+   {
     "label": "DotTickIntervalTicks",
     "value": 60
    },
@@ -8548,6 +12075,22 @@ window.WBDB = {
    },
    {
     "label": "FreedomCap",
+    "value": 0.75
+   },
+   {
+    "label": "KnockDownDrWindowTicks",
+    "value": 900
+   },
+   {
+    "label": "KnockDownDrSecondFactor",
+    "value": 0.5
+   },
+   {
+    "label": "KnockDownPushTicks",
+    "value": 25
+   },
+   {
+    "label": "KnockDownDeathChance",
     "value": 0.5
    }
   ],
